@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import backgroundImage from '../../Assets/bg_img.png';
-
 export const MainContainer = styled.div`
   width: 100%;
   position: relative;
@@ -53,21 +52,16 @@ export const ContentMainScreenh5 = styled.h5`
 
 export const MainScreenP = styled.div`
   font-style: normal;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 18px;
-  line-height: 18px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #ffffff;
+  line-height: 27px;
+  color: #4a93e9;
   text-align: center;
-  margin: 0px;
+  margin: 40px auto;
 `;
 
 export const ArrowBack = styled.span`
   color: #fff;
-  position: absolute;
-  left: 30px;
-  top: 30px;
   a {
     color: #fff;
   }
@@ -80,13 +74,10 @@ export const LogoSpanColor = styled.span`
 export const ContentFooterAreaSignin = styled.div`
   text-align: center;
   width: 100%;
-  margin: 30px auto;
-  margin-top: 70px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 0 20px;
+  height: 100vh;
 `;
 
 export const LoginPageH1 = styled.h1`
@@ -182,7 +173,9 @@ export const SigninWithGoogle = styled(Link)`
 export const MtB5 = styled.div`
   width: 90%;
   text-align: center;
-  margin-top: 70px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const InputSigninPage = styled.div`
@@ -213,7 +206,7 @@ export const ArrowBackA = styled(Link)`
   color: #fff;
 `;
 
-export const ForgotPasswordText = styled(Link)`
+export const ForgotPasswordText = styled.div`
   font-size: 12px;
   line-height: 18px;
   text-align: right;
@@ -313,6 +306,24 @@ export const CheckMark = styled.span`
 export const TermsUsetext = styled(Link)`
   color: #e7eef5;
   font-size: 14px;
+`;
+
+export const HeaderItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+`;
+
+export const ContentVehicleInspectionH1 = styled.h1`
+  margin: 0px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  text-align: center;
+  color: #ffffff;
+  align-self: center;
+  margin: 0 auto;
 `;
 
 // background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);

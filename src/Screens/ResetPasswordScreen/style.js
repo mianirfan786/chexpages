@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import backgroundImage from '../../Assets/bg_img.png';
-
+import background from '../../Assets/bg_img.png';
 export const MainContainer = styled.div`
   width: 100%;
   position: relative;
@@ -10,7 +9,7 @@ export const MainContainer = styled.div`
 export const ImageBackgroundSignin = styled.div`
   position: relative;
   width: 100%;
-  background: url(${backgroundImage});
+  background: url(${background});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
@@ -53,21 +52,16 @@ export const ContentMainScreenh5 = styled.h5`
 
 export const MainScreenP = styled.div`
   font-style: normal;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 18px;
-  line-height: 18px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #ffffff;
+  line-height: 27px;
+  color: #4a93e9;
   text-align: center;
-  margin: 0px;
+  margin: 40px auto;
 `;
 
 export const ArrowBack = styled.span`
   color: #fff;
-  position: absolute;
-  left: 30px;
-  top: 30px;
   a {
     color: #fff;
   }
@@ -80,13 +74,11 @@ export const LogoSpanColor = styled.span`
 export const ContentFooterAreaSignin = styled.div`
   text-align: center;
   width: 100%;
-  margin: 30px auto;
-  margin-top: 70px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
   padding: 0 20px;
+  height: 100vh;
 `;
 
 export const LoginPageH1 = styled.h1`
@@ -123,12 +115,7 @@ export const LinkSignInBtn = styled.button`
   color: #ffffff;
   padding: 15px;
   text-decoration: none;
-  width: 25%;
-
-  @media screen and (max-width: 600px) {
-    width: 90%;
-  }
-
+  width: 90%;
   :focus,
   :active {
     outline: none;
@@ -148,7 +135,6 @@ export const LinkSignInBtnStrip = styled.button`
   color: #ffffff;
   padding: 15px 100px;
   text-decoration: none;
-
   :focus,
   :active {
     outline: none;
@@ -171,7 +157,6 @@ export const SigninWithGoogle = styled(Link)`
   text-align: center;
   color: #ffffff;
   background: none;
-
   :focus,
   :active {
     outline: none;
@@ -182,16 +167,14 @@ export const SigninWithGoogle = styled(Link)`
 export const MtB5 = styled.div`
   width: 90%;
   text-align: center;
-  margin-top: 70px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const InputSigninPage = styled.div`
-  margin-bottom: 12px;
+  margin-bottom: 0px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const InputField = styled.input`
@@ -213,7 +196,7 @@ export const ArrowBackA = styled(Link)`
   color: #fff;
 `;
 
-export const ForgotPasswordText = styled(Link)`
+export const ForgotPasswordText = styled.div`
   font-size: 12px;
   line-height: 18px;
   text-align: right;
@@ -236,7 +219,6 @@ export const PrivacyLabel = styled.label`
   user-select: none;
   margin-bottom: 30px;
   margin-left: 20px;
-
   :focus {
     outline: none;
     background: none;
@@ -249,20 +231,16 @@ export const PrivacyLabel = styled.label`
     height: 0;
     width: 0;
   }
-
   :hover input ~ .checkmark {
     border-radius: 3px;
   }
-
   input:checked ~ .checkmark {
     background: #e7eef5;
     border-radius: 3px;
   }
-
   input:checked ~ .checkmark:after {
     display: block;
   }
-
   .checkmark:after {
     left: 6px;
     top: 1px;
@@ -274,7 +252,6 @@ export const PrivacyLabel = styled.label`
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-
   .checkmark::before {
     left: 6px;
     top: 1px;
@@ -296,13 +273,11 @@ export const CheckMark = styled.span`
   width: 20px;
   background: #e7eef5;
   border-radius: 3px;
-
   :before {
     content: '';
     position: absolute;
     border: 1px solid #a7b8c8;
   }
-
   :after {
     content: '';
     position: absolute;
@@ -313,6 +288,24 @@ export const CheckMark = styled.span`
 export const TermsUsetext = styled(Link)`
   color: #e7eef5;
   font-size: 14px;
+`;
+
+export const HeaderItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+`;
+
+export const ContentVehicleInspectionH1 = styled.h1`
+  margin: 0px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  text-align: center;
+  color: #ffffff;
+  align-self: center;
+  margin: 0 auto;
 `;
 
 // background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);

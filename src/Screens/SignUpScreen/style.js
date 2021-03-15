@@ -1,20 +1,21 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
 import backgroundImage from '../../Assets/bg_img.png';
 
 export const MainContainer = styled.div`
   width: 100%;
-  position: relative;
 `;
 
 export const ImageBackgroundSignin = styled.div`
   position: relative;
   width: 100%;
+  height: 900px;
+
   background: url(${backgroundImage});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-
   @media screen and (min-width: 768px) {
     .ImageBackgroundSignin {
       background-size: cover;
@@ -24,20 +25,15 @@ export const ImageBackgroundSignin = styled.div`
 `;
 
 export const MainBgSignin = styled.div`
+  background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 900px;
   padding: 20px 0;
 `;
 
 export const ContentMainScreen = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  z-index: 2000;
 `;
 
 export const ContentMainScreenh5 = styled.h5`
@@ -47,15 +43,16 @@ export const ContentMainScreenh5 = styled.h5`
   line-height: 24px;
   color: #74b3fb;
   text-align: center;
-  padding-top: 16px;
+  padding-top: 30px;
   padding-bottom: 30px;
+  margin: 0px;
 `;
 
-export const MainScreenP = styled.div`
+export const MainScreenP = styled.p`
   font-style: normal;
   font-weight: 200;
   font-size: 18px;
-  line-height: 18px;
+  line-height: 27px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #ffffff;
@@ -67,7 +64,7 @@ export const ArrowBack = styled.span`
   color: #fff;
   position: absolute;
   left: 30px;
-  top: 30px;
+  top: 35px;
   a {
     color: #fff;
   }
@@ -79,14 +76,9 @@ export const LogoSpanColor = styled.span`
 
 export const ContentFooterAreaSignin = styled.div`
   text-align: center;
-  width: 100%;
-  margin: 30px auto;
-  margin-top: 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
 `;
 
 export const LoginPageH1 = styled.h1`
@@ -98,7 +90,7 @@ export const LoginPageH1 = styled.h1`
   letter-spacing: 0.03em;
   color: #ffffff;
   padding-bottom: 0px;
-  margin: 50px 0 0 0;
+  margin: 0px;
 `;
 
 export const SigninHeadingH3 = styled.h3`
@@ -108,12 +100,13 @@ export const SigninHeadingH3 = styled.h3`
   line-height: 36px;
   text-align: center;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 `;
 
 export const LinkSignInBtn = styled.button`
   background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
-  border-radius: 100px;
+  border-radius: 50em;
   border: 1px solid #ff7400;
   font-style: normal;
   font-weight: 400;
@@ -121,11 +114,11 @@ export const LinkSignInBtn = styled.button`
   line-height: 27px;
   text-align: center;
   color: #ffffff;
-  padding: 15px;
+  padding: 12.5px 15px;
   text-decoration: none;
   width: 25%;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     width: 90%;
   }
 
@@ -136,30 +129,6 @@ export const LinkSignInBtn = styled.button`
   }
 `;
 
-export const LinkSignInBtnStrip = styled.button`
-  background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
-  border-radius: 100px;
-  border: 1px solid #ff7400;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
-  text-align: center;
-  color: #ffffff;
-  padding: 15px 100px;
-  text-decoration: none;
-
-  :focus,
-  :active {
-    outline: none;
-    box-shadow: 0 0 0 0 !important;
-  }
-`;
-
-export const NextLink = styled(Link)`
-  color: white;
-  font-size: 18px;
-`;
 export const SigninWithGoogle = styled(Link)`
   border: 2px solid #ffffff;
   box-sizing: border-box;
@@ -171,6 +140,7 @@ export const SigninWithGoogle = styled(Link)`
   text-align: center;
   color: #ffffff;
   background: none;
+  padding: 16px 62px;
 
   :focus,
   :active {
@@ -180,14 +150,11 @@ export const SigninWithGoogle = styled(Link)`
 `;
 
 export const MtB5 = styled.div`
-  width: 90%;
-  text-align: center;
-  margin-top: 70px;
+  margin-bottom: 22px;
 `;
 
 export const InputSigninPage = styled.div`
-  margin-bottom: 12px;
-  width: 100%;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -213,19 +180,9 @@ export const ArrowBackA = styled(Link)`
   color: #fff;
 `;
 
-export const ForgotPasswordText = styled(Link)`
-  font-size: 12px;
-  line-height: 18px;
-  text-align: right;
-  text-decoration-line: underline;
-  color: #6c8bb9;
-  margin-top: -15px;
-`;
-
 export const PrivacyLabel = styled.label`
-  align-self: flex-start;
+  display: inline-block;
   position: relative;
-  padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 14px;
@@ -235,6 +192,7 @@ export const PrivacyLabel = styled.label`
   -ms-user-select: none;
   user-select: none;
   margin-bottom: 30px;
+  float: left;
   margin-left: 20px;
 
   :focus {
@@ -248,6 +206,7 @@ export const PrivacyLabel = styled.label`
     cursor: pointer;
     height: 0;
     width: 0;
+    text-align: center;
   }
 
   :hover input ~ .checkmark {
@@ -310,24 +269,7 @@ export const CheckMark = styled.span`
   }
 `;
 
-export const TermsUsetext = styled(Link)`
+export const TermsUsetext = styled.span`
   color: #e7eef5;
   font-size: 14px;
 `;
-
-// background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
-// border-radius: 100px;
-// border: 1px solid #ff7400;
-// font-style: normal;
-// font-weight: 400;
-// font-size: 18px;
-// line-height: 27px;
-// text-align: center;
-// color: #ffffff;
-// padding: 14px 104px 15px;
-// text-decoration:none;
-
-// :focus, :active {
-//   outline: none;
-//   box-shadow: 0 0 0 0 !important;
-// }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button } from '../../Components';
+import { Button, Input } from '../../Components';
 import {
   MainContainer,
   ImageBackgroundSignin,
@@ -15,10 +15,13 @@ import {
   ArrowBackA,
   MtB5,
   LoginPageH1,
-  ForgotPasswordText,
-} from './style';
+  PrivacyLabel,
+  CheckMark,
+  TermsUsetext,
+} from './style.js';
 
-const LoginScreen = () => {
+import './style.css';
+const SignUpScreen = () => {
   return (
     <MainContainer>
       <ImageBackgroundSignin>
@@ -38,23 +41,35 @@ const LoginScreen = () => {
             <MainScreenP>Virtual Inspections</MainScreenP>
           </ContentMainScreen>
           <ContentFooterAreaSignin>
-            <SigninHeadingH3>Sign in</SigninHeadingH3>
+            <SigninHeadingH3>Register</SigninHeadingH3>
             <InputSigninPage>
-              <Input name="email" placeholder="Email" />
-              <Input name="password" type="password" placeholder="Password" />
-              <ForgotPasswordText to="/forgotPassword">Forgot password?</ForgotPasswordText>
+              <Input placeholder="First Name" />
+              <Input placeholder="Last Name" />
+              <Input placeholder="Email" />
+              <Input placeholder="Phone No" />
+              <Input placeholder="Password" />
+              <Input placeholder="Driver License Number" />
+              <PrivacyLabel style={{ paddingLeft: '38px' }}>
+                I accept{' '}
+                <TermsUsetext onClick={''}>
+                  <u>terms of use</u>
+                </TermsUsetext>
+                {/* <input checked={showTermsCheck} onClick={handleTermsCondition} type="checkbox" /> */}
+                <CheckMark className="checkmark" />
+              </PrivacyLabel>
             </InputSigninPage>
+
             <MtB5>
-              <Button title="Sign in" />
+              <Button title="Register" />
               {/* <LinkSignInBtn disabled={loading} type="submit">
-                {loading ? <ClipLoader size={20} color="#1A60A6" loading={loading} /> : 'Sign in'}
+                {loading ? <ClipLoader size={20} color="#1A60A6" loading={loading} /> : 'Register'}
               </LinkSignInBtn> */}
             </MtB5>
           </ContentFooterAreaSignin>
-          <div style={{ height: '100px' }} />
         </MainBgSignin>
       </ImageBackgroundSignin>
     </MainContainer>
   );
 };
-export default LoginScreen;
+
+export default SignUpScreen;
