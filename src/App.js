@@ -7,16 +7,17 @@ import ActionCreators from './actions';
 // import RestrictedRoute from './utils/routes/restrictedRoutes';
 // import PublicRoute from './utils/routes/publicRoutes';
 // import logo from './logo.svg';
+import { IntroContainer } from './Containers';
 import './App.css';
 
 function App() {
   return (
     <Switch>
-      {/* <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={authenticate} path="/subscriptionscreen" component={SubscriptionScreen} />
+      {/* <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={authenticate} path="/subscriptionscreen" component={SubscriptionScreen} /> */}
 
-      <Route path="/accountcreation" component={IDAccountCreation} />
-     
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={authenticate} path="/startapp" component={StartinApplication} /> */}
+      <Route path="/" component={IntroContainer} />
+
+      {/* <PublicRoute storeAuthenticate={isAuthenticated} allowed={authenticate} path="/startapp" component={StartinApplication} />  */}
     </Switch>
   );
 }
@@ -26,7 +27,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: state.auth.isAuthenticated,
+    // isAuthenticated: state.auth.isAuthenticated,
   };
 }
 

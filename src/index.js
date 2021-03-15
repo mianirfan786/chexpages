@@ -7,6 +7,8 @@ import configureStore from './store/configureStore';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import 'antd/dist/antd.css';
+
 const store = configureStore({});
 
 ReactDOM.render(
