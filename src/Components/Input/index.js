@@ -3,10 +3,12 @@ import { Input } from 'antd';
 
 import { InputMainContainer } from './style';
 
+import './style.css';
+
 const InputField = ({ placeholder }) => {
   return (
-    <InputMainContainer style={{ width: '50%' }}>
-      <Input placeholder={placeholder} />
+    <InputMainContainer>
+      <Input className="input-field" placeholder={placeholder} />
     </InputMainContainer>
   );
 };

@@ -1,3 +1,4 @@
 import IntroContainer from './IntroContainer/index';
+import LoginContainer from './LoginContainer/index';
 
-export { IntroContainer };
+export { IntroContainer, LoginContainer };

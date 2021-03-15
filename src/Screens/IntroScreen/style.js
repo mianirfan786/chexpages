@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
 import backgroundImage from '../../Assets/bg_img.jpg';
-// import { Link } from 'react-router-dom';
-
-export const MainIntroContainer = styled.div``;
-
-
 
 export const MainContainer = styled.div`
   width: 100%;
@@ -28,7 +24,7 @@ export const ImageBackgroundMain = styled.div`
   }
 `;
 export const MainBg = styled.div`
-  background: linear-gradient(0deg, rgba(27, 104, 179, 0) 50%, #1b68b3 99.97%); 
+  background: linear-gradient(0deg, rgba(27, 104, 179, 0) 50%, #1b68b3 99.97%);
   position: relative;
   width: 100%;
   height: 100%;
@@ -138,61 +134,3 @@ export const ContentP = styled.p`
   text-align: center;
   margin: 0px;
 `;
-/** Old css start */
-export const CompanyItemDiv = styled.div`
-  margin-bottom: 80px;
-  display: inline-block;
-`;
-export const LogoDiv = styled.div`
-  display: inline-block;
-  margin-bottom: 58px;
-`;
-export const MenuDiv = styled.div`
-  margin-bottom: 53px;
-`;
-export const MenuLI = styled.li`
-  margin-bottom: 24px;
-  display: block;
-`;
-export const MenuLILink = styled(Link)`
-  text-decoration: none;
-  color: #2699fb;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-`;
-export const MenuUL = styled.ul`
-  text-align: center;
-  margin: 0;
-  padding: 0;
-`;
-export const SmartPhoneDiv = styled.div`
-  position: relative;
-  display: table;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-`;
-export const WelcomeDiv = styled.div`
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  display: inline-block;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-export const WelcomeDivH1 = styled.h1`
-  color: #e2d4d4e0;
-  font-size: 30px;
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 56px;
-  font-family: 'Conv_Georgia Regular font';
-`;
-export const WelcomeDivH2 = styled.h2`
-  color: #e2d4d4e0;
-  font-size: 20px;
-  font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif;
-`

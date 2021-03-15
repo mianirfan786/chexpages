@@ -14,6 +14,12 @@ export const ButtonContainer = styled.div`
   padding: 14px 60px 15px;
   text-decoration: none;
   cursor: pointer;
+  width: 80%;
+  margin: 0px auto;
+
+  @media screen and (min-width: 600px) {
+    width: 30%;
+  }
 `;
 
 export const Title = styled.div``;
