@@ -3,7 +3,7 @@ import { ButtonContainer, Title } from './style.js';
 
 const Button = ({ style, title }) => {
   return (
-    <ButtonContainer className="button-container" style={{ style }}>
+    <ButtonContainer style={{ style }}>
       <Title>{title}</Title>
     </ButtonContainer>
   );
