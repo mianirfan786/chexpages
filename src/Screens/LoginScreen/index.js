@@ -1,5 +1,7 @@
 import React from 'react';
-import { Input, Button } from '../../Components';
+import { Form, Input, Button } from 'antd';
+
+// import { Input, Button } from '../../Components';
 import {
   MainContainer,
   ImageBackgroundSignin,
@@ -10,15 +12,15 @@ import {
   SigninHeadingH3,
   LogoSpanColor,
   MainScreenP,
-  InputSigninPage,
+  // InputSigninPage,
   ContentMainScreenh5,
   ArrowBackA,
-  MtB5,
+  // MtB5,
   LoginPageH1,
-  ForgotPasswordText,
+  // ForgotPasswordText,
 } from './style';
 
-const LoginScreen = () => {
+const LoginScreen = ({ handleSubmit }) => {
   return (
     <MainContainer>
       <ImageBackgroundSignin>
@@ -39,17 +41,64 @@ const LoginScreen = () => {
           </ContentMainScreen>
           <ContentFooterAreaSignin>
             <SigninHeadingH3>Sign in</SigninHeadingH3>
-            <InputSigninPage>
-              <Input name="email" placeholder="Email" />
-              <Input name="password" type="password" placeholder="Password" />
-              <ForgotPasswordText to="/forgotPassword">Forgot password?</ForgotPasswordText>
-            </InputSigninPage>
-            <MtB5>
-              <Button title="Sign in" />
-              {/* <LinkSignInBtn disabled={loading} type="submit">
+            {/* <Form form={form} style={{ width: '100%' }}>
+              <InputSigninPage>
+                <Form.Item style={{ width: '100%' }}>
+                  <Input rules={[{ required: true, message: 'Please input your username!' }]} name="email" placeholder="Email" />
+                </Form.Item>
+                <Form.Item style={{ width: '100%' }}>
+                  <Input name="password" type="password" placeholder="Password" />
+                </Form.Item>
+                <ForgotPasswordText to="/forgotPassword">Forgot password?</ForgotPasswordText>
+              </InputSigninPage>
+              <MtB5>
+                <Form.Item>
+                  <Button title="Sign in" />
+                </Form.Item>
+                {/* <LinkSignInBtn disabled={loading} type="submit">
                 {loading ? <ClipLoader size={20} color="#1A60A6" loading={loading} /> : 'Sign in'}
               </LinkSignInBtn> */}
-            </MtB5>
+            {/* </MtB5>
+            </Form> */}
+
+            <Form
+              // {...layout}
+              initialValues={{
+                remember: true,
+              }}
+              onFinish={handleSubmit}
+              // onFinishFailed={onFinishFailed}
+            >
+              <Form.Item
+                name="email"
+                type="email"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your email!',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+
+              <Form.Item
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your password!',
+                  },
+                ]}
+              >
+                <Input.Password />
+              </Form.Item>
+              <Form.Item>
+                <Button type="primary" htmlType="submit">
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
           </ContentFooterAreaSignin>
           <div style={{ height: '100px' }} />
         </MainBgSignin>

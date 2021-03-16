@@ -182,7 +182,7 @@ export const SigninWithGoogle = styled(Link)`
 export const MtB5 = styled.div`
   width: 90%;
   text-align: center;
-  margin-top: 70px;
+  margin: 70px auto 0px;
 `;
 
 export const InputSigninPage = styled.div`

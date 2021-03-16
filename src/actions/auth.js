@@ -17,10 +17,10 @@ function setCurrentUser(data) {
 
 export function login(params, history) {
   return (dispatch) =>
-    Api.post('user/login', params)
+    Api.post('auth/login', params)
       .then((resp) => {
-        dispatch(setCurrentUser(resp.data));
-        dispatch(setIsAuthenticated(true));
+        // dispatch(setCurrentUser(resp.data));
+        // dispatch(setIsAuthenticated(true));
         history.push('/dashboard');
       })
       .catch((err) => {
