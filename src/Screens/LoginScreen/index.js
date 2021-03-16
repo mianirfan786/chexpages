@@ -1,67 +1,33 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
-// import { Input, Button } from '../../Components';
-import {
-  MainContainer,
-  ImageBackgroundSignin,
-  MainBgSignin,
-  ContentMainScreen,
-  ArrowBack,
-  ContentFooterAreaSignin,
-  SigninHeadingH3,
-  LogoSpanColor,
-  MainScreenP,
-  // InputSigninPage,
-  ContentMainScreenh5,
-  ArrowBackA,
-  // MtB5,
-  LoginPageH1,
-  // ForgotPasswordText,
-} from './style';
+import './style.css';
+import '../../App.css';
 
 const LoginScreen = ({ handleSubmit }) => {
   return (
-    <MainContainer>
-      <ImageBackgroundSignin>
-        <MainBgSignin>
-          <ContentMainScreen>
-            <ContentMainScreenh5>
-              <ArrowBack>
-                <ArrowBackA to="/">
+    <div className="login-main-container">
+      <div className="login-image-background-signin">
+        <div className="login-main-bg-signin">
+          <div className="login-content-container">
+            <h5 className="login-title-heading">
+              <span className="login-back-arrow">
+                <Link className="login-arrow-link" to="/">
                   <i className="fas fa-chevron-left fa-2x" />
-                </ArrowBackA>
-              </ArrowBack>
-            </ContentMainScreenh5>
-            <LoginPageH1>
+                </Link>
+              </span>
+            </h5>
+            <h1 className="login-heading-logo">
               CHEX
-              <LogoSpanColor>.AI</LogoSpanColor>
-            </LoginPageH1>
-            <MainScreenP>Virtual Inspections</MainScreenP>
-          </ContentMainScreen>
-          <ContentFooterAreaSignin>
-            <SigninHeadingH3>Sign in</SigninHeadingH3>
-            {/* <Form form={form} style={{ width: '100%' }}>
-              <InputSigninPage>
-                <Form.Item style={{ width: '100%' }}>
-                  <Input rules={[{ required: true, message: 'Please input your username!' }]} name="email" placeholder="Email" />
-                </Form.Item>
-                <Form.Item style={{ width: '100%' }}>
-                  <Input name="password" type="password" placeholder="Password" />
-                </Form.Item>
-                <ForgotPasswordText to="/forgotPassword">Forgot password?</ForgotPasswordText>
-              </InputSigninPage>
-              <MtB5>
-                <Form.Item>
-                  <Button title="Sign in" />
-                </Form.Item>
-                {/* <LinkSignInBtn disabled={loading} type="submit">
-                {loading ? <ClipLoader size={20} color="#1A60A6" loading={loading} /> : 'Sign in'}
-              </LinkSignInBtn> */}
-            {/* </MtB5>
-            </Form> */}
-
+              <span className="logo-span-color">.AI</span>
+            </h1>
+            <div className="login-desp-heading">Virtual Inspections</div>
+          </div>
+          <div className="login-form-main-container">
+            <h3 className="login-form-heading">Sign in</h3>
             <Form
+              className="form-container"
               // {...layout}
               initialValues={{
                 remember: true,
@@ -72,6 +38,7 @@ const LoginScreen = ({ handleSubmit }) => {
               <Form.Item
                 name="email"
                 type="email"
+                className="form-item-style"
                 rules={[
                   {
                     required: true,
@@ -79,11 +46,12 @@ const LoginScreen = ({ handleSubmit }) => {
                   },
                 ]}
               >
-                <Input />
+                <Input className="input-field" />
               </Form.Item>
 
               <Form.Item
                 name="password"
+                className="form-item-style"
                 rules={[
                   {
                     required: true,
@@ -91,19 +59,19 @@ const LoginScreen = ({ handleSubmit }) => {
                   },
                 ]}
               >
-                <Input.Password />
+                <Input.Password className="input-field" />
               </Form.Item>
               <Form.Item>
-                <Button type="primary" htmlType="submit">
+                <Button className="button-wrapper" htmlType="submit">
                   Submit
                 </Button>
               </Form.Item>
             </Form>
-          </ContentFooterAreaSignin>
+          </div>
           <div style={{ height: '100px' }} />
-        </MainBgSignin>
-      </ImageBackgroundSignin>
-    </MainContainer>
+        </div>
+      </div>
+    </div>
   );
 };
 export default LoginScreen;

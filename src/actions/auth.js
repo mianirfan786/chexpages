@@ -15,7 +15,7 @@ function setCurrentUser(data) {
   };
 }
 
-export function login(params, history) {
+export function login(params, history, addToast) {
   return (dispatch) =>
     Api.post('auth/login', params)
       .then((resp) => {
@@ -24,6 +24,7 @@ export function login(params, history) {
         history.push('/dashboard');
       })
       .catch((err) => {
+        addToast('Error', { appearance: 'error' });
         // dispatch(setAuthError(err.message));
       });
 }

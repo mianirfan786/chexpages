@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ToastProvider } from 'react-toast-notifications';
 
 import configureStore from './store/configureStore';
 import App from './App';
@@ -10,12 +11,13 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 
 const store = configureStore({});
-
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <ToastProvider autoDismiss={true} autoDismissTimeout={2000} PlacementType="bottom-right">
+      <Router>
+        <App />
+      </Router>
+    </ToastProvider>
   </Provider>,
   document.getElementById('root')
 );
