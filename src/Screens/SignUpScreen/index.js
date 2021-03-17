@@ -1,8 +1,7 @@
 import React from 'react';
-import { Button, Input } from '../../Components';
+import { Form, Input, Button, Select } from 'antd';
+import ClipLoader from 'react-spinners/ClipLoader';
 import {
-  MainContainer,
-  ImageBackgroundSignin,
   MainBgSignin,
   ContentMainScreen,
   ArrowBack,
@@ -10,21 +9,23 @@ import {
   SigninHeadingH3,
   LogoSpanColor,
   MainScreenP,
-  InputSigninPage,
   ContentMainScreenh5,
   ArrowBackA,
-  MtB5,
   LoginPageH1,
-  PrivacyLabel,
-  CheckMark,
-  TermsUsetext,
 } from './style.js';
 
 import './style.css';
-const SignUpScreen = () => {
+import '../../App.css';
+
+const areas = [
+  { label: 'Beijing', value: '1' },
+  { label: 'Shanghai', value: '2' },
+];
+const SignUpScreen = ({ handleSubmit, isLoading }) => {
   return (
-    <MainContainer>
-      <ImageBackgroundSignin>
+    <div className="register-main-container">
+      {console.log(isLoading)}
+      <div className="register-background-image">
         <MainBgSignin>
           <ContentMainScreen>
             <ContentMainScreenh5>
@@ -42,33 +43,94 @@ const SignUpScreen = () => {
           </ContentMainScreen>
           <ContentFooterAreaSignin>
             <SigninHeadingH3>Register</SigninHeadingH3>
-            <InputSigninPage>
-              <Input placeholder="First Name" />
-              <Input placeholder="Last Name" />
-              <Input placeholder="Email" />
-              <Input placeholder="Phone No" />
-              <Input placeholder="Password" />
-              <Input placeholder="Driver License Number" />
-              <PrivacyLabel style={{ paddingLeft: '38px' }}>
-                I accept{' '}
-                <TermsUsetext onClick={''}>
-                  <u>terms of use</u>
-                </TermsUsetext>
-                {/* <input checked={showTermsCheck} onClick={handleTermsCondition} type="checkbox" /> */}
-                <CheckMark className="checkmark" />
-              </PrivacyLabel>
-            </InputSigninPage>
 
-            <MtB5>
-              <Button title="Register" />
-              {/* <LinkSignInBtn disabled={loading} type="submit">
-                {loading ? <ClipLoader size={20} color="#1A60A6" loading={loading} /> : 'Register'}
-              </LinkSignInBtn> */}
-            </MtB5>
+            <div className="register-container">
+              <Form
+                className="form-container"
+                // {...layout}
+                initialValues={{
+                  remember: true,
+                }}
+                onFinish={handleSubmit}
+                // onFinishFailed={onFinishFailed}
+              >
+                <Form.Item
+                  name="name"
+                  className="form-item-style"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your full name!',
+                    },
+                  ]}
+                >
+                  <Input className="input-field" placeholder="Full name" />
+                </Form.Item>
+
+                <Form.Item
+                  name="email"
+                  type="email"
+                  className="form-item-style"
+                  rules={[
+                    {
+                      type: 'email',
+                      required: true,
+                      message: 'Please input valid email!',
+                    },
+                  ]}
+                >
+                  <Input className="input-field" placeholder="Email" />
+                </Form.Item>
+                <Form.Item
+                  name="password"
+                  className="form-item-style"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please enter password!',
+                    },
+                  ]}
+                >
+                  <Input.Password className="input-field" placeholder="Password" />
+                </Form.Item>
+                <Form.Item
+                  name="phone"
+                  className="form-item-style"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please enter phone number!',
+                    },
+                  ]}
+                >
+                  <Input className="input-field" placeholder="Phone number" />
+                </Form.Item>
+                <Form.Item
+                  name="license_plate_no"
+                  className="form-item-style"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please enter license plate number!',
+                    },
+                  ]}
+                >
+                  <Input className="input-field" placeholder="License plate number" />
+                </Form.Item>
+                <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
+                  <Select placeholder="Select companies" mode="multiple" className="input-field" options={areas} />
+                </Form.Item>
+                <Form.Item>
+                  <Button disabled={isLoading ? true : false} className="button-wrapper" htmlType="submit">
+                    {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Register'}
+                  </Button>
+                </Form.Item>
+              </Form>
+            </div>
           </ContentFooterAreaSignin>
         </MainBgSignin>
-      </ImageBackgroundSignin>
-    </MainContainer>
+      </div>
+    </div>
   );
 };
 

@@ -16,12 +16,17 @@ const LoginContainer = (props) => {
     const { login } = props;
     login(params, history, addToast);
   };
-
-  return <LoginScreen handleSubmit={handleSubmit} />;
+  return <LoginScreen handleSubmit={handleSubmit} isLoading={props.isLoading} />;
 };
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(LoginContainer);
+function mapStateToProps(state) {
+  return {
+    isLoading: state.auth.isAuthLoading,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

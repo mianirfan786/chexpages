@@ -5,6 +5,7 @@ const initialState = {
   currentUser: JSON.parse(localStorage.getItem('currentUser')),
   isAuthenticated: false,
   loginMessage: false,
+  isAuthLoading: false,
 };
 
 const auth = createReducer(initialState, {
@@ -18,6 +19,12 @@ const auth = createReducer(initialState, {
     return {
       ...state,
       isAuthenticated: action.isAuthenticated,
+    };
+  },
+  [types.IS_AUTH_LOADING](state, action) {
+    return {
+      ...state,
+      isAuthLoading: action.isAuthLoading,
     };
   },
 });

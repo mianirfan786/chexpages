@@ -25,7 +25,7 @@ export const ImageBackgroundSignin = styled.div`
 `;
 
 export const MainBgSignin = styled.div`
-  background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
+  // background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
   position: relative;
   width: 100%;
   height: 900px;

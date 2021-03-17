@@ -1,56 +1,81 @@
 import React from 'react';
-import { Input, Button } from '../../Components';
-import {
-  MainContainer,
-  ImageBackgroundSignin,
-  MainBgSignin,
-  ArrowBack,
-  ContentFooterAreaSignin,
-  MainScreenP,
-  InputSigninPage,
-  ArrowBackA,
-  MtB5,
-  //   LinkSignInBtn,
-  HeaderItem,
-  ContentVehicleInspectionH1,
-} from './style.js';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { Form, Input, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
-const ResetPassword = () => {
+import './styles.css';
+import '../../App.css';
+
+const ResetPassword = ({ handleSubmit, isLoading }) => {
   return (
-    <MainContainer>
-      <ImageBackgroundSignin>
-        <MainBgSignin>
-          <HeaderItem>
-            <ArrowBack>
-              <ArrowBackA to="/">
+    <div className="reset-main-container">
+      <div className="reset-image-background-signin">
+        <div className="reset-main-bg-signin">
+          <div className="reset-header-item">
+            <span className="reset-arrow-back">
+              <Link to="/">
                 <i className="fas fa-chevron-left fa-2x" />
-              </ArrowBackA>
-            </ArrowBack>
-            <ContentVehicleInspectionH1>Forgot password</ContentVehicleInspectionH1>
-          </HeaderItem>
-          <MainScreenP>Please check your email for unique pin and type below</MainScreenP>
-          <ContentFooterAreaSignin>
-            <div>
-              <InputSigninPage>
-                <Input name="OTP" placeholder="Unique pin" />
-              </InputSigninPage>
-              <InputSigninPage>
-                <Input name="password" placeholder="Password" />
-              </InputSigninPage>
-              <InputSigninPage>
-                <Input name="confirmPassword" placeholder="Confirm Password" />
-              </InputSigninPage>
-            </div>
-            <MtB5>
-              <Button title="Confirm" />
-              {/* <LinkSignInBtn disabled={loading} type="submit">
-                {loading ? <ClipLoader size={20} color="#1A60A6" loading={loading} /> : 'Confirm'}
-              </LinkSignInBtn> */}
-            </MtB5>
-          </ContentFooterAreaSignin>
-        </MainBgSignin>
-      </ImageBackgroundSignin>
-    </MainContainer>
+              </Link>
+            </span>
+            <h1 className="reset-content-vehicle-inspection">Forgot password</h1>
+          </div>
+          <p className="reset-main-screen">Please check your email for unique pin and type below</p>
+          <div className="reset-content-footer-area-signin">
+            <Form
+              className="form-container"
+              // {...layout}
+              initialValues={{
+                remember: true,
+              }}
+              onFinish={handleSubmit}
+              // onFinishFailed={onFinishFailed}
+            >
+              <Form.Item
+                name="OTP"
+                className="form-item-style"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your code!',
+                  },
+                ]}
+              >
+                <Input className="input-field" />
+              </Form.Item>
+              <Form.Item
+                name="password"
+                className="form-item-style"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your new password!',
+                  },
+                ]}
+              >
+                <Input.Password className="input-field" />
+              </Form.Item>
+              <Form.Item
+                name="confirmPassword"
+                className="form-item-style"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please re-enter your new password!',
+                  },
+                ]}
+              >
+                <Input.Password className="input-field" />
+              </Form.Item>
+              <Form.Item>
+                <Button className="button-wrapper" htmlType="submit">
+                  {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

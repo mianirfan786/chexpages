@@ -1,21 +1,44 @@
+.register-main-container {
+  width: 100%;
+}
+.register-background-image {
+  position: relative;
+  width: 100%;
+  height: 1030px;
+
+  background: url('../../Assets//bg_img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
 .modal-styling {
-    left: 0 !important;
-    padding: 0 !important;
-    right: 0 !important;
-    width: 100%;
-    height: 100%;
-    overflow: scroll;
+  left: 0 !important;
+  padding: 0 !important;
+  right: 0 !important;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+.register-container {
+  display: flex;
+  justify-content: center;
+}
+
+.checkmark::before {
+  display: none !important;
+}
+.checkmark::after {
+  left: 4px !important;
+  top: -7px !important;
+  width: 11px !important;
+  height: 25px !important;
+  border: 1px solid #fc6522 !important;
+  border-width: 0 3px 3px 0 !important;
+}
+
+@media screen and (min-width: 768px) {
+  .register-background-image {
+    background-size: cover;
+    background-position: center center;
   }
-  
-  
-  .checkmark::before {
-    display: none !important;
-  }  
-  .checkmark::after {
-    left: 4px !important;
-    top: -7px !important;
-    width: 11px !important;
-    height: 25px !important;
-    border: 1px solid #FC6522 !important;
-    border-width: 0 3px 3px 0 !important;
-  }   
+}

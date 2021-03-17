@@ -1,26 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
 import ActionCreators from '../../actions';
-import { ResetPasswordScreen } from '../../Screens';
+import { VerifyEmailScreen } from '../../Screens';
 
 const queryString = require('query-string');
 
-const ResetPasswordContainer = (props) => {
-  const history = useHistory();
+const VerfiyEmailContainer = (props) => {
   const { addToast } = useToasts();
+  const { location } = props;
+  const query = queryString.parse(location.search);
 
-  const handleSubmit = (params) => {
-    const { location, resetPassword } = props;
+  const handleResendEmail = () => {
+    const { resendEmail, location } = props;
     const query = queryString.parse(location.search);
-    params.email = query.email;
-    resetPassword(params, history, addToast);
+    resendEmail({ email: query.email }, addToast);
   };
 
-  return <ResetPasswordScreen handleSubmit={handleSubmit} isLoading={props.isLoading} />;
+  return <VerifyEmailScreen isLoading={props.isLoading} email={query.email} handleResendEmail={handleResendEmail} />;
 };
 
 function mapDispatchToProps(dispatch) {
@@ -33,4 +32,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResetPasswordContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(VerfiyEmailContainer);
