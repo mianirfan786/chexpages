@@ -31,7 +31,7 @@ export function login(params, history, addToast) {
         dispatch(isAuthLoading(false));
         dispatch(setCurrentUser(resp.data));
         dispatch(setIsAuthenticated(true));
-        history.push('/');
+        history.push('/vehicleinspection');
       })
       .catch((err) => {
         addToast(`${err.message}`, { appearance: 'error' });

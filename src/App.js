@@ -7,7 +7,16 @@ import ActionCreators from './actions';
 // import RestrictedRoute from './utils/routes/restrictedRoutes';
 // import PublicRoute from './utils/routes/publicRoutes';
 // import logo from './logo.svg';
-import { IntroContainer, LoginContainer, SignUpContainer, ForgotPasswordContainer, ResetPasswordContainer, VerifyEmailContainer, ConfirmEmailContainer } from './Containers';
+import {
+  IntroContainer,
+  LoginContainer,
+  SignUpContainer,
+  ForgotPasswordContainer,
+  ResetPasswordContainer,
+  VerifyEmailContainer,
+  ConfirmEmailContainer,
+  VehicleInspectionContainer,
+} from './Containers';
 import './App.css';
 
 function App() {
@@ -20,6 +29,7 @@ function App() {
       <Route path="/login" component={LoginContainer} />
       <Route path="/resetpassword" component={ResetPasswordContainer} />
       <Route path="/verifyEmail" component={VerifyEmailContainer} />
+      <Route path="/vehicleinspection" component={VehicleInspectionContainer} />
       <Route path="/" component={IntroContainer} />
     </Switch>
   );
