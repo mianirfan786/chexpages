@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { BsChevronLeft } from 'react-icons/bs';
 import {
   MainBgSignin,
   ContentMainScreen,
@@ -31,7 +32,7 @@ const SignUpScreen = ({ handleSubmit, isLoading }) => {
             <ContentMainScreenh5>
               <ArrowBack>
                 <ArrowBackA to="/">
-                  <i className="fas fa-chevron-left fa-2x" />
+                  <BsChevronLeft size={40} />
                 </ArrowBackA>
               </ArrowBack>
             </ContentMainScreenh5>

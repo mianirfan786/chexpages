@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Input, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { BsChevronLeft } from 'react-icons/bs';
 
 import './style.css';
 import '../../App.css';
@@ -15,7 +16,7 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
             <h5 className="login-title-heading">
               <span className="login-back-arrow">
                 <Link className="login-arrow-link" to="/">
-                  <i className="fas fa-chevron-left fa-2x" />
+                  <BsChevronLeft style={{ fontWeight: 'bold' }} size={40} />
                 </Link>
               </span>
             </h5>

@@ -2,6 +2,7 @@ import React from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Form, Button, Input } from 'antd';
 import { Link } from 'react-router-dom';
+import { BsChevronLeft } from 'react-icons/bs';
 
 import './style.css';
 import '../../App.css';
@@ -13,8 +14,8 @@ const ForgotPasswordScreen = ({ handleSubmit, isLoading }) => {
         <div className="signup-mainbg-signin">
           <div className="signup-header-item">
             <span className="signuparrow-back">
-              <Link to="/">
-                <i className="fas fa-chevron-left fa-2x" />
+              <Link to="/login">
+                <BsChevronLeft size={40} />
               </Link>
             </span>
 

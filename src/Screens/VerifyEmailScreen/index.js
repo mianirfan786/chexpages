@@ -9,7 +9,7 @@ import {
   ResendLink,
   SigninHeadingHText,
   BackToLogin,
-  // BackToLoginText,
+  BackToLoginText,
   ArrowBackLogin,
   ArrowBackALogin,
 } from './style';
@@ -17,7 +17,7 @@ import {
 import './style.css';
 import '../../App.css';
 
-const VerifyEmailScreen = ({ isLoading, email, handleResendEmail }) => {
+const VerifyEmailScreen = ({ isLoading, email, handleResendEmail, logout }) => {
   return (
     <div className="verify-email-container">
       <div className="verify-image-container">
@@ -63,7 +63,7 @@ const VerifyEmailScreen = ({ isLoading, email, handleResendEmail }) => {
                     <i className="fas fa-chevron-left fa-2x" />
                   </ArrowBackALogin>
                 </ArrowBackLogin>
-                {/* <BackToLoginText onClick={logout}>Back to Login</BackToLoginText> */}
+                <BackToLoginText onClick={logout}>Back to Login</BackToLoginText>
               </BackToLogin>
             </div>
           </div>

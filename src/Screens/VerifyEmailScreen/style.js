@@ -274,6 +274,7 @@ export const BackToLogin = styled.div`
 export const BackToLoginText = styled.p`
   font-weight: 500;
   font-size: 18px;
+  cursor: pointer;
   line-height: 27px;
   text-decoration: none;
   /* identical to box height */
