@@ -21,12 +21,12 @@ export const MainDownContainer = styled.div`
     background: none;
     margin-top: 0px;
     width: 100%;
-    height: 100vh;
   }
 `;
 
 export const ImageBackgroundVehicleInspection = styled.div`
-  background: linear-gradient(0deg, #f0f2f6, #f0f2f6), linear-gradient(0deg, #ffffff, #ffffff), linear-gradient(180deg, #ffffff 0%, #181c1f 0.01%, #121417 100%);
+  background: linear-gradient(0deg, #f0f2f6, #f0f2f6), linear-gradient(0deg, #ffffff, #ffffff),
+    linear-gradient(180deg, #ffffff 0%, #181c1f 0.01%, #121417 100%);
 `;
 
 export const ContentVehicleInspectionH1 = styled.h1`
@@ -58,13 +58,14 @@ export const VehicleInspectionA = styled(Link)`
 
 export const VehicleInspectionP = styled.p`
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 21px;
+  line-height: 19px;
   text-align: center;
+  letter-spacing: 0em;
   color: #77a1df;
-  margin: 10px auto;
-  width: 55%;
+  margin: 0px auto;
+  width: 75%;
 `;
 
 export const RowContentVehicleInspection = styled.div`
@@ -345,17 +346,18 @@ export const UploadIVehicleInspection = styled.i`
 
 export const ContentFooterareaVehicleinspection = styled.div`
   width: 100%;
-  background: #fff;
-  border-radius: 30px 30px 0 0;
+  background: #e5e5e5;
+  border-radius: 20px 20px 20px 20px;
   margin-top: 30px;
-  height: 100%;
-  padding: 30px 0px;
+  padding: 30px 10px;
   margin-top: 30px;
   width: 30%;
-  position: relative;
-  top: 113px;
+  // height: 100vh;
+  position: absolute;
+  top: 120px;
   @media screen and (max-width: 700px) {
     width: 100%;
+    height: 100%;
   }
 `;
 
@@ -452,10 +454,10 @@ export const LinkBtn = styled.div`
 `;
 
 export const HeaderItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // padding: 10px;
 `;
 
 export const ArrowBackA = styled.div`
@@ -511,16 +513,29 @@ export const VideoTag = styled.video`
 export const MobileViewWarningContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-item: center;
+  background-color: #c84a03;
+  border-radius: 6px;
+  margin-top: 10px;
 `;
 
 export const MobileViewWarning = styled.div`
   text-align: center;
   color: white;
-  background-color: red;
-  padding: 3px;
-  border-radius: 6px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: center;
+  padding: 2px;
 `;
 
 export const BoldSpan = styled.span`
-  font-weight: bold;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: center;
 `;
