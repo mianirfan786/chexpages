@@ -1,5 +1,6 @@
 import * as types from '../utils/constants';
-import Api from '../services/api';
+import { Api } from '../services/configs';
+import axios from 'axios';
 
 function setIsAuthenticated(params) {
   return {
@@ -33,16 +34,16 @@ function setCompanies(data) {
 export function login(params, history, addToast) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
-    Api.post('auth/login', params)
+    axios
+      .post(`${Api}/auth/login`, params)
       .then((resp) => {
-        console.log(resp);
         dispatch(isAuthLoading(false));
-        dispatch(setCurrentUser(resp.data));
+        dispatch(setCurrentUser(resp.data.data));
         dispatch(setIsAuthenticated(true));
         history.push('/vehicleinspection');
       })
       .catch((err) => {
-        addToast(`${err.message}`, { appearance: 'error' });
+        addToast(`${err.response.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
@@ -51,14 +52,15 @@ export function login(params, history, addToast) {
 export function register(params, history, addToast) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
-    Api.post('auth/signup', params)
+    axios
+      .post(`${Api}/auth/signup`, params)
       .then((resp) => {
         addToast(`User created successfully`, { appearance: 'success' });
         history.push(`/verifyEmail?email=${params.email}`);
         dispatch(isAuthLoading(false));
       })
       .catch((err) => {
-        addToast(`${err.message}`, { appearance: 'error' });
+        addToast(`${err.response.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
@@ -67,14 +69,15 @@ export function register(params, history, addToast) {
 export function forgotPassword(params, history, addToast) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
-    Api.post('auth/reset/email', params)
+    axios
+      .post(`${Api}/auth/reset/email`, params)
       .then((resp) => {
         dispatch(isAuthLoading(false));
         addToast(`verification email has been sent to your account`);
         history.push(`/resetpassword?email=${params.email}`);
       })
       .catch((err) => {
-        addToast(`${err.message}`, { appearance: 'error' });
+        addToast(`${err.response.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
@@ -83,14 +86,15 @@ export function forgotPassword(params, history, addToast) {
 export function resetPassword(params, history, addToast) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
-    Api.post('auth/reset/password', params)
+    axios
+      .post(`${Api}/auth/reset/password`, params)
       .then((resp) => {
-        addToast(`${resp.message}`, { appearance: 'success' });
+        addToast(`${resp.data.message}`, { appearance: 'success' });
         history.push(`/login`);
         dispatch(isAuthLoading(false));
       })
       .catch((err) => {
-        addToast(`${err.message}`, { appearance: 'error' });
+        addToast(`${err.response.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
@@ -99,13 +103,14 @@ export function resetPassword(params, history, addToast) {
 export function resendEmail(params, addToast) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
-    Api.post('users/resend/verify/email', params)
+    axios
+      .post(`${Api}/users/resend/verify/email`, params)
       .then((resp) => {
         addToast(`${resp.message}`, { appearance: 'success' });
         dispatch(isAuthLoading(false));
       })
       .catch((err) => {
-        addToast(`${err.message}`, { appearance: 'error' });
+        addToast(`${err.response.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
@@ -114,14 +119,15 @@ export function resendEmail(params, addToast) {
 export function confirmEmail(email, token, addToast, history) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
-    Api.get(`users/verify/email?email=${email}&token=${token}`)
+    axios
+      .get(`${Api}/users/verify/email?email=${email}&token=${token}`)
       .then((resp) => {
-        addToast(`${resp}`, { appearance: 'success' });
+        addToast(`${resp.data}`, { appearance: 'success' });
         dispatch(isAuthLoading(false));
         history.push('/login');
       })
       .catch((err) => {
-        addToast(`${err.message}`, { appearance: 'error' });
+        addToast(`${err.response.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
@@ -129,9 +135,10 @@ export function confirmEmail(email, token, addToast, history) {
 
 export function getCompanies() {
   return (dispatch) => {
-    Api.get('companies')
+    axios
+      .get(`${Api}/companies`)
       .then((resp) => {
-        dispatch(setCompanies(resp));
+        dispatch(setCompanies(resp.data));
       })
       .catch((err) => {});
   };
