@@ -22,23 +22,16 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
   return (
     <div className="register-main-container">
       <div className="register-background-image">
-        <MainBgSignin>
-          <ContentMainScreen>
-            <ContentMainScreenh5>
-              <ArrowBack>
-                <ArrowBackA to="/">
-                  <BsChevronLeft size={40} />
-                </ArrowBackA>
-              </ArrowBack>
-            </ContentMainScreenh5>
-            <LoginPageH1>
-              CHEX
-              <LogoSpanColor>.AI</LogoSpanColor>
-            </LoginPageH1>
-            <MainScreenP>Virtual Inspections</MainScreenP>
-          </ContentMainScreen>
-          <ContentFooterAreaSignin>
-            <SigninHeadingH3>Register</SigninHeadingH3>
+        <div className="">
+          <div className="register-contentMainScreen">
+            <div className="register-loginPageH1">
+              CHEX 
+              <span className="register-logoSpanColor">.AI</span>
+            </div>
+            <div className="register-mainScreenP">Virtual Inspections</div>
+          </div>
+          <div className="register-contentFooterAreaSignin">
+            <div className="register-signinHeadingH3">Register</div>
 
             <div className="register-container">
               <Form
@@ -48,7 +41,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                   remember: true,
                 }}
                 onFinish={handleSubmit}
-                // onFinishFailed={onFinishFailed}
+              // onFinishFailed={onFinishFailed}
               >
                 <Form.Item
                   name="name"
@@ -77,18 +70,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                 >
                   <Input className="input-field" placeholder="Email" />
                 </Form.Item>
-                <Form.Item
-                  name="password"
-                  className="form-item-style"
-                  rules={[
-                    {
-                      required: true,
-                      message: 'Please enter password!',
-                    },
-                  ]}
-                >
-                  <Input.Password className="input-field" placeholder="Password" />
-                </Form.Item>
+             
                 <Form.Item
                   name="phone"
                   className="form-item-style"
@@ -102,16 +84,16 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                   <Input className="input-field" placeholder="Phone number" />
                 </Form.Item>
                 <Form.Item
-                  name="license_plate_no"
+                  name="password"
                   className="form-item-style"
                   rules={[
                     {
                       required: true,
-                      message: 'Please enter license plate number!',
+                      message: 'Please enter password!',
                     },
                   ]}
                 >
-                  <Input className="input-field" placeholder="License plate number" />
+                  <Input.Password className="input-field" placeholder="Password" />
                 </Form.Item>
                 <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
                   <Select placeholder="Select companies" mode="multiple" className="input-field" options={companies} />
@@ -123,8 +105,8 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                 </Form.Item>
               </Form>
             </div>
-          </ContentFooterAreaSignin>
-        </MainBgSignin>
+          </div>
+        </div>
       </div>
     </div>
   );

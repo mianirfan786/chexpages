@@ -6,20 +6,13 @@ import { BsChevronLeft } from 'react-icons/bs';
 
 import './style.css';
 import '../../App.css';
-
+ 
 const LoginScreen = ({ handleSubmit, isLoading }) => {
   return (
     <div className="login-main-container">
       <div className="login-image-background-signin">
         <div className="login-main-bg-signin">
           <div className="login-content-container">
-            <h5 className="login-title-heading">
-              <span className="login-back-arrow">
-                <Link className="login-arrow-link" to="/">
-                  <BsChevronLeft style={{ fontWeight: 'bold' }} size={40} />
-                </Link>
-              </span>
-            </h5>
             <h1 className="login-heading-logo">
               CHEX
               <span className="logo-span-color">.AI</span>
