@@ -43,7 +43,7 @@ const ForgotPasswordScreen = ({ handleSubmit, isLoading }) => {
                   },
                 ]}
               >
-                <Input className="input-field" />
+                <Input className="input-field" placeholder="Email" />
               </Form.Item>
               <Form.Item>
                 <Button disabled={isLoading ? true : false} className="button-wrapper" htmlType="submit">

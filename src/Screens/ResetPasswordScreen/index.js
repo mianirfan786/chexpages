@@ -40,7 +40,7 @@ const ResetPassword = ({ handleSubmit, isLoading }) => {
                   },
                 ]}
               >
-                <Input className="input-field" />
+                <Input className="input-field" placeholder="Verification code" />
               </Form.Item>
               <Form.Item
                 name="password"
@@ -52,7 +52,7 @@ const ResetPassword = ({ handleSubmit, isLoading }) => {
                   },
                 ]}
               >
-                <Input.Password className="input-field" />
+                <Input.Password className="input-field" placeholder="Password" />
               </Form.Item>
               <Form.Item
                 name="confirmPassword"
@@ -64,7 +64,7 @@ const ResetPassword = ({ handleSubmit, isLoading }) => {
                   },
                 ]}
               >
-                <Input.Password className="input-field" />
+                <Input.Password className="input-field" placeholder="Confirm password" />
               </Form.Item>
               <Form.Item>
                 <Button className="button-wrapper" htmlType="submit">
