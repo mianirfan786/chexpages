@@ -24,7 +24,6 @@ function isAuthLoading(data) {
 }
 
 function setCompanies(data) {
-  console.log(data);
   return {
     type: types.SET_COMPANIES,
     companies: data,
@@ -73,11 +72,12 @@ export function forgotPassword(params, history, addToast) {
       .post(`${Api}/auth/reset/email`, params)
       .then((resp) => {
         dispatch(isAuthLoading(false));
-        addToast(`verification email has been sent to your account`);
+        addToast(`verification email has been sent to your account`, { appearance: 'success' });
         history.push(`/resetpassword?email=${params.email}`);
       })
       .catch((err) => {
-        addToast(`${err.response.data.message}`, { appearance: 'error' });
+        console.log(err.response);
+        // addToast(`${err.response.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };

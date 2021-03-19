@@ -18,10 +18,6 @@ import {
 import './style.css';
 import '../../App.css';
 
-const areas = [
-  { label: 'Beijing', value: '1' },
-  { label: 'Shanghai', value: '2' },
-];
 const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
   return (
     <div className="register-main-container">
