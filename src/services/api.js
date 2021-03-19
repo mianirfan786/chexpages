@@ -83,17 +83,18 @@ class Api {
   static mutlipartDelete(route) {
     return this.xhrMultiForm(route, null, 'DELETE');
   }
-
   static fetchUrl(route) {
     if (process.env.NODE_ENV === 'development') {
-      return `${process.env.REACT_APP_DEVELOPMENT_URL}/${route}`;
+      return `http://98c57f739dc7.ngrok.io/api/v1/${route}`;
+      // return `https://5n14sx6x96.execute-api.us-east-1.amazonaws.com/production/api/v1/${route}`;
       // return `${process.env.REACT_APP_DEVELOPMENT_URL}/${route}`;
     }
     if (process.env.NODE_ENV === 'production') {
-      return `${process.env.REACT_APP_PRODUCTION_URL}/${route}`;
+      return `http://98c57f739dc7.ngrok.io/api/v1/${route}`;
+      // return `https://5n14sx6x96.execute-api.us-east-1.amazonaws.com/production/api/v1/${route}`;
       // return `${process.env.REACT_APP_DEVELOPMENT_URL}/${route}`;
     }
-    return `${process.env.REACT_APP_DEVELOPMENT_URL}/${route}`;
+    return `https://5n14sx6x96.execute-api.us-east-1.amazonaws.com/production/api/v1/${route}`;
   }
 
   static xhrMultiForm(route, params, verb) {

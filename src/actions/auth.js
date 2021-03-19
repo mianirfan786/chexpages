@@ -22,6 +22,14 @@ function isAuthLoading(data) {
   };
 }
 
+function setCompanies(data) {
+  console.log(data);
+  return {
+    type: types.SET_COMPANIES,
+    companies: data,
+  };
+}
+
 export function login(params, history, addToast) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
@@ -116,5 +124,15 @@ export function confirmEmail(email, token, addToast, history) {
         addToast(`${err.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
+  };
+}
+
+export function getCompanies() {
+  return (dispatch) => {
+    Api.get('companies')
+      .then((resp) => {
+        dispatch(setCompanies(resp));
+      })
+      .catch((err) => {});
   };
 }

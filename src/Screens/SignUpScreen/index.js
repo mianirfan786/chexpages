@@ -22,10 +22,9 @@ const areas = [
   { label: 'Beijing', value: '1' },
   { label: 'Shanghai', value: '2' },
 ];
-const SignUpScreen = ({ handleSubmit, isLoading }) => {
+const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
   return (
     <div className="register-main-container">
-      {console.log(isLoading)}
       <div className="register-background-image">
         <MainBgSignin>
           <ContentMainScreen>
@@ -119,7 +118,7 @@ const SignUpScreen = ({ handleSubmit, isLoading }) => {
                   <Input className="input-field" placeholder="License plate number" />
                 </Form.Item>
                 <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
-                  <Select placeholder="Select companies" mode="multiple" className="input-field" options={areas} />
+                  <Select placeholder="Select companies" mode="multiple" className="input-field" options={companies} />
                 </Form.Item>
                 <Form.Item>
                   <Button disabled={isLoading ? true : false} className="button-wrapper" htmlType="submit">

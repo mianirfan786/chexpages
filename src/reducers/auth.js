@@ -27,5 +27,11 @@ const auth = createReducer(initialState, {
       isAuthLoading: action.isAuthLoading,
     };
   },
+  [types.SET_COMPANIES](state, action) {
+    return {
+      ...state,
+      companies: action.companies,
+    };
+  },
 });
 export default auth;
