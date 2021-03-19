@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+.App-header { 
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -34,8 +34,8 @@
   box-sizing: border-box !important;
   border-radius: 3px !important;
   width: 100% !important;
-  margin: 0px auto 20px !important;
-  padding: 15px 20px !important;
+  margin: 0px auto 14px !important;
+  padding: 12px 14px !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-size: 16px !important;
@@ -60,9 +60,9 @@
   padding: 14px 60px 15px !important;
   text-decoration: none !important;
   cursor: pointer !important;
-  width: 80% !important;
+  width: 260px !important;
   margin: 0px auto !important;
-  height: 60px !important;
+  height: 54px !important;
 }
 
 .ant-input-affix-wrapper > input.ant-input {
@@ -75,8 +75,12 @@
   text-align: left !important;
 }
 
+.ant-form-item {
+  margin-bottom: 0px !important;
+}
+
 .form-item-style > .ant-form-item-control {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 @media screen and (min-width: 600px) {

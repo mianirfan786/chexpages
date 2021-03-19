@@ -10,10 +10,10 @@ export const MainContainer = styled.div`
 export const ImageBackgroundSignin = styled.div`
   position: relative;
   width: 100%;
-  height: 900px;
+  height: 900px; 
 
   background: url(${backgroundImage});
-  background-size: cover;
+  background-size: cover; 
   background-repeat: no-repeat;
   background-position: center top;
   @media screen and (min-width: 768px) {

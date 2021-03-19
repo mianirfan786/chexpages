@@ -1,0 +1,45 @@
+.vec-inspection-inspection_card {
+  background-color: #c9d4e4;
+  border-radius: 5px;
+}
+.vec-inspection-camera_icon {
+  padding: 5px;
+}
+.veh-inspection-downloadicon_center {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.veh-inspection-download_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 37px;
+  height: 37px;
+  border-radius: 60%;
+  margin-bottom: 20px;
+}
+.veh-inspection-registrationcard_text {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #2a2a2a;
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+.veh-inspection-photo_text {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #1262b1;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}

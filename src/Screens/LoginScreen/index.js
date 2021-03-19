@@ -6,20 +6,13 @@ import { BsChevronLeft } from 'react-icons/bs';
 
 import './style.css';
 import '../../App.css';
-
+ 
 const LoginScreen = ({ handleSubmit, isLoading }) => {
   return (
     <div className="login-main-container">
       <div className="login-image-background-signin">
         <div className="login-main-bg-signin">
           <div className="login-content-container">
-            <h5 className="login-title-heading">
-              <span className="login-back-arrow">
-                <Link className="login-arrow-link" to="/">
-                  <BsChevronLeft style={{ fontWeight: 'bold' }} size={40} />
-                </Link>
-              </span>
-            </h5>
             <h1 className="login-heading-logo">
               CHEX
               <span className="logo-span-color">.AI</span>
@@ -46,7 +39,7 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
                   },
                 ]}
               >
-                <Input className="input-field" />
+                <Input placeholder="Email" className="input-field" />
               </Form.Item>
 
               <Form.Item
@@ -59,7 +52,7 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
                   },
                 ]}
               >
-                <Input.Password className="input-field" />
+                <Input.Password placeholder="Password" className="input-field" />
               </Form.Item>
               <Form.Item>
                 <Link to="/forgotpassword" className="forgot-password-link">
@@ -68,7 +61,7 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
               </Form.Item>
               <Form.Item>
                 <Button disabled={isLoading ? true : false} className="button-wrapper" htmlType="submit">
-                  {isLoading ? <ClipLoader color={'white'} size={20} /> : 'login'}
+                  {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Sign in'}
                 </Button>
               </Form.Item>
             </Form>

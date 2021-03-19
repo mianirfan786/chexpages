@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   MainContainer,
   ImageBackgroundMain,
@@ -15,30 +16,33 @@ import {
   SignUpWithEmail,
 } from './style';
 
+import './style.css';
+import '../../App.css';
+
 const IntroScreen = () => {
   return (
-    <MainContainer>
-      <ImageBackgroundMain>
-        <MainBg>
-          <ContentMainScreen>
-            <HeadingH5>Welcome to</HeadingH5>
-            <HeadingH1>
+    <div className="intro-main-container">
+      <div className="intro-imageBackground-main">
+        <div className="intro-mainBg">
+          <div className="intro-contentMain-screen">
+            <div className="intro-headingH5">Welcome to</div>
+            <div className="intro-headingH1">
               CHEX
-              <HeadingSpan>.AI</HeadingSpan>
-            </HeadingH1>
-            <ContentP>Virtual Inspections</ContentP>
-            <ContentFooterarea>
-              <MtB5>
-                <SigninBtn to="/login">Sign in</SigninBtn>
-              </MtB5>
-              <ContentDivButton>
-                <SignUpWithEmail to="/register">Register</SignUpWithEmail>
-              </ContentDivButton>
-            </ContentFooterarea>
-          </ContentMainScreen>
-        </MainBg>
-      </ImageBackgroundMain>
-    </MainContainer>
+              <span className="intro-headingSpan">.AI</span>
+            </div>
+            <div className="intro-contentP">Virtual Inspections</div>
+            <div className="intro-content-footer-area">
+              <div className="intro-MtB5">
+                <Link className="intro-signinBtn" to="/login">Sign in</Link>
+              </div>
+              <div className="intro-contentDiv-button">
+                <Link className="intro-signUpWith-email" to="/register">Register</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 export default IntroScreen;

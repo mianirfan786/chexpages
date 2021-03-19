@@ -7,7 +7,7 @@
   position: relative;
   width: 100%;
   background: url('../../Assets/bg_img.png');
-  background-size: cover;
+  background-size: cover; 
   background-repeat: no-repeat;
   background-position: center top;
 }
@@ -29,31 +29,9 @@
   z-index: 2000;
 }
 
-.login-title-heading {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #74b3fb;
-  text-align: center;
-  padding-top: 16px;
-  padding-bottom: 30px;
-}
-
-.login-back-arrow {
-  color: #fff;
-  position: absolute;
-  left: 30px;
-  top: 30px;
-}
 a {
   color: #fff;
 }
-
-.login-arrow-link {
-  color: #fff;
-}
-
 .login-heading-logo {
   font-style: normal;
   font-weight: 600;
@@ -63,7 +41,7 @@ a {
   letter-spacing: 0.03em;
   color: #ffffff;
   padding-bottom: 0px;
-  margin: 50px 0 0 0;
+  margin: 30px 0 0 0;
 }
 .logo-span-color {
   color: #ff9900;
