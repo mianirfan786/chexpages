@@ -6,5 +6,6 @@ import ResetPasswordScreen from './ResetPasswordScreen/index';
 import VerifyEmailScreen from './VerifyEmailScreen/index';
 import ConfirmEmailScreen from './ConfirmEmailScreen/index';
 import VehicleInspectionScreen from './VehicleInspectionScreen';
+import ServerFormScreen from './ServerFormScreen';
 
-export { IntroScreen, LoginScreen, SignUpScreen, ForgotPasswordScreen, ResetPasswordScreen, VerifyEmailScreen, ConfirmEmailScreen, VehicleInspectionScreen };
+export { IntroScreen, LoginScreen, SignUpScreen, ForgotPasswordScreen, ResetPasswordScreen, VerifyEmailScreen, ConfirmEmailScreen, VehicleInspectionScreen, ServerFormScreen };

@@ -25,7 +25,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
         <div className="">
           <div className="register-contentMainScreen">
             <div className="register-loginPageH1">
-              CHEX 
+              CHEX
               <span className="register-logoSpanColor">.AI</span>
             </div>
             <div className="register-mainScreenP">Virtual Inspections</div>
@@ -70,7 +70,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                 >
                   <Input className="input-field" placeholder="Email" />
                 </Form.Item>
-             
+
                 <Form.Item
                   name="phone"
                   className="form-item-style"

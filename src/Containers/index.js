@@ -6,6 +6,7 @@ import ResetPasswordContainer from './ResetPasswordContainer/index';
 import VerifyEmailContainer from './VerifyEmailContainer/index';
 import ConfirmEmailContainer from './ConfirmEmailContainer/index';
 import VehicleInspectionContainer from './VehicleInspectionContainer';
+import ServerFormContainer from './ServerFormContainer';
 
 export {
   IntroContainer,
@@ -16,4 +17,5 @@ export {
   VerifyEmailContainer,
   ConfirmEmailContainer,
   VehicleInspectionContainer,
+  ServerFormContainer,
 };
