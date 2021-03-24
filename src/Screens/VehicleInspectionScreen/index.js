@@ -1,32 +1,22 @@
 import React from 'react';
-import { Collapse, Row, Col, Typography, Button } from 'antd';
+import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 import { IoIosArrowBack } from 'react-icons/io';
 import { FiMenu } from 'react-icons/fi';
-import InspectionCard from '../../Components/InspectionCard';
-import NextStepButton from '../../Components/NextStepButton';
+
+import { InspectionCard, NextStepButton, InstructionModal } from '../../Components';
+import { verificationItems, interiorItems, exteriorItems, tires } from '../../utils/vehicleParts';
 import {
   MainContainer,
   MainDownContainer,
   ImageBackgroundVehicleInspection,
-  ContentVehicleInspectionH1,
   VehicleInspectionArrowBack,
-  OpenNavSpan,
-  ContentVehicleInspectionH1Span,
   VehicleInspectionP,
   ContentVehicleInspection,
   ContentFooterareaVehicleinspection,
-  RowContentVehicleInspection,
-  MtB5VehicleInspection,
-  VehicalDetailButton,
-  VehicleDetailBtnContainer,
-  LinkSignInBtn,
   HeaderItem,
   ArrowBackA,
   MainBgInsertDetails,
-  LinkSignInBtn1,
-  LinkSignInBtnDisable,
-  LinkBtn,
   MobileViewWarningContainer,
   MobileViewWarning,
   BoldSpan,
@@ -34,13 +24,11 @@ import {
 import './style.css';
 
 const { Panel } = Collapse;
-const { Paragraph } = Typography;
 
-const VehicleInspectionScreen = () => {
+const VehicleInspectionScreen = ({ isModalVisible, handleModal, handleImageUpload }) => {
   const genExtra = () => (
     <UpCircleOutlined
       onClick={(event) => {
-        // If you don't want click extra trigger collapse, you can prevent this:
         event.stopPropagation();
       }}
     />
@@ -54,10 +42,6 @@ const VehicleInspectionScreen = () => {
               <ArrowBackA>
                 <i className="fas fa-chevron-left fa-2x" style={{ opacity: 0 }} color="#FFFFFF" />
               </ArrowBackA>
-              {/* <ContentVehicleInspectionH1>
-                CHEX
-                <ContentVehicleInspectionH1Span>.AI</ContentVehicleInspectionH1Span>
-              </ContentVehicleInspectionH1> */}
 
               <div className="vec-inspection-top_header">
                 <IoIosArrowBack size={32} color="white" />
@@ -68,16 +52,10 @@ const VehicleInspectionScreen = () => {
                 <FiMenu size={32} color="white" />
               </div>
 
-              <VehicleInspectionArrowBack>
-                {/* <OpenNavSpan type="button" onClick={() => setShowSidebar(true)}>
-                  &#9776;
-                </OpenNavSpan> */}
-              </VehicleInspectionArrowBack>
+              <VehicleInspectionArrowBack></VehicleInspectionArrowBack>
             </HeaderItem>
             <MainDownContainer>
-              <VehicleInspectionP>
-                Please complete inpection items within each category below
-              </VehicleInspectionP>
+              <VehicleInspectionP>Please complete inpection items within each category below</VehicleInspectionP>
             </MainDownContainer>
 
             <div className="veh-inspection-mobilepaddind">
@@ -88,7 +66,6 @@ const VehicleInspectionScreen = () => {
               </MobileViewWarningContainer>
             </div>
           </ContentVehicleInspection>
-          {/* <VehicleDetailBtnContainer></VehicleDetailBtnContainer> */}
         </MainBgInsertDetails>
 
         <MainDownContainer>
@@ -98,11 +75,7 @@ const VehicleInspectionScreen = () => {
               expandIconPosition="right"
               expandIcon={({ isActive }) => (
                 <UpCircleOutlined
-                  style={
-                    isActive
-                      ? { fontSize: 32, color: '#FF7A00', marginTop: -7 }
-                      : { fontSize: 32, color: 'lightGray', marginTop: -7 }
-                  }
+                  style={isActive ? { fontSize: 32, color: '#FF7A00', marginTop: -7 } : { fontSize: 32, color: 'lightGray', marginTop: -7 }}
                   rotate={isActive ? 180 : 0}
                 />
               )}
@@ -122,14 +95,12 @@ const VehicleInspectionScreen = () => {
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  <div className="veh-inspection-first_card">
-                    <InspectionCard title="Registration Card" titletwo="Photo" />
-                  </div>
-                  <div className="veh-inspection-second_card">
-                    <InspectionCard title="Odometer" titletwo="Photo" />
-                  </div>
+                  {verificationItems?.map((item) => (
+                    <div className="veh-inspection-first_card">
+                      <InspectionCard handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                    </div>
+                  ))}
                 </div>
-
                 <NextStepButton />
               </Panel>
               <Panel
@@ -147,28 +118,11 @@ const VehicleInspectionScreen = () => {
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  <div className="veh-inspection-first_card">
-                    <InspectionCard title="Horn" titletwo="Clip" />
-                  </div>
-                  <div className="veh-inspection-second_card">
-                    <InspectionCard title="Interior Driverside" titletwo="Photo" />
-                  </div>
-                </div>
-                <div className="veh-inspection-cards_container">
-                  <div className="veh-inspection-first_card">
-                    <InspectionCard title="Driver seat Adjusted" titletwo="Photo" />
-                  </div>
-                  <div className="veh-inspection-second_card">
-                    <InspectionCard title="Interior Passengerside" titletwo="Photo" />
-                  </div>
-                </div>
-                <div className="veh-inspection-cards_container">
-                  <div className="veh-inspection-first_card">
-                    <InspectionCard title="Passenger seat Adjusted" titletwo="Photo" />
-                  </div>
-                  <div className="veh-inspection-second_card">
-                    <InspectionCard title="Interior Backseat" titletwo="Photo" />
-                  </div>
+                  {interiorItems.map((item) => (
+                    <div className="veh-inspection-first_card">
+                      <InspectionCard handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                    </div>
+                  ))}
                 </div>
                 <NextStepButton />
               </Panel>
@@ -187,20 +141,11 @@ const VehicleInspectionScreen = () => {
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  <div className="veh-inspection-first_card">
-                    <InspectionCard title="Exterior left" titletwo="Photo" />
-                  </div>
-                  <div className="veh-inspection-second_card">
-                    <InspectionCard title="Exterior Right" titletwo="Photo" />
-                  </div>
-                </div>
-                <div className="veh-inspection-cards_container">
-                  <div className="veh-inspection-first_card">
-                    <InspectionCard title="Exterior Front" titletwo="Clip" />
-                  </div>
-                  <div className="veh-inspection-second_card">
-                    <InspectionCard title="Exterior Rear" titletwo="Clip" />
-                  </div>
+                  {exteriorItems?.map((item) => (
+                    <div className="veh-inspection-first_card">
+                      <InspectionCard handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                    </div>
+                  ))}
                 </div>
                 <NextStepButton />
               </Panel>
@@ -219,20 +164,11 @@ const VehicleInspectionScreen = () => {
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  <div className="veh-inspection-first_card">
-                    <InspectionCard title="Left Front Tire" titletwo="Clip" />
-                  </div>
-                  <div className="veh-inspection-second_card">
-                    <InspectionCard title="Left Rear Tire" titletwo="Clip" />
-                  </div>
-                </div>
-                <div className="veh-inspection-cards_container">
-                  <div className="veh-inspection-first_card">
-                    <InspectionCard title="Right Front Tire" titletwo="Clip" />
-                  </div>
-                  <div className="veh-inspection-second_card">
-                    <InspectionCard title="Right Rear Tire" titletwo="Clip" />
-                  </div>
+                  {tires?.map((item) => (
+                    <div className="veh-inspection-first_card">
+                      <InspectionCard handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                    </div>
+                  ))}
                 </div>
                 <NextStepButton />
               </Panel>
@@ -243,6 +179,7 @@ const VehicleInspectionScreen = () => {
           </ContentFooterareaVehicleinspection>
         </MainDownContainer>
       </ImageBackgroundVehicleInspection>
+      <InstructionModal handleImageUpload={handleImageUpload} isModalVisible={isModalVisible} />
     </MainContainer>
   );
 };

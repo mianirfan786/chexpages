@@ -2,11 +2,10 @@ import React from 'react';
 import { Form, Input, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { BsChevronLeft } from 'react-icons/bs';
 
 import './style.css';
 import '../../App.css';
- 
+
 const LoginScreen = ({ handleSubmit, isLoading }) => {
   return (
     <div className="login-main-container">

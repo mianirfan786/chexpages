@@ -87,13 +87,12 @@ class Api {
   }
   static fetchUrl(route) {
     if (process.env.NODE_ENV === 'development') {
-      return `https://79t7xkcuw1.execute-api.us-east-1.amazonaws.com/development/api/v1/${route}`;
-      // return `https://5n14sx6x96.execute-api.us-east-1.amazonaws.com/production/api/v1/${route}`;
+      // return `https://79t7xkcuw1.execute-api.us-east-1.amazonaws.com/development/api/v1/${route}`;
+      return `http://df59cda11a0e.ngrok.io/api/v1/${route}`;
       // return `${process.env.REACT_APP_DEVELOPMENT_URL}/${route}`;
     }
     if (process.env.NODE_ENV === 'production') {
-      return `https://79t7xkcuw1.execute-api.us-east-1.amazonaws.com/development/api/v1/${route}`;
-      // return `https://5n14sx6x96.execute-api.us-east-1.amazonaws.com/production/api/v1/${route}`;
+      return `http://df59cda11a0e.ngrok.io/api/v1/${route}`;
       // return `${process.env.REACT_APP_DEVELOPMENT_URL}/${route}`;
     }
     return `https://5n14sx6x96.execute-api.us-east-1.amazonaws.com/production/api/v1/${route}`;

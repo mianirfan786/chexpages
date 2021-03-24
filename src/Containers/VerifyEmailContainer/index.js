@@ -18,7 +18,7 @@ const VerfiyEmailContainer = (props) => {
   const handleResendEmail = () => {
     const { resendEmail, location } = props;
     const query = queryString.parse(location.search);
-    resendEmail({ email: query.email }, addToast);
+    resendEmail({ email: query.email }, addToast, history);
   };
 
   const logout = () => {

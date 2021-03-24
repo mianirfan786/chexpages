@@ -1,14 +1,13 @@
 import React from 'react';
 import './style.css';
 import { AiFillCamera, AiOutlineDownload } from 'react-icons/ai';
+import { MdPlayArrow } from 'react-icons/md';
 
-const InspectionCard = ({ title, titletwo }) => {
+const InspectionCard = ({ title, titletwo, handleModal, type, category }) => {
   return (
-    <div>
+    <div style={{ cursor: 'pointer' }} onClick={() => handleModal(category)}>
       <div className="vec-inspection-inspection_card">
-        <div className="vec-inspection-camera_icon">
-          <AiFillCamera size={22} color="#97A9C5" />
-        </div>
+        <div className="vec-inspection-camera_icon">{type === 'Photo' ? <AiFillCamera size={22} color="#97A9C5" /> : <MdPlayArrow size={22} color="#97A9C5" />}</div>
         <div className="veh-inspection-downloadicon_center">
           <div className="veh-inspection-download_icon">
             <AiOutlineDownload size={26} color="#1262B1" />

@@ -38,6 +38,8 @@ export function login(params, history, addToast) {
       .then((resp) => {
         dispatch(isAuthLoading(false));
         dispatch(setCurrentUser(resp.data.data));
+        localStorage.setItem('token', resp.data.token);
+        localStorage.setItem('currentUser', JSON.stringify(resp.data.data));
         dispatch(setIsAuthenticated(true));
         history.push('/vehicleinspection');
       })
@@ -76,8 +78,7 @@ export function forgotPassword(params, history, addToast) {
         history.push(`/resetpassword?email=${params.email}`);
       })
       .catch((err) => {
-        console.log(err.response);
-        // addToast(`${err.response.data.message}`, { appearance: 'error' });
+        addToast(`${err.response.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
@@ -89,7 +90,7 @@ export function resetPassword(params, history, addToast) {
     axios
       .post(`${Api}/auth/reset/password`, params)
       .then((resp) => {
-        addToast(`${resp.data.message}`, { appearance: 'success' });
+        addToast(`Your password has been changed successfully`, { appearance: 'success' });
         history.push(`/login`);
         dispatch(isAuthLoading(false));
       })
@@ -100,7 +101,7 @@ export function resetPassword(params, history, addToast) {
   };
 }
 
-export function resendEmail(params, addToast) {
+export function resendEmail(params, addToast, history) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
     axios
@@ -108,6 +109,7 @@ export function resendEmail(params, addToast) {
       .then((resp) => {
         addToast(`${resp.message}`, { appearance: 'success' });
         dispatch(isAuthLoading(false));
+        history.push('/login');
       })
       .catch((err) => {
         addToast(`${err.response.data.message}`, { appearance: 'error' });
