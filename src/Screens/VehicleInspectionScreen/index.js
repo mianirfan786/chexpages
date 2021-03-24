@@ -5,7 +5,6 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { FiMenu } from 'react-icons/fi';
 
 import { InspectionCard, NextStepButton, InstructionModal } from '../../Components';
-import { verificationItems, interiorItems, exteriorItems, tires } from '../../utils/vehicleParts';
 import {
   MainContainer,
   MainDownContainer,
@@ -25,7 +24,7 @@ import './style.css';
 
 const { Panel } = Collapse;
 
-const VehicleInspectionScreen = ({ isModalVisible, handleModal, handleImageUpload }) => {
+const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, handleModal, handleImageUpload, vehicleInstructions }) => {
   const genExtra = () => (
     <UpCircleOutlined
       onClick={(event) => {
@@ -33,6 +32,7 @@ const VehicleInspectionScreen = ({ isModalVisible, handleModal, handleImageUploa
       }}
     />
   );
+
   return (
     <MainContainer>
       <ImageBackgroundVehicleInspection>
@@ -95,9 +95,9 @@ const VehicleInspectionScreen = ({ isModalVisible, handleModal, handleImageUploa
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  {verificationItems?.map((item) => (
+                  {vehicleInstructions?.verificationItem?.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
                     </div>
                   ))}
                 </div>
@@ -118,9 +118,9 @@ const VehicleInspectionScreen = ({ isModalVisible, handleModal, handleImageUploa
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  {interiorItems.map((item) => (
+                  {vehicleInstructions?.interiorItems.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
                     </div>
                   ))}
                 </div>
@@ -141,9 +141,9 @@ const VehicleInspectionScreen = ({ isModalVisible, handleModal, handleImageUploa
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  {exteriorItems?.map((item) => (
+                  {vehicleInstructions?.exteriorItems?.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
                     </div>
                   ))}
                 </div>
@@ -164,9 +164,9 @@ const VehicleInspectionScreen = ({ isModalVisible, handleModal, handleImageUploa
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  {tires?.map((item) => (
+                  {vehicleInstructions?.tires?.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
                     </div>
                   ))}
                 </div>
@@ -179,7 +179,7 @@ const VehicleInspectionScreen = ({ isModalVisible, handleModal, handleImageUploa
           </ContentFooterareaVehicleinspection>
         </MainDownContainer>
       </ImageBackgroundVehicleInspection>
-      <InstructionModal handleImageUpload={handleImageUpload} isModalVisible={isModalVisible} />
+      <InstructionModal vehicleInstructionValues={vehicleInstructionValues} handleImageUpload={handleImageUpload} isModalVisible={isModalVisible} />
     </MainContainer>
   );
 };

@@ -9,9 +9,10 @@ import ActionCreators from '../../actions';
 const VehicleInspectionContainer = (props) => {
   const [isModalVisible, setModalValue] = useState(false);
   const [imageCategory, setImageCategory] = useState(null);
-
+  const [vehicleInstructionValues, setVehicleInstruction] = useState(null);
   const handleModal = (value) => {
-    setImageCategory(value);
+    setImageCategory(value.category);
+    setVehicleInstruction(value);
     setModalValue(!isModalVisible);
   };
 
@@ -24,16 +25,21 @@ const VehicleInspectionContainer = (props) => {
     };
     imageCompression(imageFile, options)
       .then(function (compressedFile) {
-        console.log(compressedFile);
         const { uploadImage, currentUser } = props;
         uploadImage(compressedFile, { type: compressedFile.type }, currentUser.id, imageCategory);
       })
-      .catch(function (error) {
-        console.log(error.message);
-      });
+      .catch(function (error) {});
   };
 
-  return <VehicleInspectionScreen handleImageUpload={handleImageUpload} handleModal={handleModal} isModalVisible={isModalVisible} />;
+  return (
+    <VehicleInspectionScreen
+      vehicleInstructionValues={vehicleInstructionValues}
+      vehicleInstructions={props.vehicleInstructions}
+      handleImageUpload={handleImageUpload}
+      handleModal={handleModal}
+      isModalVisible={isModalVisible}
+    />
+  );
 };
 
 function mapDispatchToProps(dispatch) {
@@ -41,10 +47,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     currentUser: state.auth.currentUser,
     isLoading: state.auth.isAuthLoading,
+    vehicleInstructions: state.vehicleInstruction,
   };
 }
 

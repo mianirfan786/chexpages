@@ -19,6 +19,27 @@
   margin: 0px auto !important;
 }
 
+.input-img-container {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image-uploads {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-upload > input {
+  display: none;
+}
+
+.instruction-modal-step {
+  margin-top: 10px;
+  text-align: left;
+}
+
 @media screen and (min-width: 600px) {
   .button-container {
     width: 50% !important;
