@@ -24,7 +24,7 @@ import './style.css';
 
 const { Panel } = Collapse;
 
-const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, handleModal, handleImageUpload, vehicleInstructions }) => {
+const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, handleModal, handleImageUpload, vehicleInstructions, handleVideoUpload, isLoading }) => {
   const genExtra = () => (
     <UpCircleOutlined
       onClick={(event) => {
@@ -97,7 +97,15 @@ const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, han
                 <div className="veh-inspection-cards_container">
                   {vehicleInstructions?.verificationItem?.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard
+                        groupType="carVerificiationItems"
+                        item={item}
+                        handleModal={handleModal}
+                        category={item.id}
+                        title={item.title}
+                        titletwo={item.type}
+                        type={item.type}
+                      />
                     </div>
                   ))}
                 </div>
@@ -120,7 +128,7 @@ const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, han
                 <div className="veh-inspection-cards_container">
                   {vehicleInstructions?.interiorItems.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard groupType="interiorItems" item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
                     </div>
                   ))}
                 </div>
@@ -143,7 +151,7 @@ const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, han
                 <div className="veh-inspection-cards_container">
                   {vehicleInstructions?.exteriorItems?.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard groupType="exteriorItems" item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
                     </div>
                   ))}
                 </div>
@@ -166,7 +174,7 @@ const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, han
                 <div className="veh-inspection-cards_container">
                   {vehicleInstructions?.tires?.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard groupType="tires" item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
                     </div>
                   ))}
                 </div>
@@ -179,7 +187,13 @@ const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, han
           </ContentFooterareaVehicleinspection>
         </MainDownContainer>
       </ImageBackgroundVehicleInspection>
-      <InstructionModal vehicleInstructionValues={vehicleInstructionValues} handleImageUpload={handleImageUpload} isModalVisible={isModalVisible} />
+      <InstructionModal
+        isLoading={isLoading}
+        handleVideoUpload={handleVideoUpload}
+        vehicleInstructionValues={vehicleInstructionValues}
+        handleImageUpload={handleImageUpload}
+        isModalVisible={isModalVisible}
+      />
     </MainContainer>
   );
 };

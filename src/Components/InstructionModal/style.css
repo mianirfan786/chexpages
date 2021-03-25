@@ -40,8 +40,17 @@
   text-align: left;
 }
 
+.ant-modal-wrap > div {
+  width: 100% !important;
+  height: 100% !important;
+}
 @media screen and (min-width: 600px) {
   .button-container {
     width: 50% !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .ant-modal {
+    margin: 0 !important;
   }
 }

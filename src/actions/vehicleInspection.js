@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import axios from 'axios';
 import * as types from '../utils/constants';
 import { Api } from '../services/configs';
@@ -7,29 +9,57 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-function isAuthLoading(data) {
+function setVehicleLoading(data) {
   return {
-    type: types.IS_AUTH_LOADING,
-    isAuthLoading: data,
+    type: types.IS_Vehicle_LOADING,
+    isVehicleLoading: data,
   };
 }
 
-export function uploadImage(file, params, vehicle_id, category) {
+function setCarVerificationItems(data) {
+  return {
+    type: types.SET_CAR_VERIFICATION_ITEMS,
+    carVerificationItem: data,
+  };
+}
+
+function setInteriorItems(data) {
+  return {
+    type: types.SET_INTERIOR_ITEMS,
+    interiorItems: data,
+  };
+}
+
+function setExteriorItems(data) {
+  return {
+    type: types.SET_EXTERIOR_ITEMS,
+    exteriorItems: data,
+  };
+}
+
+function setTires(data) {
+  return {
+    type: types.SET_TIRES,
+    tires: data,
+  };
+}
+
+export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue) {
   return (dispatch) => {
+    dispatch(setVehicleLoading(true));
     axios
       .post(`${Api}/file/upload`, params, { headers })
       .then((resp) => {
         const { key, url } = resp.data;
-        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type));
+        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type, groupType, setModalValue));
       })
       .catch((err) => {
         console.log(err);
-        dispatch(isAuthLoading(false));
       });
   };
 }
 
-export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext) {
+export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, groupType, setModalValue) {
   return (dispatch) => {
     const headers = {
       'Content-Type': 'img/png',
@@ -37,26 +67,60 @@ export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext) {
     axios
       .put(`${uploadUrl}`, file, { headers })
       .then((resp) => {
-        const params = { url: key, vehicle_id, category, ext: ext };
-        dispatch(addImageInDB(params));
+        const params = { url: key, vehicle_id, category, ext: ext, group_type: groupType };
+        dispatch(addFileInDB(params, setModalValue));
       })
       .catch((err) => {
         console.log(err);
-        dispatch(isAuthLoading(false));
       });
   };
 }
 
-export function addImageInDB(params) {
+export function addFileInDB(params, setModalValue) {
   return (dispatch) => {
     axios
       .post(`${Api}/vehicle/${params.vehicle_id}/file`, params, { headers })
       .then((resp) => {
-        console.log(resp);
+        dispatch(getVehicleFile(params.vehicle_id, setModalValue));
       })
       .catch((err) => {
         console.log(err);
-        dispatch(isAuthLoading(false));
+      });
+  };
+}
+
+export function getVehicleFile(vehicleId, setModalValue) {
+  return (dispatch) => {
+    const carVerificationItems = [];
+    const interiorItems = [];
+    const exteriorItems = [];
+    const tires = [];
+    axios
+      .get(`${Api}/files/${vehicleId}`, { headers })
+      .then((resp) => {
+        const { data } = resp;
+        data.map((dat) => {
+          if (dat.group_type === 'carVerificiationItems') {
+            carVerificationItems.push(dat);
+          } else if (dat.group_type === 'interiorItems') {
+            interiorItems.push(dat);
+          } else if (dat.group_type === 'exteriorItems') {
+            exteriorItems.push(dat);
+          } else if (dat.group_type === 'tires') {
+            tires.push(dat);
+          }
+          dispatch(setCarVerificationItems(carVerificationItems));
+          dispatch(setInteriorItems(interiorItems));
+          dispatch(setExteriorItems(exteriorItems));
+          dispatch(setTires(tires));
+          dispatch(setVehicleLoading(false));
+          if (setModalValue) {
+            setModalValue(false);
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 }

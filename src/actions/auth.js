@@ -40,6 +40,7 @@ export function login(params, history, addToast) {
         dispatch(setCurrentUser(resp.data.data));
         localStorage.setItem('token', resp.data.token);
         localStorage.setItem('currentUser', JSON.stringify(resp.data.data));
+        localStorage.setItem('vehicleData', JSON.stringify(resp.data.vehicleData));
         dispatch(setIsAuthenticated(true));
         history.push('/vehicleinspection');
       })
