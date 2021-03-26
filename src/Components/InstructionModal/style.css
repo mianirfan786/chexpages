@@ -1,0 +1,56 @@
+.instruction-modal > .ant-modal-wrap {
+  top: -100px !important;
+}
+
+.button-container {
+  background: linear-gradient(90deg, rgb(255, 122, 0) 0%, rgb(255, 153, 0) 94.74%) !important;
+  border-radius: 100px !important;
+  border: 1px solid rgb(255, 116, 0) !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  line-height: 27px !important;
+  text-align: center;
+  color: rgb(255, 255, 255) !important;
+  padding: 14px 60px 15px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  width: 80% !important;
+  margin: 0px auto !important;
+}
+
+.input-img-container {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image-uploads {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-upload > input {
+  display: none;
+}
+
+.instruction-modal-step {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.ant-modal-wrap > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+@media screen and (min-width: 600px) {
+  .button-container {
+    width: 50% !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .ant-modal {
+    margin: 0 !important;
+  }
+}

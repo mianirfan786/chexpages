@@ -18,7 +18,7 @@ export const ButtonContainer = styled.div`
   margin: 0px auto;
 
   @media screen and (min-width: 600px) {
-    width: 30%;
+    width: 50%;
   }
 `;
 

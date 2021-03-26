@@ -1,19 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { BsChevronLeft } from 'react-icons/bs';
-import {
-  MainBgSignin,
-  ContentMainScreen,
-  ArrowBack,
-  ContentFooterAreaSignin,
-  SigninHeadingH3,
-  LogoSpanColor,
-  MainScreenP,
-  ContentMainScreenh5,
-  ArrowBackA,
-  LoginPageH1,
-} from './style.js';
 
 import './style.css';
 import '../../App.css';
@@ -41,7 +28,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                   remember: true,
                 }}
                 onFinish={handleSubmit}
-              // onFinishFailed={onFinishFailed}
+                // onFinishFailed={onFinishFailed}
               >
                 <Form.Item
                   name="name"
