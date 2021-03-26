@@ -1,20 +1,15 @@
 import React from 'react';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
-import { IoIosArrowBack } from 'react-icons/io';
-import { FiMenu } from 'react-icons/fi';
 
-import { InspectionCard, NextStepButton, InstructionModal } from '../../Components';
+import { InspectionCard, NextStepButton, InstructionModal, Header } from '../../Components';
 import {
   MainContainer,
   MainDownContainer,
   ImageBackgroundVehicleInspection,
-  VehicleInspectionArrowBack,
   VehicleInspectionP,
   ContentVehicleInspection,
   ContentFooterareaVehicleinspection,
-  HeaderItem,
-  ArrowBackA,
   MainBgInsertDetails,
   MobileViewWarningContainer,
   MobileViewWarning,
@@ -38,22 +33,7 @@ const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, han
       <ImageBackgroundVehicleInspection>
         <MainBgInsertDetails>
           <ContentVehicleInspection>
-            <HeaderItem>
-              <ArrowBackA>
-                <i className="fas fa-chevron-left fa-2x" style={{ opacity: 0 }} color="#FFFFFF" />
-              </ArrowBackA>
-
-              <div className="vec-inspection-top_header">
-                <IoIosArrowBack size={32} color="white" />
-
-                <p className="veh-inspection-chexai_text">
-                  CHEX.<span style={{ color: '#FF7A00' }}>AI</span>
-                </p>
-                <FiMenu size={32} color="white" />
-              </div>
-
-              <VehicleInspectionArrowBack></VehicleInspectionArrowBack>
-            </HeaderItem>
+            <Header />
             <MainDownContainer>
               <VehicleInspectionP>Please complete inpection items within each category below</VehicleInspectionP>
             </MainDownContainer>

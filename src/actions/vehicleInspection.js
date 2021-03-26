@@ -96,7 +96,7 @@ export function getVehicleFile(vehicleId, setModalValue) {
     const exteriorItems = [];
     const tires = [];
     axios
-      .get(`${Api}/files/${vehicleId}`, { headers })
+      .get(`${Api}/filesAll/${vehicleId}`, { headers })
       .then((resp) => {
         const { data } = resp;
         data.map((dat) => {

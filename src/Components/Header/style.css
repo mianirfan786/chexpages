@@ -1,0 +1,28 @@
+.icon-container {
+  color: white;
+}
+
+.vec-inspection-top_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+}
+
+.veh-inspection-chexai_text {
+  /* font-family: Poppins; */
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.nav-back-arrow {
+  color: #ffffff;
+  font-size: 14px;
+}
