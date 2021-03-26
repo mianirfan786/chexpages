@@ -5,7 +5,7 @@ import './style.css';
 
 const SideBar = ({ drawerVisible, handleSideBar }) => {
   return (
-    <Drawer placement={'left'} width={300} closable={false} onClose={() => handleSideBar(false)} visible={drawerVisible}>
+    <Drawer placement={'left'} width={330} closable={false} onClose={() => handleSideBar(false)} visible={drawerVisible}>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>

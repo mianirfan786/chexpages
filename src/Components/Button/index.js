@@ -1,9 +1,9 @@
 import React from 'react';
 import { ButtonContainer, Title } from './style.js';
 
-const Button = ({ style, title }) => {
+const Button = ({ style, title, buttonClass }) => {
   return (
-    <ButtonContainer style={{ style }}>
+    <ButtonContainer className={buttonClass} style={style}>
       <Title>{title}</Title>
     </ButtonContainer>
   );

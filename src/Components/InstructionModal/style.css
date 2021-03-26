@@ -49,8 +49,3 @@
     width: 50% !important;
   }
 }
-@media screen and (max-width: 767px) {
-  .ant-modal {
-    margin: 0 !important;
-  }
-}

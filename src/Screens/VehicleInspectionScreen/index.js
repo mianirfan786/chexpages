@@ -2,7 +2,7 @@ import React from 'react';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 
-import { InspectionCard, NextStepButton, InstructionModal, Header } from '../../Components';
+import { InspectionCard, NextStepButton, InstructionModal, Header, SurveyModal } from '../../Components';
 import {
   MainContainer,
   MainDownContainer,
@@ -19,7 +19,18 @@ import './style.css';
 
 const { Panel } = Collapse;
 
-const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, handleModal, handleImageUpload, vehicleInstructions, handleVideoUpload, isLoading }) => {
+const VehicleInspectionScreen = ({
+  vehicleInstructionValues,
+  isModalVisible,
+  handleModal,
+  handleImageUpload,
+  vehicleInstructions,
+  handleVideoUpload,
+  isLoading,
+  handleModalClose,
+  isSurveyModalVisible,
+  handleSurveyModal,
+}) => {
   const genExtra = () => (
     <UpCircleOutlined
       onClick={(event) => {
@@ -173,7 +184,9 @@ const VehicleInspectionScreen = ({ vehicleInstructionValues, isModalVisible, han
         vehicleInstructionValues={vehicleInstructionValues}
         handleImageUpload={handleImageUpload}
         isModalVisible={isModalVisible}
+        handleModalClose={handleModalClose}
       />
+      <SurveyModal isSurveyModalVisible={isSurveyModalVisible} handleSurveyModal={handleSurveyModal} />
     </MainContainer>
   );
 };

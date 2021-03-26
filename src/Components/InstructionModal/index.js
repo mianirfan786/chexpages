@@ -5,18 +5,20 @@ import { ClipLoader } from 'react-spinners';
 import './style.css';
 import '../../App.css';
 
-const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible, handleImageUpload, handleVideoUpload }) => {
+const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible, handleImageUpload, handleVideoUpload, handleModalClose }) => {
   return (
     <div className="instruction-modal">
       <Modal
         visible={isModalVisible}
-        closable={false}
+        closable={true}
         title={false}
         style={{ width: '100%' }}
         footer={null}
+        onCancel={handleModalClose}
+        maskClosable={true}
+        // closeIcon={}
         bodyStyle={{
           width: '100%',
-          // height: '100vh',
           textAlign: 'center',
           background: 'linear-gradient(0deg,rgba(27,104,179,0.6) 0%,#1b68b3 99.97%)',
         }}

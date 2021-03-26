@@ -10,7 +10,9 @@ import ActionCreators from '../../actions';
 
 const VehicleInspectionContainer = (props) => {
   const [isModalVisible, setModalValue] = useState(false);
+  const [isSurveyModalVisible, setSurveyModal] = useState(true);
   const [imageCategory, setImageCategory] = useState(null);
+
   const [vehicleInstructionValues, setVehicleInstruction] = useState(null);
   const [groupType, setGroupType] = useState(null);
 
@@ -26,6 +28,10 @@ const VehicleInspectionContainer = (props) => {
     setGroupType(groupType);
     setVehicleInstruction(value);
     setModalValue(!isModalVisible);
+  };
+
+  const handleModalClose = () => {
+    setModalValue(false);
   };
 
   const handleImageUpload = (event) => {
@@ -49,15 +55,22 @@ const VehicleInspectionContainer = (props) => {
     uploadFile(videoFile, { type: videoFile.type }, vehicleData.id, imageCategory, groupType, setModalValue);
   };
 
+  const handleSurveyModal = (value) => {
+    setSurveyModal(value);
+  };
+
   return (
     <VehicleInspectionScreen
       vehicleInstructionValues={vehicleInstructionValues}
       vehicleInstructions={props.vehicleInstructions}
+      isModalVisible={isModalVisible}
+      isSurveyModalVisible={isSurveyModalVisible}
+      isLoading={props.isLoading}
       handleImageUpload={handleImageUpload}
       handleModal={handleModal}
+      handleModalClose={handleModalClose}
       handleVideoUpload={handleVideoUpload}
-      isModalVisible={isModalVisible}
-      isLoading={props.isLoading}
+      handleSurveyModal={handleSurveyModal}
     />
   );
 };
