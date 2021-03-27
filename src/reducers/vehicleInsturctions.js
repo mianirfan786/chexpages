@@ -291,5 +291,11 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
       isVehicleLoading: action.isVehicleLoading,
     };
   },
+  [types.SET_VEHICLE_STATUS](state, action) {
+    return {
+      ...state,
+      vehicleStatus: action.vehicleStatus,
+    };
+  },
 });
 export default vehicleInsturctionsReducer;

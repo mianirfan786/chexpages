@@ -51,6 +51,13 @@ function setDeleteLocalFile(data) {
   };
 }
 
+function setVehicleStatus(data) {
+  return {
+    type: types.SET_VEHICLE_STATUS,
+    vehicleStatus: data,
+  };
+}
+
 export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue) {
   return (dispatch) => {
     dispatch(setVehicleLoading(true));
@@ -173,5 +180,20 @@ export function deleteVehicleFile(vehicleId, fileId, groupType) {
         dispatch(setDeleteLocalFile({ fileId, groupType }));
       })
       .catch((err) => {});
+  };
+}
+
+export function getVehiclesStatus(vehicleId, setLoading) {
+  return (dispatch) => {
+    setLoading(true);
+    axios
+      .get(`${Api}/vehicle/company/${vehicleId}`, { headers })
+      .then((resp) => {
+        setLoading(false);
+        dispatch(setVehicleStatus(resp.data));
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
   };
 }

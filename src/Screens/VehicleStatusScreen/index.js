@@ -1,13 +1,12 @@
 import React from 'react';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
+import { ClipLoader } from 'react-spinners';
 
 import {
   // InspectionCard,
   NextStepButton,
-  InstructionModal,
   Header,
-  SurveyModal,
 } from '../../Components';
 import {
   MainContainer,
@@ -25,25 +24,7 @@ import './style.css';
 
 const { Panel } = Collapse;
 
-const VehicleStatusScreen = ({
-  vehicleInstructionValues,
-  isModalVisible,
-  handleModal,
-  handleImageUpload,
-  vehicleInstructions,
-  handleVideoUpload,
-  isLoading,
-  handleModalClose,
-  isSurveyModalVisible,
-  handleSurveyModal,
-  changeRating,
-  rating,
-  handleCheckBox,
-  handleComment,
-  handleSubmitSurvey,
-  deleteFile,
-  surveyModalLoading,
-}) => {
+const VehicleStatusScreen = ({ vehicleStatus, loading }) => {
   const genExtra = () => (
     <UpCircleOutlined
       onClick={(event) => {
@@ -59,7 +40,7 @@ const VehicleStatusScreen = ({
           <ContentVehicleInspection>
             <Header />
             <MainDownContainer>
-              <VehicleInspectionP>Please complete inspection items within each category below</VehicleInspectionP>
+              <VehicleInspectionP>Your vehicle is in review once your vehicle is reviewed you will get a notification and then you download certificate</VehicleInspectionP>
             </MainDownContainer>
 
             <div className="veh-inspection-mobilepaddind">
@@ -73,52 +54,42 @@ const VehicleStatusScreen = ({
 
           <MainDownContainer>
             <ContentFooterareaVehicleinspection>
-              <Collapse
-                defaultActiveKey={['1']}
-                expandIconPosition="right"
-                expandIcon={({ isActive }) => (
-                  <UpCircleOutlined
-                    style={isActive ? { fontSize: 32, color: '#FF7A00', marginTop: -7 } : { fontSize: 32, color: 'lightGray', marginTop: -7 }}
-                    rotate={isActive ? 180 : 0}
-                  />
-                )}
-              >
-                <Panel
-                  style={{ overflow: 'hidden' }}
-                  header={
-                    <Row gutter={40} style={{ overflow: 'hidden' }}>
-                      <Col>
-                        <div className="veh-inspection-verification_text">Ready for review</div>
-                      </Col>
-                      <Col></Col>
-                      <Col></Col>
-                    </Row>
-                  }
-                  key="1"
-                  extra={genExtra}
+              {loading ? (
+                <div style={{ textAlign: 'center' }}>
+                  <ClipLoader color={'#246DB5'} size={40} />
+                </div>
+              ) : (
+                <Collapse
+                  defaultActiveKey={['1']}
+                  expandIconPosition="right"
+                  expandIcon={({ isActive }) => (
+                    <UpCircleOutlined
+                      style={isActive ? { fontSize: 32, color: '#FF7A00', marginTop: -7 } : { fontSize: 32, color: 'lightGray', marginTop: -7 }}
+                      rotate={isActive ? 180 : 0}
+                    />
+                  )}
                 >
-                  <NextStepButton title="Download vehicle report" />
-                </Panel>
-              </Collapse>
+                  {vehicleStatus?.map((vehicle, index) => (
+                    <Panel
+                      style={{ overflow: 'hidden' }}
+                      header={
+                        <Row gutter={40} style={{ overflow: 'hidden' }}>
+                          <Col>
+                            <div className="veh-inspection-verification_text">{vehicle.name}</div>
+                          </Col>
+                          <Col></Col>
+                          <Col></Col>
+                        </Row>
+                      }
+                      key={index + 1}
+                      extra={genExtra}
+                    >
+                      <NextStepButton title="Download vehicle report" />
+                    </Panel>
+                  ))}
+                </Collapse>
+              )}
             </ContentFooterareaVehicleinspection>
-            <InstructionModal
-              isLoading={isLoading}
-              handleVideoUpload={handleVideoUpload}
-              vehicleInstructionValues={vehicleInstructionValues}
-              handleImageUpload={handleImageUpload}
-              isModalVisible={isModalVisible}
-              handleModalClose={handleModalClose}
-            />
-            <SurveyModal
-              changeRating={changeRating}
-              rating={rating}
-              isSurveyModalVisible={isSurveyModalVisible}
-              handleSurveyModal={handleSurveyModal}
-              handleCheckBox={handleCheckBox}
-              handleComment={handleComment}
-              handleSubmitSurvey={handleSubmitSurvey}
-              surveyModalLoading={surveyModalLoading}
-            />
           </MainDownContainer>
         </MainBgInsertDetails>
       </ImageBackgroundVehicleInspection>
