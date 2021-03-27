@@ -22,6 +22,12 @@ const auth = createReducer(initialState, {
       isAuthenticated: action.isAuthenticated,
     };
   },
+  [types.SET_VEHCILE_DATA](state, action) {
+    return {
+      ...state,
+      vehicleData: action.vehicleData,
+    };
+  },
   [types.IS_AUTH_LOADING](state, action) {
     return {
       ...state,

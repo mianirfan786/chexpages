@@ -53,13 +53,20 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
             </div>
             <div className="input-img-container">
               <div className="image-upload">
-                <label htmlFor="file-input">
-                  <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
-                </label>
                 {vehicleInstructionValues?.type === 'Photo' ? (
-                  <input type="file" id="file-input" accept="image/*" capture onChange={(event) => handleImageUpload(event)} />
+                  <>
+                    <label htmlFor="file-input-photo">
+                      <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
+                    </label>
+                    <input type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
+                  </>
                 ) : (
-                  <input type="file" id="file-input" accept="video/*" capture onChange={(event) => handleVideoUpload(event)} />
+                  <>
+                    <label htmlFor="file-input-video">
+                      <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
+                    </label>
+                    <input type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
+                  </>
                 )}
               </div>
             </div>

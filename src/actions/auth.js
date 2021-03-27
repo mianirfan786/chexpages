@@ -30,22 +30,31 @@ function setCompanies(data) {
   };
 }
 
+function setVehicleData(data) {
+  return {
+    type: types.SET_VEHCILE_DATA,
+    vehicleData: data,
+  };
+}
+
 export function login(params, history, addToast) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
     axios
       .post(`${Api}/auth/login`, params)
-      .then((resp) => {
+      .then(async (resp) => {
         dispatch(isAuthLoading(false));
         dispatch(setCurrentUser(resp.data.data));
-        localStorage.setItem('token', resp.data.token);
-        localStorage.setItem('currentUser', JSON.stringify(resp.data.data));
-        localStorage.setItem('vehicleData', JSON.stringify(resp.data.vehicleData));
+        dispatch(setVehicleData(resp.data.vehicleData));
+        await localStorage.setItem('token', resp.data.token);
+        await localStorage.setItem('currentUser', JSON.stringify(resp.data.data));
+        await localStorage.setItem('vehicleData', JSON.stringify(resp.data?.vehicleData));
         dispatch(setIsAuthenticated(true));
-        history.push('/vehicleinspection');
+        history.push(`/vehicleinspection?vehicle_id=${resp.data?.vehicleData?.id}`);
       })
       .catch((err) => {
-        addToast(`${err.response.data.message}`, { appearance: 'error' });
+        console.log(err);
+        // addToast(`${err.response.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
