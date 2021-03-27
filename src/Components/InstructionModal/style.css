@@ -40,6 +40,18 @@
   text-align: left;
 }
 
+.ant-modal-content {
+  width: 37%;
+  left: 50.5%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px !important;
+}
+
+.ant-modal-body {
+  border-radius: 30px;
+}
+
 .ant-modal-wrap > div {
   width: 100% !important;
   height: 100% !important;
@@ -47,5 +59,11 @@
 @media screen and (min-width: 600px) {
   .button-container {
     width: 50% !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .ant-modal-content {
+    width: 100%;
   }
 }

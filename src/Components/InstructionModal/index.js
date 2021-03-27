@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal } from 'antd';
 import { ClipLoader } from 'react-spinners';
+import { IoMdClose } from 'react-icons/io';
 
 import './style.css';
 import '../../App.css';
@@ -16,7 +17,7 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
         footer={null}
         onCancel={handleModalClose}
         maskClosable={true}
-        // closeIcon={}
+        closeIcon={<IoMdClose size={22} />}
         bodyStyle={{
           width: '100%',
           textAlign: 'center',
