@@ -11,4 +11,4 @@ const Button = ({ style, title, buttonClass, onClickButton, loading = false }) =
   );
 };
 
-export default Button; 
+export default Button;
