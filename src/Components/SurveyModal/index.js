@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal } from 'antd';
 import StarRatings from 'react-star-ratings';
+
 import Button from '../Button/index';
 
 import './style.css';

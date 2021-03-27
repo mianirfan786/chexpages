@@ -93,8 +93,8 @@ const VehicleInspectionScreen = ({
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  {vehicleInstructions?.verificationItem?.map((item) => (
-                    <div className="veh-inspection-first_card">
+                  {vehicleInstructions?.verificationItem?.map((item, index) => (
+                    <div key={index} className="veh-inspection-first_card">
                       <InspectionCard
                         groupType="carVerificiationItems"
                         item={item}
@@ -125,8 +125,8 @@ const VehicleInspectionScreen = ({
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  {vehicleInstructions?.interiorItems.map((item) => (
-                    <div className="veh-inspection-first_card">
+                  {vehicleInstructions?.interiorItems.map((item, index) => (
+                    <div key={index} className="veh-inspection-first_card">
                       <InspectionCard
                         deleteFile={deleteFile}
                         groupType="interiorItems"
@@ -157,8 +157,8 @@ const VehicleInspectionScreen = ({
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  {vehicleInstructions?.exteriorItems?.map((item) => (
-                    <div className="veh-inspection-first_card">
+                  {vehicleInstructions?.exteriorItems?.map((item, index) => (
+                    <div key={index} className="veh-inspection-first_card">
                       <InspectionCard
                         deleteFile={deleteFile}
                         groupType="exteriorItems"
@@ -189,8 +189,8 @@ const VehicleInspectionScreen = ({
                 extra={genExtra}
               >
                 <div className="veh-inspection-cards_container">
-                  {vehicleInstructions?.tires?.map((item) => (
-                    <div className="veh-inspection-first_card">
+                  {vehicleInstructions?.tires?.map((item, index) => (
+                    <div key={index} className="veh-inspection-first_card">
                       <InspectionCard
                         deleteFile={deleteFile}
                         groupType="tires"
@@ -208,7 +208,9 @@ const VehicleInspectionScreen = ({
               </Panel>
             </Collapse>
             <div className="vec-inspection-submitbtn_container">
-              <button className="vec-inspection-submit_button">Submit</button>
+              <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
+                Submit
+              </button>
             </div>
           </ContentFooterareaVehicleinspection>
         </MainDownContainer>

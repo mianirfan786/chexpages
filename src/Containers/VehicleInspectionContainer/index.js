@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import imageCompression from 'browser-image-compression';
 import { bindActionCreators } from 'redux';
+import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
 import { VehicleInspectionScreen } from '../../Screens';
@@ -11,6 +12,7 @@ import ActionCreators from '../../actions';
 
 const VehicleInspectionContainer = (props) => {
   const { addToast } = useToasts();
+  const history = useHistory();
 
   const [isModalVisible, setModalValue] = useState(false);
   const [isSurveyModalVisible, setSurveyModal] = useState(false);
@@ -87,14 +89,15 @@ const VehicleInspectionContainer = (props) => {
     setComment(e.target.value);
   };
 
-  const handleSubmitSurvey = () => {
+  const handleSubmitSurvey = async () => {
     const { submitSurvey } = props;
     const params = {
       ...surveyChecks,
       comment: comment,
       rating: rating,
     };
-    submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading);
+    await submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading);
+    history.push('/transcationScreen');
   };
 
   const deleteFile = (groupType, id) => {
