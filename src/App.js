@@ -18,6 +18,8 @@ import {
   VehicleInspectionContainer,
   TranscationContainer,
   VehicleStatusContainer,
+  ThankyouContainer,
+  VehicleDetailContainer,
 } from './Containers';
 import './App.css';
 
@@ -41,9 +43,10 @@ function App(props) {
       <RestrictedRoute
         storeAuthenticate={isAuthenticated}
         allowed={isAuthenticated}
-        path="/VehicleStatus"
-        component={VehicleStatusContainer}
-      />{' '}
+        path="/VehicleDetail"
+        component={VehicleDetailContainer}
+      />
+      <Route path="/thankyouScreen" component={ThankyouContainer} />
       <Route path="/transcationScreen" component={TranscationContainer} />
       <PublicRoute
         storeAuthenticate={isAuthenticated}

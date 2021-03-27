@@ -2,13 +2,7 @@ import React from 'react';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 
-import {
-  InspectionCard,
-  NextStepButton,
-  InstructionModal,
-  Header,
-  SurveyModal,
-} from '../../Components';
+import { InspectionCard, InstructionModal, Header, SurveyModal } from '../../Components';
 import {
   MainContainer,
   MainDownContainer,
@@ -121,7 +115,7 @@ const VehicleInspectionScreen = ({
                       </div>
                     ))}
                   </div>
-                  <NextStepButton />
+                  {/* <NextStepButton /> */}
                 </Panel>
                 <Panel
                   style={{ overflow: 'hidden' }}
@@ -153,7 +147,7 @@ const VehicleInspectionScreen = ({
                       </div>
                     ))}
                   </div>
-                  <NextStepButton />
+                  {/* <NextStepButton /> */}
                 </Panel>
                 <Panel
                   style={{ overflow: 'hidden' }}
@@ -185,7 +179,7 @@ const VehicleInspectionScreen = ({
                       </div>
                     ))}
                   </div>
-                  <NextStepButton />
+                  {/* <NextStepButton /> */}
                 </Panel>
                 <Panel
                   style={{ overflow: 'hidden' }}
@@ -217,7 +211,7 @@ const VehicleInspectionScreen = ({
                       </div>
                     ))}
                   </div>
-                  <NextStepButton title="Next Step" />
+                  {/* <NextStepButton /> */}
                 </Panel>
               </Collapse>
               <div className="vec-inspection-submitbtn_container">

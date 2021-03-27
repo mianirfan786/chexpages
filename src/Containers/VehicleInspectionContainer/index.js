@@ -37,10 +37,8 @@ const VehicleInspectionContainer = (props) => {
 
   const handleRequests = () => {
     const { getVehicleFile, currentUser, getSurveyStatus } = props;
-    // setTimeout(() => {
     getSurveyStatus(currentUser?.id, setSurveyCheck);
     getVehicleFile(currentUser?.vehicles[0]?.id);
-    // }, 3000);
   };
   const handleModal = (value, groupType) => {
     console.log(value, groupType);
@@ -81,7 +79,11 @@ const VehicleInspectionContainer = (props) => {
   };
 
   const handleSurveyModal = (value) => {
-    setSurveyModal(value);
+    if (surveyCheck) {
+      setSurveyModal(value);
+    } else {
+      history.push('/transcationScreen');
+    }
   };
 
   const handleCheckBox = (name, e) => {
