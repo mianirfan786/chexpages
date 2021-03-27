@@ -1,19 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { BsChevronLeft } from 'react-icons/bs';
-import {
-  MainBgSignin,
-  ContentMainScreen,
-  ArrowBack,
-  ContentFooterAreaSignin,
-  SigninHeadingH3,
-  LogoSpanColor,
-  MainScreenP,
-  ContentMainScreenh5,
-  ArrowBackA,
-  LoginPageH1,
-} from './style.js';
 
 import './style.css';
 import '../../App.css';
@@ -25,7 +12,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
         <div className="">
           <div className="register-contentMainScreen">
             <div className="register-loginPageH1">
-              CHEX 
+              CHEX
               <span className="register-logoSpanColor">.AI</span>
             </div>
             <div className="register-mainScreenP">Virtual Inspections</div>
@@ -41,7 +28,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                   remember: true,
                 }}
                 onFinish={handleSubmit}
-              // onFinishFailed={onFinishFailed}
+                // onFinishFailed={onFinishFailed}
               >
                 <Form.Item
                   name="name"
@@ -70,7 +57,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                 >
                   <Input className="input-field" placeholder="Email" />
                 </Form.Item>
-             
+
                 <Form.Item
                   name="phone"
                   className="form-item-style"

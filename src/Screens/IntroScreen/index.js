@@ -1,20 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  MainContainer,
-  ImageBackgroundMain,
-  MainBg,
-  ContentMainScreen,
-  HeadingH5,
-  HeadingSpan,
-  HeadingH1,
-  ContentP,
-  ContentFooterarea,
-  MtB5,
-  SigninBtn,
-  ContentDivButton,
-  SignUpWithEmail,
-} from './style';
 
 import './style.css';
 import '../../App.css';
@@ -33,10 +18,14 @@ const IntroScreen = () => {
             <div className="intro-contentP">Virtual Inspections</div>
             <div className="intro-content-footer-area">
               <div className="intro-MtB5">
-                <Link className="intro-signinBtn" to="/login">Sign in</Link>
+                <Link className="intro-signinBtn" to="/login">
+                  Sign in
+                </Link>
               </div>
               <div className="intro-contentDiv-button">
-                <Link className="intro-signUpWith-email" to="/register">Register</Link>
+                <Link className="intro-signUpWith-email" to="/register">
+                  Register
+                </Link>
               </div>
             </div>
           </div>

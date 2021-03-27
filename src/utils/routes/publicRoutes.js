@@ -6,3 +6,4 @@ const PublicRoute = ({ allowed, ...params }) => {
 };
 
 export default PublicRoute;
+ 

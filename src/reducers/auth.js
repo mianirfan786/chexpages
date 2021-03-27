@@ -3,6 +3,7 @@ import * as types from '../utils/constants';
 
 const initialState = {
   currentUser: JSON.parse(localStorage.getItem('currentUser')),
+  vehicleData: JSON.parse(localStorage.getItem('vehicleData')),
   isAuthenticated: false,
   loginMessage: false,
   isAuthLoading: false,

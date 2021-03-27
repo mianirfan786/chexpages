@@ -1,5 +1,6 @@
 import * as Auth from './auth';
-
-const ActionCreators = Object.assign({}, Auth);
+import * as vehicleinspection from './vehicleInspection';
+import * as Payment from './payment';
+const ActionCreators = Object.assign({}, Auth, vehicleinspection, Payment);
 
 export default ActionCreators;

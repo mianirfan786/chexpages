@@ -1,0 +1,153 @@
+.server-form-container {
+  width: 100%;
+}
+.server-form-heading {
+  margin-top: 20px;
+  color: #414b55;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+}
+.server-form-price {
+  font-size: 26px;
+  color: #ff7a00;
+  font-weight: bold;
+}
+.server-form-paragraph {
+  font-size: 12px;
+  line-height: auto;
+  font-weight: 700;
+  text-align: center;
+  align-items: center;
+  padding-top: 10px;
+}
+.server-form-sub-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  padding-top: 14px;
+  text-align: center;
+}
+.server-form-title {
+  color: #ff7a00;
+}
+.server-form-rating-stars {
+  text-align: center;
+  padding-top: 12px;
+}
+.star-container svg {
+  height: 26px !important;
+  width: 22px !important;
+}
+.server-form-question {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 16px;
+}
+.server-form-checkboxes {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.server-form-checkbox-text {
+  font-size: 12px;
+  font-weight: 700;
+}
+.newcontainer {
+  text-align: center;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.newcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.newcheckmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+.newcontainer:hover input ~ .newcheckmark {
+  background-color: #ccc;
+}
+.newcontainer input:checked ~ .newcheckmark {
+  background-color: #fff;
+}
+.newcheckmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+  background-color: #ccc;
+}
+.newcontainer input:checked ~ .newcheckmark:after {
+  content: '\2713';
+  display: block;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  color: #ff7a00;
+}
+.server-form-textarea {
+  background-color: #dae6f1;
+  border-radius: 3px;
+  border: none;
+}
+.server-form-textarea::placeholder {
+  color: #8c9dae;
+  font-size: 18px;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 450px) {
+  .server-form-paragraph {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+  }
+  .server-form-sub-heading {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+  }
+  .server-form-rating-stars {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+  }
+  .server-form-question {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+  }
+  .server-form-checkboxes {
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.survey-button {
+  background: #4a93e9 !important;
+  border: none !important;
+}
+
+@media only screen and (min-width: 425px) {
+  .survey-button {
+    width: 175px !important;
+  }
+}
