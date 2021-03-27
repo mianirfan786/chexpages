@@ -102,6 +102,7 @@ export function getVehicleFile(vehicleId, setModalValue) {
     const interiorItems = [];
     const exteriorItems = [];
     const tires = [];
+    console.log(headers);
     axios
       .get(`${Api}/filesAll/${vehicleId}`, { headers })
       .then((resp) => {

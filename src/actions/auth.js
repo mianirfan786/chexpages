@@ -42,15 +42,15 @@ export function login(params, history, addToast) {
     dispatch(isAuthLoading(true));
     axios
       .post(`${Api}/auth/login`, params)
-      .then(async (resp) => {
+      .then((resp) => {
         dispatch(isAuthLoading(false));
         dispatch(setCurrentUser(resp.data.data));
         dispatch(setVehicleData(resp.data.vehicleData));
-        await localStorage.setItem('token', resp.data.token);
-        await localStorage.setItem('currentUser', JSON.stringify(resp.data.data));
-        await localStorage.setItem('vehicleData', JSON.stringify(resp.data?.vehicleData));
+        localStorage.setItem('token', resp.data.token);
+        localStorage.setItem('currentUser', JSON.stringify(resp.data.data));
+        localStorage.setItem('vehicleData', JSON.stringify(resp.data.data.vehicles[0]));
         dispatch(setIsAuthenticated(true));
-        history.push(`/vehicleinspection?vehicle_id=${resp.data?.vehicleData?.id}`);
+        window.location.reload(`/vehicleinspection`);
       })
       .catch((err) => {
         console.log(err);

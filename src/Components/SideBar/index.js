@@ -6,23 +6,17 @@ import { FaHistory } from 'react-icons/fa';
 import { FaCar } from 'react-icons/fa';
 import { MdCall } from 'react-icons/md';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import './style.css';
 
 const SideBar = ({ drawerVisible, handleSideBar }) => {
-  const history = useHistory();
+  // const history = useHistory();
   const handleLogout = () => {
     localStorage.clear();
     window.location.reload(false);
   };
   return (
-    <Drawer
-      placement={'left'}
-      width={300}
-      closable={false}
-      onClose={() => handleSideBar(false)}
-      visible={drawerVisible}
-    >
+    <Drawer placement={'left'} width={300} closable={false} onClose={() => handleSideBar(false)} visible={drawerVisible}>
       <div className="img-container">
         <div className="menu-image">
           <p className="image-text">

@@ -22,21 +22,25 @@ const VehicleInspectionContainer = (props) => {
   const [rating, setNewRating] = useState(0);
   const [comment, setComment] = useState('');
   const [surveyModalLoading, setSurveyModalLoading] = useState(false);
-
   const [surveyChecks, setSurveyChecks] = useState({
     online_services: false,
     face_time: false,
     visit_shop: false,
   });
-
   const [vehicleInstructionValues, setVehicleInstruction] = useState(null);
   const [groupType, setGroupType] = useState(null);
   const [surveyCheck, setSurveyCheck] = useState(false);
 
-  const handleRequests = async () => {
-    const { getVehicleFile, vehicleData, currentUser, getSurveyStatus } = props;
-    await getSurveyStatus(currentUser?.id, setSurveyCheck);
-    getVehicleFile(vehicleData?.id);
+  useEffect(() => {
+    handleRequests();
+  }, []);
+
+  const handleRequests = () => {
+    const { getVehicleFile, currentUser, getSurveyStatus } = props;
+    // setTimeout(() => {
+    getSurveyStatus(currentUser?.id, setSurveyCheck);
+    getVehicleFile(currentUser?.vehicles[0]?.id);
+    // }, 3000);
   };
   const handleModal = (value, groupType) => {
     console.log(value, groupType);
@@ -107,9 +111,7 @@ const VehicleInspectionContainer = (props) => {
     const { deleteVehicleFile, vehicleData } = props;
     deleteVehicleFile(vehicleData.id, id, groupType);
   };
-  useEffect(() => {
-    handleRequests();
-  }, []);
+
   return (
     <VehicleInspectionScreen
       rating={rating}
