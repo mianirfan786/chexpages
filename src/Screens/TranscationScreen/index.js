@@ -12,11 +12,13 @@ const TranscationScreen = ({ handleSubmit }) => {
       <div className="transcation-container">
         {/* <Header /> */}
         <div className="transaction-screen-header">
-          <BsChevronLeft className="header-icon" />
+          <BsChevronLeft color={'white'} className="header-icon" />
           <div className="header-text">Payment info</div>
           <div></div>
         </div>
-        <div className="transaction-payment">$19.<span className="transaction-amount">99</span></div>
+        <div className="transaction-payment">
+          $19.<span className="transaction-amount">99</span>
+        </div>
         <div className="transaction-form-container">
           <div className="transaction-input-field">
             <div className="input-field-name">Card number</div>
@@ -70,11 +72,9 @@ const TranscationScreen = ({ handleSubmit }) => {
           </div> */}
 
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-
             <div style={{ width: '54%' }}>
-
               <div className="transaction-input-field">
-                <div className="input-field-name">Expire Date</div>
+                <div className="input-field-name">CVV</div>
                 <CardCvcElement
                   // onChange={(e) => setFields(e.empty)}
                   options={{
@@ -89,7 +89,7 @@ const TranscationScreen = ({ handleSubmit }) => {
                       },
                       invalid: {
                         color: '#9e2146',
-                      }, 
+                      },
                     },
                   }}
                 />
@@ -97,7 +97,7 @@ const TranscationScreen = ({ handleSubmit }) => {
             </div>
             <div style={{ width: '42%' }}>
               <div className="transaction-input-field">
-                <div className="input-field-name">CVV</div>
+                <div className="input-field-name">Expiry Date</div>
                 <CardExpiryElement
                   // onChange={(e) => setFields(e.empty)}
                   options={{
@@ -120,14 +120,8 @@ const TranscationScreen = ({ handleSubmit }) => {
             </div>
           </div>
           <Button title={'Submit'} onClickButton={handleSubmit} />
-          <div>
-
-          </div>
-
+          <div></div>
         </div>
-
-
-
       </div>
     </div>
   );

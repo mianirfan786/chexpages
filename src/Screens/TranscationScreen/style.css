@@ -1,9 +1,11 @@
 .transcation-container {
-  background: linear-gradient(182.55deg, #1876CC -17.67%, #001B51 115.19%), #191A1B;
+  /* background: linear-gradient(182.55deg, #1876cc -17.67%, #001b51 115.19%), #191a1b; */
 }
 .container {
-  background: linear-gradient(182.55deg, #1876CC -17.67%, #001B51 115.19%), #191A1B;
+  background: linear-gradient(182.55deg, #1876cc -17.67%, #001b51 115.19%), #191a1b;
   height: 100%;
+  position: absolute;
+  width: 100%;
 }
 .transaction-screen-header {
   display: flex;
@@ -13,7 +15,7 @@
   padding: 10px;
 }
 .header-icon {
-  color: #2584E0;
+  color: #2584e0;
   width: 20px;
   height: 32px;
 }
@@ -43,28 +45,26 @@
 .input-field-name {
   font-size: 16px;
   font-weight: 400;
-  color: #889BAD;
+  color: #889bad;
   margin-bottom: 6px;
   margin-top: 10px;
 }
 
 input,
-  .StripeElement {
-    display: block;
-    margin: 10px 0 20px 0;
-    max-width: 500px;
-    padding: 15px 14px;
-    font-size: 1em;
-    font-family: 'Source Code Pro', monospace;
-    box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
-    border: 0;
-    outline: 0;
-    border-radius: 4px;
-    background-color: #e7eef5;
-    width: 100%;
+.StripeElement {
+  display: block;
+  margin: 10px 0 20px 0;
+  max-width: 500px;
+  padding: 15px 14px;
+  font-size: 1em;
+  font-family: 'Source Code Pro', monospace;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  background-color: #e7eef5;
+  width: 100%;
 }
-
-
 
 @media only screen and (min-width: 550px) {
   .transcation-container {
