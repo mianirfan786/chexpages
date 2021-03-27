@@ -1,7 +1,5 @@
 import React from 'react';
-import { Header, Button } from '../../Components';
-import { CardExpiryElement, CardNumberElement, CardCvcElement } from '@stripe/react-stripe-js';
-import { BsChevronLeft } from 'react-icons/bs';
+import { Button } from '../../Components';
 
 import './style.css';
 import '../../App.css';

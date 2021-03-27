@@ -1,18 +1,21 @@
 import React from 'react';
-import { Header, Button } from '../../Components';
+import { Link } from 'react-router-dom';
 import { CardExpiryElement, CardNumberElement, CardCvcElement } from '@stripe/react-stripe-js';
-import { BsChevronLeft } from 'react-icons/bs';
+import { IoIosArrowBack } from 'react-icons/io';
+
+import { Button } from '../../Components';
 
 import './style.css';
 import '../../App.css';
 
-const TranscationScreen = ({ handleSubmit }) => {
+const TranscationScreen = ({ handleSubmit, loading }) => {
   return (
     <div className="container">
       <div className="transcation-container">
-        {/* <Header /> */}
         <div className="transaction-screen-header">
-          <BsChevronLeft color={'white'} className="header-icon" />
+          <Link to="/vehicleinspection">
+            <IoIosArrowBack size={32} color="white" />
+          </Link>
           <div className="header-text">Payment info</div>
           <div></div>
         </div>
@@ -119,7 +122,7 @@ const TranscationScreen = ({ handleSubmit }) => {
               </div>
             </div>
           </div>
-          <Button title={'Submit'} onClickButton={handleSubmit} />
+          <Button loading={loading} title={'Submit'} onClickButton={handleSubmit} />
           <div></div>
         </div>
       </div>

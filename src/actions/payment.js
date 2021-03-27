@@ -7,22 +7,20 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-// function setIsAuthenticated(params) {
-//   return {
-//     type: types.SET_ISAUTHENTICATED,
-//     isAuthenticated: params,
-//   };
-// }
-
-export function startPayment(params) {
+export function startPayment(params, addToast, setLoading, history) {
   return (dispatch) => {
+    setLoading(true);
     axios
       .post(`${Api}/transactions/${params.vehicleId}`, params, { headers })
       .then((resp) => {
         console.log(resp);
+        addToast('Transcation has been successfully made', { appearance: 'success' });
+        setLoading(false);
+        history.push('/thankyouScreen');
       })
       .catch((err) => {
-        console.log(err);
+        setLoading(false);
+        addToast(`${err.response.data.errors}`, { appearance: 'error' });
       });
   };
 }
