@@ -7,6 +7,7 @@ import VerifyEmailContainer from './VerifyEmailContainer/index';
 import ConfirmEmailContainer from './ConfirmEmailContainer/index';
 import VehicleInspectionContainer from './VehicleInspectionContainer/index';
 import TranscationContainer from './TranscationContainer/index';
+import VehicleStatusContainer from './VehicleStatusContainer';
 export {
   IntroContainer,
   LoginContainer,
@@ -17,4 +18,5 @@ export {
   ConfirmEmailContainer,
   VehicleInspectionContainer,
   TranscationContainer,
+  VehicleStatusContainer,
 };
