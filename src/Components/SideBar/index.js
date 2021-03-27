@@ -16,10 +16,18 @@ const SideBar = ({ drawerVisible, handleSideBar }) => {
     window.location.reload(false);
   };
   return (
-    <Drawer placement={'left'} width={300} closable={false} onClose={() => handleSideBar(false)} visible={drawerVisible}>
+    <Drawer
+      placement={'left'}
+      width={300}
+      closable={false}
+      onClose={() => handleSideBar(false)}
+      visible={drawerVisible}
+    >
       <div className="img-container">
         <div className="menu-image">
-          <p className="image-text">CHEX.AI</p>
+          <p className="image-text">
+            CHEX.<span style={{ color: '#FF7A00' }}>AI</span>
+          </p>
         </div>
       </div>
       <div className="icon-bar">
