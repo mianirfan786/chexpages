@@ -21,12 +21,12 @@ const InspectionCard = ({
           item.type === 'Photo' ? (
             <img
               alt=""
-              // style={{ height: '140px', width: '80%' }}
+              className="inspection-image"
               src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}`}
             />
           ) : (
             <video
-              style={{ height: '107px', width: '141px' }}
+              className="inspection-image"
               src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}`}
             />
           )
@@ -50,7 +50,7 @@ const InspectionCard = ({
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <p className="veh-inspection-registrationcard_text">{title}</p>
         <div
-          style={{ marginLeft: '5px', marginTop: '10px' }}
+          style={{ marginLeft: '8px', marginTop: '10px' }}
           onClick={() => deleteFile(item.groupType, item.fileId)}
         >
           <RiDeleteBin5Line color="black" size={15} />

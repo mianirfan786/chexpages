@@ -34,11 +34,13 @@ const InstructionModal = ({
         {vehicleInstructionValues?.url ? (
           vehicleInstructionValues?.type === 'Photo' ? (
             <>
-              <img
-                alt=""
-                style={{ width: '30%' }}
-                src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}
-              />
+              <div className="modal-images">
+                <img
+                  alt=""
+                  className="modal-inside-image"
+                  src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}
+                />
+              </div>
             </>
           ) : (
             <>
@@ -57,11 +59,7 @@ const InstructionModal = ({
             <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
             <div style={{ marginBottom: '100px' }}>
               {vehicleInstructionValues?.type === 'Photo' ? (
-                <img
-                  alt=""
-                  style={{ width: '335px', height: '220px' }}
-                  src={vehicleInstructionValues?.image}
-                />
+                <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
               ) : (
                 <video width="320" height="240" controls src={vehicleInstructionValues?.video} />
               )}

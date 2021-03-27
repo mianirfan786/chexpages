@@ -24,3 +24,6 @@ body {
 #root {
   background: red;
 }
+* {
+  font-family: Poppins;
+}
