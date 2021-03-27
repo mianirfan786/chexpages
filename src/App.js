@@ -17,6 +17,7 @@ import {
   ConfirmEmailContainer,
   VehicleInspectionContainer,
   TranscationContainer,
+  ThankyouContainer
 } from './Containers';
 import './App.css';
 
@@ -32,6 +33,7 @@ function App() {
       <Route path="/verifyEmail" component={VerifyEmailContainer} />
       <Route path="/vehicleinspection" component={VehicleInspectionContainer} />
       <Route path="/transcationScreen" component={TranscationContainer} />
+      <Route path="/thankyouScreen" component={ThankyouContainer} />
       <Route path="/" component={IntroContainer} />
     </Switch>
   );
