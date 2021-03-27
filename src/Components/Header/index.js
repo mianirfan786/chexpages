@@ -12,9 +12,9 @@ const Header = () => {
   return (
     <div className="header-center">
       <div className="header-width">
-        <div className="icon-container">
+        {/* <div className="icon-container">
           <i className="fas fa-chevron-left fa-2x" style={{ opacity: 0 }} color="#FFFFFF" />
-        </div>
+        </div> */}
         <div className="vec-inspection-top_header">
           <IoIosArrowBack size={32} color="white" />
 

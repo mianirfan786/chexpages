@@ -369,18 +369,8 @@ export const ContentFooterareaVehicleinspection = styled.div`
   margin-bottom: 30px;
   // height: 100vh;
 
-  @media screen and (max-width: 1024px) {
-    width: 60%;
-    height: 100%;
-  }
-
-  @media screen and (max-width: 768px) {
-    width: 90%;
-    height: 100%;
-  }
-
-  @media screen and (max-width: 600px) {
-    width: 95%;
+  @media screen and (max-width: 700px) {
+    width: 100%;
     height: 100%;
   }
 `;
