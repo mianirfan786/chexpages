@@ -17,6 +17,7 @@ import {
   ConfirmEmailContainer,
   VehicleInspectionContainer,
   TranscationContainer,
+  ThankyouContainer,
 } from './Containers';
 import './App.css';
 
@@ -27,6 +28,7 @@ function App(props) {
     <Switch>
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleinspection" component={VehicleInspectionContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/transcationScreen" component={TranscationContainer} />
+      <Route path="/thankyouScreen" component={ThankyouContainer} />
       <Route path="/transcationScreen" component={TranscationContainer} />
       <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/register" component={SignUpContainer} />
       <Route path="/confirmEmail" component={ConfirmEmailContainer} />
