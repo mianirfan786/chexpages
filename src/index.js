@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ToastProvider } from 'react-toast-notifications';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 import configureStore from './store/configureStore';
 import App from './App';
@@ -11,14 +13,18 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 
 const store = configureStore({});
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
+
 ReactDOM.render(
-  <Provider store={store}>
-    <ToastProvider autoDismiss={true} autoDismissTimeout={2000} PlacementType="bottom-right">
-      <Router>
-        <App />
-      </Router>
-    </ToastProvider>
-  </Provider>,
+  <Elements stripe={stripePromise}>
+    <Provider store={store}>
+      <ToastProvider autoDismiss={true} autoDismissTimeout={2000} PlacementType="bottom-right">
+        <Router>
+          <App />
+        </Router>
+      </ToastProvider>
+    </Provider>
+  </Elements>,
   document.getElementById('root')
 );
 

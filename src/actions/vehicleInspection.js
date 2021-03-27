@@ -44,6 +44,13 @@ function setTires(data) {
   };
 }
 
+function setDeleteLocalFile(data) {
+  return {
+    type: types.SET_DELETE_LOCAL_FILE,
+    deleteFileData: data,
+  };
+}
+
 export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue) {
   return (dispatch) => {
     dispatch(setVehicleLoading(true));
@@ -122,5 +129,48 @@ export function getVehicleFile(vehicleId, setModalValue) {
       .catch((err) => {
         console.log(err);
       });
+  };
+}
+
+export function submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading) {
+  return (dispatch) => {
+    setSurveyModalLoading(true);
+    axios
+      .post(`${Api}/create/survey`, params, { headers })
+      .then((resp) => {
+        addToast(`You survey has been submitted successfully`, { appearance: 'success' });
+        setSurveyModal(false);
+        setSurveyModalLoading(false);
+      })
+      .catch((err) => {
+        setSurveyModalLoading(false);
+        console.log(err);
+      });
+  };
+}
+
+export function getSurveyStatus(id, setSurveyCheck) {
+  return (dispatch) => {
+    axios
+      .get(`${Api}/survey/user/${id}`, { headers })
+      .then((resp) => {
+        if (resp.data === null) {
+          setSurveyCheck(true);
+        } else {
+          setSurveyCheck(false);
+        }
+      })
+      .catch((err) => {});
+  };
+}
+
+export function deleteVehicleFile(vehicleId, fileId, groupType) {
+  return (dispatch) => {
+    axios
+      .delete(`${Api}/files/${vehicleId}/${fileId}`, { headers })
+      .then((resp) => {
+        dispatch(setDeleteLocalFile({ fileId, groupType }));
+      })
+      .catch((err) => {});
   };
 }

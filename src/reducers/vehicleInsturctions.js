@@ -9,7 +9,9 @@ const initialState = {
       title: 'Registration Card',
       description: '',
       url: '',
-      steps: ['Please take a photo from the center position of the left side (driver) of your vehicle capturing the entire exterior left side of your vehicle'],
+      fileId: null,
+      groupType: 'carVerificiationItems',
+      steps: ['Please upload a photo of a valid registration card clearly showing the car VIN number, car details, vehicle license plate.'],
       image: '/images/Photo1Exterior Left.png',
       // video: '/images/Clip 1 - Front.mov',
       loading: false,
@@ -17,10 +19,12 @@ const initialState = {
     {
       id: 'odometer',
       type: 'Photo',
-      title: 'odometer',
+      title: 'Odometer',
       description: '',
       url: '',
-      steps: ['Please take a photo from the center position of the right side (Passenger) of your vehicle capturing the entire exterior right side of your vehicle'],
+      groupType: 'carVerificiationItems',
+      fileId: null,
+      steps: ['Please take a photo of the entire odometer dashboard area with the vehicle turned on.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590296/chex-instruction/Photo-5Odometer_jxwevq.jpg',
       loading: false,
     },
@@ -31,8 +35,10 @@ const initialState = {
       type: 'Video',
       title: 'Horn',
       url: '',
+      fileId: null,
       description: '',
-      steps: ['Please take a photo from the center position of the left side (driver) of your vehicle capturing the entire exterior left side of your vehicle'],
+      groupType: 'interiorItems',
+      steps: ['Please record a 3 second video clip of honking horn with a clear sound.'],
       // image: '/images/Photo1Exterior Left.png',
       video: '/images/Clip 1 - Front.mov',
       loading: false,
@@ -40,10 +46,12 @@ const initialState = {
     {
       id: 'interior_driverside',
       type: 'Photo',
-      title: 'Interior Driverside',
+      title: 'Interior Driver Side',
       description: '',
+      groupType: 'interiorItems',
       url: '',
-      steps: ['Please take a photo from the center position of the right side (Passenger) of your vehicle capturing the entire exterior right side of your vehicle'],
+      fileId: null,
+      steps: ['Please take a photo of the interior of the vehicle with the left driver side door open with a clear view of the interior rearview mirror and brake pads.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590293/chex-instruction/interior_view_xxlp7t.jpg',
       // video: '/images/Clip 2 - Rear.mov',
       loading: false,
@@ -51,24 +59,24 @@ const initialState = {
     {
       id: 'driver_seat_adjusted',
       type: 'Photo',
-      title: 'Driver seat Adjusted',
+      title: 'Driver Seat Adjusted',
+      groupType: 'interiorItems',
       url: '',
-      description: 'Instructional video on how to record video of rear of moving vehicle',
-      steps: [
-        'Please record a short video clip showing the front of the vehicle with all the front lights, indicators and windshield wipers turned on. Our goal is to verify the functionality of those features and identify any major damage on the front',
-      ],
+      fileId: null,
+      description: '',
+      steps: ['Please take a photo of the driver seat pulled forward and back rest folded to maximum limit.'],
       video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616590304/chex-instruction/Clip_3_-_Driverside-1-720P_oawdex.mp4',
       loading: false,
     },
     {
       id: 'interior_passengerside',
       type: 'Photo',
-      title: 'Interior Passengerside',
-      description: "Instructional video on how to record your vehicle's exterior",
+      title: 'Interior Passenger Side',
+      groupType: 'interiorItems',
+      description: '',
       url: '',
-      steps: [
-        'Set phone down behind car (or have someone hold the phone with car in field of view); once camera is positioned well, drive car 3-5 feet in reverse and push on the brake pedal. Once car is in the park mode, push the gas pedal. Please ensure that the sound is clear(for checking muffler and for brake sound) and the brake light is in the clear view',
-      ],
+      fileId: null,
+      steps: ['Please take a photo of the interior of the vehicle with the right passenger side door open with a clear view of the inside.'],
       video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616590300/chex-instruction/Clip_4_-_Passengerside-1-720P_mdtjgp.mp4',
       loading: false,
     },
@@ -76,9 +84,11 @@ const initialState = {
       id: 'passenger_seat_adjusted',
       type: 'Photo',
       title: 'Passenger seat Adjusted',
+      groupType: 'interiorItems',
       description: '',
       url: '',
-      steps: ['Please take a photo of the interior of the vehicle with left driver side door open with clear view of the interior rearview mirror and brakepads. '],
+      fileId: null,
+      steps: ['Please take a photo of the passenger seat pulled forward and back rest folded to maximum limit. '],
       video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616590300/chex-instruction/Clip_4_-_Passengerside-1-720P_mdtjgp.mp4',
       loading: false,
     },
@@ -88,8 +98,10 @@ const initialState = {
       title: 'Interior Backseat',
       description: '',
       url: '',
+      fileId: null,
+      groupType: 'interiorItems',
       steps: ['Please take a photo entire odometer dashboard area with vehicle turned on.'],
-      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590294/chex-instruction/interiorBack_pug6jd.jpg',
+      image: 'Please take a photo of the backseats with back doors opened and seat belts buckled.',
       loading: false,
     },
   ],
@@ -97,10 +109,12 @@ const initialState = {
     {
       id: 'exterior_left',
       type: 'Photo',
-      title: 'Exterior left',
+      title: 'Exterior Left',
       description: '',
       url: '',
-      steps: ['Please take a photo of the interior of the vehicle with left driver side door open with clear view of the interior rearview mirror and brakepads. '],
+      fileId: null,
+      groupType: 'exteriorItems',
+      steps: ['Please take a photo from the center position of the left side (driver) of your vehicle capturing the entire exterior left side of your vehicle.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590293/chex-instruction/exteriorLeft_ggc7k8.jpg',
       loading: false,
     },
@@ -110,7 +124,9 @@ const initialState = {
       title: 'Exterior Right',
       description: '',
       url: '',
-      steps: ['Please take a photo entire odometer dashboard area with vehicle turned on.'],
+      fileId: null,
+      groupType: 'exteriorItems',
+      steps: ['Please take a photo from the center position of the right side (Passenger) of your vehicle capturing the entire exterior right side of your vehicle.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590294/chex-instruction/exteriorRight_frhvbt.jpg',
       loading: false,
     },
@@ -120,7 +136,9 @@ const initialState = {
       title: 'Exterior Front',
       description: '',
       url: '',
-      steps: ['Please take a photo of the interior of the vehicle with right passenger side door open with clear view of the inside. '],
+      fileId: null,
+      groupType: 'exteriorItems',
+      steps: ['Please record a short 5 second video clip clearly showing the front of the vehicle with all the headlights, indicators and windshield wiper turned on.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590292/chex-instruction/ExteriorFront_ebdjvl.jpg',
       loading: false,
     },
@@ -130,7 +148,11 @@ const initialState = {
       title: 'Exterior Rear',
       description: '',
       url: '',
-      steps: ['Please take a photo of the backseats with back doors opened and seatbelts buckled.'],
+      fileId: null,
+      groupType: 'exteriorItems',
+      steps: [
+        'Set the phone down behind the car (or have someone hold the phone with the car in field of view); once the camera is positioned well, drive the car 3-5 feet in reverse and push on the brake pedal. Once the car is in the park mode, push the gas pedal. Please ensure that the sound is clear(for checking muffler and for brake sound) and the brake light is in the clear view',
+      ],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590295/chex-instruction/ExteriorRear_qz6qww.jpg',
       loading: false,
     },
@@ -142,7 +164,9 @@ const initialState = {
       title: 'Left Front Tire',
       description: '',
       url: '',
-      steps: ['Please take a photo of the interior of the vehicle with left driver side door open with clear view of the interior rearview mirror and brakepads. '],
+      fileId: null,
+      groupType: 'tires',
+      steps: ['Please place a penny on the tire tread with heads on the penny upside down and facing the camera and take a picture.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590298/chex-instruction/Photot710Tire_xtabgg.jpg',
       loading: false,
     },
@@ -152,7 +176,9 @@ const initialState = {
       title: 'Left Rear Tire',
       description: '',
       url: '',
-      steps: ['Please take a photo entire odometer dashboard area with vehicle turned on.'],
+      fileId: null,
+      groupType: 'tires',
+      steps: ['Please place a penny on the tire tread with heads on the penny upside down and facing the camera and take a picture.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590298/chex-instruction/Photot710Tire_xtabgg.jpg',
       loading: false,
     },
@@ -162,7 +188,9 @@ const initialState = {
       title: 'Right Front Tire',
       description: '',
       url: '',
-      steps: ['Please take a photo entire odometer dashboard area with vehicle turned on.'],
+      fileId: null,
+      groupType: 'tires',
+      steps: ['Please place a penny on the tire tread with heads on the penny upside down and facing the camera and take a picture.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590298/chex-instruction/Photot710Tire_xtabgg.jpg',
       loading: false,
     },
@@ -172,7 +200,9 @@ const initialState = {
       title: 'Right Rear Tire',
       description: '',
       url: '',
-      steps: ['Please take a photo entire odometer dashboard area with vehicle turned on.'],
+      fileId: null,
+      groupType: 'tires',
+      steps: ['Please place a penny on the tire tread with heads on the penny upside down and facing the camera and take a picture.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590298/chex-instruction/Photot710Tire_xtabgg.jpg',
       loading: false,
     },
@@ -185,6 +215,7 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
       var item = state.verificationItem.find((a) => a.id === x.category);
       if (item) {
         item.url = x.url;
+        item.fileId = x.id;
       }
     });
     return {
@@ -196,6 +227,7 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
       var item = state.interiorItems.find((a) => a.id === x.category);
       if (item) {
         item.url = x.url;
+        item.fileId = x.id;
       }
     });
     return {
@@ -207,6 +239,7 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
       var item = state.exteriorItems.find((a) => a.id === x.category);
       if (item) {
         item.url = x.url;
+        item.fileId = x.id;
       }
     });
     return {
@@ -218,8 +251,36 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
       var item = state.tires.find((a) => a.id === x.category);
       if (item) {
         item.url = x.url;
+        item.fileId = x.id;
       }
     });
+    return {
+      ...state,
+    };
+  },
+  [types.SET_DELETE_LOCAL_FILE](state, action) {
+    var groupType = action.deleteFileData?.groupType;
+    if (groupType === 'carVerificiationItems') {
+      let item = state.verificationItem.find((a) => a.fileId === action.deleteFileData?.fileId);
+      if (item) {
+        item.url = '';
+      }
+    } else if (groupType === 'interiorItems') {
+      let item = state.interiorItems.find((a) => a.fileId === action.deleteFileData?.fileId);
+      if (item) {
+        item.url = '';
+      }
+    } else if (groupType === 'exteriorItems') {
+      let item = state.exteriorItems.find((a) => a.fileId === action.deleteFileData?.fileId);
+      if (item) {
+        item.url = '';
+      }
+    } else if (groupType === 'tires') {
+      let item = state.tires.find((a) => a.fileId === action.deleteFileData?.fileId);
+      if (item) {
+        item.url = '';
+      }
+    }
     return {
       ...state,
     };

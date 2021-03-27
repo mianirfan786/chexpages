@@ -6,11 +6,7 @@ import Button from '../Button/index';
 import './style.css';
 import '../../App.css';
 
-const SurveyModal = ({ handleSurveyModal, isSurveyModalVisible }) => {
-  //   const [rating, setNewRating] = useState(0);
-  //   const changeRating = (newRating, name) => {
-  //     setNewRating(newRating);
-  //   };
+const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRating, handleCheckBox, handleComment, handleSubmitSurvey, surveyModalLoading }) => {
   return (
     <div className="survey-modal">
       <Modal
@@ -38,9 +34,9 @@ const SurveyModal = ({ handleSurveyModal, isSurveyModalVisible }) => {
           </div>
           <div className="server-form-rating-stars">
             <StarRatings
-              //   rating={rating}
+              rating={rating}
               starRatedColor="#FF7A00"
-              //   changeRating={changeRating}
+              changeRating={changeRating}
               starWidthAndHeight="20px"
               className="salman"
               numberOfStars={5}
@@ -55,7 +51,7 @@ const SurveyModal = ({ handleSurveyModal, isSurveyModalVisible }) => {
               <div>
                 <div style={{ display: 'flex' }}>
                   <label class="newcontainer">
-                    <input type="checkbox" checked="false" />
+                    <input onChange={(e) => handleCheckBox('online_services', e)} type="checkbox" />
                     <span class="newcheckmark"></span>
                   </label>
                   <div className="server-form-checkbox-text">
@@ -67,7 +63,7 @@ const SurveyModal = ({ handleSurveyModal, isSurveyModalVisible }) => {
               <div>
                 <div style={{ display: 'flex' }}>
                   <label class="newcontainer">
-                    <input type="checkbox" checked="false" />
+                    <input onChange={(e) => handleCheckBox('face_time', e)} type="checkbox" />
                     <span class="newcheckmark"></span>
                   </label>
                   <div className="server-form-checkbox-text">Facetime/Video Chat</div>
@@ -77,7 +73,7 @@ const SurveyModal = ({ handleSurveyModal, isSurveyModalVisible }) => {
               <div>
                 <div style={{ display: 'flex' }}>
                   <label class="newcontainer">
-                    <input type="checkbox" checked="false" />
+                    <input onChange={(e) => handleCheckBox('visit_shop', e)} type="checkbox" />
                     <span class="newcheckmark"></span>
                   </label>
                   <div className="server-form-checkbox-text">Visit A Mechanic Shop</div>
@@ -87,9 +83,18 @@ const SurveyModal = ({ handleSurveyModal, isSurveyModalVisible }) => {
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '16px' }}>
-            <textarea className="server-form-textarea" style={{ resize: 'none' }} id="w3review" name="w3review" placeholder="Any Comments" rows="5" cols="46"></textarea>
+            <textarea
+              onChange={handleComment}
+              className="server-form-textarea"
+              style={{ resize: 'none' }}
+              id="w3review"
+              name="w3review"
+              placeholder="Any Comments"
+              rows="5"
+              cols="46"
+            ></textarea>
           </div>
-          <Button title={'Next'} buttonClass="survey-button" />
+          <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />
         </div>
       </Modal>
     </div>

@@ -30,6 +30,13 @@ const VehicleInspectionScreen = ({
   handleModalClose,
   isSurveyModalVisible,
   handleSurveyModal,
+  changeRating,
+  rating,
+  handleCheckBox,
+  handleComment,
+  handleSubmitSurvey,
+  deleteFile,
+  surveyModalLoading,
 }) => {
   const genExtra = () => (
     <UpCircleOutlined
@@ -46,7 +53,7 @@ const VehicleInspectionScreen = ({
           <ContentVehicleInspection>
             <Header />
             <MainDownContainer>
-              <VehicleInspectionP>Please complete inpection items within each category below</VehicleInspectionP>
+              <VehicleInspectionP>Please complete inspection items within each category below</VehicleInspectionP>
             </MainDownContainer>
 
             <div className="veh-inspection-mobilepaddind">
@@ -96,6 +103,7 @@ const VehicleInspectionScreen = ({
                         title={item.title}
                         titletwo={item.type}
                         type={item.type}
+                        deleteFile={deleteFile}
                       />
                     </div>
                   ))}
@@ -119,7 +127,16 @@ const VehicleInspectionScreen = ({
                 <div className="veh-inspection-cards_container">
                   {vehicleInstructions?.interiorItems.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard groupType="interiorItems" item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard
+                        deleteFile={deleteFile}
+                        groupType="interiorItems"
+                        item={item}
+                        handleModal={handleModal}
+                        category={item.id}
+                        title={item.title}
+                        titletwo={item.type}
+                        type={item.type}
+                      />
                     </div>
                   ))}
                 </div>
@@ -142,7 +159,16 @@ const VehicleInspectionScreen = ({
                 <div className="veh-inspection-cards_container">
                   {vehicleInstructions?.exteriorItems?.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard groupType="exteriorItems" item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard
+                        deleteFile={deleteFile}
+                        groupType="exteriorItems"
+                        item={item}
+                        handleModal={handleModal}
+                        category={item.id}
+                        title={item.title}
+                        titletwo={item.type}
+                        type={item.type}
+                      />
                     </div>
                   ))}
                 </div>
@@ -165,7 +191,16 @@ const VehicleInspectionScreen = ({
                 <div className="veh-inspection-cards_container">
                   {vehicleInstructions?.tires?.map((item) => (
                     <div className="veh-inspection-first_card">
-                      <InspectionCard groupType="tires" item={item} handleModal={handleModal} category={item.id} title={item.title} titletwo={item.type} type={item.type} />
+                      <InspectionCard
+                        deleteFile={deleteFile}
+                        groupType="tires"
+                        item={item}
+                        handleModal={handleModal}
+                        category={item.id}
+                        title={item.title}
+                        titletwo={item.type}
+                        type={item.type}
+                      />
                     </div>
                   ))}
                 </div>
@@ -186,7 +221,16 @@ const VehicleInspectionScreen = ({
         isModalVisible={isModalVisible}
         handleModalClose={handleModalClose}
       />
-      <SurveyModal isSurveyModalVisible={isSurveyModalVisible} handleSurveyModal={handleSurveyModal} />
+      <SurveyModal
+        changeRating={changeRating}
+        rating={rating}
+        isSurveyModalVisible={isSurveyModalVisible}
+        handleSurveyModal={handleSurveyModal}
+        handleCheckBox={handleCheckBox}
+        handleComment={handleComment}
+        handleSubmitSurvey={handleSubmitSurvey}
+        surveyModalLoading={surveyModalLoading}
+      />
     </MainContainer>
   );
 };

@@ -23,34 +23,48 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
           background: 'linear-gradient(0deg,rgba(27,104,179,0.6) 0%,#1b68b3 99.97%)',
         }}
       >
-        <div style={{ marginBottom: '116px', fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
-        <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
-        <div style={{ marginBottom: '100px' }}>
-          {vehicleInstructionValues?.type === 'Photo' ? (
-            <img alt="" style={{ width: '335px', height: '220px' }} src={vehicleInstructionValues?.image} />
+        {vehicleInstructionValues?.url ? (
+          vehicleInstructionValues?.type === 'Photo' ? (
+            <>
+              <img alt="" style={{ width: '30%' }} src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+            </>
           ) : (
-            <video width="320" height="240" controls src={vehicleInstructionValues?.video} />
-          )}
-          <div style={{ color: 'white' }}>
-            {vehicleInstructionValues?.steps.map((step, index) => (
-              <ul key={index}>
-                <li className="instruction-modal-step">{step}</li>
-              </ul>
-            ))}
-          </div>
-        </div>
-        <div className="input-img-container">
-          <div className="image-upload">
-            <label htmlFor="file-input">
-              <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
-            </label>
-            {vehicleInstructionValues?.type === 'Photo' ? (
-              <input type="file" id="file-input" accept="image/*" capture onChange={(event) => handleImageUpload(event)} />
-            ) : (
-              <input type="file" id="file-input" accept="video/*" capture onChange={(event) => handleVideoUpload(event)} />
-            )}
-          </div>
-        </div>
+            <>
+              <video style={{ width: '30%' }} controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+            </>
+          )
+        ) : (
+          <>
+            <div style={{ marginBottom: '116px', fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
+            <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
+            <div style={{ marginBottom: '100px' }}>
+              {vehicleInstructionValues?.type === 'Photo' ? (
+                <img alt="" style={{ width: '335px', height: '220px' }} src={vehicleInstructionValues?.image} />
+              ) : (
+                <video width="320" height="240" controls src={vehicleInstructionValues?.video} />
+              )}
+              <div style={{ color: 'white' }}>
+                {vehicleInstructionValues?.steps.map((step, index) => (
+                  <ul key={index}>
+                    <li className="instruction-modal-step">{step}</li>
+                  </ul>
+                ))}
+              </div>
+            </div>
+            <div className="input-img-container">
+              <div className="image-upload">
+                <label htmlFor="file-input">
+                  <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
+                </label>
+                {vehicleInstructionValues?.type === 'Photo' ? (
+                  <input type="file" id="file-input" accept="image/*" capture onChange={(event) => handleImageUpload(event)} />
+                ) : (
+                  <input type="file" id="file-input" accept="video/*" capture onChange={(event) => handleVideoUpload(event)} />
+                )}
+              </div>
+            </div>
+          </>
+        )}
       </Modal>
     </div>
   );

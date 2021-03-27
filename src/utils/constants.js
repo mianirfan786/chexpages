@@ -10,3 +10,4 @@ export const SET_INTERIOR_ITEMS = 'SET_INTERIOR_ITEMS';
 export const SET_EXTERIOR_ITEMS = 'SET_EXTERIOR_ITEMS';
 export const SET_TIRES = 'SET_TIRES';
 export const IS_Vehicle_LOADING = 'IS_Vehicle_LOADING';
+export const SET_DELETE_LOCAL_FILE = 'SET_DELETE_LOCAL_FILE';

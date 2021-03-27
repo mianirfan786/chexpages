@@ -4,23 +4,35 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import imageCompression from 'browser-image-compression';
 import { bindActionCreators } from 'redux';
+import { useToasts } from 'react-toast-notifications';
 
 import { VehicleInspectionScreen } from '../../Screens';
 import ActionCreators from '../../actions';
 
 const VehicleInspectionContainer = (props) => {
+  const { addToast } = useToasts();
+
   const [isModalVisible, setModalValue] = useState(false);
-  const [isSurveyModalVisible, setSurveyModal] = useState(true);
+  const [isSurveyModalVisible, setSurveyModal] = useState(false);
   const [imageCategory, setImageCategory] = useState(null);
+  const [rating, setNewRating] = useState(0);
+  const [comment, setComment] = useState('');
+  const [surveyModalLoading, setSurveyModalLoading] = useState(false);
+
+  const [surveyChecks, setSurveyChecks] = useState({
+    online_services: false,
+    face_time: false,
+    visit_shop: false,
+  });
 
   const [vehicleInstructionValues, setVehicleInstruction] = useState(null);
   const [groupType, setGroupType] = useState(null);
+  const [surveyCheck, setSurveyCheck] = useState(false);
 
   useEffect(() => {
-    const { getVehicleFile } = props;
-    const { vehicleData } = props;
-
+    const { getVehicleFile, vehicleData, currentUser, getSurveyStatus } = props;
     getVehicleFile(vehicleData.id);
+    getSurveyStatus(currentUser.id, setSurveyCheck);
   }, []);
 
   const handleModal = (value, groupType) => {
@@ -32,6 +44,10 @@ const VehicleInspectionContainer = (props) => {
 
   const handleModalClose = () => {
     setModalValue(false);
+  };
+
+  const changeRating = (newRating, name) => {
+    setNewRating(newRating);
   };
 
   const handleImageUpload = (event) => {
@@ -59,18 +75,52 @@ const VehicleInspectionContainer = (props) => {
     setSurveyModal(value);
   };
 
+  const handleCheckBox = (name, e) => {
+    let obj = {
+      ...surveyChecks,
+      [name]: e.target.checked,
+    };
+    setSurveyChecks(obj);
+  };
+
+  const handleComment = (e) => {
+    setComment(e.target.value);
+  };
+
+  const handleSubmitSurvey = () => {
+    const { submitSurvey } = props;
+    const params = {
+      ...surveyChecks,
+      comment: comment,
+      rating: rating,
+    };
+    submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading);
+  };
+
+  const deleteFile = (groupType, id) => {
+    const { deleteVehicleFile, vehicleData } = props;
+    deleteVehicleFile(vehicleData.id, id, groupType);
+  };
+
   return (
     <VehicleInspectionScreen
+      rating={rating}
       vehicleInstructionValues={vehicleInstructionValues}
       vehicleInstructions={props.vehicleInstructions}
       isModalVisible={isModalVisible}
       isSurveyModalVisible={isSurveyModalVisible}
       isLoading={props.isLoading}
+      surveyModalLoading={surveyModalLoading}
       handleImageUpload={handleImageUpload}
       handleModal={handleModal}
+      deleteFile={deleteFile}
       handleModalClose={handleModalClose}
       handleVideoUpload={handleVideoUpload}
       handleSurveyModal={handleSurveyModal}
+      changeRating={changeRating}
+      handleCheckBox={handleCheckBox}
+      handleComment={handleComment}
+      handleSubmitSurvey={handleSubmitSurvey}
     />
   );
 };
@@ -84,6 +134,7 @@ function mapStateToProps(state) {
     vehicleData: state.auth.vehicleData,
     isLoading: state.vehicleInstruction.isVehicleLoading,
     vehicleInstructions: state.vehicleInstruction,
+    currentUser: state.auth.currentUser,
   };
 }
 

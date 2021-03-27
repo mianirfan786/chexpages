@@ -5,8 +5,8 @@ import ForgotPasswordContainer from './ForgotPasswordContainer/index';
 import ResetPasswordContainer from './ResetPasswordContainer/index';
 import VerifyEmailContainer from './VerifyEmailContainer/index';
 import ConfirmEmailContainer from './ConfirmEmailContainer/index';
-import VehicleInspectionContainer from './VehicleInspectionContainer';
-
+import VehicleInspectionContainer from './VehicleInspectionContainer/index';
+import TranscationContainer from './TranscationContainer/index';
 export {
   IntroContainer,
   LoginContainer,
@@ -16,4 +16,5 @@ export {
   VerifyEmailContainer,
   ConfirmEmailContainer,
   VehicleInspectionContainer,
+  TranscationContainer,
 };
