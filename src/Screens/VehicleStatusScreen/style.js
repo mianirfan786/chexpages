@@ -30,9 +30,9 @@ export const MainDownContainer = styled.div`
 `;
 
 export const ImageBackgroundVehicleInspection = styled.div`
-  background: linear-gradient(0deg, #f0f2f6, #f0f2f6), linear-gradient(0deg, #ffffff, #ffffff),
-    linear-gradient(180deg, #ffffff 0%, #181c1f 0.01%, #121417 100%);
-  height: auto;
+  // background: linear-gradient(0deg, #f0f2f6, #f0f2f6), linear-gradient(0deg, #ffffff, #ffffff),
+  //   linear-gradient(180deg, #ffffff 0%, #181c1f 0.01%, #121417 100%);
+  // height: auto;
   border: none;
   background-repeat: no-repeat;
   @media screen and (max-width: 700px) {
@@ -131,7 +131,7 @@ export const MidTickUploadDone = styled.div`
 `;
 
 export const ColAreaVehicleInspection = styled.div`
-  background: #c9d4e4;
+  // background: #c9d4e4;
   border-radius: 5px;
   width: 97%;
   height: 150px;
@@ -188,7 +188,7 @@ export const ColCameraVehicleInspection = styled.div`
 export const MidDownloadIconVehicleInspection = styled.div`
   width: 90px !important;
   height: 90px;
-  background: #ffffff;
+  // background: #ffffff;
   margin: 10px auto 40px;
   border-radius: 50%;
   padding: 17px 0;
@@ -274,7 +274,7 @@ export const ImageContainer = styled.span`
 `;
 
 export const VehicleinsBtnVehicleInspection = styled(Link)`
-  background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
+  // background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
   border-radius: 100px;
   border: 1px solid #ff7400;
   font-style: normal;
@@ -369,8 +369,18 @@ export const ContentFooterareaVehicleinspection = styled.div`
   margin-bottom: 30px;
   // height: 100vh;
 
-  @media screen and (max-width: 700px) {
-    width: 100%;
+  @media screen and (max-width: 1024px) {
+    width: 60%;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 95%;
     height: 100%;
   }
 `;
@@ -479,7 +489,9 @@ export const ArrowBackA = styled.div`
 `;
 
 export const MainBgInsertDetails = styled.div`
-  background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
+  // background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
+  // background-color: red;
+  // background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
   position: relative;
   width: 100%;
   height: 100%;

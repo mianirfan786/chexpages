@@ -217,7 +217,7 @@ const VehicleInspectionScreen = ({
                       </div>
                     ))}
                   </div>
-                  <NextStepButton />
+                  <NextStepButton title="Next Step" />
                 </Panel>
               </Collapse>
               <div className="vec-inspection-submitbtn_container">

@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
 
-const NextStepButton = () => {
-  return <button className="vec-inspection-nextstep_button">Next Step</button>;
+const NextStepButton = ({ title }) => {
+  return <button className="vec-inspection-nextstep_button">{title}</button>;
 };
 
 export default NextStepButton;
