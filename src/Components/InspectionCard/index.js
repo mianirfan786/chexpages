@@ -27,9 +27,11 @@ const InspectionCard = ({ title, titletwo, handleModal, type, category, item, gr
       </div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <p className="veh-inspection-registrationcard_text">{title}</p>
-        <div style={{ marginLeft: '8px', marginTop: '10px' }} onClick={() => deleteFile(item.groupType, item.fileId)}>
-          <RiDeleteBin5Line color="black" size={15} />
-        </div>
+        {item.url ? (
+          <div style={{ marginLeft: '8px', marginTop: '10px' }} onClick={() => deleteFile(item.groupType, item.fileId)}>
+            <RiDeleteBin5Line color="black" size={15} />
+          </div>
+        ) : null}
       </div>
       <p className="veh-inspection-photo_text">{titletwo}</p>
     </div>

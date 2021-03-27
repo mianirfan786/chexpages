@@ -3,7 +3,7 @@ import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 
 import {
-  InspectionCard,
+  // InspectionCard,
   NextStepButton,
   InstructionModal,
   Header,
@@ -59,9 +59,7 @@ const VehicleStatusScreen = ({
           <ContentVehicleInspection>
             <Header />
             <MainDownContainer>
-              <VehicleInspectionP>
-                Please complete inspection items within each category below
-              </VehicleInspectionP>
+              <VehicleInspectionP>Please complete inspection items within each category below</VehicleInspectionP>
             </MainDownContainer>
 
             <div className="veh-inspection-mobilepaddind">
@@ -80,11 +78,7 @@ const VehicleStatusScreen = ({
                 expandIconPosition="right"
                 expandIcon={({ isActive }) => (
                   <UpCircleOutlined
-                    style={
-                      isActive
-                        ? { fontSize: 32, color: '#FF7A00', marginTop: -7 }
-                        : { fontSize: 32, color: 'lightGray', marginTop: -7 }
-                    }
+                    style={isActive ? { fontSize: 32, color: '#FF7A00', marginTop: -7 } : { fontSize: 32, color: 'lightGray', marginTop: -7 }}
                     rotate={isActive ? 180 : 0}
                   />
                 )}

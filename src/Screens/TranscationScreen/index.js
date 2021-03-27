@@ -12,6 +12,7 @@ const TranscationScreen = ({ handleSubmit, loading }) => {
   return (
     <div className="container">
       <div className="transcation-container">
+        {/* <Header /> */}
         <div className="transaction-screen-header">
           <Link to="/vehicleinspection">
             <IoIosArrowBack size={32} color="white" />
@@ -73,12 +74,11 @@ const TranscationScreen = ({ handleSubmit, loading }) => {
               }}
             />
           </div> */}
-
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div style={{ width: '54%' }}>
+            <div style={{ width: '42%' }}>
               <div className="transaction-input-field">
-                <div className="input-field-name">CVV</div>
-                <CardCvcElement
+                <div className="input-field-name">Expiry Date</div>
+                <CardExpiryElement
                   // onChange={(e) => setFields(e.empty)}
                   options={{
                     style: {
@@ -98,10 +98,11 @@ const TranscationScreen = ({ handleSubmit, loading }) => {
                 />
               </div>
             </div>
-            <div style={{ width: '42%' }}>
+
+            <div style={{ width: '54%' }}>
               <div className="transaction-input-field">
-                <div className="input-field-name">Expiry Date</div>
-                <CardExpiryElement
+                <div className="input-field-name">CVV</div>
+                <CardCvcElement
                   // onChange={(e) => setFields(e.empty)}
                   options={{
                     style: {

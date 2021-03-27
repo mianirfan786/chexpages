@@ -1,5 +1,6 @@
 import React from 'react';
 import { Drawer } from 'antd';
+import { Link } from 'react-router-dom';
 // import TestingImage from '../../Assets/testing.png';
 import { AiTwotoneHome } from 'react-icons/ai';
 import { FaHistory } from 'react-icons/fa';
@@ -24,18 +25,18 @@ const SideBar = ({ drawerVisible, handleSideBar }) => {
           </p>
         </div>
       </div>
-      <div className="icon-bar">
+      <Link to="/vehicleinspection" className="icon-bar">
         <AiTwotoneHome />
         <div className="icon-text">Home</div>
-      </div>
+      </Link>
       <div className="icon-bar">
         <FaHistory />
         <div className="icon-text">History</div>
       </div>
-      <div className="icon-bar">
+      <Link to="/VehicleDetail" className="icon-bar">
         <FaCar />
         <div className="icon-text">Vehicle Details</div>
-      </div>
+      </Link>
       <div className="icon-bar">
         <MdCall />
         <div className="icon-text">Contact us</div>

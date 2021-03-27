@@ -1,6 +1,5 @@
 import React from 'react';
-import { Header, Button } from '../../Components';
-import { CardExpiryElement, CardNumberElement, CardCvcElement } from '@stripe/react-stripe-js';
+import { Link } from 'react-router-dom';
 import { BsChevronLeft } from 'react-icons/bs';
 
 import './style.css';
@@ -12,7 +11,9 @@ const VehicleDetailScreen = ({ handleSubmit }) => {
       <div className="transcation-container">
         {/* <Header /> */}
         <div className="transaction-screen-header">
-          <BsChevronLeft color={'white'} className="header-icon" />
+          <Link to="/vehicleInspection">
+            <BsChevronLeft color={'white'} className="header-icon" />
+          </Link>
           <div className="vehicledetail-text">Vehicle Details</div>
           <div></div>
         </div>
