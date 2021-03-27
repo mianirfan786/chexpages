@@ -53,7 +53,9 @@ const VehicleInspectionScreen = ({
           <ContentVehicleInspection>
             <Header />
             <MainDownContainer>
-              <VehicleInspectionP>Please complete inspection items within each category below</VehicleInspectionP>
+              <VehicleInspectionP>
+                Please complete inspection items within each category below
+              </VehicleInspectionP>
             </MainDownContainer>
 
             <div className="veh-inspection-mobilepaddind">
@@ -72,7 +74,11 @@ const VehicleInspectionScreen = ({
                 expandIconPosition="right"
                 expandIcon={({ isActive }) => (
                   <UpCircleOutlined
-                    style={isActive ? { fontSize: 32, color: '#FF7A00', marginTop: -7 } : { fontSize: 32, color: 'lightGray', marginTop: -7 }}
+                    style={
+                      isActive
+                        ? { fontSize: 32, color: '#FF7A00', marginTop: -7 }
+                        : { fontSize: 32, color: 'lightGray', marginTop: -7 }
+                    }
                     rotate={isActive ? 180 : 0}
                   />
                 )}
@@ -82,7 +88,9 @@ const VehicleInspectionScreen = ({
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
-                        <div className="veh-inspection-verification_text">Car verification item</div>
+                        <div className="veh-inspection-verification_text">
+                          Car verification item
+                        </div>
                       </Col>
                       <Col></Col>
                       <Col></Col>
@@ -207,7 +215,10 @@ const VehicleInspectionScreen = ({
                 </Panel>
               </Collapse>
               <div className="vec-inspection-submitbtn_container">
-                <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
+                <button
+                  onClick={() => handleSurveyModal(true)}
+                  className="vec-inspection-submit_button"
+                >
                   Submit
                 </button>
               </div>

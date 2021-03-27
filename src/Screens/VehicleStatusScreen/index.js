@@ -94,9 +94,7 @@ const VehicleStatusScreen = ({
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
-                        <div className="veh-inspection-verification_text">
-                          Car verification item
-                        </div>
+                        <div className="veh-inspection-verification_text">Ready for review</div>
                       </Col>
                       <Col></Col>
                       <Col></Col>
@@ -105,129 +103,9 @@ const VehicleStatusScreen = ({
                   key="1"
                   extra={genExtra}
                 >
-                  <div className="veh-inspection-cards_container">
-                    {vehicleInstructions?.verificationItem?.map((item, index) => (
-                      <div key={index} className="veh-inspection-first_card">
-                        <InspectionCard
-                          groupType="carVerificiationItems"
-                          item={item}
-                          handleModal={handleModal}
-                          category={item.id}
-                          title={item.title}
-                          titletwo={item.type}
-                          type={item.type}
-                          deleteFile={deleteFile}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <NextStepButton />
-                </Panel>
-                <Panel
-                  style={{ overflow: 'hidden' }}
-                  header={
-                    <Row gutter={40} style={{ overflow: 'hidden' }}>
-                      <Col>
-                        <div className="veh-inspection-verification_text">Interior items</div>
-                      </Col>
-                      <Col></Col>
-                      <Col></Col>
-                    </Row>
-                  }
-                  key="2"
-                  extra={genExtra}
-                >
-                  <div className="veh-inspection-cards_container">
-                    {vehicleInstructions?.interiorItems.map((item, index) => (
-                      <div key={index} className="veh-inspection-first_card">
-                        <InspectionCard
-                          deleteFile={deleteFile}
-                          groupType="interiorItems"
-                          item={item}
-                          handleModal={handleModal}
-                          category={item.id}
-                          title={item.title}
-                          titletwo={item.type}
-                          type={item.type}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <NextStepButton />
-                </Panel>
-                <Panel
-                  style={{ overflow: 'hidden' }}
-                  header={
-                    <Row gutter={40} style={{ overflow: 'hidden' }}>
-                      <Col>
-                        <div className="veh-inspection-verification_text">Exterior items</div>
-                      </Col>
-                      <Col></Col>
-                      <Col></Col>
-                    </Row>
-                  }
-                  key="3"
-                  extra={genExtra}
-                >
-                  <div className="veh-inspection-cards_container">
-                    {vehicleInstructions?.exteriorItems?.map((item, index) => (
-                      <div key={index} className="veh-inspection-first_card">
-                        <InspectionCard
-                          deleteFile={deleteFile}
-                          groupType="exteriorItems"
-                          item={item}
-                          handleModal={handleModal}
-                          category={item.id}
-                          title={item.title}
-                          titletwo={item.type}
-                          type={item.type}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <NextStepButton />
-                </Panel>
-                <Panel
-                  style={{ overflow: 'hidden' }}
-                  header={
-                    <Row gutter={40} style={{ overflow: 'hidden' }}>
-                      <Col>
-                        <div className="veh-inspection-verification_text">Tires</div>
-                      </Col>
-                      <Col></Col>
-                      <Col></Col>
-                    </Row>
-                  }
-                  key="4"
-                  extra={genExtra}
-                >
-                  <div className="veh-inspection-cards_container">
-                    {vehicleInstructions?.tires?.map((item, index) => (
-                      <div key={index} className="veh-inspection-first_card">
-                        <InspectionCard
-                          deleteFile={deleteFile}
-                          groupType="tires"
-                          item={item}
-                          handleModal={handleModal}
-                          category={item.id}
-                          title={item.title}
-                          titletwo={item.type}
-                          type={item.type}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <NextStepButton />
+                  <NextStepButton title="Download vehicle report" />
                 </Panel>
               </Collapse>
-              <div className="vec-inspection-submitbtn_container">
-                <button
-                  onClick={() => handleSurveyModal(true)}
-                  className="vec-inspection-submit_button"
-                >
-                  Submit
-                </button>
-              </div>
             </ContentFooterareaVehicleinspection>
             <InstructionModal
               isLoading={isLoading}

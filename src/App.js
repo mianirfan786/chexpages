@@ -17,7 +17,9 @@ import {
   ConfirmEmailContainer,
   VehicleInspectionContainer,
   TranscationContainer,
+  VehicleStatusContainer,
   ThankyouContainer,
+  VehicleDetailContainer,
 } from './Containers';
 import './App.css';
 
@@ -26,17 +28,64 @@ function App(props) {
   let isAuthenticated = currentUser ? true : false;
   return (
     <Switch>
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleinspection" component={VehicleInspectionContainer} />
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/transcationScreen" component={TranscationContainer} />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/vehicleinspection"
+        component={VehicleInspectionContainer}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/transcationScreen"
+        component={TranscationContainer}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/VehicleDetail"
+        component={VehicleDetailContainer}
+      />
       <Route path="/thankyouScreen" component={ThankyouContainer} />
       <Route path="/transcationScreen" component={TranscationContainer} />
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/register" component={SignUpContainer} />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/register"
+        component={SignUpContainer}
+      />
       <Route path="/confirmEmail" component={ConfirmEmailContainer} />
       <Route path="/forgotpassword" component={ForgotPasswordContainer} />
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/login" component={LoginContainer} />
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/resetpassword" component={ResetPasswordContainer} />
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/verifyEmail" component={VerifyEmailContainer} />
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/" component={IntroContainer} />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/login"
+        component={LoginContainer}
+      />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/resetpassword"
+        component={ResetPasswordContainer}
+      />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/verifyEmail"
+        component={VerifyEmailContainer}
+      />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/"
+        component={IntroContainer}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/VehicleStatus"
+        component={VehicleStatusContainer}
+      />
     </Switch>
   );
 }
