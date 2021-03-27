@@ -1,10 +1,10 @@
 /* eslint-disable */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useStripe, useElements, CardNumberElement } from '@stripe/react-stripe-js';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
 import ActionCreators from '../../actions';
@@ -14,9 +14,10 @@ import { setCompanies } from '../../utils/functions';
 const TranscationContainer = (props) => {
   const stripe = useStripe();
   const elements = useElements();
-  //   const history = useHistory();
+  const history = useHistory();
   const { addToast } = useToasts();
 
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async () => {
     if (!stripe || !elements) {
       return;
@@ -29,13 +30,12 @@ const TranscationContainer = (props) => {
       // toast(result.error.message, { type: 'error' });
       // setDisableButton(false);
     } else {
-      console.log(result);
       // setDisableButton(true);
-      startPayment({ source: result.token.id, vehicleId: vehicleData.id });
+      startPayment({ source: result.token.id, vehicleId: vehicleData.id }, addToast, setLoading, history);
     }
     // setDisableButton(false);
   };
-  return <TranscationScreen handleSubmit={handleSubmit} />;
+  return <TranscationScreen loading={loading} handleSubmit={handleSubmit} />;
 };
 
 function mapDispatchToProps(dispatch) {
