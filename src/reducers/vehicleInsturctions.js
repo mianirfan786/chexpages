@@ -12,7 +12,7 @@ const initialState = {
       fileId: null,
       groupType: 'carVerificiationItems',
       steps: ['Please upload a photo of a valid registration card clearly showing the car VIN number, car details, vehicle license plate.'],
-      image: '/images/Photo1Exterior Left.png',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616833517/chex-instruction/Rectangle-137_mcgwgg.jpg',
       // video: '/images/Clip 1 - Front.mov',
       loading: false,
     },
@@ -40,7 +40,7 @@ const initialState = {
       groupType: 'interiorItems',
       steps: ['Please record a 3 second video clip of honking horn with a clear sound.'],
       // image: '/images/Photo1Exterior Left.png',
-      video: '/images/Clip 1 - Front.mov',
+      video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616833287/chex-instruction/horn_y7giyp.mp4',
       loading: false,
     },
     {

@@ -2,19 +2,24 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const MainContainer = styled.div`
+  background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
+  position: absolute;
+  height: 100%;
   width: 100%;
+  border: none;
+  background-repeat: no-repeat;
 `;
 
 export const MainDownContainer = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-  //   background: #1b68b3;
+  // background: #1b68b3;
   // background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
   // background: 'linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%)';
   background-repeat: no-repeat;
   width: 100%;
-  background-size: 205%;
+
   background-position: center top;
 
   @media screen and (max-width: 700px) {
@@ -27,6 +32,15 @@ export const MainDownContainer = styled.div`
 export const ImageBackgroundVehicleInspection = styled.div`
   background: linear-gradient(0deg, #f0f2f6, #f0f2f6), linear-gradient(0deg, #ffffff, #ffffff),
     linear-gradient(180deg, #ffffff 0%, #181c1f 0.01%, #121417 100%);
+  height: auto;
+  border: none;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 700px) {
+    background: none;
+    margin-top: 0px;
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const ContentVehicleInspectionH1 = styled.h1`
@@ -352,9 +366,9 @@ export const ContentFooterareaVehicleinspection = styled.div`
   padding: 30px 10px;
   margin-top: 30px;
   width: 30%;
+  margin-bottom: 30px;
   // height: 100vh;
-  position: absolute;
-  top: 120px;
+
   @media screen and (max-width: 700px) {
     width: 100%;
     height: 100%;
@@ -466,9 +480,9 @@ export const ArrowBackA = styled.div`
 
 export const MainBgInsertDetails = styled.div`
   background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
-  position: absolute;
+  position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   left: 0px;
   top: 0px;
 `;

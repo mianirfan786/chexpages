@@ -10,6 +10,8 @@ import { useToasts } from 'react-toast-notifications';
 import { VehicleInspectionScreen } from '../../Screens';
 import ActionCreators from '../../actions';
 
+const queryString = require('query-string');
+
 const VehicleInspectionContainer = (props) => {
   const { addToast } = useToasts();
   const history = useHistory();
@@ -31,13 +33,13 @@ const VehicleInspectionContainer = (props) => {
   const [groupType, setGroupType] = useState(null);
   const [surveyCheck, setSurveyCheck] = useState(false);
 
-  useEffect(() => {
+  const handleRequests = async () => {
     const { getVehicleFile, vehicleData, currentUser, getSurveyStatus } = props;
-    getVehicleFile(vehicleData.id);
-    getSurveyStatus(currentUser.id, setSurveyCheck);
-  }, []);
-
+    await getSurveyStatus(currentUser?.id, setSurveyCheck);
+    getVehicleFile(vehicleData?.id);
+  };
   const handleModal = (value, groupType) => {
+    console.log(value, groupType);
     setImageCategory(value.id);
     setGroupType(groupType);
     setVehicleInstruction(value);
@@ -54,6 +56,7 @@ const VehicleInspectionContainer = (props) => {
 
   const handleImageUpload = (event) => {
     var imageFile = event.target.files[0];
+    event.target.value = '';
     var options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 1920,
@@ -104,7 +107,9 @@ const VehicleInspectionContainer = (props) => {
     const { deleteVehicleFile, vehicleData } = props;
     deleteVehicleFile(vehicleData.id, id, groupType);
   };
-
+  useEffect(() => {
+    handleRequests();
+  }, []);
   return (
     <VehicleInspectionScreen
       rating={rating}

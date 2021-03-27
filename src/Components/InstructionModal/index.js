@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal } from 'antd';
 import { ClipLoader } from 'react-spinners';
+import { IoMdClose } from 'react-icons/io';
 
 import './style.css';
 import '../../App.css';
@@ -16,7 +17,7 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
         footer={null}
         onCancel={handleModalClose}
         maskClosable={true}
-        // closeIcon={}
+        closeIcon={<IoMdClose size={22} />}
         bodyStyle={{
           width: '100%',
           textAlign: 'center',
@@ -26,7 +27,9 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
         {vehicleInstructionValues?.url ? (
           vehicleInstructionValues?.type === 'Photo' ? (
             <>
-              <img alt="" style={{ width: '30%' }} src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+              <div className="modal-images">
+                <img alt="" className="modal-inside-image" src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+              </div>
             </>
           ) : (
             <>
@@ -39,7 +42,7 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
             <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
             <div style={{ marginBottom: '100px' }}>
               {vehicleInstructionValues?.type === 'Photo' ? (
-                <img alt="" style={{ width: '335px', height: '220px' }} src={vehicleInstructionValues?.image} />
+                <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
               ) : (
                 <video width="320" height="240" controls src={vehicleInstructionValues?.video} />
               )}
@@ -53,13 +56,20 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
             </div>
             <div className="input-img-container">
               <div className="image-upload">
-                <label htmlFor="file-input">
-                  <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
-                </label>
                 {vehicleInstructionValues?.type === 'Photo' ? (
-                  <input type="file" id="file-input" accept="image/*" capture onChange={(event) => handleImageUpload(event)} />
+                  <>
+                    <label htmlFor="file-input-photo">
+                      <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
+                    </label>
+                    <input type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
+                  </>
                 ) : (
-                  <input type="file" id="file-input" accept="video/*" capture onChange={(event) => handleVideoUpload(event)} />
+                  <>
+                    <label htmlFor="file-input-video">
+                      <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
+                    </label>
+                    <input type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
+                  </>
                 )}
               </div>
             </div>

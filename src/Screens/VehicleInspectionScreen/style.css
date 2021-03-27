@@ -71,3 +71,16 @@
 .ant-collapse .ant-collapse-item {
   border-bottom: 7px solid #e5e5e5 !important;
 }
+.header-width {
+  width: 100%;
+}
+
+@media only screen and (min-width: 350px) {
+  .header-width {
+    width: 30%;
+  }
+  .header-center {
+    display: flex;
+    justify-content: center;
+  }
+}
