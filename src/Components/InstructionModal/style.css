@@ -36,7 +36,7 @@
 }
 
 .instruction-modal-step {
-  margin-top: 40px;
+  margin-top: -2px;
   text-align: left;
 }
 
@@ -52,7 +52,7 @@
 .ant-modal-body {
   border-radius: 30px;
   height: 100% !important;
-  display: flex;
+  /* display: flex; */
   align-items: center;
 }
 

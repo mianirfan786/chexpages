@@ -83,7 +83,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
             </div>
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '16px' }}>
+          <div style={{ textAlign: 'center', marginTop: '-7px' }}>
             <textarea
               onChange={handleComment}
               className="server-form-textarea"
@@ -95,7 +95,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
               cols="46"
             ></textarea>
           </div>
-          <div style={{ marginTop: 20 }}>
+          <div style={{ marginTop: '8px' }}>
             <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />
           </div>
         </div>
