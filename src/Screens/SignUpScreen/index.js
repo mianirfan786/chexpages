@@ -80,7 +80,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                     },
                   ]}
                 >
-                  <Input.Password className="input-field" placeholder="Password" />
+                  <Input.Password style={{ border: 'none' }} className="input-field" placeholder="Password" />
                 </Form.Item>
                 <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
                   <Select placeholder="Select companies" mode="multiple" className="input-field" options={companies} />

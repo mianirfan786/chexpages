@@ -95,7 +95,9 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
               cols="46"
             ></textarea>
           </div>
-          <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />
+          <div style={{ marginTop: 20 }}>
+            <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />
+          </div>
         </div>
       </Modal>
     </div>

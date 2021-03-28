@@ -51,7 +51,7 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
                   },
                 ]}
               >
-                <Input.Password placeholder="Password" className="input-field" />
+                <Input.Password style={{ border: 'none' }} placeholder="Password" className="input-field" />
               </Form.Item>
               <Form.Item>
                 <Link to="/forgotpassword" className="forgot-password-link">

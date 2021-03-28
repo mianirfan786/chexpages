@@ -38,9 +38,9 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
           )
         ) : (
           <>
-            <div style={{ marginBottom: '116px', fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
+            <div style={{ fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
             <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
-            <div style={{ marginBottom: '100px' }}>
+            <div style={{ marginBottom: '10px' }}>
               {vehicleInstructionValues?.type === 'Photo' ? (
                 <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
               ) : (
