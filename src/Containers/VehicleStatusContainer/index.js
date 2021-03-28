@@ -11,12 +11,13 @@ import ActionCreators from '../../actions';
 
 const VehicleStatusContainer = (props) => {
   const [loading, setLoading] = useState(false);
+  const [vehicleLoading, setVehicleLoading] = useState(false);
   useEffect(() => {
     const { currentUser, getVehiclesStatus } = props;
     getVehiclesStatus(currentUser?.vehicles[0]?.id, setLoading);
   }, []);
 
-  return <VehicleStatusScreen loading={loading} vehicleStatus={props.vehicleStatus} />;
+  return <VehicleStatusScreen vehicleLoading={vehicleLoading} setLoading={setVehicleLoading} loading={loading} vehicleStatus={props.vehicleStatus} />;
 };
 
 function mapDispatchToProps(dispatch) {

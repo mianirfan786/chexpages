@@ -15,9 +15,10 @@ const DownloadCertifcate = (props) => {
   const history = useHistory();
 
   useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate({ id: 1, company_id: 2 });
+      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading);
     } else {
       localStorage.clear();
       window.location.reload('/login');
@@ -64,9 +65,9 @@ const DownloadCertifcate = (props) => {
                       <Col span={12}>
                         <div className="d-flex-1 flex-column">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p style={{ color: 'black' }} className="p-0 m-0">{`${props.reportData && props.reportData[0]?.name} ${
-                              props.reportData && props.reportData[0]?.last_name
-                            }`}</p>
+                            <p style={{ color: 'black' }} className="p-0 m-0">{`${props.reportData && props.reportData[0]?.name}
+                            
+                            `}</p>
                           </div>
                           <p>
                             <b>FULL NAME</b>

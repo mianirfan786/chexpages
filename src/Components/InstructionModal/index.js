@@ -11,12 +11,12 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
     <div className="instruction-modal">
       <Modal
         visible={isModalVisible}
-        closable={true}
+        closable={isLoading ? false : true}
         title={false}
         style={{ width: '100%' }}
         footer={null}
         onCancel={handleModalClose}
-        maskClosable={true}
+        maskClosable={isLoading ? false : true}
         closeIcon={<IoMdClose size={22} />}
         bodyStyle={{
           width: '100%',
@@ -33,7 +33,7 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
             </>
           ) : (
             <>
-              <video style={{ width: '30%' }} controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+              <video style={{ width: '100%', marginTop: '30px' }} controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
             </>
           )
         ) : (

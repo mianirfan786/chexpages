@@ -9,7 +9,7 @@ import { useToasts } from 'react-toast-notifications';
 
 import { VehicleInspectionScreen } from '../../Screens';
 import ActionCreators from '../../actions';
-
+import Loading from '../../HOC/index';
 const queryString = require('query-string');
 
 const VehicleInspectionContainer = (props) => {
@@ -150,4 +150,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(VehicleInspectionContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(Loading(VehicleInspectionContainer));

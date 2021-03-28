@@ -228,11 +228,22 @@ const VehicleInspectionScreen = ({
                   {/* <NextStepButton /> */}
                 </Panel>
               </Collapse>
-              <div className="vec-inspection-submitbtn_container">
-                <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
-                  Submit
-                </button>
-              </div>
+              {vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
+              vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
+              vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
+              vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
+                <div className="vec-inspection-submitbtn_container">
+                  <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
+                    Submit
+                  </button>
+                </div>
+              ) : (
+                <div className="vec-inspection-submitbtn_container">
+                  <button style={{ background: 'gray' }} disabled={true} className="vec-inspection-submit_button">
+                    Submit
+                  </button>
+                </div>
+              )}
             </ContentFooterareaVehicleinspection>
             <InstructionModal
               isLoading={isLoading}

@@ -205,15 +205,18 @@ export function getVehiclesStatus(vehicleId, setLoading) {
   };
 }
 
-export function getVehicleCertificate(params) {
+export function getVehicleCertificate(params, setLoading) {
   return (dispatch) => {
-    // setLoading(true);
+    setLoading(true);
     axios
-      .post(`${Api}/vehicle/1/files`, params, { headers })
+      .post(`${Api}/vehicle/${params.id}/files`, params, { headers })
       .then((resp) => {
+        setLoading(false);
         console.log(resp);
         dispatch(setCertificateData(resp.data));
       })
-      .catch((err) => {});
+      .catch((err) => {
+        setLoading(false);
+      });
   };
 }

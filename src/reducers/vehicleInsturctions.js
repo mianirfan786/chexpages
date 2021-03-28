@@ -42,7 +42,7 @@ const initialState = {
       loading: false,
     },
     {
-      id: 'interior_driverside',
+      id: 'interior_driver_side',
       type: 'Photo',
       title: 'Interior Driver Side',
       description: '',
@@ -54,7 +54,7 @@ const initialState = {
       loading: false,
     },
     {
-      id: 'driver_seat_adjusted',
+      id: 'driver_seat',
       type: 'Photo',
       title: 'Driver Seat Adjusted',
       groupType: 'interiorItems',
@@ -66,7 +66,7 @@ const initialState = {
       loading: false,
     },
     {
-      id: 'interior_passengerside',
+      id: 'interior_passenger_side',
       type: 'Photo',
       title: 'Interior Passenger Side',
       groupType: 'interiorItems',
@@ -78,7 +78,7 @@ const initialState = {
       loading: false,
     },
     {
-      id: 'passenger_seat_adjusted',
+      id: 'passenger_seat',
       type: 'Photo',
       title: 'Passenger seat Adjusted',
       groupType: 'interiorItems',

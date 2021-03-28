@@ -5,5 +5,5 @@ import NextStepButton from './NextStepButton/index';
 import InstructionModal from './InstructionModal/index';
 import Header from './Header/index';
 import SurveyModal from './SurveyModal/index';
-
-export { Button, Input, InspectionCard, NextStepButton, InstructionModal, Header, SurveyModal };
+import Loading from './LoadingComponent/index';
+export { Button, Input, InspectionCard, NextStepButton, InstructionModal, Header, SurveyModal, Loading };
