@@ -12,3 +12,4 @@ export const SET_TIRES = 'SET_TIRES';
 export const IS_Vehicle_LOADING = 'IS_Vehicle_LOADING';
 export const SET_DELETE_LOCAL_FILE = 'SET_DELETE_LOCAL_FILE';
 export const SET_VEHICLE_STATUS = 'SET_VEHICLE_STATUS';
+export const SET_CERTIFICATE_DATA = 'SET_CERTIFICATE_DATA';

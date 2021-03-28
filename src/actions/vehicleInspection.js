@@ -58,6 +58,13 @@ function setVehicleStatus(data) {
   };
 }
 
+function setCertificateData(data) {
+  return {
+    type: types.SET_CERTIFICATE_DATA,
+    vehicleCertificate: data,
+  };
+}
+
 export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue) {
   return (dispatch) => {
     dispatch(setVehicleLoading(true));
@@ -195,5 +202,18 @@ export function getVehiclesStatus(vehicleId, setLoading) {
       .catch((err) => {
         setLoading(false);
       });
+  };
+}
+
+export function getVehicleCertificate(params) {
+  return (dispatch) => {
+    // setLoading(true);
+    axios
+      .post(`${Api}/vehicle/1/files`, params, { headers })
+      .then((resp) => {
+        console.log(resp);
+        dispatch(setCertificateData(resp.data));
+      })
+      .catch((err) => {});
   };
 }

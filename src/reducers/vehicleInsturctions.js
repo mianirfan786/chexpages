@@ -13,7 +13,6 @@ const initialState = {
       groupType: 'carVerificiationItems',
       steps: ['Please upload a photo of a valid registration card clearly showing the car VIN number, car details, vehicle license plate.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616833517/chex-instruction/Rectangle-137_mcgwgg.jpg',
-      // video: '/images/Clip 1 - Front.mov',
       loading: false,
     },
     {
@@ -39,7 +38,6 @@ const initialState = {
       description: '',
       groupType: 'interiorItems',
       steps: ['Please record a 3 second video clip of honking horn with a clear sound.'],
-      // image: '/images/Photo1Exterior Left.png',
       video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616833287/chex-instruction/horn_y7giyp.mp4',
       loading: false,
     },
@@ -53,7 +51,6 @@ const initialState = {
       fileId: null,
       steps: ['Please take a photo of the interior of the vehicle with the left driver side door open with a clear view of the interior rearview mirror and brake pads.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590293/chex-instruction/interior_view_xxlp7t.jpg',
-      // video: '/images/Clip 2 - Rear.mov',
       loading: false,
     },
     {
@@ -295,6 +292,12 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
     return {
       ...state,
       vehicleStatus: action.vehicleStatus,
+    };
+  },
+  [types.SET_CERTIFICATE_DATA](state, action) {
+    return {
+      ...state,
+      vehicleCertificate: action.vehicleCertificate,
     };
   },
 });

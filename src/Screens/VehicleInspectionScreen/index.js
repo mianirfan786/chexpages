@@ -2,6 +2,7 @@ import React from 'react';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 import { BsCheckCircle } from 'react-icons/bs';
+
 import { InspectionCard, InstructionModal, Header, SurveyModal } from '../../Components';
 import {
   MainContainer,

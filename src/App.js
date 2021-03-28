@@ -22,12 +22,14 @@ import {
   VehicleDetailContainer,
 } from './Containers';
 import './App.css';
+import DownloadCertifcate from './Screens/Certificates/DownLoadCertificate';
 
 function App(props) {
   const { currentUser } = props;
   let isAuthenticated = currentUser ? true : false;
   return (
     <Switch>
+      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/certificate" component={DownloadCertifcate} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleStatus" component={VehicleStatusContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleinspection" component={VehicleInspectionContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/transcationScreen" component={TranscationContainer} />
