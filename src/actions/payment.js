@@ -7,19 +7,22 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-export function startPayment(params, addToast, setLoading, history) {
+export function startPayment(params, addToast, setLoading, history, setButtonDisable) {
   return (dispatch) => {
     setLoading(true);
+    setButtonDisable(true);
     axios
       .post(`${Api}/transactions/${params.vehicleId}`, params, { headers })
       .then((resp) => {
         console.log(resp);
         addToast('Transcation has been successfully made', { appearance: 'success' });
         setLoading(false);
+        setButtonDisable(false);
         history.push('/thankyouScreen');
       })
       .catch((err) => {
         setLoading(false);
+        setButtonDisable(false);
         addToast(`${err.response.data.errors}`, { appearance: 'error' });
       });
   };

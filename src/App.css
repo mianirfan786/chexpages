@@ -71,7 +71,7 @@
 
 .ant-select-selector {
   background: transparent !important;
-  border: none !important; 
+  border: none !important;
   text-align: left !important;
 }
 
@@ -88,7 +88,9 @@
   box-shadow: none !important;
   font-family: sans-serif !important;
 }
-
+.react-stars-wrapper-002155496152759251:focus {
+  border: none !important;
+}
 @media screen and (min-width: 600px) {
   .form-container {
     width: 30%;

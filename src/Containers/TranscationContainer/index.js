@@ -21,7 +21,7 @@ const TranscationContainer = (props) => {
   const [priceLoading, setPriceLoading] = useState(false);
 
   const [loading, setLoading] = useState(false);
-
+  const [buttonDisable, setButtonDisable] = useState(false);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const { getPaymentPriceInfo, vehicleData } = props;
@@ -35,19 +35,21 @@ const TranscationContainer = (props) => {
       return;
     }
     const card = elements.getElement(CardNumberElement);
+    setButtonDisable(true);
     const result = await stripe.createToken(card);
     const { vehicleData, startPayment } = props;
     if (result.error) {
       console.log(error);
+      setButtonDisable(false);
       // toast(result.error.message, { type: 'error' });
       // setDisableButton(false);
     } else {
       // setDisableButton(true);
-      startPayment({ source: result.token.id, vehicleId: vehicleData.id }, addToast, setLoading, history);
+      startPayment({ source: result.token.id, vehicleId: vehicleData.id }, addToast, setLoading, history, setButtonDisable);
     }
     // setDisableButton(false);
   };
-  return <TranscationScreen price={price} loading={loading} handleSubmit={handleSubmit} />;
+  return <TranscationScreen priceLoading={priceLoading} buttonDisable={buttonDisable} price={price} loading={loading} handleSubmit={handleSubmit} />;
 };
 
 function mapDispatchToProps(dispatch) {

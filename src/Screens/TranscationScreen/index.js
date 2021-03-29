@@ -8,7 +8,7 @@ import { Button } from '../../Components';
 import './style.css';
 import '../../App.css';
 
-const TranscationScreen = ({ handleSubmit, loading, price }) => {
+const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonDisable }) => {
   return (
     <div className="container">
       <div className="transcation-container">
@@ -20,7 +20,9 @@ const TranscationScreen = ({ handleSubmit, loading, price }) => {
           <div></div>
         </div>
         <div className="transaction-payment">
-          {price?.USD ? (
+          {priceLoading ? (
+            <div>Loading..</div>
+          ) : price?.USD ? (
             <>
               ${`${price?.USD}`.split('.')[0]}
               <span className="transaction-amount"> .{`${price?.USD}`.split('.')[1]}</span>
@@ -111,7 +113,7 @@ const TranscationScreen = ({ handleSubmit, loading, price }) => {
               </div>
             </div>
           </div>
-          <Button loading={loading} title={'Submit'} onClickButton={handleSubmit} />
+          <Button loading={loading} title={'Submit'} disabled={buttonDisable} onClickButton={handleSubmit} />
           <div></div>
         </div>
       </div>

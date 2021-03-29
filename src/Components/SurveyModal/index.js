@@ -1,11 +1,12 @@
 import React from 'react';
 import { Modal } from 'antd';
-import StarRatings from 'react-star-ratings';
+import ReactStars from 'react-rating-stars-component';
 
 import Button from '../Button/index';
 
 import './style.css';
 import '../../App.css';
+import { Link } from 'react-router-dom';
 
 const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRating, handleCheckBox, handleComment, handleSubmitSurvey, surveyModalLoading }) => {
   return (
@@ -35,7 +36,19 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
             How would you rate Chex<span className="server-form-title">.AI</span> app
           </div>
           <div className="server-form-rating-stars">
-            <StarRatings rating={rating} starRatedColor="#FF7A00" changeRating={changeRating} starWidthAndHeight="20px" numberOfStars={5} name="rating" starHoverColor="#cecece" />
+            {/* <StarRatings
+              starHoverColor="#FF7A00"
+              rating={rating}
+              starSelectingHoverColor="#FF7A00"
+              starRatedColor="#FF7A00"
+              changeRating={changeRating}
+              starWidthAndHeight="20px"
+              numberOfStars={5}
+              name="rating"
+              starHoverColor="#cecece"
+            /> */}
+
+            <ReactStars count={5} onChange={changeRating} size={24} activeColor="#ffd700" />
           </div>
           <div className="server-form-question">Which platform would you prefer for vehicle inspections?</div>
 
@@ -89,7 +102,9 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
           </div>
           <div style={{ marginTop: '8px' }}>
             <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />
-            <div className="survey-modal-link">Skip and pay full amount</div>
+            <div className="survey-modal-link">
+              <Link to="/transcationScreen">Skip and pay full amount</Link>
+            </div>
           </div>
         </div>
       </Modal>
