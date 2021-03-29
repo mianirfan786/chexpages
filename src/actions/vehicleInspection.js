@@ -65,14 +65,16 @@ function setCertificateData(data) {
   };
 }
 
-export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue) {
+export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue, imageUploadingProgress) {
   return (dispatch) => {
     dispatch(setVehicleLoading(true));
     axios
-      .post(`${Api}/file/upload`, params, { headers })
+      .post(`${Api}/file/upload`, params, {
+        headers,
+      })
       .then((resp) => {
         const { key, url } = resp.data;
-        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type, groupType, setModalValue));
+        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type, groupType, setModalValue, imageUploadingProgress));
       })
       .catch((err) => {
         console.log(err);
@@ -80,13 +82,16 @@ export function uploadFile(file, params, vehicle_id, category, groupType, setMod
   };
 }
 
-export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, groupType, setModalValue) {
+export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, groupType, setModalValue, imageUploadingProgress) {
   return (dispatch) => {
     const headers = {
       'Content-Type': 'img/png',
     };
     axios
-      .put(`${uploadUrl}`, file, { headers })
+      .put(`${uploadUrl}`, file, {
+        headers,
+        onUploadProgress: imageUploadingProgress,
+      })
       .then((resp) => {
         const params = { url: key, vehicle_id, category, ext: ext, group_type: groupType };
         dispatch(addFileInDB(params, setModalValue));

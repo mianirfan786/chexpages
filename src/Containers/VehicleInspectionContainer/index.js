@@ -21,6 +21,7 @@ const VehicleInspectionContainer = (props) => {
   const [isSurveyModalVisible, setSurveyModal] = useState(false);
   const [isDeleteModal, setDeleteModal] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
+  const [uploadingPercentage, setuploadingPercentage] = useState(0);
   const [fileToBeDeleted, setDeletingFile] = useState(null);
   const [imageCategory, setImageCategory] = useState(null);
   const [rating, setNewRating] = useState(0);
@@ -76,15 +77,17 @@ const VehicleInspectionContainer = (props) => {
     imageCompression(imageFile, options)
       .then(function (compressedFile) {
         const { uploadFile, vehicleData } = props;
-        uploadFile(compressedFile, { type: compressedFile.type }, vehicleData.id, imageCategory, groupType, setModalValue);
+        uploadFile(compressedFile, { type: compressedFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
       })
       .catch(function (error) {});
   };
 
   const handleVideoUpload = (event) => {
     var videoFile = event.target.files[0];
+    event.target.value = '';
+
     const { uploadFile, vehicleData } = props;
-    uploadFile(videoFile, { type: videoFile.type }, vehicleData.id, imageCategory, groupType, setModalValue);
+    uploadFile(videoFile, { type: videoFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
   };
 
   const handleSurveyModal = (value) => {
@@ -128,6 +131,12 @@ const VehicleInspectionContainer = (props) => {
     setDeleteModal(!isDeleteModal);
   };
 
+  const imageUploadingProgress = (progressEvent) => {
+    const { loaded, total } = progressEvent;
+    let percent = Math.floor(loaded * 100) / total;
+    setuploadingPercentage(percent);
+  };
+
   return (
     <VehicleInspectionScreen
       rating={rating}
@@ -139,6 +148,7 @@ const VehicleInspectionContainer = (props) => {
       isDeleteModal={isDeleteModal}
       deleteLoading={deleteLoading}
       surveyModalLoading={surveyModalLoading}
+      uploadingPercentage={uploadingPercentage}
       handleImageUpload={handleImageUpload}
       handleModal={handleModal}
       deleteFile={deleteFile}

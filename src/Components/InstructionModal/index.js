@@ -6,7 +6,7 @@ import { IoMdClose } from 'react-icons/io';
 import './style.css';
 import '../../App.css';
 
-const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible, handleImageUpload, handleVideoUpload, handleModalClose }) => {
+const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionValues, isModalVisible, handleImageUpload, handleVideoUpload, handleModalClose }) => {
   return (
     <div className="instruction-modal">
       <Modal
@@ -59,20 +59,16 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
                 {vehicleInstructionValues?.type === 'Photo' ? (
                   <>
                     <label htmlFor="file-input-photo">
-                      <div disabled={isLoading ? true : false} className="button-wrapper">
-                        {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}
-                      </div>
+                      <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
                     </label>
-                    <input type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
+                    <input disabled={isLoading ? true : false} type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
                   </>
                 ) : (
                   <>
                     <label htmlFor="file-input-video">
-                      <div disabled={isLoading ? true : false} className="button-wrapper">
-                        {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}
-                      </div>
+                      <div className="button-wrapper">{isLoading ? `${parseInt(uploadingPercentage)}%` : 'Next'}</div>
                     </label>
-                    <input type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
+                    <input disabled={isLoading ? true : false} type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
                   </>
                 )}
               </div>

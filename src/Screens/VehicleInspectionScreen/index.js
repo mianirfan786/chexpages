@@ -42,6 +42,7 @@ const VehicleInspectionScreen = ({
   isDeleteModal,
   setDeleteModal,
   deleteLoading,
+  uploadingPercentage,
 }) => {
   const genExtra = () => (
     <UpCircleOutlined
@@ -256,6 +257,7 @@ const VehicleInspectionScreen = ({
               handleImageUpload={handleImageUpload}
               isModalVisible={isModalVisible}
               handleModalClose={handleModalClose}
+              uploadingPercentage={uploadingPercentage}
             />
             <SurveyModal
               changeRating={changeRating}
