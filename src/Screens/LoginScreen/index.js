@@ -63,6 +63,11 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
                   {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Sign in'}
                 </Button>
               </Form.Item>
+              <Form.Item>
+                <Link to="/register" style={{ color: 'white', marginTop: '10px' }}>
+                  Don't have an account? Register
+                </Link>
+              </Form.Item>
             </Form>
           </div>
           <div style={{ height: '100px' }} />

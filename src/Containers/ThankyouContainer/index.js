@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
@@ -11,6 +11,12 @@ import { ThankyouScreen } from '../../Screens';
 const ThankyouContainer = () => {
   const history = useHistory();
 
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user?.updates) {
+      window.location.replace('/logoutForChanges');
+    }
+  });
   const handleNext = () => {
     history.push('/vehicleStatus');
   };

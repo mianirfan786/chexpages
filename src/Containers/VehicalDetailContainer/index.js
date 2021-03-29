@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useStripe, useElements, CardNumberElement } from '@stripe/react-stripe-js';
@@ -18,6 +18,12 @@ const VehicleDetailContainer = (props) => {
   //   const history = useHistory();
   const { addToast } = useToasts();
 
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user?.updates || user?.updates === null || user?.updates === undefined) {
+      window.location.replace('/logoutForChanges');
+    }
+  });
   const handleSubmit = async () => {
     if (!stripe || !elements) {
       return;

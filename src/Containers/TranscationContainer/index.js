@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useStripe, useElements, CardNumberElement } from '@stripe/react-stripe-js';
@@ -18,6 +18,13 @@ const TranscationContainer = (props) => {
   const { addToast } = useToasts();
 
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user?.updates || user?.updates === null || user?.updates === undefined) {
+      window.location.replace('/logoutForChanges');
+    }
+  });
   const handleSubmit = async () => {
     if (!stripe || !elements) {
       return;
