@@ -24,3 +24,18 @@ export function startPayment(params, addToast, setLoading, history) {
       });
   };
 }
+
+export function getPaymentPriceInfo(vehicleId, setPrice, setPriceLoading) {
+  return (dispatch) => {
+    setPriceLoading(true);
+    axios
+      .get(`${Api}/transactions/user/price/${vehicleId}`, { headers })
+      .then((resp) => {
+        setPriceLoading(false);
+        setPrice(resp.data);
+      })
+      .catch((err) => {
+        setPriceLoading(false);
+      });
+  };
+}

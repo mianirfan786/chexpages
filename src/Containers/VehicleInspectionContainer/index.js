@@ -60,6 +60,8 @@ const VehicleInspectionContainer = (props) => {
 
   const handleModalClose = () => {
     setModalValue(false);
+    var video = document.getElementById('myVideo');
+    video?.pause();
   };
 
   const changeRating = (newRating, name) => {
@@ -117,8 +119,7 @@ const VehicleInspectionContainer = (props) => {
       comment: comment,
       rating: rating,
     };
-    await submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading);
-    history.push('/transcationScreen');
+    await submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading, history);
   };
 
   const deleteFile = () => {

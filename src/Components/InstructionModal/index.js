@@ -33,7 +33,15 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
             </>
           ) : (
             <>
-              <video style={{ width: '100%', marginTop: '30px' }} controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+              <video
+                id="myVideo"
+                autoPlay={false}
+                style={{ width: '100%', marginTop: '30px' }}
+                controls
+                src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}
+              >
+                video is too large to load
+              </video>
             </>
           )
         ) : (
@@ -44,7 +52,9 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
               {vehicleInstructionValues?.type === 'Photo' ? (
                 <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
               ) : (
-                <video width="320" height="240" controls src={vehicleInstructionValues?.video} />
+                <video id="myVideo" autoPlay={false} width="320" height="240" controls src={vehicleInstructionValues?.video}>
+                  video is too large to load
+                </video>
               )}
               <div style={{ color: 'white' }}>
                 {vehicleInstructionValues?.steps.map((step, index) => (

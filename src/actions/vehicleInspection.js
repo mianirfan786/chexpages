@@ -151,7 +151,7 @@ export function getVehicleFile(vehicleId, setModalValue) {
   };
 }
 
-export function submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading) {
+export function submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading, history) {
   return (dispatch) => {
     setSurveyModalLoading(true);
     axios
@@ -160,6 +160,7 @@ export function submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoa
         addToast(`You survey has been submitted successfully`, { appearance: 'success' });
         setSurveyModal(false);
         setSurveyModalLoading(false);
+        history.push('/transcationScreen');
       })
       .catch((err) => {
         setSurveyModalLoading(false);

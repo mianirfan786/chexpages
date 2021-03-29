@@ -22,7 +22,7 @@ const InspectionCard = ({ title, titletwo, handleModal, type, category, item, gr
             //   width={120}
             //   height={80}
             // />
-            <video className="inspection-image" src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}`} />
+            <video autoPlay={false} className="inspection-image" src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}`} />
           )
         ) : (
           <div className="vec-inspection-inspection_card">
@@ -39,7 +39,7 @@ const InspectionCard = ({ title, titletwo, handleModal, type, category, item, gr
         <p className="veh-inspection-registrationcard_text">{title}</p>
         {item.url ? (
           <div style={{ marginLeft: '8px', marginTop: '10px' }} onClick={() => deleteFile(item.groupType, item.fileId)}>
-            <AiFillDelete color="#d92f2f" size={20} />
+            <AiFillDelete color="#C84A03" size={20} />
           </div>
         ) : null}
       </div>

@@ -17,14 +17,19 @@ const TranscationContainer = (props) => {
   const history = useHistory();
   const { addToast } = useToasts();
 
+  const [price, setPrice] = useState(false);
+  const [priceLoading, setPriceLoading] = useState(false);
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
+    const { getPaymentPriceInfo, vehicleData } = props;
     if (user?.updates || user?.updates === null || user?.updates === undefined) {
       window.location.replace('/logoutForChanges');
     }
-  });
+    getPaymentPriceInfo(user?.vehicles[0]?.id, setPrice, setPriceLoading);
+  }, []);
   const handleSubmit = async () => {
     if (!stripe || !elements) {
       return;
@@ -42,7 +47,7 @@ const TranscationContainer = (props) => {
     }
     // setDisableButton(false);
   };
-  return <TranscationScreen loading={loading} handleSubmit={handleSubmit} />;
+  return <TranscationScreen price={price} loading={loading} handleSubmit={handleSubmit} />;
 };
 
 function mapDispatchToProps(dispatch) {
