@@ -69,16 +69,29 @@
 }
 
 .ant-modal-body {
-  border-radius: 30px;
+  border-radius: 30px; 
   height: 100% !important;
   display: flex !important;
   align-items: center !important;
   flex-direction: column !important;
 }
 .modal-inside-image {
+  height: 80% !important;
+  width: 40% !important;
   display: flex;
   flex-direction: column;
 }
+@media only screen and (max-width: 600px) {
+  .modal-inside-image {
+    width: 60% !important;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .modal-inside-image {
+    width: 90% !important;
+  }
+}
+
 .ant-modal-wrap > div {
   width: 100% !important;
   height: 100% !important;
@@ -107,9 +120,9 @@ color: black !important;
 .modal-images { 
   width: 100%;
   height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .instruction-moadl-video {

@@ -29,7 +29,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
           background: '#266FB7',
         }}
       >
-        {vehicleInstructionValues?.url ? (
+        {vehicleInstructionValues?.url ? ( 
           vehicleInstructionValues?.type === 'Photo' ? (
             <>
               <div className="modal-images">
