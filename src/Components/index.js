@@ -6,4 +6,5 @@ import InstructionModal from './InstructionModal/index';
 import Header from './Header/index';
 import SurveyModal from './SurveyModal/index';
 import Loading from './LoadingComponent/index';
-export { Button, Input, InspectionCard, NextStepButton, InstructionModal, Header, SurveyModal, Loading };
+import ConfimrationModal from './ConfirmationModal/index';
+export { Button, Input, InspectionCard, NextStepButton, InstructionModal, Header, SurveyModal, Loading, ConfimrationModal };

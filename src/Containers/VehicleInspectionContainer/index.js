@@ -1,16 +1,17 @@
 /* eslint-disable */
 
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import imageCompression from 'browser-image-compression';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
-import { VehicleInspectionScreen } from '../../Screens';
 import ActionCreators from '../../actions';
 import Loading from '../../HOC/index';
-const queryString = require('query-string');
+import { VehicleInspectionScreen } from '../../Screens';
+
+// const queryString = require('query-string');
 
 const VehicleInspectionContainer = (props) => {
   const { addToast } = useToasts();
@@ -18,6 +19,9 @@ const VehicleInspectionContainer = (props) => {
 
   const [isModalVisible, setModalValue] = useState(false);
   const [isSurveyModalVisible, setSurveyModal] = useState(false);
+  const [isDeleteModal, setDeleteModal] = useState(false);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [fileToBeDeleted, setDeletingFile] = useState(null);
   const [imageCategory, setImageCategory] = useState(null);
   const [rating, setNewRating] = useState(0);
   const [comment, setComment] = useState('');
@@ -44,6 +48,7 @@ const VehicleInspectionContainer = (props) => {
     getSurveyStatus(currentUser?.id, setSurveyCheck);
     getVehicleFile(currentUser?.vehicles[0]?.id);
   };
+
   const handleModal = (value, groupType) => {
     console.log(value, groupType);
     setImageCategory(value.id);
@@ -113,9 +118,14 @@ const VehicleInspectionContainer = (props) => {
     history.push('/transcationScreen');
   };
 
-  const deleteFile = (groupType, id) => {
+  const deleteFile = () => {
     const { deleteVehicleFile, vehicleData } = props;
-    deleteVehicleFile(vehicleData.id, id, groupType);
+    deleteVehicleFile(vehicleData.id, fileToBeDeleted?.id, fileToBeDeleted?.groupType, setDeleteLoading, setDeleteModal);
+  };
+
+  const handleDeleteModal = (groupType, id) => {
+    setDeletingFile({ groupType, id });
+    setDeleteModal(!isDeleteModal);
   };
 
   return (
@@ -126,16 +136,20 @@ const VehicleInspectionContainer = (props) => {
       isModalVisible={isModalVisible}
       isSurveyModalVisible={isSurveyModalVisible}
       isLoading={props.isLoading}
+      isDeleteModal={isDeleteModal}
+      deleteLoading={deleteLoading}
       surveyModalLoading={surveyModalLoading}
       handleImageUpload={handleImageUpload}
       handleModal={handleModal}
       deleteFile={deleteFile}
+      handleDeleteModal={handleDeleteModal}
       handleModalClose={handleModalClose}
       handleVideoUpload={handleVideoUpload}
       handleSurveyModal={handleSurveyModal}
       changeRating={changeRating}
       handleCheckBox={handleCheckBox}
       handleComment={handleComment}
+      setDeleteModal={setDeleteModal}
       handleSubmitSurvey={handleSubmitSurvey}
     />
   );

@@ -3,7 +3,7 @@ import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 import { BsCheckCircle } from 'react-icons/bs';
 
-import { InspectionCard, InstructionModal, Header, SurveyModal } from '../../Components';
+import { InspectionCard, InstructionModal, Header, SurveyModal, ConfimrationModal } from '../../Components';
 import {
   MainContainer,
   MainDownContainer,
@@ -37,7 +37,11 @@ const VehicleInspectionScreen = ({
   handleComment,
   handleSubmitSurvey,
   deleteFile,
+  handleDeleteModal,
   surveyModalLoading,
+  isDeleteModal,
+  setDeleteModal,
+  deleteLoading,
 }) => {
   const genExtra = () => (
     <UpCircleOutlined
@@ -110,7 +114,7 @@ const VehicleInspectionScreen = ({
                           title={item.title}
                           titletwo={item.type}
                           type={item.type}
-                          deleteFile={deleteFile}
+                          deleteFile={handleDeleteModal}
                         />
                       </div>
                     ))}
@@ -141,7 +145,7 @@ const VehicleInspectionScreen = ({
                     {vehicleInstructions?.interiorItems.map((item, index) => (
                       <div key={index} className="veh-inspection-first_card">
                         <InspectionCard
-                          deleteFile={deleteFile}
+                          deleteFile={handleDeleteModal}
                           groupType="interiorItems"
                           item={item}
                           handleModal={handleModal}
@@ -179,7 +183,7 @@ const VehicleInspectionScreen = ({
                     {vehicleInstructions?.exteriorItems?.map((item, index) => (
                       <div key={index} className="veh-inspection-first_card">
                         <InspectionCard
-                          deleteFile={deleteFile}
+                          deleteFile={handleDeleteModal}
                           groupType="exteriorItems"
                           item={item}
                           handleModal={handleModal}
@@ -213,7 +217,7 @@ const VehicleInspectionScreen = ({
                     {vehicleInstructions?.tires?.map((item, index) => (
                       <div key={index} className="veh-inspection-first_card">
                         <InspectionCard
-                          deleteFile={deleteFile}
+                          deleteFile={handleDeleteModal}
                           groupType="tires"
                           item={item}
                           handleModal={handleModal}
@@ -263,6 +267,7 @@ const VehicleInspectionScreen = ({
               handleSubmitSurvey={handleSubmitSurvey}
               surveyModalLoading={surveyModalLoading}
             />
+            <ConfimrationModal loading={deleteLoading} handleModal={setDeleteModal} onClickYes={deleteFile} isVisible={isDeleteModal} />
           </MainDownContainer>
         </MainBgInsertDetails>
       </ImageBackgroundVehicleInspection>

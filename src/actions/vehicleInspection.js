@@ -178,14 +178,19 @@ export function getSurveyStatus(id, setSurveyCheck) {
   };
 }
 
-export function deleteVehicleFile(vehicleId, fileId, groupType) {
+export function deleteVehicleFile(vehicleId, fileId, groupType, deleteVehicleFile, setDeleteModal) {
   return (dispatch) => {
+    deleteVehicleFile(true);
     axios
       .delete(`${Api}/files/${vehicleId}/${fileId}`, { headers })
       .then((resp) => {
         dispatch(setDeleteLocalFile({ fileId, groupType }));
+        setDeleteModal(false);
+        deleteVehicleFile(false);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        deleteVehicleFile(false);
+      });
   };
 }
 
