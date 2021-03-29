@@ -21,7 +21,15 @@ const VehicleStatusContainer = (props) => {
     getVehiclesStatus(currentUser?.vehicles[0]?.id, setLoading);
   }, []);
 
-  return <VehicleStatusScreen vehicleLoading={vehicleLoading} setLoading={setVehicleLoading} loading={loading} vehicleStatus={props.vehicleStatus} />;
+  return (
+    <VehicleStatusScreen
+      vehicleStatuss={props.vehicleStatuss}
+      vehicleLoading={vehicleLoading}
+      setLoading={setVehicleLoading}
+      loading={loading}
+      vehicleStatus={props.vehicleStatus}
+    />
+  );
 };
 
 function mapDispatchToProps(dispatch) {

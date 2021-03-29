@@ -28,7 +28,7 @@ import './style.css';
 const { Panel } = Collapse;
 const refs = React.createRef();
 
-const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoading }) => {
+const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoading, vehicleStatuss }) => {
   const genExtra = () => (
     <UpCircleOutlined
       onClick={(event) => {
@@ -88,26 +88,31 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                       key={index + 1}
                       extra={genExtra}
                     >
-                      <Pdf
-                        targetRef={refs}
-                        // options={options}
-                        x={15.99}
-                        // y={-7.5}  
-                        scale={0.55}
-                        filename={`Report of Vehicle ${vehicle?.id}.pdf`}
-                      >
-                        {({ toPdf }) => (
-                          <>
-                            {vehicleLoading ? (
-                              <div style={{ textAlign: 'center' }}>
-                                <ClipLoader color={'#246DB5'} size={40} />
-                              </div>
-                            ) : (
-                              <NextStepButton onClickButton={toPdf} title="Download vehicle report" />
-                            )}
-                          </>
-                        )}
-                      </Pdf>
+                      {vehicleStatuss === 'REVIEWED' ? (
+                        <Pdf
+                          targetRef={refs}
+                          // options={options}
+                          x={15.99}
+                          // y={-7.5}
+                          scale={0.55}
+                          filename={`Report of Vehicle ${vehicle?.id}.pdf`}
+                        >
+                          {({ toPdf }) => (
+                            <>
+                              {vehicleLoading ? (
+                                <div style={{ textAlign: 'center' }}>
+                                  <ClipLoader color={'#246DB5'} size={40} />
+                                </div>
+                              ) : (
+                                <NextStepButton onClickButton={toPdf} title="Download vehicle report" />
+                              )}
+                            </>
+                          )}
+                        </Pdf>
+                      ) : (
+                        'Vehicle is not yet Reviewed'
+                      )}
+
                       <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} />
                     </Panel>
                   ))}
