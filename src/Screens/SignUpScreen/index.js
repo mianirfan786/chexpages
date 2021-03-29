@@ -29,7 +29,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                   remember: true,
                 }}
                 onFinish={handleSubmit}
-                // onFinishFailed={onFinishFailed}
+              // onFinishFailed={onFinishFailed}
               >
                 <Form.Item
                   name="name"
@@ -71,6 +71,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                 >
                   <Input className="input-field" placeholder="Phone number" />
                 </Form.Item>
+
                 <Form.Item
                   name="password"
                   className="form-item-style"
@@ -83,9 +84,13 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                 >
                   <Input.Password style={{ border: 'none' }} className="input-field" placeholder="Password" />
                 </Form.Item>
+
+
                 <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
                   <Select placeholder="Select companies" mode="multiple" className="input-field" options={companies} />
                 </Form.Item>
+
+
                 <Form.Item>
                   <Button disabled={isLoading ? true : false} className="button-wrapper" htmlType="submit">
                     {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Register'}

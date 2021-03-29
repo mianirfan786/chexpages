@@ -26,7 +26,7 @@ import { LogoutForChanges } from '../src/Screens';
 import './App.css';
 
 function App(props) {
-  const { currentUser } = props;
+  const { currentUser } = props; 
   let isAuthenticated = currentUser ? true : false;
   return (
     <Switch>

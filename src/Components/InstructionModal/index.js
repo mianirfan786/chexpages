@@ -13,15 +13,17 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
         visible={isModalVisible}
         closable={isLoading ? false : true}
         title={false}
-        style={{ width: '100%' }}
+        style={{ width: '100%' }} 
+        wrapClassName="instruction-modalls"
         footer={null}
         onCancel={handleModalClose}
         maskClosable={isLoading ? false : true}
         closeIcon={<IoMdClose size={22} />}
+        maskStyle={{backgroundColor: '#266FB7'}}
         bodyStyle={{
           width: '100%',
-          textAlign: 'center',
-          background: 'linear-gradient(0deg,rgba(27,104,179,0.6) 0%,#1b68b3 99.97%)',
+          textAlign: 'center', 
+          background: '#266FB7',
         }}
       >
         {vehicleInstructionValues?.url ? (
@@ -33,7 +35,9 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
             </>
           ) : (
             <>
-              <video style={{ width: '100%', marginTop: '30px' }} controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+            <div className="video-container">
+              <video className="modal-video" controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+              </div>
             </>
           )
         ) : (
@@ -46,7 +50,7 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
               ) : (
                 <video width="320" height="240" controls src={vehicleInstructionValues?.video} />
               )}
-              <div style={{ color: 'white' }}>
+              <div style={{ color: 'white', width: '60%', margin: 'auto' }}>
                 {vehicleInstructionValues?.steps.map((step, index) => (
                   <ul key={index}>
                     <li className="instruction-modal-step">{step}</li>

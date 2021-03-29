@@ -13,7 +13,7 @@ import {
   ContentFooterareaVehicleinspection,
   MainBgInsertDetails,
   MobileViewWarningContainer,
-  MobileViewWarning,
+  MobileViewWarning, 
   BoldSpan,
 } from './style.js';
 import './style.css';
@@ -46,6 +46,7 @@ const VehicleInspectionScreen = ({
       }}
     />
   );
+  
 
   return (
     <MainContainer>
@@ -253,6 +254,7 @@ const VehicleInspectionScreen = ({
               isModalVisible={isModalVisible}
               handleModalClose={handleModalClose}
             />
+       
             <SurveyModal
               changeRating={changeRating}
               rating={rating}
@@ -263,6 +265,7 @@ const VehicleInspectionScreen = ({
               handleSubmitSurvey={handleSubmitSurvey}
               surveyModalLoading={surveyModalLoading}
             />
+ 
           </MainDownContainer>
         </MainBgInsertDetails>
       </ImageBackgroundVehicleInspection>

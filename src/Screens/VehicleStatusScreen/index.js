@@ -92,7 +92,7 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                         targetRef={refs}
                         // options={options}
                         x={15.99}
-                        // y={-7.5}
+                        // y={-7.5}  
                         scale={0.55}
                         filename={`Report of Vehicle ${vehicle?.id}.pdf`}
                       >

@@ -3,15 +3,14 @@
   position: absolute;
   background: url('../../Assets/bg_img.png');
   height: 100%;
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center top;
 }
 
 .login-image-background-signin {
   position: relative;
   width: 100%;
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
 }
 
 .login-main-bg-signin {
@@ -65,14 +64,14 @@ a {
   text-align: center;
   width: 100%;
   margin: 30px auto;
-  margin-top: 70px;
+  margin-top: 70px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0 20px;
 }
-
+ 
 .forgot-password-link {
   color: white;
   font-size: 15px;
@@ -81,7 +80,7 @@ a {
 
 .login-form-heading {
   font-style: normal;
-  font-weight: 600;
+  font-weight: 600; 
   font-size: 24px;
   line-height: 36px;
   text-align: center;
@@ -93,5 +92,18 @@ a {
   .login-image-background-signin {
     background-size: cover;
     background-position: center center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ant-form-item-control-input {
+    margin: auto !important;
+    width: 500px !important;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .ant-form-item-control-input {
+    margin: none !important;
+    width: 100% !important;
   }
 }
