@@ -2,14 +2,14 @@
   width: 100%;
 }
 .server-form-heading {
-  margin-top: -22px;
+  margin-top: 50px;
   color: #414b55;
   font-size: 26px;
   font-weight: bold;
   text-align: center;
 }
 .server-form-price {
-  font-size: 26px;
+  font-size: 26px; 
   color: #ff7a00;
   font-weight: bold;
 }
@@ -112,6 +112,17 @@
   font-size: 18px;
   padding: 10px;
 }
+.ant-modal-body {
+  padding: 0px !important;
+}
+
+.survey-modal .ant-modal-content{
+  border-radius: 0px !important;
+}
+.modal-styling .ant-modal-content {
+  background-color: inherit !important;
+}
+
 
 @media only screen and (max-width: 450px) {
   .server-form-paragraph {

@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 import React from 'react';
 import { Modal } from 'antd';
-import { ClipLoader } from 'react-spinners';
+// import { ClipLoader } from 'react-spinners';
 import { IoMdClose } from 'react-icons/io';
 
 import './style.css';
@@ -14,14 +16,16 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
         closable={isLoading ? false : true}
         title={false}
         style={{ width: '100%' }}
+        wrapClassName="instruction-modalls"
         footer={null}
         onCancel={handleModalClose}
         maskClosable={isLoading ? false : true}
         closeIcon={<IoMdClose size={22} />}
+        maskStyle={{ backgroundColor: '#266FB7' }}
         bodyStyle={{
           width: '100%',
           textAlign: 'center',
-          background: 'linear-gradient(0deg,rgba(27,104,179,0.6) 0%,#1b68b3 99.97%)',
+          background: '#266FB7',
         }}
       >
         {vehicleInstructionValues?.url ? (
@@ -33,15 +37,11 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
             </>
           ) : (
             <>
-              <video
-                id="myVideo"
-                autoPlay={false}
-                style={{ width: '100%', marginTop: '30px' }}
-                controls
-                src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}
-              >
-                video is too large to load
-              </video>
+              <div className="video-container">
+                <video id="myVideo" autoPlay={false} className="modal-video" controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}>
+                  video is too large to load
+                </video>
+              </div>
             </>
           )
         ) : (
@@ -56,7 +56,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                   video is too large to load
                 </video>
               )}
-              <div style={{ color: 'white' }}>
+              <div style={{ color: 'white', width: '60%', margin: 'auto' }}>
                 {vehicleInstructionValues?.steps.map((step, index) => (
                   <ul key={index}>
                     <li className="instruction-modal-step">{step}</li>
@@ -69,14 +69,14 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                 {vehicleInstructionValues?.type === 'Photo' ? (
                   <>
                     <label htmlFor="file-input-photo">
-                      <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
+                      <div className="button-wrapper">{isLoading ? (parseInt(uploadingPercentage) == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}</div>
                     </label>
                     <input disabled={isLoading ? true : false} type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
                   </>
                 ) : (
                   <>
                     <label htmlFor="file-input-video">
-                      <div className="button-wrapper">{isLoading ? `${parseInt(uploadingPercentage)}%` : 'Next'}</div>
+                      <div className="button-wrapper">{isLoading ? (parseInt(uploadingPercentage) == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}</div>
                     </label>
                     <input disabled={isLoading ? true : false} type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
                   </>

@@ -43,13 +43,13 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
 
               <Form.Item
                 name="password"
-                className="form-item-style"
+                className="form-item-style" 
                 rules={[
                   {
                     required: true,
                     message: 'Please input your password!',
                   },
-                ]}
+                ]} 
               >
                 <Input.Password style={{ border: 'none' }} placeholder="Password" className="input-field" />
               </Form.Item>

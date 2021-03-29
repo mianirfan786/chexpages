@@ -259,6 +259,7 @@ const VehicleInspectionScreen = ({
               handleModalClose={handleModalClose}
               uploadingPercentage={uploadingPercentage}
             />
+
             <SurveyModal
               changeRating={changeRating}
               rating={rating}
