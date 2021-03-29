@@ -12,7 +12,6 @@ const TranscationScreen = ({ handleSubmit, loading, price }) => {
   return (
     <div className="container">
       <div className="transcation-container">
-        {/* <Header /> */}
         <div className="transaction-screen-header">
           <Link to="/vehicleinspection">
             <IoIosArrowBack size={32} color="white" />
@@ -62,27 +61,7 @@ const TranscationScreen = ({ handleSubmit, loading, price }) => {
             <div className="input-field-name">Cardholder Name</div>
             <input />
           </div>
-          {/* <div className="transaction-input-field">
-            <div className="input-field-name">Expire Date</div>
-            <CardCvcElement
-              // onChange={(e) => setFields(e.empty)}
-              options={{  
-                style: {
-                  base: {
-                    fontSize: '20px',
-                    backgroundColor: '#E7EEF5',
-                    color: '#424770',
-                    '::placeholder': {
-                      color: '#aab7c4',
-                    },
-                  },
-                  invalid: {
-                    color: '#9e2146',
-                  },
-                },
-              }}
-            />
-          </div> */}
+
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div style={{ width: '42%' }}>
               <div className="transaction-input-field">

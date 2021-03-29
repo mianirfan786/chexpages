@@ -9,7 +9,7 @@ const VehicleDetailScreen = ({ handleSubmit }) => {
   return (
     <div className="container">
       <div className="transcation-container">
-        {/* <Header /> */}
+        {/* <Header /> */} 
         <div className="transaction-screen-header">
           <Link to="/vehicleInspection">
             <BsChevronLeft color={'white'} className="header-icon" />

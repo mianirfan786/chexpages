@@ -12,7 +12,7 @@ export const ModalHeading = styled.h4`
   font-size: 20px;
   line-height: 30px;
   text-align: center;
-  width: 50%;
+  width: 90%;
 
   color: #2a2a2a;
 `;

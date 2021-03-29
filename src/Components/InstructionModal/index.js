@@ -19,8 +19,9 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
         wrapClassName="instruction-modalls"
         footer={null}
         onCancel={handleModalClose}
+      
         maskClosable={isLoading ? false : true}
-        closeIcon={<IoMdClose size={22} />}
+        closeIcon={<IoMdClose color={'black'} size={22} />}
         maskStyle={{ backgroundColor: '#266FB7' }}
         bodyStyle={{
           width: '100%',
@@ -45,7 +46,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
             </>
           )
         ) : (
-          <>
+          <> 
             <div style={{ fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
             <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
             <div style={{ marginBottom: '10px' }}>

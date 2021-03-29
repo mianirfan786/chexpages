@@ -18,6 +18,8 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
         onCancel={() => handleSurveyModal(false)}
         maskClosable={true}
         maskStyle={{ backgroundColor: 'white' }}
+        wrapClassName="survay-modallsss"
+        className="survay-modallsss"
         // closeIcon={}
         // bodyStyle={{
         //   width: '100%',
@@ -88,7 +90,8 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
           </div>
           <div style={{ marginTop: '8px' }}>
             <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />
-          </div>
+            <div className="survey-modal-link">Skip and pay full amount</div>
+          </div> 
         </div>
       </Modal>
     </div>

@@ -10,5 +10,5 @@ const Button = ({ style, title, buttonClass, onClickButton, loading = false }) =
     </ButtonContainer>
   );
 };
-
+ 
 export default Button;

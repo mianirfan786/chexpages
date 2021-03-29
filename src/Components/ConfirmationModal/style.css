@@ -17,7 +17,7 @@
 }
 
 .ant-modal-root .ant-modal-mask {
-  background-color: rgba(0, 0, 0, 0.1) !important;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .sure-modal .ant-modal-header {
@@ -30,6 +30,8 @@
 
 .sure-modal .ant-modal-content {
   border-radius: 15px;
+  height: 70% !important;
+  width: 30% !important;
 }
 
 .d-flex {
@@ -67,6 +69,19 @@
 
 @media only screen and (max-width: 600px) {
   .signature-data {
+    width: 100% !important;
+  }
+ 
+}
+
+
+
+
+@media only screen and (max-width:900px) {
+ 
+  .sure-modal .ant-modal-content {
+    border-radius: 15px;
+    height: 68% !important;
     width: 100% !important;
   }
 }

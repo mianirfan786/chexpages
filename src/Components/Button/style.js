@@ -17,8 +17,11 @@ export const ButtonContainer = styled.div`
   width: 80%;
   margin: 0px auto;
 
-  @media screen and (min-width: 600px) {
-    width: 50%;
+  @media screen and (min-width: 650px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 650px) { 
+    width: 90%;
   }
 `;
 

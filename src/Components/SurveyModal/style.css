@@ -106,6 +106,8 @@
   background-color: #dae6f1;
   border-radius: 3px;
   border: none;
+  width: 100% !important;
+
 }
 .server-form-textarea::placeholder {
   color: #8c9dae;
@@ -118,9 +120,16 @@
 
 .survey-modal .ant-modal-content{
   border-radius: 0px !important;
+  width: 30% !important;
 }
 .modal-styling .ant-modal-content {
   background-color: inherit !important;
+}
+
+.survay-modallsss .ant-modal-content{
+  border-radius: 0px !important;
+  width: 30% !important;
+  border-radius: 30px !important;
 }
 
 
@@ -156,9 +165,39 @@
   background: #4a93e9 !important;
   border: none !important;
 }
+.survey-modal-link {
+  color: #0057AC;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 8px;
+}
 
 @media only screen and (min-width: 425px) {
   .survey-button {
     width: 175px !important;
   }
 }
+
+@media only screen and (max-width: 900px) {
+ 
+.survay-modallsss .ant-modal-content{
+  border-radius: 0px !important;
+  width: 100% !important;
+  border-radius: 30px !important;
+}
+}
+
+
+@media only screen and (min-width: 700px) {
+ 
+  .server-form-textarea {
+    background-color: #dae6f1;
+    border-radius: 3px;
+    border: none;
+    width:  80% !important;
+  
+  }
+  }
+
+
+

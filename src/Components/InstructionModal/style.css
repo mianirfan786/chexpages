@@ -58,7 +58,7 @@
   top: 35% !important; 
   box-shadow: none !important;
   left: 50% !important; 
-  right: auto !important;
+  right: auto !important; 
   bottom: auto !important;
   margin-right: -50% !important;
   transform: translate(-50%, -50%) !important;
@@ -82,6 +82,16 @@
 .ant-modal-wrap > div {
   width: 100% !important;
   height: 100% !important;
+}
+
+.ant-modal-wrap.survay-modallsss > div{
+  width: 100% !important;
+  height: 650px !important;
+  
+}
+
+.survay-modallsss .ant-modal-close-x{
+color: black !important;
 }
 .modal-video {
   width: 70% !important;
@@ -115,7 +125,7 @@
 }
 
 .instruction-modalls .ant-modal-content {
-  background: #266FB7;
+  background: #266FB7; 
   margin-top: 10px;
 }
 
