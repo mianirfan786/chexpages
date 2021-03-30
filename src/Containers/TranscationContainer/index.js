@@ -45,11 +45,25 @@ const TranscationContainer = (props) => {
       // setDisableButton(false);
     } else {
       // setDisableButton(true);
-      startPayment({ source: result.token.id, vehicleId: vehicleData.id }, addToast, setLoading, history, setButtonDisable);
+      startPayment(
+        { source: result.token.id, vehicleId: vehicleData.id },
+        addToast,
+        setLoading,
+        history,
+        setButtonDisable
+      );
     }
     // setDisableButton(false);
   };
-  return <TranscationScreen priceLoading={priceLoading} buttonDisable={buttonDisable} price={price} loading={loading} handleSubmit={handleSubmit} />;
+  return (
+    <TranscationScreen
+      priceLoading={priceLoading}
+      buttonDisable={buttonDisable}
+      price={price}
+      loading={loading}
+      handleSubmit={handleSubmit}
+    />
+  );
 };
 
 function mapDispatchToProps(dispatch) {

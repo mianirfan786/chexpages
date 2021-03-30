@@ -12,6 +12,7 @@ import ThankyouContainer from './ThankyouContainer/index';
 import VehicleDetailContainer from './VehicalDetailContainer';
 import DoAndDoesContainer from './DoAndDoesContainer';
 import TermsAndPolicyContainer from './TermsAndPolicyContainer';
+import ContactUsContainer from './ContactUsContainer';
 export {
   IntroContainer,
   LoginContainer,
@@ -27,4 +28,5 @@ export {
   VehicleDetailContainer,
   DoAndDoesContainer,
   TermsAndPolicyContainer,
+  ContactUsContainer,
 };

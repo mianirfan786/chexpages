@@ -1,9 +1,9 @@
 .transcation-container {
   /* background: linear-gradient(182.55deg, #1876cc -17.67%, #001b51 115.19%), #191a1b; */
 }
-.container {
+.trans-container {
   background: linear-gradient(182.55deg, #1876cc -17.67%, #001b51 115.19%), #191a1b;
-  /* height: 100%; */
+  height: 120vh !important;
   position: absolute;
   width: 100%;
 }
@@ -70,9 +70,20 @@ input,
 @media only screen and (min-width: 550px) {
   .transcation-container {
     width: 40%;
+    /* height: 100% !important; */
   }
-  .container {
+  .trans-container {
     display: flex;
     justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .trans-container {
+    height: 100% !important;
+  }
+
+  .transcation-container {
+    width: 100% !important;
   }
 }
