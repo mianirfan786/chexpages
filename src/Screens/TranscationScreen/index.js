@@ -8,7 +8,7 @@ import { Button } from '../../Components';
 import './style.css';
 import '../../App.css';
 
-const TranscationScreen = ({ handleSubmit, loading }) => {
+const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonDisable }) => {
   return (
     <div className="container">
       <div className="transcation-container">
@@ -20,7 +20,18 @@ const TranscationScreen = ({ handleSubmit, loading }) => {
           <div></div>
         </div>
         <div className="transaction-payment">
-          $19.<span className="transaction-amount">99</span>
+          {priceLoading ? (
+            <div>Loading..</div>
+          ) : price?.USD ? (
+            <>
+              ${`${price?.USD}`.split('.')[0]}
+              <span className="transaction-amount"> .{`${price?.USD}`.split('.')[1]}</span>
+            </>
+          ) : (
+            <>
+              19.<span className="transaction-amount">99</span>
+            </>
+          )}
         </div>
         <div className="transaction-form-container">
           <div className="transaction-input-field">
@@ -52,52 +63,8 @@ const TranscationScreen = ({ handleSubmit, loading }) => {
             <div className="input-field-name">Cardholder Name</div>
             <input />
           </div>
-          {/* <div className="transaction-input-field">
-            <div className="input-field-name">Expire Date</div>
-            <CardCvcElement
-              // onChange={(e) => setFields(e.empty)}
-              options={{  
-                style: {
-                  base: {
-                    fontSize: '20px',
-                    backgroundColor: '#E7EEF5',
-                    color: '#424770',
-                    '::placeholder': {
-                      color: '#aab7c4',
-                    },
-                  },
-                  invalid: {
-                    color: '#9e2146',
-                  },
-                },
-              }}
-            />
-          </div> */}
 
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div style={{ width: '54%' }}>
-              <div className="transaction-input-field">
-                <div className="input-field-name">CVV</div>
-                <CardCvcElement
-                  // onChange={(e) => setFields(e.empty)}
-                  options={{
-                    style: {
-                      base: {
-                        fontSize: '20px',
-                        backgroundColor: '#E7EEF5',
-                        color: '#424770',
-                        '::placeholder': {
-                          color: '#aab7c4',
-                        },
-                      },
-                      invalid: {
-                        color: '#9e2146',
-                      },
-                    },
-                  }}
-                />
-              </div>
-            </div>
             <div style={{ width: '42%' }}>
               <div className="transaction-input-field">
                 <div className="input-field-name">Expiry Date</div>
@@ -121,8 +88,32 @@ const TranscationScreen = ({ handleSubmit, loading }) => {
                 />
               </div>
             </div>
+
+            <div style={{ width: '54%' }}>
+              <div className="transaction-input-field">
+                <div className="input-field-name">CVV</div>
+                <CardCvcElement
+                  // onChange={(e) => setFields(e.empty)}
+                  options={{
+                    style: {
+                      base: {
+                        fontSize: '20px',
+                        backgroundColor: '#E7EEF5',
+                        color: '#424770',
+                        '::placeholder': {
+                          color: '#aab7c4',
+                        },
+                      },
+                      invalid: {
+                        color: '#9e2146',
+                      },
+                    },
+                  }}
+                />
+              </div>
+            </div>
           </div>
-          <Button loading={loading} title={'Submit'} onClickButton={handleSubmit} />
+          <Button loading={loading} title={'Submit'} disabled={buttonDisable} onClickButton={handleSubmit} />
           <div></div>
         </div>
       </div>

@@ -83,6 +83,14 @@
   /* margin-bottom: 10px; */
 }
 
+.ant-input-affix-wrapper > input.ant-input {
+  border: none !important;
+  box-shadow: none !important;
+  font-family: sans-serif !important;
+}
+.react-stars-wrapper-002155496152759251:focus {
+  border: none !important;
+}
 @media screen and (min-width: 600px) {
   .form-container {
     width: 30%;

@@ -1,23 +1,27 @@
 .login-main-container {
   width: 100%;
   position: absolute;
-  background: url('../../Assets/bg_img.png');
   height: 100%;
-  background-size: cover;
-  background-repeat: repeat;
-  background-position: center top;
 }
 
 .login-image-background-signin {
   position: relative;
   width: 100%;
+  background: url('../../Assets/bg_img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
 }
 
-.login-main-bg-signin {
+.confirm-email-main-bg-signin {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 20px 0;
+}
+
+.confirm-email-loader {
+  margin-top: 20px;
 }
 
 .login-content-container {
@@ -30,9 +34,31 @@
   z-index: 2000;
 }
 
+.login-title-heading {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #74b3fb;
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 30px;
+}
+
+.login-back-arrow {
+  color: #fff;
+  position: absolute;
+  left: 30px;
+  top: 30px;
+}
 a {
   color: #fff;
 }
+
+.login-arrow-link {
+  color: #fff;
+}
+
 .login-heading-logo {
   font-style: normal;
   font-weight: 600;
@@ -42,7 +68,7 @@ a {
   letter-spacing: 0.03em;
   color: #ffffff;
   padding-bottom: 0px;
-  margin: 30px 0 0 0;
+  margin: 50px 0 0 0;
 }
 .logo-span-color {
   color: #ff9900;
@@ -64,14 +90,14 @@ a {
   text-align: center;
   width: 100%;
   margin: 30px auto;
-  margin-top: 70px; 
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0 20px;
 }
- 
+
 .forgot-password-link {
   color: white;
   font-size: 15px;
@@ -80,7 +106,7 @@ a {
 
 .login-form-heading {
   font-style: normal;
-  font-weight: 600; 
+  font-weight: 600;
   font-size: 24px;
   line-height: 36px;
   text-align: center;
@@ -88,22 +114,17 @@ a {
   margin-bottom: 40px;
 }
 
+.changes-paragraph{
+  color: white;
+    text-align: center;
+    margin-top: 33px;
+    font-size: 17px;
+    margin-bottom: 33px;
+}
+
 @media screen and (min-width: 768px) {
   .login-image-background-signin {
     background-size: cover;
     background-position: center center;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .ant-form-item-control-input {
-    margin: auto !important;
-    width: 500px !important;
-  }
-}
-@media only screen and (max-width: 550px) {
-  .ant-form-item-control-input {
-    margin: none !important;
-    width: 100% !important;
   }
 }

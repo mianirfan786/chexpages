@@ -1,30 +1,35 @@
+/* eslint-disable */
+
 import React from 'react';
 import { Modal } from 'antd';
-import { ClipLoader } from 'react-spinners';
+// import { ClipLoader } from 'react-spinners';
 import { IoMdClose } from 'react-icons/io';
 
 import './style.css';
 import '../../App.css';
 
-const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible, handleImageUpload, handleVideoUpload, handleModalClose }) => {
+const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionValues, isModalVisible, handleImageUpload, handleVideoUpload, handleModalClose }) => {
   return (
     <div className="instruction-modal">
       <Modal
         visible={isModalVisible}
-        closable={true}
+        closable={isLoading ? false : true}
         title={false}
         style={{ width: '100%' }}
+        wrapClassName="instruction-modalls"
         footer={null}
         onCancel={handleModalClose}
-        maskClosable={true}
-        closeIcon={<IoMdClose size={22} />}
+      
+        maskClosable={isLoading ? false : true}
+        closeIcon={<IoMdClose color={'black'} size={22} />}
+        maskStyle={{ backgroundColor: '#266FB7' }}
         bodyStyle={{
           width: '100%',
           textAlign: 'center',
-          background: 'linear-gradient(0deg,rgba(27,104,179,0.6) 0%,#1b68b3 99.97%)',
+          background: '#266FB7',
         }}
       >
-        {vehicleInstructionValues?.url ? (
+        {vehicleInstructionValues?.url ? ( 
           vehicleInstructionValues?.type === 'Photo' ? (
             <>
               <div className="modal-images">
@@ -33,20 +38,26 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
             </>
           ) : (
             <>
-              <video style={{ width: '30%' }} controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+              <div className="video-container">
+                <video id="myVideo" autoPlay={false} className="modal-video" controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}>
+                  video is too large to load
+                </video>
+              </div>
             </>
           )
         ) : (
-          <>
-            <div style={{ marginBottom: '116px', fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
+          <> 
+            <div style={{ fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
             <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
-            <div style={{ marginBottom: '100px' }}>
+            <div style={{ marginBottom: '10px' }}>
               {vehicleInstructionValues?.type === 'Photo' ? (
                 <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
               ) : (
-                <video width="320" height="240" controls src={vehicleInstructionValues?.video} />
+                <video id="myVideo" autoPlay={false} width="320" height="240" controls src={vehicleInstructionValues?.video}>
+                  video is too large to load
+                </video>
               )}
-              <div style={{ color: 'white' }}>
+              <div style={{ color: 'white', width: '60%', margin: 'auto' }}>
                 {vehicleInstructionValues?.steps.map((step, index) => (
                   <ul key={index}>
                     <li className="instruction-modal-step">{step}</li>
@@ -59,16 +70,16 @@ const InstructionModal = ({ isLoading, vehicleInstructionValues, isModalVisible,
                 {vehicleInstructionValues?.type === 'Photo' ? (
                   <>
                     <label htmlFor="file-input-photo">
-                      <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
+                      <div className="button-wrapper">{isLoading ? (parseInt(uploadingPercentage) == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}</div>
                     </label>
-                    <input type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
+                    <input disabled={isLoading ? true : false} type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
                   </>
                 ) : (
                   <>
                     <label htmlFor="file-input-video">
-                      <div className="button-wrapper">{isLoading ? <ClipLoader color={'white'} size={20} /> : 'Next'}</div>
+                      <div className="button-wrapper">{isLoading ? (parseInt(uploadingPercentage) == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}</div>
                     </label>
-                    <input type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
+                    <input disabled={isLoading ? true : false} type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
                   </>
                 )}
               </div>

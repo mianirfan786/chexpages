@@ -1,16 +1,17 @@
 /* eslint-disable */
 
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import imageCompression from 'browser-image-compression';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
-import { VehicleInspectionScreen } from '../../Screens';
 import ActionCreators from '../../actions';
+import Loading from '../../HOC/index';
+import { VehicleInspectionScreen } from '../../Screens';
 
-const queryString = require('query-string');
+// const queryString = require('query-string');
 
 const VehicleInspectionContainer = (props) => {
   const { addToast } = useToasts();
@@ -18,6 +19,10 @@ const VehicleInspectionContainer = (props) => {
 
   const [isModalVisible, setModalValue] = useState(false);
   const [isSurveyModalVisible, setSurveyModal] = useState(false);
+  const [isDeleteModal, setDeleteModal] = useState(false);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [uploadingPercentage, setuploadingPercentage] = useState(0);
+  const [fileToBeDeleted, setDeletingFile] = useState(null);
   const [imageCategory, setImageCategory] = useState(null);
   const [rating, setNewRating] = useState(0);
   const [comment, setComment] = useState('');
@@ -32,6 +37,10 @@ const VehicleInspectionContainer = (props) => {
   const [surveyCheck, setSurveyCheck] = useState(false);
 
   useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user?.updates || user?.updates === null || user?.updates === undefined) {
+      window.location.replace('/logoutForChanges');
+    }
     handleRequests();
   }, []);
 
@@ -40,6 +49,7 @@ const VehicleInspectionContainer = (props) => {
     getSurveyStatus(currentUser?.id, setSurveyCheck);
     getVehicleFile(currentUser?.vehicles[0]?.id);
   };
+
   const handleModal = (value, groupType) => {
     console.log(value, groupType);
     setImageCategory(value.id);
@@ -50,6 +60,8 @@ const VehicleInspectionContainer = (props) => {
 
   const handleModalClose = () => {
     setModalValue(false);
+    var video = document.getElementById('myVideo');
+    video?.pause();
   };
 
   const changeRating = (newRating, name) => {
@@ -67,15 +79,17 @@ const VehicleInspectionContainer = (props) => {
     imageCompression(imageFile, options)
       .then(function (compressedFile) {
         const { uploadFile, vehicleData } = props;
-        uploadFile(compressedFile, { type: compressedFile.type }, vehicleData.id, imageCategory, groupType, setModalValue);
+        uploadFile(compressedFile, { type: compressedFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
       })
       .catch(function (error) {});
   };
 
   const handleVideoUpload = (event) => {
     var videoFile = event.target.files[0];
+    event.target.value = '';
+
     const { uploadFile, vehicleData } = props;
-    uploadFile(videoFile, { type: videoFile.type }, vehicleData.id, imageCategory, groupType, setModalValue);
+    uploadFile(videoFile, { type: videoFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
   };
 
   const handleSurveyModal = (value) => {
@@ -105,13 +119,23 @@ const VehicleInspectionContainer = (props) => {
       comment: comment,
       rating: rating,
     };
-    await submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading);
-    history.push('/transcationScreen');
+    await submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading, history);
   };
 
-  const deleteFile = (groupType, id) => {
+  const deleteFile = () => {
     const { deleteVehicleFile, vehicleData } = props;
-    deleteVehicleFile(vehicleData.id, id, groupType);
+    deleteVehicleFile(vehicleData.id, fileToBeDeleted?.id, fileToBeDeleted?.groupType, setDeleteLoading, setDeleteModal);
+  };
+
+  const handleDeleteModal = (groupType, id) => {
+    setDeletingFile({ groupType, id });
+    setDeleteModal(!isDeleteModal);
+  };
+
+  const imageUploadingProgress = (progressEvent) => {
+    const { loaded, total } = progressEvent;
+    let percent = Math.floor(loaded * 100) / total;
+    setuploadingPercentage(percent);
   };
 
   return (
@@ -122,16 +146,21 @@ const VehicleInspectionContainer = (props) => {
       isModalVisible={isModalVisible}
       isSurveyModalVisible={isSurveyModalVisible}
       isLoading={props.isLoading}
+      isDeleteModal={isDeleteModal}
+      deleteLoading={deleteLoading}
       surveyModalLoading={surveyModalLoading}
+      uploadingPercentage={uploadingPercentage}
       handleImageUpload={handleImageUpload}
       handleModal={handleModal}
       deleteFile={deleteFile}
+      handleDeleteModal={handleDeleteModal}
       handleModalClose={handleModalClose}
       handleVideoUpload={handleVideoUpload}
       handleSurveyModal={handleSurveyModal}
       changeRating={changeRating}
       handleCheckBox={handleCheckBox}
       handleComment={handleComment}
+      setDeleteModal={setDeleteModal}
       handleSubmitSurvey={handleSubmitSurvey}
     />
   );
@@ -150,4 +179,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(VehicleInspectionContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(Loading(VehicleInspectionContainer));

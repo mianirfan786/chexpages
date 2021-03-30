@@ -1,11 +1,12 @@
 import React from 'react';
 import { Modal } from 'antd';
-import StarRatings from 'react-star-ratings';
+import ReactStars from 'react-rating-stars-component';
 
 import Button from '../Button/index';
 
 import './style.css';
 import '../../App.css';
+import { Link } from 'react-router-dom';
 
 const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRating, handleCheckBox, handleComment, handleSubmitSurvey, surveyModalLoading }) => {
   return (
@@ -14,10 +15,11 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
         visible={isSurveyModalVisible}
         closable={true}
         title={false}
-        style={{ width: '100%' }}
         footer={null}
         onCancel={() => handleSurveyModal(false)}
         maskClosable={true}
+        wrapClassName="survay-modallsss"
+        className="survay-modallsss"
         // closeIcon={}
         // bodyStyle={{
         //   width: '100%',
@@ -34,16 +36,19 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
             How would you rate Chex<span className="server-form-title">.AI</span> app
           </div>
           <div className="server-form-rating-stars">
-            <StarRatings
+            {/* <StarRatings
+              starHoverColor="#FF7A00"
               rating={rating}
+              starSelectingHoverColor="#FF7A00"
               starRatedColor="#FF7A00"
               changeRating={changeRating}
               starWidthAndHeight="20px"
-              className="salman"
               numberOfStars={5}
               name="rating"
               starHoverColor="#cecece"
-            />
+            /> */}
+
+            <ReactStars count={5} onChange={changeRating} size={24} activeColor="#ffd700" />
           </div>
           <div className="server-form-question">Which platform would you prefer for vehicle inspections?</div>
 
@@ -83,7 +88,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
             </div>
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '16px' }}>
+          <div style={{ textAlign: 'center', marginTop: '-7px' }}>
             <textarea
               onChange={handleComment}
               className="server-form-textarea"
@@ -95,7 +100,12 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
               cols="46"
             ></textarea>
           </div>
-          <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />
+          <div style={{ marginTop: '8px' }}>
+            <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />
+            <div className="survey-modal-link">
+              <Link to="/transcationScreen">Skip and pay full amount</Link>
+            </div>
+          </div>
         </div>
       </Modal>
     </div>

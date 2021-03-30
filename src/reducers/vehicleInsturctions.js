@@ -13,7 +13,6 @@ const initialState = {
       groupType: 'carVerificiationItems',
       steps: ['Please upload a photo of a valid registration card clearly showing the car VIN number, car details, vehicle license plate.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616833517/chex-instruction/Rectangle-137_mcgwgg.jpg',
-      // video: '/images/Clip 1 - Front.mov',
       loading: false,
     },
     {
@@ -39,12 +38,11 @@ const initialState = {
       description: '',
       groupType: 'interiorItems',
       steps: ['Please record a 3 second video clip of honking horn with a clear sound.'],
-      // image: '/images/Photo1Exterior Left.png',
       video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616833287/chex-instruction/horn_y7giyp.mp4',
       loading: false,
     },
     {
-      id: 'interior_driverside',
+      id: 'interior_driver_side',
       type: 'Photo',
       title: 'Interior Driver Side',
       description: '',
@@ -53,11 +51,10 @@ const initialState = {
       fileId: null,
       steps: ['Please take a photo of the interior of the vehicle with the left driver side door open with a clear view of the interior rearview mirror and brake pads.'],
       image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590293/chex-instruction/interior_view_xxlp7t.jpg',
-      // video: '/images/Clip 2 - Rear.mov',
       loading: false,
     },
     {
-      id: 'driver_seat_adjusted',
+      id: 'driver_seat',
       type: 'Photo',
       title: 'Driver Seat Adjusted',
       groupType: 'interiorItems',
@@ -65,11 +62,11 @@ const initialState = {
       fileId: null,
       description: '',
       steps: ['Please take a photo of the driver seat pulled forward and back rest folded to maximum limit.'],
-      video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616590304/chex-instruction/Clip_3_-_Driverside-1-720P_oawdex.mp4',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616861066/chex-instruction/Driver-Side_m7wg9t.jpg',
       loading: false,
     },
     {
-      id: 'interior_passengerside',
+      id: 'interior_passenger_side',
       type: 'Photo',
       title: 'Interior Passenger Side',
       groupType: 'interiorItems',
@@ -77,11 +74,11 @@ const initialState = {
       url: '',
       fileId: null,
       steps: ['Please take a photo of the interior of the vehicle with the right passenger side door open with a clear view of the inside.'],
-      video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616590300/chex-instruction/Clip_4_-_Passengerside-1-720P_mdtjgp.mp4',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616861398/chex-instruction/Photo4Passengerside_Interior_fs12se.png',
       loading: false,
     },
     {
-      id: 'passenger_seat_adjusted',
+      id: 'passenger_seat',
       type: 'Photo',
       title: 'Passenger seat Adjusted',
       groupType: 'interiorItems',
@@ -89,7 +86,7 @@ const initialState = {
       url: '',
       fileId: null,
       steps: ['Please take a photo of the passenger seat pulled forward and back rest folded to maximum limit. '],
-      video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616590300/chex-instruction/Clip_4_-_Passengerside-1-720P_mdtjgp.mp4',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616861154/chex-instruction/Passenger-Side-Edited_ylng6x.jpg',
       loading: false,
     },
     {
@@ -101,7 +98,7 @@ const initialState = {
       fileId: null,
       groupType: 'interiorItems',
       steps: ['Please take a photo entire odometer dashboard area with vehicle turned on.'],
-      image: 'Please take a photo of the backseats with back doors opened and seat belts buckled.',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590297/chex-instruction/odometer_bg3rgt.jpg',
       loading: false,
     },
   ],
@@ -139,7 +136,7 @@ const initialState = {
       fileId: null,
       groupType: 'exteriorItems',
       steps: ['Please record a short 5 second video clip clearly showing the front of the vehicle with all the headlights, indicators and windshield wiper turned on.'],
-      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590292/chex-instruction/ExteriorFront_ebdjvl.jpg',
+      video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616590294/chex-instruction/Clip_1_-_Front-1-720P_nlyo1y.mp4',
       loading: false,
     },
     {
@@ -153,7 +150,7 @@ const initialState = {
       steps: [
         'Set the phone down behind the car (or have someone hold the phone with the car in field of view); once the camera is positioned well, drive the car 3-5 feet in reverse and push on the brake pedal. Once the car is in the park mode, push the gas pedal. Please ensure that the sound is clear(for checking muffler and for brake sound) and the brake light is in the clear view',
       ],
-      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590295/chex-instruction/ExteriorRear_qz6qww.jpg',
+      video: 'https://res.cloudinary.com/tech-qalanders/video/upload/v1616590306/chex-instruction/Clip_2_-_Rear_a0eoqp.mp4',
       loading: false,
     },
   ],
@@ -289,6 +286,18 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
     return {
       ...state,
       isVehicleLoading: action.isVehicleLoading,
+    };
+  },
+  [types.SET_VEHICLE_STATUS](state, action) {
+    return {
+      ...state,
+      vehicleStatus: action.vehicleStatus,
+    };
+  },
+  [types.SET_CERTIFICATE_DATA](state, action) {
+    return {
+      ...state,
+      vehicleCertificate: action.vehicleCertificate,
     };
   },
 });
