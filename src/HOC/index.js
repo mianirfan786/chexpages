@@ -9,6 +9,7 @@ const getVehicleStatusWrapper = (ChildComponent) => {
   const GetVehicleStatus = (props) => {
     const [loadingStatus, setLoadingStatus] = useState(false);
     const [status, setStatus] = useState(null);
+    const [paymentStatus, setPaymentStatus] = useState(true);
     const history = useHistory();
     useEffect(() => {
       const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -18,6 +19,7 @@ const getVehicleStatusWrapper = (ChildComponent) => {
         .then((resp) => {
           setLoadingStatus(false);
           setStatus(resp.data.review_status);
+          setPaymentStatus(resp.data.payment_status);
           if (resp.data.review_status === 'IN_PROGRESS') {
             setTimeout(() => {
               history.push('/vehicleInspection');
@@ -31,7 +33,7 @@ const getVehicleStatusWrapper = (ChildComponent) => {
         });
     }, []);
 
-    return loadingStatus ? <Loading /> : <ChildComponent vehicleStatuss={status} {...props} />;
+    return loadingStatus ? <Loading /> : <ChildComponent paymentStatus={paymentStatus} vehicleStatuss={status} {...props} />;
   };
   return GetVehicleStatus;
 };

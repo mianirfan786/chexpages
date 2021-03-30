@@ -1,4 +1,5 @@
 import React from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 import { BsCheckCircle } from 'react-icons/bs';
@@ -43,6 +44,9 @@ const VehicleInspectionScreen = ({
   setDeleteModal,
   deleteLoading,
   uploadingPercentage,
+  paymentStatus,
+  changeVehicleStatus,
+  vehicleStatusLoading,
 }) => {
   const genExtra = () => (
     <UpCircleOutlined
@@ -55,6 +59,7 @@ const VehicleInspectionScreen = ({
   return (
     <MainContainer>
       <ImageBackgroundVehicleInspection>
+        {console.log('wewew', paymentStatus)}
         <MainBgInsertDetails>
           <ContentVehicleInspection>
             <Header />
@@ -233,10 +238,16 @@ const VehicleInspectionScreen = ({
                   {/* <NextStepButton /> */}
                 </Panel>
               </Collapse>
-              {vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
-              vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
-              vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
-              vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
+              {paymentStatus ? (
+                <div className="vec-inspection-submitbtn_container">
+                  <button disabled={vehicleStatusLoading} onClick={changeVehicleStatus} className="vec-inspection-submit_button">
+                    {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}
+                  </button>
+                </div>
+              ) : vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
+                vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
+                vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
+                vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
                 <div className="vec-inspection-submitbtn_container">
                   <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
                     Submit
