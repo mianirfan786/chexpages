@@ -62,7 +62,7 @@
   cursor: pointer !important;
   width: 260px !important;
   margin: 0px auto !important;
-  /* height: 54px !important; */
+  height: 54px !important;
 }
 
 .ant-input-affix-wrapper > input.ant-input {

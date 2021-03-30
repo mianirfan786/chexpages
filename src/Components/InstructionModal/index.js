@@ -50,7 +50,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
             )
           ) : (
             <>
-              <div style={{ fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
+              <div style={{ fontSize: '26px', color: 'white', marginTop: '50px' }}>{vehicleInstructionValues?.title}</div>
               <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
               <div style={{ marginBottom: '10px' }}>
                 {vehicleInstructionValues?.type === 'Photo' ? (
