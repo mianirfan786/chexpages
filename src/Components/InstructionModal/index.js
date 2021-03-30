@@ -19,73 +19,81 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
         wrapClassName="instruction-modalls"
         footer={null}
         onCancel={handleModalClose}
-      
+        mask={true}
+        // closeIcon={false}
+
         maskClosable={isLoading ? false : true}
-        closeIcon={<IoMdClose color={'black'} size={22} />}
+        // closeIcon={<IoMdClose color={'black'} size={22} />}
         maskStyle={{ backgroundColor: '#266FB7' }}
         bodyStyle={{
           width: '100%',
           textAlign: 'center',
-          background: '#266FB7',
+          // background: 'linear-gradient(182.55deg, #1876CC -17.67%, #051532 115.19%), #191A1B',
         }}
       >
-        {vehicleInstructionValues?.url ? ( 
-          vehicleInstructionValues?.type === 'Photo' ? (
-            <>
-              <div className="modal-images">
-                <img alt="" className="modal-inside-image" src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
-              </div>
-            </>
+        <div style={{ width: '100%', background: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+          {vehicleInstructionValues?.url ? (
+            vehicleInstructionValues?.type === 'Photo' ? (
+              <>
+                <div className="modal-images">
+                  <img alt="" className="modal-inside-image" src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`} />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="video-container">
+                  <video id="myVideo" autoPlay={false} className="modal-video" controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}>
+                    video is too large to load
+                  </video>
+                </div>
+              </>
+            )
           ) : (
             <>
-              <div className="video-container">
-                <video id="myVideo" autoPlay={false} className="modal-video" controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}>
-                  video is too large to load
-                </video>
-              </div>
-            </>
-          )
-        ) : (
-          <> 
-            <div style={{ fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
-            <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
-            <div style={{ marginBottom: '10px' }}>
-              {vehicleInstructionValues?.type === 'Photo' ? (
-                <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
-              ) : (
-                <video id="myVideo" autoPlay={false} width="320" height="240" controls src={vehicleInstructionValues?.video}>
-                  video is too large to load
-                </video>
-              )}
-              <div style={{ color: 'white', width: '60%', margin: 'auto' }}>
-                {vehicleInstructionValues?.steps.map((step, index) => (
-                  <ul key={index}>
-                    <li className="instruction-modal-step">{step}</li>
-                  </ul>
-                ))}
-              </div>
-            </div>
-            <div className="input-img-container">
-              <div className="image-upload">
+              <div style={{ fontSize: '26px', color: 'white' }}>{vehicleInstructionValues?.title}</div>
+              <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
+              <div style={{ marginBottom: '10px' }}>
                 {vehicleInstructionValues?.type === 'Photo' ? (
                   <>
-                    <label htmlFor="file-input-photo">
-                      <div className="button-wrapper">{isLoading ? (parseInt(uploadingPercentage) == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}</div>
-                    </label>
-                    <input disabled={isLoading ? true : false} type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
+                    <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
                   </>
                 ) : (
-                  <>
-                    <label htmlFor="file-input-video">
-                      <div className="button-wrapper">{isLoading ? (parseInt(uploadingPercentage) == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}</div>
-                    </label>
-                    <input disabled={isLoading ? true : false} type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
-                  </>
+                  <video id="myVideo" autoPlay={false} width="320" height="240" controls src={vehicleInstructionValues?.video}>
+                    video is too large to load
+                  </video>
                 )}
+                <div className="instruction-modal-step-container">
+                  {vehicleInstructionValues?.steps.map((step, index) => (
+                    <ul style={{ listStyle: 'none', padding: 0 }} key={index}>
+                      <li>
+                        <div className="instruction-modal-step">{step}</div>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
               </div>
-            </div>
-          </>
-        )}
+              <div className="input-img-container">
+                <div className="image-upload">
+                  {vehicleInstructionValues?.type === 'Photo' ? (
+                    <>
+                      <label htmlFor="file-input-photo">
+                        <div className="button-wrapper">{isLoading ? (parseInt(uploadingPercentage) == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}</div>
+                      </label>
+                      <input disabled={isLoading ? true : false} type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
+                    </>
+                  ) : (
+                    <>
+                      <label htmlFor="file-input-video">
+                        <div className="button-wrapper">{isLoading ? (parseInt(uploadingPercentage) == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}</div>
+                      </label>
+                      <input disabled={isLoading ? true : false} type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
+                    </>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
       </Modal>
     </div>
   );
