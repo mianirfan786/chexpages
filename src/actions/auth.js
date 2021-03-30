@@ -2,6 +2,12 @@ import * as types from '../utils/constants';
 import { Api } from '../services/configs';
 import axios from 'axios';
 
+
+const headers = {
+  Authorization: `Bearer ${localStorage.getItem('token')}`,
+  'Content-Type': 'application/json',
+};
+ 
 function setIsAuthenticated(params) {
   return {
     type: types.SET_ISAUTHENTICATED,
@@ -153,5 +159,24 @@ export function getCompanies() {
         dispatch(setCompanies(resp.data));
       })
       .catch((err) => {});
+  };
+}
+
+
+
+export function contactUs(data, addToast, history, setLoading) {
+  return (dispatch) => {
+    setLoading(true);
+    axios
+      .post(`${Api}/auth/contactUs`,data, {headers})
+      .then((resp) => {
+        addToast(`Your message has been delivered to support`, { appearance: 'success' });
+        history.replace('/');
+        setLoading(false);
+      })
+      .catch((err) => {
+        addToast('Something went wrong', { appearance: 'error' });
+        setLoading(false);
+      });
   };
 }
