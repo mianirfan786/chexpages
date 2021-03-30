@@ -69,38 +69,13 @@ function App(props) {
       />
       <Route path="/thankyouScreen" component={ThankyouContainer} />
       {/* <Route path="/transcationScreen" component={TranscationContainer} /> */}
-      <PublicRoute
-        storeAuthenticate={isAuthenticated}
-        allowed={isAuthenticated}
-        path="/register"
-        component={SignUpContainer}
-      />
+      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/register" component={SignUpContainer} />
       <Route path="/confirmEmail" component={ConfirmEmailContainer} />
       <Route path="/forgotpassword" component={ForgotPasswordContainer} />
-      <PublicRoute
-        storeAuthenticate={isAuthenticated}
-        allowed={isAuthenticated}
-        path="/login"
-        component={LoginContainer}
-      />
-      <PublicRoute
-        storeAuthenticate={isAuthenticated}
-        allowed={isAuthenticated}
-        path="/resetpassword"
-        component={ResetPasswordContainer}
-      />
-      <PublicRoute
-        storeAuthenticate={isAuthenticated}
-        allowed={isAuthenticated}
-        path="/verifyEmail"
-        component={VerifyEmailContainer}
-      />
-      <PublicRoute
-        storeAuthenticate={isAuthenticated}
-        allowed={isAuthenticated}
-        path="/"
-        component={IntroContainer}
-      />
+      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/login" component={LoginContainer} />
+      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/resetpassword" component={ResetPasswordContainer} />
+      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/verifyEmail" component={VerifyEmailContainer} />
+      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/" component={IntroContainer} />
       {/* <RestrictedRoute exact storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/logoutForChanges" component={LogoutForChanges} /> */}
     </Switch>
   );
