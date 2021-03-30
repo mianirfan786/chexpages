@@ -11,7 +11,9 @@ import VehicleStatusScreen from './VehicleStatusScreen';
 import ThankyouScreen from './ThankyouScreen';
 import VehicalDetailScreen from './VehicleDetailScreen';
 import LogoutForChanges from './LogoutForChanges';
-export {
+import DoAndDoesScreen from './DoAndDoesScreen';
+import TermsAndPolicyScreen from './TermsAndPolicyScreen';
+export { 
   IntroScreen,
   LoginScreen,
   SignUpScreen,
@@ -25,4 +27,6 @@ export {
   ThankyouScreen,
   VehicalDetailScreen,
   LogoutForChanges,
+  DoAndDoesScreen,
+  TermsAndPolicyScreen,
 };
