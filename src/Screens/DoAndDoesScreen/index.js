@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import ClipLoader from 'react-spinners/ClipLoader';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
 import { Button } from '../../Components';
 import { BsChevronLeft } from 'react-icons/bs';
-
 
 import './style.css';
 import '../../App.css';
@@ -33,9 +30,7 @@ const DoAndDoesScreen = ({ handleSubmit, isLoading, companies }) => {
       </ul></p>
       </div>
       <Button title="Next" />
-
     </div>
-
   );
 };
 

@@ -1,17 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import ClipLoader from 'react-spinners/ClipLoader';
-import ReactPlayer from 'react-player'
-import { Button } from '../../Components';
-import { BsChevronLeft } from 'react-icons/bs';
-import { MainContainer, PrivacyPolicyHeading,ContentMainScreen, ContentMainScreenh5, ArrowBack, PrivacyPolicyUnderLine, PrivacyPolicyText, MainBgSignin, PrivacyPolicySpan } from './style';  
+
+import {
+  MainContainer,
+  PrivacyPolicyHeading,
+  ContentMainScreen,
+  ContentMainScreenh5,
+  ArrowBack,
+  PrivacyPolicyUnderLine,
+  PrivacyPolicyText,
+  MainBgSignin,
+  PrivacyPolicySpan,
+} from './style';
 
 import './style.css';
- 
 
 const TermsAndPolicyScreen = ({ handleSubmit, isLoading, companies }) => {
   return (
-
     <div>
       <MainBgSignin>
         <ContentMainScreen>
@@ -354,7 +358,6 @@ const TermsAndPolicyScreen = ({ handleSubmit, isLoading, companies }) => {
         <PrivacyPolicyText>Last Updated: 02/08/2021</PrivacyPolicyText>
       </MainContainer>
     </div>
-
   );
 };
 
