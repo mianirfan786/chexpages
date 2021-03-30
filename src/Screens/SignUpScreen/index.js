@@ -6,7 +6,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import './style.css';
 import '../../App.css';
 
-const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
+const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox }) => {
   return (
     <div className="register-main-container">
       <div className="register-background-image">
@@ -16,7 +16,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
               CHEX
               <span className="register-logoSpanColor">.AI</span>
             </div>
-            <div className="register-mainScreenP">Virtual Inspections</div> 
+            <div className="register-mainScreenP">Virtual Inspections</div>
           </div>
           <div className="register-contentFooterAreaSignin">
             <div className="register-signinHeadingH3">Register</div>
@@ -98,37 +98,27 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                   <Input.Password className="input-field" placeholder="password" />
                 </Form.Item>
 
-                <Form.Item
-                  name="companies"
-                  rules={[{ required: true, message: 'Please select companies' }]}
-                >
-                  <Select
-                    placeholder="Select companies"
-                    mode="multiple"
-                    className="input-field"
-                    options={companies}
-                  />
+                <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
+                  <Select placeholder="Select companies" mode="multiple" className="input-field" options={companies} />
                 </Form.Item>
 
-                <div style={{display: 'flex', justifyContent: 'center'}}>
-                <div style={{ display: 'flex' }}>
-                  <label class="newcontainer">
-                    <input type="checkbox" />  
-                    <span class="newcheckmark"></span>
-                  </label>
-                  <div className="register-checkbox-text">
-                    I accept <Link style={{color:'white',textDecoration:'underline'}} to='/termsAndPolicy'>terms of use</Link>
-
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <div style={{ display: 'flex' }}>
+                    <label class="newcontainer">
+                      <input onChange={handleCheckBox} type="checkbox" />
+                      <span class="newcheckmark"></span>
+                    </label>
+                    <div className="register-checkbox-text">
+                      I accept{' '}
+                      <Link style={{ color: 'white', textDecoration: 'underline' }} to="/termsAndPolicy">
+                        terms of use
+                      </Link>
+                    </div>
                   </div>
-                </div>
                 </div>
 
                 <Form.Item>
-                  <Button
-                    disabled={isLoading ? true : false}
-                    className="button-wrapper"
-                    htmlType="submit"
-                  >
+                  <Button disabled={isLoading ? true : false} className="button-wrapper" htmlType="submit">
                     {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Register'}
                   </Button>
                 </Form.Item>
