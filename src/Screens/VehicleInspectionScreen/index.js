@@ -1,8 +1,9 @@
 import React from 'react';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
+import { BsCheckCircle } from 'react-icons/bs';
 
-import { InspectionCard, InstructionModal, Header, SurveyModal } from '../../Components';
+import { InspectionCard, InstructionModal, Header, SurveyModal, ConfimrationModal } from '../../Components';
 import {
   MainContainer,
   MainDownContainer,
@@ -36,7 +37,12 @@ const VehicleInspectionScreen = ({
   handleComment,
   handleSubmitSurvey,
   deleteFile,
+  handleDeleteModal,
   surveyModalLoading,
+  isDeleteModal,
+  setDeleteModal,
+  deleteLoading,
+  uploadingPercentage,
 }) => {
   const genExtra = () => (
     <UpCircleOutlined
@@ -82,9 +88,16 @@ const VehicleInspectionScreen = ({
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
+                        {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
+                          <BsCheckCircle color="#FF7A01" size={22} />
+                        ) : (
+                          <BsCheckCircle color="#bab8b8" size={22} />
+                        )}
+                      </Col>
+
+                      <Col>
                         <div className="veh-inspection-verification_text">Car verification item</div>
                       </Col>
-                      <Col></Col>
                       <Col></Col>
                     </Row>
                   }
@@ -102,7 +115,7 @@ const VehicleInspectionScreen = ({
                           title={item.title}
                           titletwo={item.type}
                           type={item.type}
-                          deleteFile={deleteFile}
+                          deleteFile={handleDeleteModal}
                         />
                       </div>
                     ))}
@@ -114,9 +127,15 @@ const VehicleInspectionScreen = ({
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
+                        {vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 ? (
+                          <BsCheckCircle color="#FF7A01" size={22} />
+                        ) : (
+                          <BsCheckCircle color="#bab8b8" size={22} />
+                        )}
+                      </Col>
+                      <Col>
                         <div className="veh-inspection-verification_text">Interior items</div>
                       </Col>
-                      <Col></Col>
                       <Col></Col>
                     </Row>
                   }
@@ -127,7 +146,7 @@ const VehicleInspectionScreen = ({
                     {vehicleInstructions?.interiorItems.map((item, index) => (
                       <div key={index} className="veh-inspection-first_card">
                         <InspectionCard
-                          deleteFile={deleteFile}
+                          deleteFile={handleDeleteModal}
                           groupType="interiorItems"
                           item={item}
                           handleModal={handleModal}
@@ -146,9 +165,15 @@ const VehicleInspectionScreen = ({
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
+                        {vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 ? (
+                          <BsCheckCircle color="#FF7A01" size={22} />
+                        ) : (
+                          <BsCheckCircle color="#bab8b8" size={22} />
+                        )}
+                      </Col>
+                      <Col>
                         <div className="veh-inspection-verification_text">Exterior items</div>
                       </Col>
-                      <Col></Col>
                       <Col></Col>
                     </Row>
                   }
@@ -159,7 +184,7 @@ const VehicleInspectionScreen = ({
                     {vehicleInstructions?.exteriorItems?.map((item, index) => (
                       <div key={index} className="veh-inspection-first_card">
                         <InspectionCard
-                          deleteFile={deleteFile}
+                          deleteFile={handleDeleteModal}
                           groupType="exteriorItems"
                           item={item}
                           handleModal={handleModal}
@@ -178,9 +203,11 @@ const VehicleInspectionScreen = ({
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
+                        {vehicleInstructions?.tires.filter((e) => e.url).length === 4 ? <BsCheckCircle color="#FF7A01" size={22} /> : <BsCheckCircle color="#bab8b8" size={22} />}
+                      </Col>
+                      <Col>
                         <div className="veh-inspection-verification_text">Tires</div>
                       </Col>
-                      <Col></Col>
                       <Col></Col>
                     </Row>
                   }
@@ -191,7 +218,7 @@ const VehicleInspectionScreen = ({
                     {vehicleInstructions?.tires?.map((item, index) => (
                       <div key={index} className="veh-inspection-first_card">
                         <InspectionCard
-                          deleteFile={deleteFile}
+                          deleteFile={handleDeleteModal}
                           groupType="tires"
                           item={item}
                           handleModal={handleModal}
@@ -206,11 +233,22 @@ const VehicleInspectionScreen = ({
                   {/* <NextStepButton /> */}
                 </Panel>
               </Collapse>
-              <div className="vec-inspection-submitbtn_container">
-                <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
-                  Submit
-                </button>
-              </div>
+              {vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
+              vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
+              vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
+              vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
+                <div className="vec-inspection-submitbtn_container">
+                  <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
+                    Submit
+                  </button>
+                </div>
+              ) : (
+                <div className="vec-inspection-submitbtn_container">
+                  <button style={{ background: 'gray' }} disabled={true} className="vec-inspection-submit_button">
+                    Submit
+                  </button>
+                </div>
+              )}
             </ContentFooterareaVehicleinspection>
             <InstructionModal
               isLoading={isLoading}
@@ -219,7 +257,9 @@ const VehicleInspectionScreen = ({
               handleImageUpload={handleImageUpload}
               isModalVisible={isModalVisible}
               handleModalClose={handleModalClose}
+              uploadingPercentage={uploadingPercentage}
             />
+
             <SurveyModal
               changeRating={changeRating}
               rating={rating}
@@ -230,6 +270,7 @@ const VehicleInspectionScreen = ({
               handleSubmitSurvey={handleSubmitSurvey}
               surveyModalLoading={surveyModalLoading}
             />
+            <ConfimrationModal loading={deleteLoading} handleModal={setDeleteModal} onClickYes={deleteFile} isVisible={isDeleteModal} />
           </MainDownContainer>
         </MainBgInsertDetails>
       </ImageBackgroundVehicleInspection>

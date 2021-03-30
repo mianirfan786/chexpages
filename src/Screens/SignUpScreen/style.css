@@ -1,5 +1,9 @@
 .register-main-container {
   width: 100%;
+  /* position: absolute; */
+  /* height: 100%; */
+  position: relative;
+  height: 812px;
 }
 .register-background-image {
   position: relative;
@@ -41,6 +45,12 @@
   .register-background-image {
     background-size: cover;
     background-position: center center;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .button-wrapper {
+    width: 100% !important;
   }
 }
 
@@ -95,4 +105,13 @@
   color: #ffffff;
   margin-top: 40px;
   margin-bottom: 20px;
+}
+@media only screen and (min-width: 1900px) {
+  .ant-form-item .ant-select,
+  .ant-form-item .ant-cascader-picker {
+    width: 505px !important;
+  }
+  .ant-form-item-control-input {
+    width: 505px !important;
+  }
 }

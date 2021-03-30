@@ -51,14 +51,30 @@ function setDeleteLocalFile(data) {
   };
 }
 
-export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue) {
+function setVehicleStatus(data) {
+  return {
+    type: types.SET_VEHICLE_STATUS,
+    vehicleStatus: data,
+  };
+}
+
+function setCertificateData(data) {
+  return {
+    type: types.SET_CERTIFICATE_DATA,
+    vehicleCertificate: data,
+  };
+}
+
+export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue, imageUploadingProgress) {
   return (dispatch) => {
     dispatch(setVehicleLoading(true));
     axios
-      .post(`${Api}/file/upload`, params, { headers })
+      .post(`${Api}/file/upload`, params, {
+        headers,
+      })
       .then((resp) => {
         const { key, url } = resp.data;
-        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type, groupType, setModalValue));
+        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type, groupType, setModalValue, imageUploadingProgress));
       })
       .catch((err) => {
         console.log(err);
@@ -66,13 +82,16 @@ export function uploadFile(file, params, vehicle_id, category, groupType, setMod
   };
 }
 
-export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, groupType, setModalValue) {
+export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, groupType, setModalValue, imageUploadingProgress) {
   return (dispatch) => {
     const headers = {
       'Content-Type': 'img/png',
     };
     axios
-      .put(`${uploadUrl}`, file, { headers })
+      .put(`${uploadUrl}`, file, {
+        headers,
+        onUploadProgress: imageUploadingProgress,
+      })
       .then((resp) => {
         const params = { url: key, vehicle_id, category, ext: ext, group_type: groupType };
         dispatch(addFileInDB(params, setModalValue));
@@ -102,7 +121,6 @@ export function getVehicleFile(vehicleId, setModalValue) {
     const interiorItems = [];
     const exteriorItems = [];
     const tires = [];
-    console.log(headers);
     axios
       .get(`${Api}/filesAll/${vehicleId}`, { headers })
       .then((resp) => {
@@ -133,7 +151,7 @@ export function getVehicleFile(vehicleId, setModalValue) {
   };
 }
 
-export function submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading) {
+export function submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading, history) {
   return (dispatch) => {
     setSurveyModalLoading(true);
     axios
@@ -142,6 +160,7 @@ export function submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoa
         addToast(`You survey has been submitted successfully`, { appearance: 'success' });
         setSurveyModal(false);
         setSurveyModalLoading(false);
+        history.push('/transcationScreen');
       })
       .catch((err) => {
         setSurveyModalLoading(false);
@@ -165,13 +184,48 @@ export function getSurveyStatus(id, setSurveyCheck) {
   };
 }
 
-export function deleteVehicleFile(vehicleId, fileId, groupType) {
+export function deleteVehicleFile(vehicleId, fileId, groupType, deleteVehicleFile, setDeleteModal) {
   return (dispatch) => {
+    deleteVehicleFile(true);
     axios
       .delete(`${Api}/files/${vehicleId}/${fileId}`, { headers })
       .then((resp) => {
         dispatch(setDeleteLocalFile({ fileId, groupType }));
+        setDeleteModal(false);
+        deleteVehicleFile(false);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        deleteVehicleFile(false);
+      });
+  };
+}
+
+export function getVehiclesStatus(vehicleId, setLoading) {
+  return (dispatch) => {
+    setLoading(true);
+    axios
+      .get(`${Api}/vehicle/company/${vehicleId}`, { headers })
+      .then((resp) => {
+        setLoading(false);
+        dispatch(setVehicleStatus(resp.data));
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  };
+}
+
+export function getVehicleCertificate(params, setLoading) {
+  return (dispatch) => {
+    setLoading(true);
+    axios
+      .post(`${Api}/vehicle/${params.id}/files`, params, { headers })
+      .then((resp) => {
+        setLoading(false);
+        dispatch(setCertificateData(resp.data));
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
   };
 }

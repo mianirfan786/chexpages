@@ -4,27 +4,24 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
-import { useToasts } from 'react-toast-notifications';
 
 import ActionCreators from '../../actions';
 import { ThankyouScreen } from '../../Screens';
-import { setCompanies } from '../../utils/functions';
 
-const ThankyouContainer = (props) => {
+const ThankyouContainer = () => {
   const history = useHistory();
-  const { addToast } = useToasts();
 
   useEffect(() => {
-    const { getCompanies } = props;
-    getCompanies();
-  }, []);
-
-  const handleSubmit = (params) => {
-    const { register } = props;
-    register(params, history, addToast);
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user?.updates) {
+      window.location.replace('/logoutForChanges');
+    }
+  });
+  const handleNext = () => {
+    history.push('/vehicleStatus');
   };
 
-  return <ThankyouScreen companies={props.companies} handleSubmit={handleSubmit} isLoading={props.isLoading} />;
+  return <ThankyouScreen handleNext={handleNext} />;
 };
 
 function mapDispatchToProps(dispatch) {
@@ -32,9 +29,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return {
-    isLoading: state.auth.isAuthLoading,
-    companies: setCompanies(state.auth.companies),
-  };
+  return {};
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ThankyouContainer);

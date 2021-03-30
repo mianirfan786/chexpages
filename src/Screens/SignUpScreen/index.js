@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
+import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import './style.css';
@@ -70,7 +71,8 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                 >
                   <Input className="input-field" placeholder="Phone number" />
                 </Form.Item>
-                <Form.Item
+
+                {/* <Form.Item
                   name="password"
                   className="form-item-style"
                   rules={[
@@ -80,17 +82,38 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                     },
                   ]}
                 >
-                  <Input.Password className="input-field" placeholder="Password" />
+                  <Input.Password style={{ border: 'none' }} className="input-field" placeholder="Password" />
+                </Form.Item> */}
+
+                <Form.Item
+                  name="password"
+                  className="form-item-style"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please enter your password!',
+                    },
+                  ]}
+                >
+                  <Input.Password className="input-field" placeholder="password" />
                 </Form.Item>
+
                 <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
                   <Select placeholder="Select companies" mode="multiple" className="input-field" options={companies} />
                 </Form.Item>
+
                 <Form.Item>
                   <Button disabled={isLoading ? true : false} className="button-wrapper" htmlType="submit">
                     {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Register'}
                   </Button>
                 </Form.Item>
+                <Form.Item>
+                  <Link to="/login" style={{ color: 'white' }}>
+                    Sign in to an account
+                  </Link>
+                </Form.Item>
               </Form>
+              <div style={{ height: '100px' }} />
             </div>
           </div>
         </div>

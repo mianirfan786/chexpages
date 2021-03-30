@@ -9,6 +9,8 @@ import VehicleInspectionScreen from './VehicleInspectionScreen';
 import TranscationScreen from './TranscationScreen/index';
 import VehicleStatusScreen from './VehicleStatusScreen';
 import ThankyouScreen from './ThankyouScreen';
+import VehicalDetailScreen from './VehicleDetailScreen';
+import LogoutForChanges from './LogoutForChanges';
 export {
   IntroScreen,
   LoginScreen,
@@ -21,4 +23,6 @@ export {
   TranscationScreen,
   VehicleStatusScreen,
   ThankyouScreen,
+  VehicalDetailScreen,
+  LogoutForChanges,
 };

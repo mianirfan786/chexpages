@@ -1,55 +1,48 @@
 /* eslint-disable */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useStripe, useElements, CardNumberElement } from '@stripe/react-stripe-js';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
 import ActionCreators from '../../actions';
-import { TranscationScreen } from '../../Screens';
+import { VehicalDetailScreen } from '../../Screens';
 import { setCompanies } from '../../utils/functions';
+import { VehicleDetailBtnContainer } from '../../Screens/VehicleStatusScreen/style';
 
-const TranscationContainer = (props) => {
+const VehicleDetailContainer = (props) => {
   const stripe = useStripe();
   const elements = useElements();
-  const history = useHistory();
+  //   const history = useHistory();
   const { addToast } = useToasts();
 
-  const [price, setPrice] = useState(false);
-  const [priceLoading, setPriceLoading] = useState(false);
-
-  const [loading, setLoading] = useState(false);
-  const [buttonDisable, setButtonDisable] = useState(false);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    const { getPaymentPriceInfo, vehicleData } = props;
     if (user?.updates || user?.updates === null || user?.updates === undefined) {
       window.location.replace('/logoutForChanges');
     }
-    getPaymentPriceInfo(user?.vehicles[0]?.id, setPrice, setPriceLoading);
-  }, []);
+  });
   const handleSubmit = async () => {
     if (!stripe || !elements) {
       return;
     }
     const card = elements.getElement(CardNumberElement);
-    setButtonDisable(true);
     const result = await stripe.createToken(card);
     const { vehicleData, startPayment } = props;
     if (result.error) {
       console.log(error);
-      setButtonDisable(false);
       // toast(result.error.message, { type: 'error' });
       // setDisableButton(false);
     } else {
+      console.log(result);
       // setDisableButton(true);
-      startPayment({ source: result.token.id, vehicleId: vehicleData.id }, addToast, setLoading, history, setButtonDisable);
+      startPayment({ source: result.token.id, vehicleId: vehicleData.id });
     }
     // setDisableButton(false);
   };
-  return <TranscationScreen priceLoading={priceLoading} buttonDisable={buttonDisable} price={price} loading={loading} handleSubmit={handleSubmit} />;
+  return <VehicalDetailScreen handleSubmit={handleSubmit} />;
 };
 
 function mapDispatchToProps(dispatch) {
@@ -63,4 +56,4 @@ function mapStateToProps(state) {
     companies: setCompanies(state.auth.companies),
   };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(TranscationContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(VehicleDetailContainer);

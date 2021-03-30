@@ -1,17 +1,20 @@
 .login-main-container {
   width: 100%;
-  position: relative;
+  position: absolute;
   background: url('../../Assets/bg_img.png');
   height: 100%;
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center top;
 }
 
 .login-image-background-signin {
   position: relative;
   width: 100%;
 
-  background-size: cover;
+  /* background-size: cover;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center top; */
 }
 
 .login-main-bg-signin {
@@ -93,5 +96,18 @@ a {
   .login-image-background-signin {
     background-size: cover;
     background-position: center center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ant-form-item-control-input {
+    margin: auto !important;
+    width: 500px !important;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .ant-form-item-control-input {
+    margin: none !important;
+    width: 100% !important;
   }
 }

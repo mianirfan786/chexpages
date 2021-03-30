@@ -1,0 +1,87 @@
+.imageModal .ant-modal-header {
+  display: none;
+}
+
+.imageModal .ant-modal-footer {
+  display: none;
+}
+
+.imageModal .ant-modal-body {
+  padding: 5px;
+}
+
+.imageModal .ant-modal-close-icon {
+  color: #d07575;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.ant-modal-root .ant-modal-mask {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sure-modal .ant-modal-header {
+  display: none;
+}
+
+.sure-modal .ant-modal-footer {
+  display: none;
+}
+
+.sure-modal .ant-modal-content {
+  border-radius: 15px;
+  height: 70% !important;
+  width: 30% !important;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
+}
+
+.d-flex-1 {
+  display: flex;
+}
+
+.progressNumber {
+  color: blue;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.progressNumber .progress-bar {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.sure-modal .ant-modal-content .ant-modal-close {
+  display: none;
+}
+
+.signature-data {
+  width: 40%;
+}
+
+@media only screen and (max-width: 600px) {
+  .signature-data {
+    width: 100% !important;
+  }
+ 
+}
+
+
+
+
+@media only screen and (max-width:900px) {
+ 
+  .sure-modal .ant-modal-content {
+    border-radius: 15px;
+    height: 68% !important;
+    width: 100% !important;
+  }
+}

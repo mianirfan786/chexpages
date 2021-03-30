@@ -9,7 +9,7 @@ export const MainContainer = styled.div`
 
 export const ImageBackgroundSignin = styled.div`
   position: relative;
-  width: 100%;
+  width: 100%; 
   height: 900px; 
 
   background: url(${backgroundImage});
