@@ -16,7 +16,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
               CHEX
               <span className="register-logoSpanColor">.AI</span>
             </div>
-            <div className="register-mainScreenP">Virtual Inspections</div>
+            <div className="register-mainScreenP">Virtual Inspections</div> 
           </div>
           <div className="register-contentFooterAreaSignin">
             <div className="register-signinHeadingH3">Register</div>
