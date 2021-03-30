@@ -9,7 +9,7 @@ import { AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
 import './style.css';
 // import '../../App.css';
 
-const ContactUsScreen = ({ priceLoading, handleSubmit, loading, price, buttonDisable }) => {
+const ContactUsScreen = ({ handleSubmit, loading, buttonDisable }) => {
   return (
     <div className="contact-us-main_container">
       <div className="contact-us-container">

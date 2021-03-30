@@ -12,9 +12,13 @@ import { ContactUsScreen } from '../../Screens';
 import { setCompanies } from '../../utils/functions';
 
 const ContactUsContainer = (props) => {
+  const handleSubmit = (data) => {
+
+  }
+  // console.log(ActionCreators);
+  console.log(props.contactUs);
   return <ContactUsScreen />;
 };
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
