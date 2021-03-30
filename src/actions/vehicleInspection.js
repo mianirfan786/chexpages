@@ -160,7 +160,7 @@ export function submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoa
         addToast(`You survey has been submitted successfully`, { appearance: 'success' });
         setSurveyModal(false);
         setSurveyModalLoading(false);
-        history.push('/transcationScreen');
+        history.push('/transcationScreen'); 
       })
       .catch((err) => {
         setSurveyModalLoading(false);

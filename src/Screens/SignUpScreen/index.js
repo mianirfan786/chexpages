@@ -110,6 +110,19 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                   />
                 </Form.Item>
 
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                <div style={{ display: 'flex' }}>
+                  <label class="newcontainer">
+                    <input type="checkbox" />  
+                    <span class="newcheckmark"></span>
+                  </label>
+                  <div className="register-checkbox-text">
+                    I accept <Link style={{color:'white',textDecoration:'underline'}} to='/termsAndPolicy'>terms of use</Link>
+
+                  </div>
+                </div>
+                </div>
+
                 <Form.Item>
                   <Button
                     disabled={isLoading ? true : false}
