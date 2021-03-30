@@ -20,6 +20,7 @@ import {
   VehicleStatusContainer,
   ThankyouContainer,
   VehicleDetailContainer,
+  ContactUsContainer,
 } from './Containers';
 import { LogoutForChanges } from '../src/Screens';
 
@@ -35,6 +36,7 @@ function App(props) {
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleinspection" component={VehicleInspectionContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/transcationScreen" component={TranscationContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/VehicleDetail" component={VehicleDetailContainer} />
+      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path= "/contactUs" component={ContactUsContainer} />
       <Route path="/thankyouScreen" component={ThankyouContainer} />
       {/* <Route path="/transcationScreen" component={TranscationContainer} /> */}
       <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/register" component={SignUpContainer} />

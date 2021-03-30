@@ -37,10 +37,10 @@ const SideBar = ({ drawerVisible, handleSideBar }) => {
         <FaCar />
         <div className="icon-text">Vehicle Details</div>
       </Link>
-      <div className="icon-bar">
+      <Link to="/contactUs" className="icon-bar">
         <MdCall />
         <div className="icon-text">Contact us</div>
-      </div>
+      </Link>
       <div onClick={handleLogout} className="icon-bar">
         <RiLogoutCircleRLine />
         <div className="icon-text">Logout</div>
