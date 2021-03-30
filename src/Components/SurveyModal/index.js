@@ -77,7 +77,7 @@ const SurveyModal = ({
                     Online Service (Chex<span className="server-form-title">.AI</span>)
                   </div>
                 </div>
-              </div>
+              </div> 
 
               <div>
                 <div style={{ display: 'flex' }}>

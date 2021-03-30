@@ -43,8 +43,7 @@ const ContactUsScreen = ({ handleSubmit, handleChange, loading}) => {
           <div></div>
         </div>
         <p className="directlt-reach-text">
-          <span style={{ color: 'white', fontWeight: '600', marginRight: '10px' }}>or</span>You can
-          directly reach us at
+          <span style={{ color: 'white', fontWeight: '600', marginRight: '10px' }}>or</span>You can directly reach us at
         </p>
         <div className="email-container">
           <AiOutlineMail size={24} color="#FF7A00" style={{ marginTop: '5px' }} />

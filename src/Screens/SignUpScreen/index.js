@@ -16,7 +16,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
               CHEX
               <span className="register-logoSpanColor">.AI</span>
             </div>
-            <div className="register-mainScreenP">Virtual Inspections</div>
+            <div className="register-mainScreenP">Virtual Inspections</div> 
           </div>
           <div className="register-contentFooterAreaSignin">
             <div className="register-signinHeadingH3">Register</div>
@@ -109,6 +109,19 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                     options={companies}
                   />
                 </Form.Item>
+
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                <div style={{ display: 'flex' }}>
+                  <label class="newcontainer">
+                    <input type="checkbox" />  
+                    <span class="newcheckmark"></span>
+                  </label>
+                  <div className="register-checkbox-text">
+                    I accept <Link style={{color:'white',textDecoration:'underline'}} to='/termsAndPolicy'>terms of use</Link>
+
+                  </div>
+                </div>
+                </div>
 
                 <Form.Item>
                   <Button
