@@ -10,7 +10,7 @@ import '../../App.css';
 
 const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonDisable }) => {
   return (
-    <div className="container">
+    <div className="trans-container">
       <div className="transcation-container">
         <div className="transaction-screen-header">
           <Link to="/vehicleinspection">
