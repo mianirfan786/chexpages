@@ -10,6 +10,7 @@ import TranscationContainer from './TranscationContainer/index';
 import VehicleStatusContainer from './VehicleStatusContainer';
 import ThankyouContainer from './ThankyouContainer/index';
 import VehicleDetailContainer from './VehicalDetailContainer';
+import ContactUsContainer from './ContactUsContainer';
 export {
   IntroContainer,
   LoginContainer,
@@ -23,4 +24,5 @@ export {
   ThankyouContainer,
   VehicleStatusContainer,
   VehicleDetailContainer,
+  ContactUsContainer,
 };
