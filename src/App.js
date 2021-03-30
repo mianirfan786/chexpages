@@ -37,10 +37,11 @@ function App(props) {
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleStatus" component={VehicleStatusContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleinspection" component={VehicleInspectionContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/transcationScreen" component={TranscationContainer} />
+      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleDetail" component={VehicleDetailContainer} />
+      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/contactUs" component={ContactUsContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/doAndDoesScreen" component={DoAndDoesContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleDetail" component={VehicleDetailContainer} />
       <Route path="/termsAndPolicy" component={TermsAndPolicyContainer} />
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/contactUs" component={ContactUsContainer} />
       <Route path="/thankyouScreen" component={ThankyouContainer} />
       {/* <Route path="/transcationScreen" component={TranscationContainer} /> */}
       <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/register" component={SignUpContainer} />
@@ -53,7 +54,7 @@ function App(props) {
       {/* <RestrictedRoute exact storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/logoutForChanges" component={LogoutForChanges} /> */}
     </Switch>
   );
-} 
+}
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
