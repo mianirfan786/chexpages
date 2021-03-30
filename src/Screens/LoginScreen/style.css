@@ -92,6 +92,10 @@ a {
   margin-bottom: 40px;
 }
 
+.login-form-container {
+  width: 45%;
+}
+
 @media screen and (min-width: 768px) {
   .login-image-background-signin {
     background-size: cover;
@@ -109,5 +113,22 @@ a {
   .ant-form-item-control-input {
     margin: none !important;
     width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .login-form-container {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .login-form-container {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1289px) {
+  .login-form-container {
+    width: 30%;
   }
 }

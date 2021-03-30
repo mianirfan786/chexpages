@@ -21,7 +21,7 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
           <div className="login-form-main-container">
             <h3 className="login-form-heading">Sign in</h3>
             <Form
-              className="form-container"
+              className="login-form-container"
               initialValues={{
                 remember: true,
               }}
@@ -43,13 +43,13 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
 
               <Form.Item
                 name="password"
-                className="form-item-style" 
+                className="form-item-style"
                 rules={[
                   {
                     required: true,
                     message: 'Please input your password!',
                   },
-                ]} 
+                ]}
               >
                 <Input.Password style={{ border: 'none' }} placeholder="Password" className="input-field" />
               </Form.Item>

@@ -229,3 +229,18 @@ export function getVehicleCertificate(params, setLoading) {
       });
   };
 }
+
+export function changeVehicleStatus(vechileId, setVehicleStatusLoading, history) {
+  return (dispatch) => {
+    setVehicleStatusLoading(true);
+    axios
+      .post(`${Api}/vehicle/status/${vechileId}`, {}, { headers })
+      .then((resp) => {
+        setVehicleStatusLoading(false);
+        history.push('/vehicleStatus');
+      })
+      .catch((err) => {
+        setVehicleStatusLoading(false);
+      });
+  };
+}
