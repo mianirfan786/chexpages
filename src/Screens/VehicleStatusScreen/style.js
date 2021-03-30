@@ -8,6 +8,7 @@ export const MainContainer = styled.div`
   width: 100%;
   border: none;
   background-repeat: no-repeat;
+  overflow: hidden;
 `;
 
 export const MainDownContainer = styled.div`
