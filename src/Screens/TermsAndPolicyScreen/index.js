@@ -1,5 +1,6 @@
 import React from 'react';
-import {BsChevronLeft} from 'react-icons/bs';
+import { BsChevronLeft } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import {
   MainContainer,
   PrivacyPolicyHeading,
@@ -9,21 +10,21 @@ import {
   PrivacyPolicyUnderLine,
   PrivacyPolicyText,
   MainBgSignin,
-  PrivacyPolicySpan, 
+  PrivacyPolicySpan,
 } from './style';
 
 import './style.css';
 
-const TermsAndPolicyScreen = ({ handleSubmit, isLoading, companies }) => {
+const TermsAndPolicyScreen = () => {
   return (
     <div>
       <MainBgSignin>
         <ContentMainScreen>
           <ContentMainScreenh5>
             <ArrowBack>
-              <div>
+              <Link to="/register">
                 <BsChevronLeft className="left-icon-termsAndPolicy" />
-              </div>
+              </Link>
             </ArrowBack>
             <PrivacyPolicySpan>Privacy Policy</PrivacyPolicySpan>
           </ContentMainScreenh5>
