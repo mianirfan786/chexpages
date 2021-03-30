@@ -21,6 +21,7 @@ const VehicleInspectionContainer = (props) => {
   const [isSurveyModalVisible, setSurveyModal] = useState(false);
   const [isDeleteModal, setDeleteModal] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
+  const [vehicleStatusLoading, setVehicleStatusLoading] = useState(false);
   const [uploadingPercentage, setuploadingPercentage] = useState(0);
   const [fileToBeDeleted, setDeletingFile] = useState(null);
   const [imageCategory, setImageCategory] = useState(null);
@@ -138,6 +139,10 @@ const VehicleInspectionContainer = (props) => {
     setuploadingPercentage(percent);
   };
 
+  const handleChangeVehicleStatus = () => {
+    const { changeVehicleStatus, vehicleData } = props;
+    changeVehicleStatus(vehicleData.id, setVehicleStatusLoading, history);
+  };
   return (
     <VehicleInspectionScreen
       rating={rating}
@@ -162,6 +167,9 @@ const VehicleInspectionContainer = (props) => {
       handleComment={handleComment}
       setDeleteModal={setDeleteModal}
       handleSubmitSurvey={handleSubmitSurvey}
+      paymentStatus={props.paymentStatus}
+      changeVehicleStatus={handleChangeVehicleStatus}
+      vehicleStatusLoading={vehicleStatusLoading}
     />
   );
 };

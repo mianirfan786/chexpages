@@ -72,7 +72,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                   <Input className="input-field" placeholder="Phone number" />
                 </Form.Item>
 
-                <Form.Item
+                {/* <Form.Item
                   name="password"
                   className="form-item-style"
                   rules={[
@@ -82,11 +82,20 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies }) => {
                     },
                   ]}
                 >
-                  <Input.Password
-                    style={{ border: 'none' }}
-                    className="input-field"
-                    placeholder="Password"
-                  />
+                  <Input.Password style={{ border: 'none' }} className="input-field" placeholder="Password" />
+                </Form.Item> */}
+
+                <Form.Item
+                  name="password"
+                  className="form-item-style"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please enter your password!',
+                    },
+                  ]}
+                >
+                  <Input.Password className="input-field" placeholder="password" />
                 </Form.Item>
 
                 <Form.Item

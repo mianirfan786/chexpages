@@ -11,6 +11,10 @@
 .login-image-background-signin {
   position: relative;
   width: 100%;
+
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top; */
 }
 
 .login-main-bg-signin {
@@ -64,14 +68,14 @@ a {
   text-align: center;
   width: 100%;
   margin: 30px auto;
-  margin-top: 70px; 
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0 20px;
 }
- 
+
 .forgot-password-link {
   color: white;
   font-size: 15px;
@@ -80,12 +84,16 @@ a {
 
 .login-form-heading {
   font-style: normal;
-  font-weight: 600; 
+  font-weight: 600;
   font-size: 24px;
   line-height: 36px;
   text-align: center;
   color: #ffffff;
   margin-bottom: 40px;
+}
+
+.login-form-container {
+  width: 45%;
 }
 
 @media screen and (min-width: 768px) {
@@ -105,5 +113,22 @@ a {
   .ant-form-item-control-input {
     margin: none !important;
     width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .login-form-container {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .login-form-container {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1289px) {
+  .login-form-container {
+    width: 30%;
   }
 }
