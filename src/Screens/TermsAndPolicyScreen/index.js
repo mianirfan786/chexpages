@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {BsChevronLeft} from 'react-icons/bs';
 import {
   MainContainer,
   PrivacyPolicyHeading,
@@ -9,7 +9,7 @@ import {
   PrivacyPolicyUnderLine,
   PrivacyPolicyText,
   MainBgSignin,
-  PrivacyPolicySpan,
+  PrivacyPolicySpan, 
 } from './style';
 
 import './style.css';
@@ -22,7 +22,7 @@ const TermsAndPolicyScreen = ({ handleSubmit, isLoading, companies }) => {
           <ContentMainScreenh5>
             <ArrowBack>
               <div>
-                <i className="fas fa-chevron-left fa-2x" />
+                <BsChevronLeft className="left-icon-termsAndPolicy" />
               </div>
             </ArrowBack>
             <PrivacyPolicySpan>Privacy Policy</PrivacyPolicySpan>
