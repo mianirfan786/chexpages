@@ -22,13 +22,14 @@ import {
   VehicleDetailContainer,
   DoAndDoesContainer,
   TermsAndPolicyContainer,
+  ContactUsContainer,
 } from './Containers';
 import { LogoutForChanges } from '../src/Screens';
 
 import './App.css';
 
 function App(props) {
-  const { currentUser } = props; 
+  const { currentUser } = props;
   let isAuthenticated = currentUser ? true : false;
   return (
     <Switch>
@@ -39,6 +40,7 @@ function App(props) {
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/doAndDoesScreen" component={DoAndDoesContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleDetail" component={VehicleDetailContainer} />
       <Route path="/termsAndPolicy" component={TermsAndPolicyContainer} />
+      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/contactUs" component={ContactUsContainer} />
       <Route path="/thankyouScreen" component={ThankyouContainer} />
       {/* <Route path="/transcationScreen" component={TranscationContainer} /> */}
       <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/register" component={SignUpContainer} />

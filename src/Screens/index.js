@@ -13,7 +13,8 @@ import VehicalDetailScreen from './VehicleDetailScreen';
 import LogoutForChanges from './LogoutForChanges';
 import DoAndDoesScreen from './DoAndDoesScreen';
 import TermsAndPolicyScreen from './TermsAndPolicyScreen';
-export { 
+import ContactUsScreen from './ContactUsScreen';
+export {
   IntroScreen,
   LoginScreen,
   SignUpScreen,
@@ -29,4 +30,5 @@ export {
   LogoutForChanges,
   DoAndDoesScreen,
   TermsAndPolicyScreen,
+  ContactUsScreen,
 };

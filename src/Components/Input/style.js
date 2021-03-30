@@ -5,6 +5,6 @@ export const InputMainContainer = styled.div`
   width: 100%;
 
   @media screen and (min-width: 600px) {
-    width: 30%;
+    width: 100%;
   }
 `;
