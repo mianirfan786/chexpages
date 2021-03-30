@@ -48,7 +48,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
               starHoverColor="#cecece"
             /> */}
 
-            <ReactStars count={5} onChange={changeRating} size={24} activeColor="#ffd700" />
+            <ReactStars count={5} onChange={changeRating} size={30} activeColor="#ffd700" />
           </div>
           <div className="server-form-question">Which platform would you prefer for vehicle inspections?</div>
 

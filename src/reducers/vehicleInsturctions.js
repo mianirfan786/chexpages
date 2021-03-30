@@ -50,7 +50,7 @@ const initialState = {
       url: '',
       fileId: null,
       steps: ['Please take a photo of the interior of the vehicle with the left driver side door open with a clear view of the interior rearview mirror and brake pads.'],
-      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590293/chex-instruction/interior_view_xxlp7t.jpg',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1617101206/chex-instruction/Driverside_Interior_pjxgy2.jpg',
       loading: false,
     },
     {
@@ -98,7 +98,7 @@ const initialState = {
       fileId: null,
       groupType: 'interiorItems',
       steps: ['Please take a photo entire odometer dashboard area with vehicle turned on.'],
-      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590297/chex-instruction/odometer_bg3rgt.jpg',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590298/chex-instruction/Photo6Backseat_xp61vx.jpg',
       loading: false,
     },
   ],
@@ -112,7 +112,7 @@ const initialState = {
       fileId: null,
       groupType: 'exteriorItems',
       steps: ['Please take a photo from the center position of the left side (driver) of your vehicle capturing the entire exterior left side of your vehicle.'],
-      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590293/chex-instruction/exteriorLeft_ggc7k8.jpg',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590296/chex-instruction/Photo1Exterior-Left_hgbo3j.jpg',
       loading: false,
     },
     {
@@ -124,7 +124,7 @@ const initialState = {
       fileId: null,
       groupType: 'exteriorItems',
       steps: ['Please take a photo from the center position of the right side (Passenger) of your vehicle capturing the entire exterior right side of your vehicle.'],
-      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590294/chex-instruction/exteriorRight_frhvbt.jpg',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590300/chex-instruction/Photo2Exterior-Right_gnkjyw.jpg',
       loading: false,
     },
     {
