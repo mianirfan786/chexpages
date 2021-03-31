@@ -10,6 +10,8 @@ import TranscationContainer from './TranscationContainer/index';
 import VehicleStatusContainer from './VehicleStatusContainer';
 import ThankyouContainer from './ThankyouContainer/index';
 import VehicleDetailContainer from './VehicalDetailContainer';
+import DoAndDoesContainer from './DoAndDoesContainer';
+import TermsAndPolicyContainer from './TermsAndPolicyContainer';
 import ContactUsContainer from './ContactUsContainer';
 export {
   IntroContainer,
@@ -24,5 +26,7 @@ export {
   ThankyouContainer,
   VehicleStatusContainer,
   VehicleDetailContainer,
+  DoAndDoesContainer,
+  TermsAndPolicyContainer,
   ContactUsContainer,
 };

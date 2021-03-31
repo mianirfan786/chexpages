@@ -1,19 +1,19 @@
 /* eslint-disable */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
 import ActionCreators from '../../actions';
-import { SignUpScreen } from '../../Screens';
+import { DoAndDoesScreen } from '../../Screens';
 import { setCompanies } from '../../utils/functions';
 
 const SignUpContainer = (props) => {
   const history = useHistory();
   const { addToast } = useToasts();
-  const [checkboxValue, setCheckBox] = useState(false);
+
   useEffect(() => {
     const { getCompanies } = props;
     getCompanies();
@@ -21,18 +21,10 @@ const SignUpContainer = (props) => {
 
   const handleSubmit = (params) => {
     const { register } = props;
-    if (checkboxValue) {
-      register(params, history, addToast);
-    } else {
-      addToast('Please accept term of use', { appearance: 'warning' });
-    }
+    register(params, history, addToast);
   };
 
-  const handleCheckBox = () => {
-    setCheckBox(!checkboxValue);
-  };
-
-  return <SignUpScreen handleCheckBox={handleCheckBox} companies={props.companies} handleSubmit={handleSubmit} isLoading={props.isLoading} />;
+  return <DoAndDoesScreen companies={props.companies} handleSubmit={handleSubmit} isLoading={props.isLoading} />;
 };
 
 function mapDispatchToProps(dispatch) {

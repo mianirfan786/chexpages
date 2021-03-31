@@ -8,16 +8,7 @@ import './style.css';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 
-const SurveyModal = ({
-  rating,
-  handleSurveyModal,
-  isSurveyModalVisible,
-  changeRating,
-  handleCheckBox,
-  handleComment,
-  handleSubmitSurvey,
-  surveyModalLoading,
-}) => {
+const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRating, handleCheckBox, handleComment, handleSubmitSurvey, surveyModalLoading }) => {
   return (
     <div className="survey-modal">
       <Modal
@@ -40,9 +31,7 @@ const SurveyModal = ({
           <div className="server-form-heading">
             Save <span className="server-form-price">$5</span> at check out
           </div>
-          <div className="server-form-paragraph">
-            We value your feedback! Help us improve our product by filling our below questionaire.
-          </div>
+          <div className="server-form-paragraph">We value your feedback! Help us improve our product by filling our below questionaire.</div>
           <div className="server-form-sub-heading">
             How would you rate Chex<span className="server-form-title">.AI</span> app
           </div>
@@ -61,9 +50,7 @@ const SurveyModal = ({
 
             <ReactStars count={5} onChange={changeRating} size={30} activeColor="#ffd700" />
           </div>
-          <div className="server-form-question">
-            Which platform would you prefer for vehicle inspections?
-          </div>
+          <div className="server-form-question">Which platform would you prefer for vehicle inspections?</div>
 
           <div className="server-form-checkboxes">
             <div>
@@ -114,14 +101,11 @@ const SurveyModal = ({
             ></textarea>
           </div>
           <div style={{ marginTop: '8px' }}>
-            <Button
-              onClickButton={handleSubmitSurvey}
-              loading={surveyModalLoading}
-              title={'Next'}
-              buttonClass="survey-button"
-            />
+            <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />
             <div className="survey-modal-link">
-              <Link to="/transcationScreen">Skip and pay full amount</Link>
+              <Link style={{ color: '#0057ac' }} to="/transcationScreen">
+                Skip and pay full amount
+              </Link>
             </div>
           </div>
         </div>

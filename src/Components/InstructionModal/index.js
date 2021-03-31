@@ -64,13 +64,16 @@ const InstructionModal = ({
               <>
                 <div className="video-container">
                   <video
+                    preload="metadata"
                     id="myVideo"
                     autoPlay={false}
                     className="modal-video"
                     controls
-                    src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}
                   >
-                    video is too large to load
+                    <source
+                      src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}#t=0.5`}
+                      type="video/mp4"
+                    />
                   </video>
                 </div>
               </>
@@ -88,14 +91,15 @@ const InstructionModal = ({
                   </>
                 ) : (
                   <video
+                    preload="metadata"
                     id="myVideo"
                     autoPlay={false}
-                    width="270"
+                    width="320"
                     height="240"
                     controls
-                    src={vehicleInstructionValues?.video}
+                    src={`${vehicleInstructionValues?.video}#t=0.5`}
                   >
-                    video is too large to load
+                    <source src={`${vehicleInstructionValues?.video}#t=0.5`} type="video/mp4" />
                   </video>
                 )}
                 <div className="instruction-modal-step-container">

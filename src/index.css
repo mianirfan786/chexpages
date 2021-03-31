@@ -15,15 +15,16 @@ code {
 html,
 body {
   background-size: auto;
-  background: red;
+  font-family: 'Poppins';
 }
 * {
   background: red;
+  font-family: 'Poppins';
 }
 
 #root {
   background: red;
 }
 * {
-  font-family: Poppins;
+  font-family: 'Poppins';
 }
