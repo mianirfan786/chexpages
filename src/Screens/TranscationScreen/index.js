@@ -33,6 +33,7 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
             </>
           )}
         </div>
+
         <div className="transaction-form-container">
           <div className="transaction-input-field">
             <div className="input-field-name">Card number</div>
@@ -113,7 +114,12 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
               </div>
             </div>
           </div>
-          <Button loading={loading} title={'Submit'} disabled={buttonDisable} onClickButton={handleSubmit} />
+          <Button
+            loading={loading}
+            title={'Submit'}
+            disabled={buttonDisable}
+            onClickButton={handleSubmit}
+          />
           <div></div>
         </div>
       </div>

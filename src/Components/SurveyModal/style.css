@@ -130,6 +130,7 @@
   border-radius: 0px !important;
   width: 30% !important;
   border-radius: 30px !important;
+  height: 110% !important;
 }
 
 @media only screen and (max-width: 450px) {

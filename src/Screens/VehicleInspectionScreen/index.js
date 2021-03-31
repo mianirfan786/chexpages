@@ -4,7 +4,13 @@ import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 import { BsCheckCircle } from 'react-icons/bs';
 
-import { InspectionCard, InstructionModal, Header, SurveyModal, ConfimrationModal } from '../../Components';
+import {
+  InspectionCard,
+  InstructionModal,
+  Header,
+  SurveyModal,
+  ConfimrationModal,
+} from '../../Components';
 import {
   MainContainer,
   MainDownContainer,
@@ -64,7 +70,9 @@ const VehicleInspectionScreen = ({
           <ContentVehicleInspection>
             <Header />
             <MainDownContainer>
-              <VehicleInspectionP>Please complete inspection items within each category below</VehicleInspectionP>
+              <VehicleInspectionP>
+                Please complete inspection items within each category below
+              </VehicleInspectionP>
             </MainDownContainer>
 
             <div className="veh-inspection-mobilepaddind">
@@ -83,7 +91,11 @@ const VehicleInspectionScreen = ({
                 expandIconPosition="right"
                 expandIcon={({ isActive }) => (
                   <UpCircleOutlined
-                    style={isActive ? { fontSize: 32, color: '#FF7A00', marginTop: -7 } : { fontSize: 32, color: 'lightGray', marginTop: -7 }}
+                    style={
+                      isActive
+                        ? { fontSize: 32, color: '#FF7A00', marginTop: -7 }
+                        : { fontSize: 32, color: 'lightGray', marginTop: -7 }
+                    }
                     rotate={isActive ? 180 : 0}
                   />
                 )}
@@ -101,7 +113,9 @@ const VehicleInspectionScreen = ({
                       </Col>
 
                       <Col>
-                        <div className="veh-inspection-verification_text">Car verification item</div>
+                        <div className="veh-inspection-verification_text">
+                          Car verification item
+                        </div>
                       </Col>
                       <Col></Col>
                     </Row>
@@ -208,7 +222,11 @@ const VehicleInspectionScreen = ({
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
-                        {vehicleInstructions?.tires.filter((e) => e.url).length === 4 ? <BsCheckCircle color="#FF7A01" size={22} /> : <BsCheckCircle color="#bab8b8" size={22} />}
+                        {vehicleInstructions?.tires.filter((e) => e.url).length === 4 ? (
+                          <BsCheckCircle color="#FF7A01" size={22} />
+                        ) : (
+                          <BsCheckCircle color="#bab8b8" size={22} />
+                        )}
                       </Col>
                       <Col>
                         <div className="veh-inspection-verification_text">Tires</div>
@@ -240,7 +258,11 @@ const VehicleInspectionScreen = ({
               </Collapse>
               {paymentStatus ? (
                 <div className="vec-inspection-submitbtn_container">
-                  <button disabled={vehicleStatusLoading} onClick={changeVehicleStatus} className="vec-inspection-submit_button">
+                  <button
+                    disabled={vehicleStatusLoading}
+                    onClick={changeVehicleStatus}
+                    className="vec-inspection-submit_button"
+                  >
                     {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}
                   </button>
                 </div>
@@ -249,13 +271,20 @@ const VehicleInspectionScreen = ({
                 vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
                 vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
                 <div className="vec-inspection-submitbtn_container">
-                  <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
+                  <button
+                    onClick={() => handleSurveyModal(true)}
+                    className="vec-inspection-submit_button"
+                  >
                     Submit
                   </button>
                 </div>
               ) : (
                 <div className="vec-inspection-submitbtn_container">
-                  <button style={{ background: 'gray' }} disabled={true} className="vec-inspection-submit_button">
+                  <button
+                    style={{ background: 'gray' }}
+                    disabled={true}
+                    className="vec-inspection-submit_button"
+                  >
                     Submit
                   </button>
                 </div>
@@ -281,7 +310,12 @@ const VehicleInspectionScreen = ({
               handleSubmitSurvey={handleSubmitSurvey}
               surveyModalLoading={surveyModalLoading}
             />
-            <ConfimrationModal loading={deleteLoading} handleModal={setDeleteModal} onClickYes={deleteFile} isVisible={isDeleteModal} />
+            <ConfimrationModal
+              loading={deleteLoading}
+              handleModal={setDeleteModal}
+              onClickYes={deleteFile}
+              isVisible={isDeleteModal}
+            />
           </MainDownContainer>
         </MainBgInsertDetails>
       </ImageBackgroundVehicleInspection>

@@ -73,7 +73,7 @@ export const VehicleInspectionA = styled(Link)`
 export const VehicleInspectionP = styled.p`
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 19px;
   text-align: center;
   letter-spacing: 0em;
@@ -364,7 +364,7 @@ export const ContentFooterareaVehicleinspection = styled.div`
   border-radius: 20px 20px 20px 20px;
   margin-top: 30px;
   padding: 30px 10px;
-  margin-top: 30px;
+  margin-top: 5px;
   width: 30%;
   margin-bottom: 30px;
   // height: 100vh;
@@ -548,17 +548,18 @@ export const MobileViewWarning = styled.div`
   color: white;
   font-size: 10px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 14px;
   letter-spacing: 0em;
   text-align: center;
-  padding: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
 `;
 
 export const BoldSpan = styled.span`
   font-size: 10px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 14px;
   letter-spacing: 0em;
   text-align: center;
