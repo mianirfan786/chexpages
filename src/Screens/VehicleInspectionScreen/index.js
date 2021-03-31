@@ -59,8 +59,7 @@ const VehicleInspectionScreen = ({
   return (
     <MainContainer>
       <ImageBackgroundVehicleInspection>
-        {console.log('wewew', paymentStatus)}
-        <MainBgInsertDetails>
+          <MainBgInsertDetails>
           <ContentVehicleInspection>
             <Header />
             <MainDownContainer>

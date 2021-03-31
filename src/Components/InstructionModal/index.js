@@ -42,8 +42,8 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
             ) : (
               <>
                 <div className="video-container">
-                  <video id="myVideo" autoPlay={false} className="modal-video" controls src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}`}>
-                    video is too large to load
+                  <video preload="metadata" id="myVideo" autoPlay={false} className="modal-video" controls>
+                    <source src={`${process.env.REACT_APP_AWS_S3_LINK}/${vehicleInstructionValues?.url}#t=0.5`} type="video/mp4" />
                   </video>
                 </div>
               </>
@@ -58,8 +58,8 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                     <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
                   </>
                 ) : (
-                  <video id="myVideo" autoPlay={false} width="320" height="240" controls src={vehicleInstructionValues?.video}>
-                    video is too large to load
+                  <video preload="metadata" id="myVideo" autoPlay={false} width="320" height="240" controls src={`${vehicleInstructionValues?.video}#t=0.5`}>
+                    <source src={`${vehicleInstructionValues?.video}#t=0.5`} type="video/mp4" />
                   </video>
                 )}
                 <div className="instruction-modal-step-container">
