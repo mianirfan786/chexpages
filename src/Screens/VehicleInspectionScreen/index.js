@@ -65,7 +65,7 @@ const VehicleInspectionScreen = ({
   return (
     <MainContainer>
       <ImageBackgroundVehicleInspection>
-          <MainBgInsertDetails>
+        <MainBgInsertDetails>
           <ContentVehicleInspection>
             <Header />
             <MainDownContainer>

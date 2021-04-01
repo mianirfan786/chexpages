@@ -37,7 +37,10 @@ const InspectionCard = ({
             // />
 
             <video preload="metadata" autoPlay={false} className="inspection-image">
-              <source src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}#t=0.5`} type="video/mp4" />
+              <source
+                src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}#t=0.5`}
+                type="video/mp4"
+              />
             </video>
           )
         ) : (
