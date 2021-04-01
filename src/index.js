@@ -18,7 +18,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 ReactDOM.render(
   <Elements stripe={stripePromise}>
     <Provider store={store}>
-      <ToastProvider autoDismiss={true} autoDismissTimeout={2000} PlacementType="bottom-right">
+      <ToastProvider autoDismiss={true} autoDismissTimeout={4000} PlacementType="bottom-right">
         <Router>
           <App />
         </Router>

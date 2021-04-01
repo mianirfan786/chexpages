@@ -3,7 +3,7 @@ import { Drawer } from 'antd';
 import { Link } from 'react-router-dom';
 // import TestingImage from '../../Assets/testing.png';
 import { AiTwotoneHome } from 'react-icons/ai';
-import { FaHistory } from 'react-icons/fa';
+// import { FaHistory } from 'react-icons/fa';
 import { FaCar } from 'react-icons/fa';
 import { MdCall } from 'react-icons/md';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
@@ -29,10 +29,10 @@ const SideBar = ({ drawerVisible, handleSideBar }) => {
         <AiTwotoneHome />
         <div className="icon-text">Home</div>
       </Link>
-      <div className="icon-bar">
+      {/* <div className="icon-bar">
         <FaHistory />
         <div className="icon-text">History</div>
-      </div>
+      </div> */}
       <Link to="/VehicleDetail" className="icon-bar">
         <FaCar />
         <div className="icon-text">Vehicle Details</div>

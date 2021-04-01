@@ -168,7 +168,7 @@ export function contactUs(data, addToast, history, setLoading) {
       .post(`${Api}/auth/contactUs`, data, { headers })
       .then((resp) => {
         addToast(`Your message has been delivered to support`, { appearance: 'success' });
-        history.replace('/');
+        // history.replace('/');
         setLoading(false);
       })
       .catch((err) => {
