@@ -1,16 +1,16 @@
 import React from 'react';
 // import ReactPlayer from 'react-player';
 import { Button } from '../../Components';
-import { BsChevronLeft } from 'react-icons/bs';
+// import { BsChevronLeft } from 'react-icons/bs';
 
 import './style.css';
 import '../../App.css';
 
-const DoAndDoesScreen = ({ handleSubmit, isLoading, companies }) => {
+const DoAndDoesScreen = ({ loading, handleSubmit }) => {
   return (
     <div className="doAndDoesContainer">
       <div className="header-container">
-        <BsChevronLeft className="doAndDoes-icon" />
+        {/* <BsChevronLeft className="doAndDoes-icon" /> */}
         <div className="doAndDoes-title"> Do's and Don't</div>
         <div></div>
       </div>
@@ -33,7 +33,7 @@ const DoAndDoesScreen = ({ handleSubmit, isLoading, companies }) => {
           </ul>
         </p>
       </div>
-      <Button title="Next" />
+      <Button loading={loading} onClickButton={handleSubmit} title="Next" />
     </div>
   );
 };

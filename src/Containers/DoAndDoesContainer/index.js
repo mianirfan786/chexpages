@@ -1,30 +1,27 @@
 /* eslint-disable */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
-import { useToasts } from 'react-toast-notifications';
 
 import ActionCreators from '../../actions';
 import { DoAndDoesScreen } from '../../Screens';
-import { setCompanies } from '../../utils/functions';
 
-const SignUpContainer = (props) => {
+const DoAndDontContainer = (props) => {
   const history = useHistory();
-  const { addToast } = useToasts();
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const { getCompanies } = props;
     getCompanies();
   }, []);
 
   const handleSubmit = (params) => {
-    const { register } = props;
-    register(params, history, addToast);
+    const { changeRecommendation } = props;
+    changeRecommendation(setLoading, history);
   };
 
-  return <DoAndDoesScreen companies={props.companies} handleSubmit={handleSubmit} isLoading={props.isLoading} />;
+  return <DoAndDoesScreen companies={props.companies} handleSubmit={handleSubmit} loading={loading} />;
 };
 
 function mapDispatchToProps(dispatch) {
@@ -32,9 +29,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return {
-    isLoading: state.auth.isAuthLoading,
-    companies: setCompanies(state.auth.companies),
-  };
+  return {};
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(DoAndDontContainer);

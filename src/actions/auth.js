@@ -54,6 +54,7 @@ export function login(params, history, addToast) {
         localStorage.setItem('token', resp.data.token);
         localStorage.setItem('currentUser', JSON.stringify(resp.data.data));
         localStorage.setItem('vehicleData', JSON.stringify(resp.data.data.vehicles[0]));
+        localStorage.setItem('recommendScreen', JSON.stringify(resp.data.data?.recommendation_seen));
         dispatch(setIsAuthenticated(true));
         window.location.reload(`/vehicleinspection`);
       })
@@ -167,11 +168,28 @@ export function contactUs(data, addToast, history, setLoading) {
       .post(`${Api}/auth/contactUs`, data, { headers })
       .then((resp) => {
         addToast(`Your message has been delivered to support`, { appearance: 'success' });
-        history.replace('/');
+        // history.replace('/');
         setLoading(false);
       })
       .catch((err) => {
         addToast('Something went wrong', { appearance: 'error' });
+        setLoading(false);
+      });
+  };
+}
+
+export function changeRecommendation(setLoading, history) {
+  return (dispatch) => {
+    setLoading(true);
+    axios
+      .post(`${Api}/user/status/recommended`, {}, { headers })
+      .then((resp) => {
+        localStorage.setItem('recommendScreen', true);
+        history.replace('/vehicleinspection');
+
+        setLoading(false);
+      })
+      .catch((err) => {
         setLoading(false);
       });
   };

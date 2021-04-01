@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import './style.css';
@@ -13,9 +13,9 @@ const ConfirmEmailScreen = ({ isLoading = true }) => {
           <div className="login-content-container">
             <h5 className="login-title-heading">
               <span className="login-back-arrow">
-                <Link className="login-arrow-link" to="/">
+                {/* <Link className="login-arrow-link" to="/">
                   <i className="fas fa-chevron-left fa-2x" />
-                </Link>
+                </Link> */}
               </span>
             </h5>
             <h1 className="login-heading-logo">

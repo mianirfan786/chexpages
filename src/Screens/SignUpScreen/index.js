@@ -37,7 +37,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox }) =>
                   rules={[
                     {
                       required: true,
-                      message: 'Please input your full name!',
+                      message: 'Please enter your full name!',
                     },
                   ]}
                 >
@@ -52,7 +52,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox }) =>
                     {
                       type: 'email',
                       required: true,
-                      message: 'Please input valid email!',
+                      message: 'Please enter valid email!',
                     },
                   ]}
                 >
@@ -95,7 +95,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox }) =>
                     },
                   ]}
                 >
-                  <Input.Password className="input-field" placeholder="password" />
+                  <Input.Password style={{ fontFamily: 'Poppins' }} className="input-field" placeholder="Password" />
                 </Form.Item>
 
                 <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>

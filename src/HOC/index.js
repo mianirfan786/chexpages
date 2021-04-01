@@ -13,6 +13,7 @@ const getVehicleStatusWrapper = (ChildComponent) => {
     const history = useHistory();
     useEffect(() => {
       const user = JSON.parse(localStorage.getItem('currentUser'));
+      const recommendScreen = JSON.parse(localStorage.getItem('recommendScreen'));
       setLoadingStatus(true);
       axios
         .get(`${process.env.REACT_APP_DEVELOPMENT_URL}/vehicle/review/status/${user?.vehicles[0]?.id}`)
@@ -20,10 +21,12 @@ const getVehicleStatusWrapper = (ChildComponent) => {
           setLoadingStatus(false);
           setStatus(resp.data.review_status);
           setPaymentStatus(resp.data.payment_status);
-          if (resp.data.review_status === 'IN_PROGRESS') {
+          if (resp.data.review_status === 'IN_PROGRESS' && recommendScreen) {
             setTimeout(() => {
               history.push('/vehicleInspection');
             }, 2000);
+          } else if (!recommendScreen) {
+            history.push('/doAndDoesScreen');
           } else {
             history.push('/vehicleStatus');
           }

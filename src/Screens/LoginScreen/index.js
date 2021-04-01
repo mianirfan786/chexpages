@@ -34,7 +34,7 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your email!',
+                    message: 'Please enter your email!',
                   },
                 ]}
               >
@@ -47,11 +47,11 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your password!',
+                    message: 'Please enter your password!',
                   },
                 ]}
               >
-                <Input.Password style={{ border: 'none' }} placeholder="Password" className="input-field" />
+                <Input.Password style={{ border: 'none', fontFamily: 'Poppins' }} placeholder="Password" className="input-field" />
               </Form.Item>
               <Form.Item>
                 <Link to="/forgotpassword" className="forgot-password-link">

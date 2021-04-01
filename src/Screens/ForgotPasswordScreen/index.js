@@ -39,7 +39,7 @@ const ForgotPasswordScreen = ({ handleSubmit, isLoading }) => {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your email!',
+                    message: 'Please enter your email!',
                   },
                 ]}
               >

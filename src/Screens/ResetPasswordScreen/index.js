@@ -36,7 +36,7 @@ const ResetPassword = ({ handleSubmit, isLoading }) => {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your code!',
+                    message: 'Please enter your code!',
                   },
                 ]}
               >
@@ -48,11 +48,11 @@ const ResetPassword = ({ handleSubmit, isLoading }) => {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your new password!',
+                    message: 'Please enter your new password!',
                   },
                 ]}
               >
-                <Input.Password style={{ border: 'none' }} className="input-field" placeholder="Password" />
+                <Input.Password style={{ border: 'none', fontFamily: 'Poppins' }} className="input-field" placeholder="Password" />
               </Form.Item>
               <Form.Item
                 name="confirmPassword"
@@ -64,7 +64,7 @@ const ResetPassword = ({ handleSubmit, isLoading }) => {
                   },
                 ]}
               >
-                <Input.Password style={{ border: 'none' }} className="input-field" placeholder="Confirm password" />
+                <Input.Password style={{ border: 'none', fontFamily: 'Poppins' }} className="input-field" placeholder="Confirm password" />
               </Form.Item>
               <Form.Item>
                 <Button className="button-wrapper" htmlType="submit">
