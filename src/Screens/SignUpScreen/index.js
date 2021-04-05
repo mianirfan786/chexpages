@@ -1,7 +1,8 @@
 import React from 'react';
-import { Form, Input, Button, Select } from 'antd';
+import { Form, Input, Button, Select, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { BsInfoCircle } from 'react-icons/bs'
 
 import './style.css';
 import '../../App.css';
@@ -28,7 +29,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox }) =>
                   remember: true,
                 }}
                 onFinish={handleSubmit}
-                // onFinishFailed={onFinishFailed}
+              // onFinishFailed={onFinishFailed}
               >
                 <Form.Item
                   name="name"
@@ -97,13 +98,17 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox }) =>
                   <Input.Password style={{ fontFamily: 'Poppins' }} className="input-field" placeholder="Password" />
                 </Form.Item>
                 <div className="warn-message-wrapper">
-                  <div className="registration-warn-message">+$4.99 for each additional company selection.</div>
+
+                  {/* <div className="registration-warn-message">+$9.99 for each additional company selection.</div> */}
                 </div>
                 <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
-                  <Select placeholder="Select companies" mode="multiple" className="input-field" options={companies} />
-                </Form.Item>
 
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Select placeholder="Companies" mode="multiple" className="input-field" options={companies} />
+                </Form.Item>
+             
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <div></div>
+                  <div style={{ display: 'flex', justifyContent: 'center'}}>
                   <div style={{ display: 'flex' }}>
                     <label class="newcontainer">
                       <input onChange={handleCheckBox} type="checkbox" />
@@ -117,6 +122,13 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox }) =>
                     </div>
                   </div>
                 </div>
+                <div>
+                <Tooltip placement="topLeft" title="+$9.99 for each additional company selection">
+                  <BsInfoCircle size={20} color="white" />
+                </Tooltip>
+                </div>
+                </div>
+               
 
                 <Form.Item>
                   <Button disabled={isLoading ? true : false} className="button-wrapper" htmlType="submit">
