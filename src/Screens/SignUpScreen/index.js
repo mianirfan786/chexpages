@@ -20,7 +20,6 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox }) =>
           </div>
           <div className="register-contentFooterAreaSignin">
             <div className="register-signinHeadingH3">Register</div>
-
             <div className="register-container">
               <Form
                 className="form-container"
@@ -97,7 +96,9 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox }) =>
                 >
                   <Input.Password style={{ fontFamily: 'Poppins' }} className="input-field" placeholder="Password" />
                 </Form.Item>
-
+                <div className="warn-message-wrapper">
+                  <div className="registration-warn-message">+$4.99 for each additional company selection.</div>
+                </div>
                 <Form.Item name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
                   <Select placeholder="Select companies" mode="multiple" className="input-field" options={companies} />
                 </Form.Item>

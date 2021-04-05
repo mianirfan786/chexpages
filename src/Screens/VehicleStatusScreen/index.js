@@ -79,7 +79,7 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                       header={
                         <Row gutter={40} style={{ overflow: 'hidden' }}>
                           <Col>
-                            <div className="veh-inspection-verification_text">{vehicle.name}</div>
+                            <div className="veh-status-inspection-verification_text">{vehicle.name}</div>
                           </Col>
                           <Col></Col>
                           <Col></Col>
