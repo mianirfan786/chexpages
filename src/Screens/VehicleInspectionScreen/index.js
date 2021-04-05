@@ -61,7 +61,7 @@ const VehicleInspectionScreen = ({
       <ImageBackgroundVehicleInspection>
         <MainBgInsertDetails>
           <ContentVehicleInspection>
-            <Header />
+            <Header arrow={false} />
             <MainDownContainer>
               <VehicleInspectionP>Please complete inspection items within each category below</VehicleInspectionP>
             </MainDownContainer>
@@ -255,7 +255,6 @@ const VehicleInspectionScreen = ({
                 </div>
               ) : (
                 <div className="vec-inspection-submitbtn_container">
-                  {console.log('hahahahah')}
                   <button style={{ background: 'gray' }} disabled={true} className="vec-inspection-submit_button">
                     Submit
                   </button>
@@ -280,7 +279,6 @@ const VehicleInspectionScreen = ({
                 </div>
               ) : (
                 <div className="vec-inspection-submitbtn_container">
-                  {console.log('hahahahah')}
                   <button style={{ background: 'gray' }} disabled={true} className="vec-inspection-submit_button">
                     Submit
                   </button>

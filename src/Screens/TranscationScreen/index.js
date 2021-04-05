@@ -13,7 +13,7 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
     <div className="trans-container">
       <div className="transcation-container">
         <div className="transaction-screen-header">
-          <Link to="/vehicleinspection">
+          <Link style={{ color: 'white' }} to="/vehicleinspection">
             <IoIosArrowBack size={32} color="white" />
           </Link>
           <div className="header-text">Payment info</div>
@@ -114,12 +114,7 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
               </div>
             </div>
           </div>
-          <Button
-            loading={loading}
-            title={'Submit'}
-            disabled={buttonDisable}
-            onClickButton={handleSubmit}
-          />
+          <Button loading={loading} title={'Submit'} disabled={buttonDisable} onClickButton={handleSubmit} />
           <div></div>
         </div>
       </div>

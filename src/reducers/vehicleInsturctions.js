@@ -52,13 +52,13 @@ const initialState = {
       steps: [
         'Please take a photo of the interior of the vehicle with the left driver side door open with a clear view of the interior rearview mirror, brake pads and seat belt buckled.',
       ],
-      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1617101206/chex-instruction/Driverside_Interior_pjxgy2.jpg',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1616590296/chex-instruction/Photo-3---Driverside-Interior_kwk0fc.jpg',
       loading: false,
     },
     {
       id: 'driver_seat',
       type: 'Photo',
-      title: 'Driver Seat Adjusted',
+      title: 'Driver Seat Adj.',
       groupType: 'interiorItems',
       url: '',
       fileId: null,
@@ -82,7 +82,7 @@ const initialState = {
     {
       id: 'passenger_seat',
       type: 'Photo',
-      title: 'Passenger seat Adjusted',
+      title: 'Passenger seat Adj.',
       groupType: 'interiorItems',
       description: '',
       url: '',

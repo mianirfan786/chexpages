@@ -12,20 +12,20 @@ const DeleteImageModal = ({ isVisible, imageId, handleModal, onClickYes, loading
   return (
     <MainContainer>
       <Modal className="sure-modal" visible={isVisible} onCancel={() => handleModal(false)} closeIcon={<CloseOutlined color="#BCCBD9" size={30} />}>
-      <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', height: '100%'}}>
-        <ModalBody>
-          <InSideBody>
-            <ModalHeading>Are you sure you want to delete the data?</ModalHeading>
-            <MtB5>
-              <LinkSignInBtn onClick={onClickYes} type="submit">
-                {loading ? <ClipLoader color={'white'} size={20} /> : 'Yes'}
-              </LinkSignInBtn>
-              <LinkSignInBtn style={{ marginTop: '10px' }} onClick={() => handleModal(false)} type="submit">
-                No
-              </LinkSignInBtn>
-            </MtB5>
-          </InSideBody>
-        </ModalBody>
+        <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
+          <ModalBody>
+            <InSideBody>
+              <ModalHeading>Are you sure you want to delete this inspection item?</ModalHeading>
+              <MtB5>
+                <LinkSignInBtn onClick={onClickYes} type="submit">
+                  {loading ? <ClipLoader color={'white'} size={20} /> : 'Yes'}
+                </LinkSignInBtn>
+                <LinkSignInBtn style={{ marginTop: '10px' }} onClick={() => handleModal(false)} type="submit">
+                  No
+                </LinkSignInBtn>
+              </MtB5>
+            </InSideBody>
+          </ModalBody>
         </div>
       </Modal>
     </MainContainer>

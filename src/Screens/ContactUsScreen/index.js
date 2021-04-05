@@ -4,10 +4,10 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { Button } from '../../Components';
 import { AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
 
-import '../../Components/Input/style'
+import '../../Components/Input/style';
 import './style.css';
 
-const ContactUsScreen = ({ handleSubmit, handleChange, loading}) => {
+const ContactUsScreen = ({ handleSubmit, handleChange, loading }) => {
   return (
     <div className="contact-us-main_container">
       <div className="contact-us-container">
@@ -21,17 +21,10 @@ const ContactUsScreen = ({ handleSubmit, handleChange, loading}) => {
         <div className="contact-us-form_container">
           <p className="contact-us-text">Contact Us</p>
           <div className="input-fields-width">
-            <input name="name"  className="input-field" placeholder="Your Name" onChange={handleChange} />
+            <input name="name" className="input-field" placeholder="Your Name" onChange={handleChange} />
           </div>
           <div className="text-area-field">
-              <textarea
-                className="text-area-styling"
-                rows="4"
-                name="message"
-                cols="50"
-                placeholder="Your queries "
-                onChange={handleChange}
-              />
+            <textarea className="text-area-styling" rows="10" name="message" cols="50" placeholder="Your queries " onChange={handleChange} />
           </div>
           <Button
             loading={loading}

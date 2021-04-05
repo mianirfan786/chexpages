@@ -9,7 +9,7 @@ const VehicleDetailScreen = ({ handleSubmit }) => {
   return (
     <div className="container">
       <div className="transcation-container">
-        {/* <Header /> */} 
+        {/* <Header /> */}
         <div className="transaction-screen-header">
           <Link to="/vehicleInspection">
             <BsChevronLeft color={'white'} className="header-icon" />
@@ -21,31 +21,31 @@ const VehicleDetailScreen = ({ handleSubmit }) => {
         <div className="transaction-form-container">
           <div className="year-container">
             <div className="year-text">Year</div>
-            <div className="year-date">2014</div>
+            <div className="year-date"></div>
           </div>
           <div className="year-container">
             <div className="year-text">Make</div>
-            <div className="year-date">Kia</div>
+            <div className="year-date"></div>
           </div>
           <div className="year-container">
             <div className="year-text">Model</div>
-            <div className="year-date">Rio</div>
+            <div className="year-date"></div>
           </div>
           <div className="year-container">
             <div className="year-text">Manufacture</div>
-            <div className="year-date">Kia</div>
+            <div className="year-date"></div>
           </div>
-          <div className="year-container">
+          {/* <div className="year-container">
             <div className="year-text">L4, 1.6L; DOCH; 16V</div>
             <div className="year-date">2014</div>
-          </div>
+          </div> */}
           <div className="year-container">
             <div className="year-text">Ex</div>
-            <div className="year-date">2014</div>
+            <div className="year-date"></div>
           </div>
           <div className="year-container">
             <div className="year-text">Automatic</div>
-            <div className="year-date">2014</div>
+            <div className="year-date"></div>
           </div>
         </div>
       </div>

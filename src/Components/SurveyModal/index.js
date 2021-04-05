@@ -88,7 +88,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
             </div>
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '-7px' }}>
+          <div style={{ textAlign: 'center' }}>
             <textarea
               onChange={handleComment}
               className="server-form-textarea"

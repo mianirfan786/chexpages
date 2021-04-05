@@ -11,10 +11,11 @@ const DoAndDoesScreen = ({ loading, handleSubmit }) => {
     <div className="doAndDoesContainer">
       <div className="header-container">
         {/* <BsChevronLeft className="doAndDoes-icon" /> */}
-        <div className="doAndDoes-title"> Do's and Don't</div>
+        {/* <div className="doAndDoes-title"> Do's and Don't</div> */}
         <div></div>
       </div>
-      <div className="doAndDoes-content"> We will add a combination of videos and written stuff here to prepare users before Main function page.</div>
+      {/* <div className="doAndDoes-content"> We will add a combination of videos and written stuff here to prepare users before Main function page.</div> */}
+
       <p className="doAndDoes-link">Tips to successfully conduct an inspection:</p>
       <div className="doAndDoes-video">
         <video preload="metadata" controls width="100%" style={{ textAlign: 'center' }}>
@@ -25,9 +26,10 @@ const DoAndDoesScreen = ({ loading, handleSubmit }) => {
         <p className="doAndDoes-paragraph">
           {' '}
           <ul>
+            <li>Please have your vehicle registration form handy</li>
             <li>Find an empty lot or area with minimal distractions</li>
             <li>Avoid noisy surroundings</li>
-            <li>Take photos and record videos during the daylight</li>
+            <li>Take photos and record videos with clear visibility</li>
             <li>Have a friend/partner to assist with video clips</li>
             <li>Get a penny for tire inspections</li>
           </ul>

@@ -44,9 +44,11 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
           <ContentVehicleInspection>
             <Header />
             <MainDownContainer>
-              <VehicleInspectionP>{vehicleStatuss==="REVIEWED"
-              ? "Use below link to download your certificate in PDF" 
-              : "Your vehicle is in review once your vehicle is reviewed you will get a notification and then you download certificate"}</VehicleInspectionP>
+              <VehicleInspectionP>
+                {vehicleStatuss === 'REVIEWED'
+                  ? 'Use below link to download your certificate in PDF'
+                  : 'Your vehicle is in review once your vehicle is reviewed you will get a notification and then you download certificate'}
+              </VehicleInspectionP>
             </MainDownContainer>
 
             <div className="veh-inspection-mobilepaddind">
