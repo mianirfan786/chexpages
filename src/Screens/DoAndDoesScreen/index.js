@@ -19,7 +19,7 @@ const DoAndDoesScreen = ({ loading, handleSubmit }) => {
       <p className="doAndDoes-link">Tips to successfully conduct an inspection:</p>
       <div className="doAndDoes-video">
         <video preload="metadata" controls width="100%" style={{ textAlign: 'center' }}>
-          <source src="https://res.cloudinary.com/tech-qalanders/video/upload/v1617105021/chex-instruction/Video_cwdatp.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/tech-qalanders/video/upload/v1617716249/chex-instruction/Image_From_iOS_xsngl8.mp4" type="video/mp4" />
         </video>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>

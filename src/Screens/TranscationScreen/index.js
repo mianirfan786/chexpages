@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CardExpiryElement, CardNumberElement, CardCvcElement } from '@stripe/react-stripe-js';
-import { IoIosArrowBack } from 'react-icons/io';
+// import { IoIosArrowBack } from 'react-icons/io';
 
 import { Button } from '../../Components';
 
@@ -12,10 +12,11 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
   return (
     <div className="trans-container">
       <div className="transcation-container">
-        <div className="transaction-screen-header">
-          <Link style={{ color: 'white' }} to="/vehicleinspection">
+        <div className="transaction-screen-header" style={{ justifyContent: 'center' }}>
+          {/* <Link style={{ color: 'white' }} to="/vehicleinspection">
             <IoIosArrowBack size={32} color="white" />
-          </Link>
+          </Link> */}
+          <></>
           <div className="header-text">Payment info</div>
           <div></div>
         </div>
@@ -116,6 +117,9 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
           </div>
           <Button loading={loading} title={'Submit'} disabled={buttonDisable} onClickButton={handleSubmit} />
           <div></div>
+          <Link style={{ display: 'flex', justifyContent: 'center', marginTop: '13px' }} to="/vehicleinspection">
+            go back to inspections page
+          </Link>
         </div>
       </div>
     </div>

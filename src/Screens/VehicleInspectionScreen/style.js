@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 export const MainContainer = styled.div`
   background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
   position: absolute;
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   width: 100%;
   border: none;
   background-repeat: no-repeat;
@@ -30,8 +31,7 @@ export const MainDownContainer = styled.div`
 `;
 
 export const ImageBackgroundVehicleInspection = styled.div`
-  background: linear-gradient(0deg, #f0f2f6, #f0f2f6), linear-gradient(0deg, #ffffff, #ffffff),
-    linear-gradient(180deg, #ffffff 0%, #181c1f 0.01%, #121417 100%);
+  background: linear-gradient(0deg, #f0f2f6, #f0f2f6), linear-gradient(0deg, #ffffff, #ffffff), linear-gradient(180deg, #ffffff 0%, #181c1f 0.01%, #121417 100%);
   height: auto;
   border: none;
   background-repeat: no-repeat;
@@ -380,7 +380,7 @@ export const ContentFooterareaVehicleinspection = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    width: 95%;
+    width: 100%;
     height: 100%;
   }
 `;
@@ -489,12 +489,15 @@ export const ArrowBackA = styled.div`
 `;
 
 export const MainBgInsertDetails = styled.div`
-  background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
+  // background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
   position: relative;
   width: 100%;
   height: 100%;
   left: 0px;
   top: 0px;
+  @media screen and (min-width: 700px) {
+    background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
+  }
 `;
 
 export const VehicleAfterCamera = styled.img`

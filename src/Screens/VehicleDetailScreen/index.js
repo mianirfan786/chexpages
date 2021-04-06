@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BsChevronLeft } from 'react-icons/bs';
+import { IoIosArrowBack } from 'react-icons/io';
 
 import './style.css';
 import '../../App.css';
@@ -12,7 +12,7 @@ const VehicleDetailScreen = ({ handleSubmit }) => {
         {/* <Header /> */}
         <div className="transaction-screen-header">
           <Link to="/vehicleInspection">
-            <BsChevronLeft color={'white'} className="header-icon" />
+            <IoIosArrowBack size={32} color="white" />
           </Link>
           <div className="vehicledetail-text">Vehicle Details</div>
           <div></div>

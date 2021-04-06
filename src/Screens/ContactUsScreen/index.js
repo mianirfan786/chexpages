@@ -24,7 +24,7 @@ const ContactUsScreen = ({ handleSubmit, handleChange, loading }) => {
             <input name="name" className="input-field" placeholder="Your Name" onChange={handleChange} />
           </div>
           <div className="text-area-field">
-            <textarea className="text-area-styling" rows="10" name="message" cols="50" placeholder="Your queries " onChange={handleChange} />
+            <textarea className="text-area-styling" rows="10" name="message" cols="50" placeholder="Your queries" onChange={handleChange} />
           </div>
           <Button
             loading={loading}
