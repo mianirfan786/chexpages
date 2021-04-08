@@ -16,7 +16,13 @@ const Header = ({ arrow }) => {
           <i className="fas fa-chevron-left fa-2x" style={{ opacity: 0 }} color="#FFFFFF" />
         </div> */}
         <div className="vec-inspection-top_header">
-          {!arrow ? <div className="icon-container"></div> : <IoIosArrowBack size={32} color="white" />}
+          {!arrow ? (
+            <div className="icon-container">
+              <div style={{ width: '32px' }} />
+            </div>
+          ) : (
+            <IoIosArrowBack size={32} color="white" />
+          )}
 
           <p className="veh-inspection-chexai_text">
             CHEX.<span style={{ color: '#FF7A00' }}>AI</span>

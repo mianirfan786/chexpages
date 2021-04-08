@@ -37,7 +37,7 @@
 .contact-us-form_container {
   background-color: #fff;
   border-radius: 30px;
-  padding: 20px;
+  padding: 20px 0px 20px 0px;
   margin-bottom: 0;
 }
 .contact-us-text {
@@ -51,18 +51,18 @@
 }
 .input-fields-width {
   text-align: center;
-  width: 80%;
-  margin-left: 9%;
+  width: 95%;
+  margin-left: 3%;
 }
 .text-area-field {
   text-align: center;
-  margin-left: -8px;
+  /* margin-left: -8px; */
   margin-bottom: 15px;
 }
 .text-area-styling {
   background: rgb(231, 238, 245) !important;
   border: 1px solid rgb(231, 239, 248) !important;
-  width: 80%;
+  width: 95%;
   border-radius: 5px;
   padding-left: 21px;
   padding-top: 20px;

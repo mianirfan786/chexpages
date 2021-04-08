@@ -14,6 +14,8 @@ const SignUpContainer = (props) => {
   const history = useHistory();
   const { addToast } = useToasts();
   const [checkboxValue, setCheckBox] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     const { getCompanies } = props;
     getCompanies();
@@ -28,11 +30,24 @@ const SignUpContainer = (props) => {
     }
   };
 
+  const handleModal = () => {
+    setShowModal(!showModal);
+  };
+
   const handleCheckBox = () => {
     setCheckBox(!checkboxValue);
   };
 
-  return <SignUpScreen handleCheckBox={handleCheckBox} companies={props.companies} handleSubmit={handleSubmit} isLoading={props.isLoading} />;
+  return (
+    <SignUpScreen
+      handleModal={handleModal}
+      showModal={showModal}
+      handleCheckBox={handleCheckBox}
+      companies={props.companies}
+      handleSubmit={handleSubmit}
+      isLoading={props.isLoading}
+    />
+  );
 };
 
 function mapDispatchToProps(dispatch) {

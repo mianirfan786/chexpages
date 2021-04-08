@@ -16,7 +16,7 @@ const IntroScreen = () => {
               <span className="intro-headingSpan">.AI</span>
             </div>
             <div className="intro-contentP">Virtual Inspections</div>
-            <div className="intro-content-footer-area">
+            <div className="intro-content-footer-area-intro">
               <div className="intro-MtB5">
                 <Link className="intro-signinBtn" to="/login">
                   Sign in

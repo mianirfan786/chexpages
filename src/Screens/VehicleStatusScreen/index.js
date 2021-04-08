@@ -19,9 +19,9 @@ import {
   ContentVehicleInspection,
   ContentFooterareaVehicleinspection,
   MainBgInsertDetails,
-  MobileViewWarningContainer,
-  MobileViewWarning,
-  BoldSpan,
+  // MobileViewWarningContainer,
+  // MobileViewWarning,
+  // BoldSpan,
 } from './style.js';
 import './style.css';
 
@@ -51,13 +51,13 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
               </VehicleInspectionP>
             </MainDownContainer>
 
-            <div className="veh-inspection-mobilepaddind">
+            {/* <div className="veh-inspection-mobilepaddind">
               <MobileViewWarningContainer>
                 <MobileViewWarning>
                   Please use <BoldSpan>mobile phone </BoldSpan>for optimal perfomance
                 </MobileViewWarning>
               </MobileViewWarningContainer>
-            </div>
+            </div> */}
           </ContentVehicleInspection>
 
           <MainDownContainer>

@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  margin-bottom: 2%;
+  margin-bottom: 9%;
 }
 .header-icon {
   color: #2584e0;
@@ -30,10 +30,12 @@
   color: white;
 }
 
-.transaction-form-container {
+.transaction-form-container-veh {
   background-color: #fff;
   border-radius: 30px;
   padding: 20px;
+  margin: 0px;
+  height: 100vh;
   margin-bottom: 50px;
 }
 .input-field-name {

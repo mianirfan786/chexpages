@@ -120,6 +120,13 @@
   margin: auto;
   width: 300px;
 }
+
+.tool-tip {
+  position: absolute;
+  right: 19px;
+  z-index: 999999999999999;
+  bottom: 39px;
+}
 @media only screen and (min-width: 1900px) {
   .ant-form-item .ant-select,
   .ant-form-item .ant-cascader-picker {

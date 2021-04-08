@@ -18,7 +18,7 @@ const VehicleDetailScreen = ({ handleSubmit }) => {
           <div></div>
         </div>
 
-        <div className="transaction-form-container">
+        <div className="transaction-form-container-veh">
           <div className="year-container">
             <div className="year-text">Year</div>
             <div className="year-date"></div>

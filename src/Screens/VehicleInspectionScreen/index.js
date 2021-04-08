@@ -93,7 +93,7 @@ const VehicleInspectionScreen = ({
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
                         {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
-                          <BsCheckCircle color="#FF7A01" size={22} />
+                          <BsCheckCircle color="#099220" size={22} />
                         ) : (
                           <BsCheckCircle color="#bab8b8" size={22} />
                         )}

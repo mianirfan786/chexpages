@@ -24,12 +24,12 @@ const VerifyEmailScreen = ({ isLoading, email, handleResendEmail, logout }) => {
         <div className="verify-email-wrapper">
           <div className="email-content-container">
             <h5 className="email-content-heading">
-              <span className="email-content-icon-wrapper"></span>
+              {/* <span className="email-content-icon-wrapper"></span>
               <span className="email-icon ">
                 <button className="email-btn" type="button">
                   &#9776;
                 </button>
-              </span>
+              </span> */}
             </h5>
 
             <h1 className="email-heading">

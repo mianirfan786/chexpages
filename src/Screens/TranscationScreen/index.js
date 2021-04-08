@@ -17,7 +17,7 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
             <IoIosArrowBack size={32} color="white" />
           </Link> */}
           <></>
-          <div className="header-text">Payment info</div>
+          <div className="header-text">Payment</div>
           <div></div>
         </div>
         <div className="transaction-payment">
@@ -93,7 +93,7 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
 
             <div style={{ width: '54%' }}>
               <div className="transaction-input-field">
-                <div className="input-field-name">CVV</div>
+                <div className="input-field-name">CVC</div>
                 <CardCvcElement
                   // onChange={(e) => setFields(e.empty)}
                   options={{
