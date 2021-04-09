@@ -69,7 +69,7 @@ const VehicleInspectionContainer = (props) => {
     setNewRating(newRating);
   };
 
-  const handleImageUpload = (event) => {
+  const handleImageUpload = async (event) => {
     var imageFile = event.target.files[0];
     event.target.value = '';
     var options = {
@@ -77,20 +77,22 @@ const VehicleInspectionContainer = (props) => {
       maxWidthOrHeight: 1920,
       useWebWorker: true,
     };
-    imageCompression(imageFile, options)
+    await imageCompression(imageFile, options)
       .then(function (compressedFile) {
         const { uploadFile, vehicleData } = props;
         uploadFile(compressedFile, { type: compressedFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
       })
       .catch(function (error) {});
+    setuploadingPercentage(0);
   };
 
-  const handleVideoUpload = (event) => {
+  const handleVideoUpload = async (event) => {
     var videoFile = event.target.files[0];
     event.target.value = '';
 
     const { uploadFile, vehicleData } = props;
     uploadFile(videoFile, { type: videoFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
+    setuploadingPercentage(0);
   };
 
   const handleSurveyModal = (value) => {

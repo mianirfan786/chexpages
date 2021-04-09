@@ -1,8 +1,14 @@
 import React from 'react';
-import { Form, Input, Button, Select, Tooltip } from 'antd';
+import {
+  Form,
+  Input,
+  Button,
+  Select,
+  //  Tooltip
+} from 'antd';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { BsInfoCircle } from 'react-icons/bs';
+// import { BsInfoCircle } from 'react-icons/bs';
 
 import { PrivacyModal } from '../../Components';
 
@@ -102,12 +108,26 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox, show
                 </Form.Item>
                 <div className="warn-message-wrapper">{/* <div className="registration-warn-message">+$9.99 for each additional company selection.</div> */}</div>
                 <Form.Item style={{ position: 'relative' }} name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
-                  <Select showSearch={false} placeholder="Companies" mode="multiple" className="input-field" options={companies} />
-                  <div className="tool-tip">
+                  <Select
+                    dropdownRender={(menu) => (
+                      <div>
+                        <div style={{ margin: '13px 5px 13px 5px' }} className="registration-warn-message">
+                          +$9.99 for each additional company selection.
+                        </div>
+                        <div>{menu}</div>
+                      </div>
+                    )}
+                    showSearch={false}
+                    placeholder="Companies"
+                    mode="multiple"
+                    className="input-field"
+                    options={companies}
+                  />
+                  {/* <div className="tool-tip">
                     <Tooltip placement="topLeft" title="+$9.99 for each additional company selection">
                       <BsInfoCircle size={20} color="gray" />
                     </Tooltip>
-                  </div>
+                  </div> */}
                 </Form.Item>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>

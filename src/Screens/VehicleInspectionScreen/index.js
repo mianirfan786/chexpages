@@ -132,7 +132,7 @@ const VehicleInspectionScreen = ({
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
                         {vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 ? (
-                          <BsCheckCircle color="#FF7A01" size={22} />
+                          <BsCheckCircle color="#099220" size={22} />
                         ) : (
                           <BsCheckCircle color="#bab8b8" size={22} />
                         )}
@@ -170,7 +170,7 @@ const VehicleInspectionScreen = ({
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
                         {vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 ? (
-                          <BsCheckCircle color="#FF7A01" size={22} />
+                          <BsCheckCircle color="#099220" size={22} />
                         ) : (
                           <BsCheckCircle color="#bab8b8" size={22} />
                         )}
@@ -207,7 +207,7 @@ const VehicleInspectionScreen = ({
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
-                        {vehicleInstructions?.tires.filter((e) => e.url).length === 4 ? <BsCheckCircle color="#FF7A01" size={22} /> : <BsCheckCircle color="#bab8b8" size={22} />}
+                        {vehicleInstructions?.tires.filter((e) => e.url).length === 4 ? <BsCheckCircle color="#099220" size={22} /> : <BsCheckCircle color="#bab8b8" size={22} />}
                       </Col>
                       <Col>
                         <div className="veh-inspection-verification_text">Tires</div>
@@ -242,7 +242,6 @@ const VehicleInspectionScreen = ({
               vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
               vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
                 <div className="vec-inspection-submitbtn_container">
-                  {console.log('hehehehehe')}
                   <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
                     Submit
                   </button>

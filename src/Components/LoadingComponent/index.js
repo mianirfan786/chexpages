@@ -3,7 +3,7 @@ import React from 'react';
 const Loading = () => {
   return (
     <div style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', height: '100vh' }}>
-      <img alt="" style={{ width: '95%', textAlign: 'center' }} src="https://chex.ai/wp-content/themes/chex/assets/images/chex-alpha.gif" />
+      <img alt="" style={{ textAlign: 'center' }} src="https://res.cloudinary.com/tech-qalanders/image/upload/v1617906028/chex-instruction/chex-circle_vrotec.gif" />
     </div>
   );
 };

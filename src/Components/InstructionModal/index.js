@@ -87,7 +87,13 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                     <>
                       <label htmlFor="file-input-photo">
                         <div className="button-wrapper">
-                          {isLoading ? (parseInt(uploadingPercentage) == 0 || uploadingPercentage == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}
+                          {isLoading
+                            ? parseInt(uploadingPercentage) == 0 || uploadingPercentage == 0
+                              ? '0%'
+                              : parseInt(uploadingPercentage) == 100
+                              ? 'Finalizing upload'
+                              : `${parseInt(uploadingPercentage)}%`
+                            : 'Next'}
                         </div>
                       </label>
                       <input disabled={isLoading ? true : false} type="file" id="file-input-photo" accept="image/*" capture onChange={handleImageUpload} />
@@ -96,7 +102,13 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                     <>
                       <label htmlFor="file-input-video">
                         <div className="button-wrapper">
-                          {isLoading ? (parseInt(uploadingPercentage) == 0 || uploadingPercentage == 0 ? '0%' : `${parseInt(uploadingPercentage)}%`) : 'Next'}
+                          {isLoading
+                            ? parseInt(uploadingPercentage) == 0 || uploadingPercentage == 0
+                              ? '0%'
+                              : parseInt(uploadingPercentage) == 100
+                              ? 'Finalizing upload'
+                              : `${parseInt(uploadingPercentage)}%`
+                            : 'Next'}
                         </div>
                       </label>
                       <input disabled={isLoading ? true : false} type="file" id="file-input-video" accept="video/*" capture onChange={handleVideoUpload} />
