@@ -21,7 +21,7 @@ const ContactUsScreen = ({ handleSubmit, handleChange, loading }) => {
         <div className="contact-us-form_container">
           <p className="contact-us-text">Contact Us</p>
           <div className="input-fields-width">
-            <input name="name" className="input-field" placeholder="Your Name" onChange={handleChange} />
+            <input style={{ fontFamily: 'Poppins' }} name="name" className="input-field" placeholder="Your Name" onChange={handleChange} />
           </div>
           <div className="text-area-field">
             <textarea className="text-area-styling" rows="10" name="message" cols="50" placeholder="Your queries" onChange={handleChange} />

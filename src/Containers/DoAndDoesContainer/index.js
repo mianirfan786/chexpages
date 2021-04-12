@@ -12,8 +12,9 @@ const DoAndDontContainer = (props) => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    const { getCompanies } = props;
-    getCompanies();
+    if (localStorage.getItem('recommendScreen')) {
+      history.push('/vehicleinspection');
+    }
   }, []);
 
   const handleSubmit = (params) => {

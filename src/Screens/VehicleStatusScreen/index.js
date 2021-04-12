@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
@@ -5,6 +6,7 @@ import { ClipLoader } from 'react-spinners';
 import Pdf from 'react-to-pdf';
 
 import DownloadCertifcate from '../Certificates/DownLoadCertificate';
+import GeneralCertificate from '../Certificates/GeneralCertificate';
 
 import {
   // InspectionCard,
@@ -116,8 +118,12 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                       ) : (
                         'Vehicle is not yet Reviewed'
                       )}
-
-                      <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} />
+                      {console.log('ewwewe', vehicle.template_id)}
+                      {vehicle?.template_id == 1 ? (
+                        <GeneralCertificate setLoading={setLoading} id={vehicle.id} refs={refs} />
+                      ) : (
+                        <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} />
+                      )}
                     </Panel>
                   ))}
                 </Collapse>

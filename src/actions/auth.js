@@ -89,7 +89,7 @@ export function forgotPassword(params, history, addToast) {
       .post(`${Api}/auth/reset/email`, params)
       .then((resp) => {
         dispatch(isAuthLoading(false));
-        addToast(`verification email has been sent to your account`, { appearance: 'success' });
+        addToast(`verification code has been sent to your account`, { appearance: 'success' });
         history.push(`/resetpassword?email=${params.email}`);
       })
       .catch((err) => {

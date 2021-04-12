@@ -236,7 +236,13 @@ const DownloadCertifcate = (props) => {
                       <Col className="d-flex-1 align-items-end" span={5}>
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">{props.reportData && props.reportData[0]?.vehicle_mileage}</p>
+                            {props.reportData && props.reportData[0]?.vehicle_mileage ? (
+                              <p className="p-0 m-0">{props.reportData && props.reportData[0]?.vehicle_mileage}</p>
+                            ) : (
+                              <p style={{ color: 'white' }} className="p-0 m-0">
+                                Empty
+                              </p>
+                            )}
                           </div>
                           <p>
                             <b>VEHICLE MILAGE</b>
@@ -246,7 +252,13 @@ const DownloadCertifcate = (props) => {
                       <Col span={4} className="ml-2 d-flex-1 align-items-end">
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">{props.reportData && props.reportData[0]?.registration_state}</p>
+                            {props.reportData && props.reportData[0]?.registration_state ? (
+                              <p className="p-0 m-0">{props.reportData && props.reportData[0]?.registration_state}</p>
+                            ) : (
+                              <p style={{ color: 'white' }} className="p-0 m-0">
+                                Empty
+                              </p>
+                            )}
                           </div>
                           <p>
                             <b>LICENSE PLATE STATE</b>
@@ -256,7 +268,13 @@ const DownloadCertifcate = (props) => {
                       <Col span={6} className="ml-2 d-flex-1 align-items-end">
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">{props.reportData && props.reportData[0]?.license_plate_no}</p>
+                            {props.reportData && props.reportData[0]?.license_plate_no ? (
+                              <p className="p-0 m-0">{props.reportData && props.reportData[0]?.license_plate_no}</p>
+                            ) : (
+                              <p style={{ color: 'white' }} className="p-0 m-0">
+                                Empty
+                              </p>
+                            )}
                           </div>
                           <p>
                             <b>LICENSE PLATE NUMBER</b>
@@ -266,7 +284,13 @@ const DownloadCertifcate = (props) => {
                       <Col span={8} className="ml-2 d-flex-1 align-items-end">
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">{props.reportData && props.reportData[0]?.vin}</p>
+                            {props.reportData && props.reportData[0]?.vin ? (
+                              <p className="p-0 m-0">{props.reportData && props.reportData[0]?.vin}</p>
+                            ) : (
+                              <p style={{ color: 'white' }} className="p-0 m-0">
+                                Empty
+                              </p>
+                            )}
                           </div>
                           <p>
                             <b>VIN</b>
@@ -276,7 +300,13 @@ const DownloadCertifcate = (props) => {
                       <Col span={7} className="d-flex-1 align-items-end mt-4">
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">{props.reportData && props.reportData[0]?.make}</p>
+                            {props.reportData && props.reportData[0]?.make ? (
+                              <p className="p-0 m-0">{props.reportData && props.reportData[0]?.make}</p>
+                            ) : (
+                              <p style={{ color: 'white' }} className="p-0 m-0">
+                                Empty
+                              </p>
+                            )}
                           </div>
                           <p>
                             <b>VEHICLE NAME</b>
@@ -286,7 +316,13 @@ const DownloadCertifcate = (props) => {
                       <Col span={7} className="ml-2 d-flex-1 align-items-end mt-4">
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">{props.reportData && props.reportData[0]?.model}</p>
+                            {props.reportData && props.reportData[0]?.model ? (
+                              <p className="p-0 m-0">{props.reportData && props.reportData[0]?.model}</p>
+                            ) : (
+                              <p style={{ color: 'white' }} className="p-0 m-0">
+                                Empty
+                              </p>
+                            )}
                           </div>
                           <p>
                             <b>VEHICLE MODEL</b>
@@ -296,10 +332,13 @@ const DownloadCertifcate = (props) => {
                       <Col span={4} className="ml-2 d-flex-1 align-items-end mt-4">
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">
-                              2019
-                              {props.reportData && props.reportData[0]?.year}
-                            </p>
+                            {props.reportData && props.reportData[0]?.year ? (
+                              <p className="p-0 m-0">{props.reportData && props.reportData[0]?.year}</p>
+                            ) : (
+                              <p style={{ color: 'white' }} className="p-0 m-0">
+                                Empty
+                              </p>
+                            )}
                           </div>
                           <p>
                             <b>VEHICLE YEAR</b>
@@ -309,7 +348,13 @@ const DownloadCertifcate = (props) => {
                       <Col span={5} className="ml-2 d-flex-1 align-items-end mt-4">
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">4{props.reportData && props.reportData[0]?.vehicleDoors}</p>
+                            {props.reportData && props.reportData[0]?.vehicleDoors ? (
+                              <p className="p-0 m-0">{props.reportData && props.reportData[0]?.vehicleDoors}</p>
+                            ) : (
+                              <p style={{ color: 'white' }} className="p-0 m-0">
+                                Empty
+                              </p>
+                            )}
                           </div>
                           <p>
                             <b>NUMBER OF DOORS</b>
