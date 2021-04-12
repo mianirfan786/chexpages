@@ -12,7 +12,8 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
   return (
     <div className="survey-modal">
       <Modal
-        visible={isSurveyModalVisible}
+        // visible={isSurveyModalVisible}
+        visible={true}
         closable={true}
         title={false}
         footer={null}
@@ -57,7 +58,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
               <div>
                 <div style={{ display: 'flex' }}>
                   <label class="newcontainer">
-                    <input onChange={(e) => handleCheckBox('online_services', e)} type="checkbox" />
+                    <input onChange={(e) => handleCheckBox('online_services', e)} name="platform" type="radio" />
                     <span class="newcheckmark"></span>
                   </label>
                   <div className="server-form-checkbox-text">
@@ -69,7 +70,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
               <div>
                 <div style={{ display: 'flex' }}>
                   <label class="newcontainer">
-                    <input onChange={(e) => handleCheckBox('face_time', e)} type="checkbox" />
+                    <input onChange={(e) => handleCheckBox('face_time', e)} name="platform" type="radio" />
                     <span class="newcheckmark"></span>
                   </label>
                   <div className="server-form-checkbox-text">Facetime/Video Chat</div>
@@ -79,7 +80,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
               <div>
                 <div style={{ display: 'flex' }}>
                   <label class="newcontainer">
-                    <input onChange={(e) => handleCheckBox('visit_shop', e)} type="checkbox" />
+                    <input onChange={(e) => handleCheckBox('visit_shop', e)} name="platform" type="radio" />
                     <span class="newcheckmark"></span>
                   </label>
                   <div className="server-form-checkbox-text">Visit A Mechanic Shop</div>
