@@ -14,6 +14,7 @@ import LogoutForChanges from './LogoutForChanges';
 import DoAndDoesScreen from './DoAndDoesScreen';
 import TermsAndPolicyScreen from './TermsAndPolicyScreen';
 import ContactUsScreen from './ContactUsScreen';
+import LyftCertificate from './Certificates/Lyftcertificate';
 export {
   IntroScreen,
   LoginScreen,
@@ -31,4 +32,5 @@ export {
   DoAndDoesScreen,
   TermsAndPolicyScreen,
   ContactUsScreen,
+  LyftCertificate,
 };
