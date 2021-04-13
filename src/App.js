@@ -23,6 +23,7 @@ import {
   DoAndDoesContainer,
   TermsAndPolicyContainer,
   ContactUsContainer,
+  LyftCertificateContainer,
 } from './Containers';
 import { LogoutForChanges } from '../src/Screens';
 
@@ -33,24 +34,90 @@ function App(props) {
   let isAuthenticated = currentUser ? true : false;
   return (
     <Switch>
-      <Route storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/logoutForChanges" component={LogoutForChanges} />
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleStatus" component={VehicleStatusContainer} />
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleinspection" component={VehicleInspectionContainer} />
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/transcationScreen" component={TranscationContainer} />
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleDetail" component={VehicleDetailContainer} />
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/contactUs" component={ContactUsContainer} />
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/doAndDoesScreen" component={DoAndDoesContainer} />
-      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleDetail" component={VehicleDetailContainer} />
+      <Route
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/logoutForChanges"
+        component={LogoutForChanges}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/vehicleStatus"
+        component={VehicleStatusContainer}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/vehicleinspection"
+        component={VehicleInspectionContainer}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/transcationScreen"
+        component={TranscationContainer}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/vehicleDetail"
+        component={VehicleDetailContainer}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/contactUs"
+        component={ContactUsContainer}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/doAndDoesScreen"
+        component={DoAndDoesContainer}
+      />
+      <RestrictedRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/vehicleDetail"
+        component={VehicleDetailContainer}
+      />
       <Route path="/termsAndPolicy" component={TermsAndPolicyContainer} />
       <Route path="/thankyouScreen" component={ThankyouContainer} />
       {/* <Route path="/transcationScreen" component={TranscationContainer} /> */}
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/register" component={SignUpContainer} />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/register"
+        component={SignUpContainer}
+      />
       <Route path="/confirmEmail" component={ConfirmEmailContainer} />
       <Route path="/forgotpassword" component={ForgotPasswordContainer} />
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/login" component={LoginContainer} />
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/resetpassword" component={ResetPasswordContainer} />
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/verifyEmail" component={VerifyEmailContainer} />
-      <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/" component={IntroContainer} />
+      <Route path="/LyftCertificate" component={LyftCertificateContainer} />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/login"
+        component={LoginContainer}
+      />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/resetpassword"
+        component={ResetPasswordContainer}
+      />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/verifyEmail"
+        component={VerifyEmailContainer}
+      />
+      <PublicRoute
+        storeAuthenticate={isAuthenticated}
+        allowed={isAuthenticated}
+        path="/"
+        component={IntroContainer}
+      />
       {/* <RestrictedRoute exact storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/logoutForChanges" component={LogoutForChanges} /> */}
     </Switch>
   );
