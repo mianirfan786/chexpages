@@ -7,7 +7,7 @@ import '../../App.css';
 
 const VehicleDetailScreen = ({ handleSubmit }) => {
   return (
-    <div className="container">
+    <div className="transcation-main-container">
       <div className="transcation-container">
         {/* <Header /> */}
         <div className="transaction-screen-header">

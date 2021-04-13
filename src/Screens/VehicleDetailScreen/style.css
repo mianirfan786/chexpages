@@ -1,11 +1,7 @@
-.transcation-container {
-  /* background: linear-gradient(182.55deg, #1876cc -17.67%, #001b51 115.19%), #191a1b; */
-}
-.container {
+.transcation-main-container {
   background: linear-gradient(182.55deg, #1876cc -17.67%, #001b51 115.19%), #191a1b;
-  height: 100%;
-  position: absolute;
-  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .transaction-screen-header {
   display: flex;

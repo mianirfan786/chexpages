@@ -12,8 +12,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
   return (
     <div className="survey-modal">
       <Modal
-        // visible={isSurveyModalVisible}
-        visible={true}
+        visible={isSurveyModalVisible}
         closable={true}
         title={false}
         footer={null}

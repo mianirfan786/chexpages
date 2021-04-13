@@ -42,7 +42,6 @@ const VehicleInspectionContainer = (props) => {
     if (user?.updates || user?.updates === null || user?.updates === undefined) {
       window.location.replace('/logoutForChanges');
     }
-    handleRequests();
   }, []);
 
   const handleRequests = () => {
