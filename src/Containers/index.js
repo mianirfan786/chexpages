@@ -13,6 +13,7 @@ import VehicleDetailContainer from './VehicalDetailContainer';
 import DoAndDoesContainer from './DoAndDoesContainer';
 import TermsAndPolicyContainer from './TermsAndPolicyContainer';
 import ContactUsContainer from './ContactUsContainer';
+import LyftCertificateContainer from './LyftCertificateContainer';
 export {
   IntroContainer,
   LoginContainer,
@@ -29,4 +30,5 @@ export {
   DoAndDoesContainer,
   TermsAndPolicyContainer,
   ContactUsContainer,
+  LyftCertificateContainer,
 };

@@ -1,0 +1,502 @@
+.lyft-top-header_container {
+  background: #47484f;
+  margin-bottom: 10px;
+}
+.lift-image {
+  width: 50px;
+  height: 40px;
+  background-repeat: no-repeat;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+.caloiforniya-text {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0em;
+  color: white;
+  margin-top: 15px;
+}
+.lyft-driver-info_form_container {
+  background: #e4e5e7;
+  border: 1px solid #141414;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.lyft-driver-tetxs_container {
+  display: flex;
+}
+.lyft-driver-info_text {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  margin-right: 13px;
+  margin-bottom: 10px;
+}
+.mandatory-text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  margin-top: 11px;
+  color: #716e6e;
+  margin-bottom: 0;
+}
+.lyft-driver-name_input {
+  border: none;
+  border: 1px solid #47484f;
+  background-color: #e4e5e7;
+  width: 100%;
+  height: 60px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+}
+::placeholder {
+  color: #47484f !important;
+}
+.phone-num_input {
+  border: none;
+  border: 1px solid #47484f;
+  background-color: #e4e5e7;
+  width: 100%;
+  height: 60px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+}
+.email_input {
+  border: none;
+  border: 1px solid #47484f;
+  background-color: #e4e5e7;
+  width: 100%;
+  height: 60px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+}
+.vehicle-year-input {
+  border: none;
+  border: 1px solid #47484f;
+  background-color: #e4e5e7;
+  width: 100%;
+  height: 60px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+}
+.vehicle-make-input {
+  border: none;
+  border: 1px solid #47484f;
+  background-color: #e4e5e7;
+  width: 100%;
+  height: 60px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+}
+.vehicle-model-input {
+  border: none;
+  border: 1px solid #47484f;
+  background-color: #e4e5e7;
+  width: 100%;
+  height: 60px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+}
+.license-plate-input {
+  border: none;
+  border: 1px solid #47484f;
+  background-color: #e4e5e7;
+  width: 99%;
+  height: 60px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+}
+.vin-input {
+  border: none;
+  background-color: #e4e5e7;
+  border-bottom: 1px solid #47484f;
+  margin-top: 30px;
+  width: 100% !important;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+  margin-left: 5px;
+}
+.vin-text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  margin-left: 5px;
+}
+.form-checkbox {
+  margin-left: 20px !important;
+  width: 50%;
+  margin-top: 4px !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 23px !important;
+  letter-spacing: 0em !important;
+  color: black !important;
+}
+
+.form-chexbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.vehicle-inspection-heading_container {
+  display: flex;
+  margin-top: 10px;
+}
+.vehicle-inspection-heading {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  margin-right: 5px;
+}
+.inspector-text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #716e6e;
+  margin-top: 11px;
+}
+.inspector-point-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  /* margin-left: 10px; */
+  color: #716e6e;
+}
+.pass-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #716e6e;
+}
+.fail-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #716e6e;
+}
+.foot-brakes-text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+}
+.numeric-text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #716e6e;
+}
+.vehicle-inspection_chexbox {
+  text-align: center;
+  margin-top: 15px;
+}
+.vehicle-inspection_chexboxtwo {
+  text-align: left;
+  margin-top: 15px;
+  margin-left: 7px;
+}
+.doted-border-box {
+  border-style: dashed;
+  border-color: black;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 20px;
+  width: 100%;
+}
+.vehicle-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: 5px;
+  color: black;
+}
+.box-pass-text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  margin-left: -12px;
+}
+.box-fail-text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+}
+.circle-one-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+
+  letter-spacing: 0em;
+  text-align: left;
+  color: #716e6e;
+}
+.completed-inspector-main_container {
+  background-color: #e4e5e7;
+  padding: 10px;
+}
+.completed-by-inspector_text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  /* border-bottom: 1px solid black; */
+  text-transform: uppercase;
+}
+.id-verified {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+  margin-top: 20px;
+}
+.yes-text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  color: black;
+  margin-top: 20px;
+}
+.no-text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  margin-top: 20px;
+}
+.applicant-input-field {
+  border-bottom: 1px solid black !important;
+  background-color: #e4e5e7;
+  border: none;
+  width: 100%;
+}
+.applicant-text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+  text-transform: uppercase;
+}
+.inspector-only-form {
+  background-color: #e4e5e7;
+  padding: 10px;
+  margin-top: 15px;
+}
+.inspector-only-container {
+  display: flex;
+  align-items: center;
+}
+.inspector-only-text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+.fields-mandatory-text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: uppercase;
+}
+.inspection-date-text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+  margin-bottom: 0;
+  /* margin-left: 20px; */
+  margin-top: 35px;
+  text-transform: uppercase;
+}
+.document-expires-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #47484f;
+  /* margin-left: 20px; */
+  text-transform: uppercase;
+}
+.inspector-only-input {
+  border-bottom: 1px solid black !important;
+  background-color: #e4e5e7;
+  border: none;
+  width: 95%;
+}
+.bottom-paragraph {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #716e6e;
+  margin-top: 10px;
+}
+.yes-circle {
+  border: 8px solid green;
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lyft-container {
+  display: flex;
+  flex-direction: column;
+}
+.label-text {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #191a1b;
+  text-transform: uppercase;
+}
+.demi-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #191a1b;
+  margin-bottom: 0;
+}

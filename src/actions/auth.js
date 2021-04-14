@@ -65,14 +65,14 @@ export function login(params, history, addToast) {
   };
 }
 
-export function register(params, history, addToast) {
+export function register(params, history, addToast, lyftUser) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
     axios
       .post(`${Api}/auth/signup`, params)
       .then((resp) => {
         addToast(`User created successfully`, { appearance: 'success' });
-        history.push(`/verifyEmail?email=${params.email}`);
+        history.push(`/verifyEmail?email=${params.email}&lyftUser=${lyftUser}`);
         dispatch(isAuthLoading(false));
       })
       .catch((err) => {

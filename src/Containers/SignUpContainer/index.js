@@ -23,13 +23,14 @@ const SignUpContainer = (props) => {
 
   const handleSubmit = (params) => {
     const { register } = props;
+    const lyftUser = params.companies.includes(lyft.value);
     if (checkboxValue) {
-      register(params, history, addToast);
+      register(params, history, addToast, lyftUser);
     } else {
       addToast('Please accept term of use', { appearance: 'warning' });
     }
   };
-
+  const lyft = props.companies.find(element => element.label == 'Dev')
   const handleModal = () => {
     setShowModal(!showModal);
   };
