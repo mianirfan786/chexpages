@@ -320,6 +320,7 @@
   letter-spacing: 0em;
   text-align: left;
   color: black;
+  margin-left: -12px;
 }
 .box-fail-text {
   font-size: 20px;
@@ -435,8 +436,8 @@
   text-align: left;
   color: #47484f;
   margin-bottom: 0;
-  margin-left: 20px;
-  margin-top: 20px;
+  /* margin-left: 20px; */
+  margin-top: 35px;
   text-transform: uppercase;
 }
 .document-expires-text {
@@ -446,7 +447,7 @@
   letter-spacing: 0em;
   text-align: left;
   color: #47484f;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   text-transform: uppercase;
 }
 .inspector-only-input {

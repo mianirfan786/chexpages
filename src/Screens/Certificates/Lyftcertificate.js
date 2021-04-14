@@ -350,7 +350,9 @@ const LyftCertificate = () => {
             </Col>
             <Col lg={24} lg={12}>
               <p className="inspection-date-text">inspection date</p>
-              <p className="document-expires-text">(document expires one year from this date)</p>
+              <p className="document-expires-text">
+                (document expires one year from this date) 14/4/2021
+              </p>
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
