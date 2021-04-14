@@ -7,7 +7,7 @@ import Pdf from 'react-to-pdf';
 
 import DownloadCertifcate from '../Certificates/DownLoadCertificate';
 import GeneralCertificate from '../Certificates/GeneralCertificate';
-
+import LyftCertificate from '../Certificates/Lyftcertificate';
 import {
   // InspectionCard,
   NextStepButton,
@@ -118,12 +118,13 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                       ) : (
                         'Vehicle is not yet Reviewed'
                       )}
-                      {console.log('ewwewe', vehicle.template_id)}
                       {vehicle?.template_id == 1 ? (
                         <GeneralCertificate setLoading={setLoading} id={vehicle.id} refs={refs} />
-                      ) : (
+                      ) : vehicle?.template_id == 2 ? (
                         <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} />
-                      )}
+                      ) : vehicle?.template_id == 3 ? (
+                        <LyftCertificate setLoading={setLoading} refs={refs} />
+                      ) : null}
                     </Panel>
                   ))}
                 </Collapse>

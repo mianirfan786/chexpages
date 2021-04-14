@@ -9,9 +9,9 @@ function onChange(e) {
   console.log(`checked = ${e.target.checked}`);
 }
 
-const LyftCertificate = () => {
+const LyftCertificate = (props) => {
   return (
-    <div className="container lyft-container">
+    <div ref={props.ref} className="container lyft-container">
       <div className="lyft-top-header_container">
         <Row>
           <Col span={14}>
