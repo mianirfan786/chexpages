@@ -414,4 +414,5 @@ const LyftCertificate = () => {
     </div>
   );
 };
+
 export default LyftCertificate;
