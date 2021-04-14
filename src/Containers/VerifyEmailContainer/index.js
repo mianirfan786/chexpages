@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -14,13 +16,15 @@ const VerfiyEmailContainer = (props) => {
   const { addToast } = useToasts();
   const history = useHistory();
   const { location } = props;
+
   const query = queryString.parse(location.search);
+
   const [visible, setVisible] = useState(false);
-  
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    if (query.lyftUser==='true')
-      setVisible(true);
-  }, [])
+    if (query.lyftUser === 'true') setVisible(true);
+  }, []);
 
   const handleResendEmail = () => {
     const { resendEmail, location } = props;
@@ -32,12 +36,21 @@ const VerfiyEmailContainer = (props) => {
     history.push('/login');
   };
 
+  const handleSubmitLyftModal = (value) => {
+    const { setLyftUserStatus } = props;
+    const userId = query.userId;
+    const status = {
+      lyft_user: value,
+    };
+    setLyftUserStatus(status, setVisible, userId, setLoading);
+  };
+
   return (
     <>
-      <LyftConfirmationModal visibleLyft={visible} />
-      <VerifyEmailScreen isLoading={props.isLoading} email={query.email} handleResendEmail={handleResendEmail} logout={logout} />
+      <LyftConfirmationModal loading={loading} handleSubmitLyftModal={handleSubmitLyftModal} visibleLyft={visible} />
+      <VerifyEmailScreen handleSubmitLyftModal={handleSubmitLyftModal} isLoading={props.isLoading} email={query.email} handleResendEmail={handleResendEmail} logout={logout} />
     </>
-  )
+  );
 };
 
 function mapDispatchToProps(dispatch) {

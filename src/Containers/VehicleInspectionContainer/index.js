@@ -157,6 +157,7 @@ const VehicleInspectionContainer = (props) => {
       deleteLoading={deleteLoading}
       surveyModalLoading={surveyModalLoading}
       uploadingPercentage={uploadingPercentage}
+      currentUser={props.currentUser}
       handleImageUpload={handleImageUpload}
       handleModal={handleModal}
       deleteFile={deleteFile}

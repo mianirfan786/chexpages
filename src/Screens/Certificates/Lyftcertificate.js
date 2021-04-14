@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import { Row, Col, Checkbox } from 'antd';
 import LyftImg from '../..//Assets/liftimg.png';
@@ -13,7 +15,7 @@ const LyftCertificate = () => {
       <div className="lyft-top-header_container">
         <Row>
           <Col span={14}>
-            <img className="lift-image" src={LyftImg} />
+            <img alt=" " className="lift-image" src={LyftImg} />
           </Col>
           <Col span={10}>
             <p className="caloiforniya-text">California Vehicle Inspection</p>
@@ -317,9 +319,7 @@ const LyftCertificate = () => {
         <div className="completed-inspector-main_container">
           <Row>
             <Col span={24}>
-              <p className="completed-by-inspector_text">
-                to be completed by inspector or lyft expert
-              </p>
+              <p className="completed-by-inspector_text">to be completed by inspector or lyft expert</p>
             </Col>
             <Col xs={4} span={4}>
               <p className="id-verified">ID VERIFIED</p>
@@ -350,9 +350,7 @@ const LyftCertificate = () => {
             </Col>
             <Col lg={24} lg={12}>
               <p className="inspection-date-text">inspection date</p>
-              <p className="document-expires-text">
-                (document expires one year from this date) 14/4/2021
-              </p>
+              <p className="document-expires-text">(document expires one year from this date) 14/4/2021</p>
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
@@ -395,18 +393,15 @@ const LyftCertificate = () => {
         <Row>
           <Col span="24">
             <p className="bottom-paragraph">
-              Applicants who do not match the photo on their driver’s license or do not have the
-              proper documents, cannot complete an inspection. Failing inspections can only be
-              remedied by the same shop on the same day. If an applicant fails the inspection and is
-              unable to fix the issues on the spot, a new appointment must be made, and a new
+              Applicants who do not match the photo on their driver’s license or do not have the proper documents, cannot complete an inspection. Failing inspections can only be
+              remedied by the same shop on the same day. If an applicant fails the inspection and is unable to fix the issues on the spot, a new appointment must be made, and a new
               inspection form must be used.
             </p>
           </Col>
           <Col span="24">
             <p className="bottom-paragraph">
-              This inspection form reflects a 19 point inspection only on the date of the inspection
-              listed above. For purposes of this inspection, the wheels were not removed from the
-              vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
+              This inspection form reflects a 19 point inspection only on the date of the inspection listed above. For purposes of this inspection, the wheels were not removed from
+              the vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
             </p>
           </Col>
         </Row>

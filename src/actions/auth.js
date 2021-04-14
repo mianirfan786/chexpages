@@ -72,7 +72,7 @@ export function register(params, history, addToast, lyftUser) {
       .post(`${Api}/auth/signup`, params)
       .then((resp) => {
         addToast(`User created successfully`, { appearance: 'success' });
-        history.push(`/verifyEmail?email=${params.email}&lyftUser=${lyftUser}`);
+        history.push(`/verifyEmail?email=${params.email}&lyftUser=${lyftUser}&userId=${resp.data.user.id}`);
         dispatch(isAuthLoading(false));
       })
       .catch((err) => {
@@ -187,6 +187,21 @@ export function changeRecommendation(setLoading, history) {
         localStorage.setItem('recommendScreen', true);
         history.replace('/vehicleinspection');
 
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  };
+}
+
+export function setLyftUserStatus(params, setVisible, user_id, setLoading) {
+  return (dispatch) => {
+    setLoading(true);
+    axios
+      .put(`${Api}/user/status/${user_id}`, params, { headers })
+      .then((resp) => {
+        setVisible(false);
         setLoading(false);
       })
       .catch((err) => {

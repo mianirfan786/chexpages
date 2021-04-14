@@ -16,6 +16,9 @@ const IntroScreen = () => {
               <span className="intro-headingSpan">.AI</span>
             </div>
             <div className="intro-contentP">Virtual Inspections</div>
+            <div className="intro-validation-text">
+              (Only valid for <span className="intro-state-name">CA</span> drivers)
+            </div>
             <div className="intro-content-footer-area-intro">
               <div className="intro-MtB5">
                 <Link className="intro-signinBtn" to="/login">

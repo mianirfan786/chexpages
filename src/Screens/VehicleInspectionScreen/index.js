@@ -47,6 +47,7 @@ const VehicleInspectionScreen = ({
   paymentStatus,
   changeVehicleStatus,
   vehicleStatusLoading,
+  currentUser,
 }) => {
   const genExtra = () => (
     <UpCircleOutlined
@@ -92,7 +93,7 @@ const VehicleInspectionScreen = ({
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
                       <Col>
-                        {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
+                        {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 || vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
                           <BsCheckCircle color="#099220" size={22} />
                         ) : (
                           <BsCheckCircle color="#bab8b8" size={22} />
@@ -109,20 +110,39 @@ const VehicleInspectionScreen = ({
                   extra={genExtra}
                 >
                   <div className="veh-inspection-cards_container">
-                    {vehicleInstructions?.verificationItem?.map((item, index) => (
-                      <div key={index} className="veh-inspection-first_card">
-                        <InspectionCard
-                          groupType="carVerificiationItems"
-                          item={item}
-                          handleModal={handleModal}
-                          category={item.id}
-                          title={item.title}
-                          titletwo={item.type}
-                          type={item.type}
-                          deleteFile={handleDeleteModal}
-                        />
-                      </div>
-                    ))}
+                    {vehicleInstructions?.verificationItem?.map((item, index) =>
+                      currentUser?.lyft_user === true ? (
+                        <div key={index} className="veh-inspection-first_card">
+                          <InspectionCard
+                            deleteFile={handleDeleteModal}
+                            groupType="interiorItems"
+                            item={item}
+                            handleModal={handleModal}
+                            category={item.id}
+                            title={item.title}
+                            titletwo={item.type}
+                            type={item.type}
+                          />
+                        </div>
+                      ) : (
+                        <div key={index} className="veh-inspection-first_card">
+                          <>
+                            {item.lyft ? null : (
+                              <InspectionCard
+                                deleteFile={handleDeleteModal}
+                                groupType="interiorItems"
+                                item={item}
+                                handleModal={handleModal}
+                                category={item.id}
+                                title={item.title}
+                                titletwo={item.type}
+                                type={item.type}
+                              />
+                            )}
+                          </>
+                        </div>
+                      )
+                    )}
                   </div>
                   {/* <NextStepButton /> */}
                 </Panel>
@@ -237,10 +257,11 @@ const VehicleInspectionScreen = ({
                   {/* <NextStepButton /> */}
                 </Panel>
               </Collapse>
-              {vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
-              vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
-              vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
-              vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
+              {(vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
+                vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
+                vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
+                vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2) ||
+              vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
                 <div className="vec-inspection-submitbtn_container">
                   <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
                     Submit

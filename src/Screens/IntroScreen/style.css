@@ -79,6 +79,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.intro-validation-text {
+  text-align: center;
+  color: white;
+}
+.intro-state-name {
+  color: #ff7400;
+}
 .intro-MtB5 {
   /* margin-bottom: 42px; */
   padding: 20px;
