@@ -30,7 +30,7 @@ const SignUpContainer = (props) => {
       addToast('Please accept term of use', { appearance: 'warning' });
     }
   };
-  const lyft = props.companies.find((element) => element.label == 'Dev');
+  const lyft = props.companies.find((element) => element.label == 'Lyft' || element.label == 'lyft');
 
   const handleModal = () => {
     setShowModal(!showModal);

@@ -115,7 +115,7 @@ const VehicleInspectionScreen = ({
                         <div key={index} className="veh-inspection-first_card">
                           <InspectionCard
                             deleteFile={handleDeleteModal}
-                            groupType="interiorItems"
+                            groupType="carVerificiationItems"
                             item={item}
                             handleModal={handleModal}
                             category={item.id}

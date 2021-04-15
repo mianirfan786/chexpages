@@ -11,7 +11,7 @@ function onChange(e) {
 
 const LyftCertificate = (props) => {
   return (
-    <div ref={props.ref} className="container lyft-container">
+    <div style={{ position: 'absolute', left: '100%', width: '1200px' }} ref={props.refs} className="container lyft-container">
       <div className="lyft-top-header_container">
         <Row>
           <Col span={14}>
