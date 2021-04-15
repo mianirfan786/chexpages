@@ -7,19 +7,17 @@ import { connect } from 'react-redux';
 import { Row, Col, Checkbox } from 'antd';
 
 import ActionCreators from '../../actions';
-
+import { setReportData } from '../../utils/functions';
 
 import LyftImg from '../..//Assets/liftimg.png';
 import './LyftCertificate.css';
-
-
 
 function onChange(e) {
   console.log(`checked = ${e.target.checked}`);
 }
 
 const LyftCertificate = (props) => {
-  console.log('dsjdkskdhskdhkshdsd',props.id)
+  console.log('dsjdkskdhskdhkshdsd', props.id);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
@@ -54,15 +52,15 @@ const LyftCertificate = (props) => {
           <Col span={12}>
             <div className="lyft-driver-name_input">
               <p className="label-text">lyft driver name</p>
-              <p className="demi-text">Demi Text</p>
+              <p className="demi-text">{props.reportData[0] && props.reportData[0].name}</p>
             </div>
           </Col>
           <Col span={12}>
             <div className="form-chexbox-container">
-              <Checkbox className="form-checkbox" onChange={onChange}>
+              <Checkbox checked={props.reportData[0] && props.reportData[0].lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
                 APPLICANT
               </Checkbox>
-              <Checkbox className="form-checkbox" onChange={onChange}>
+              <Checkbox checked={!props.reportData[0] && props.reportData[0].lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
                 CURRENT LYFT DRIVER
               </Checkbox>
             </div>
@@ -73,13 +71,13 @@ const LyftCertificate = (props) => {
           <Col span={12}>
             <div className="phone-num_input">
               <p className="label-text">Phone number</p>
-              <p className="demi-text">Demi Text</p>
+              <p className="demi-text">{props.reportData[0] && props.reportData[0].phone}</p>
             </div>
           </Col>
           <Col span={12}>
             <div className="email_input">
               <p className="label-text">email</p>
-              <p className="demi-text">Demi Text</p>
+              <p className="demi-text">{props.reportData[0] && props.reportData[0].email}</p>
             </div>
           </Col>
         </Row>
@@ -87,19 +85,19 @@ const LyftCertificate = (props) => {
           <Col span={6}>
             <div className="vehicle-year-input">
               <p className="label-text">vehicle year</p>
-              <p className="demi-text">Demi Text</p>
+              <p className="demi-text">{props.reportData[0] && props.reportData[0].year}</p>
             </div>
           </Col>
           <Col span={6}>
             <div className="vehicle-make-input">
               <p className="label-text">vehicle make</p>
-              <p className="demi-text">Demi Text</p>
+              <p className="demi-text">{props.reportData[0] && props.reportData[0].make}</p>
             </div>
           </Col>
           <Col span={12}>
             <div className="vehicle-model-input">
               <p className="label-text">vehicle model</p>
-              <p className="demi-text">Demi Text</p>
+              <p className="demi-text">{props.reportData[0] && props.reportData[0].model}</p>
             </div>
           </Col>
         </Row>
@@ -107,12 +105,12 @@ const LyftCertificate = (props) => {
           <Col span={12}>
             <div className="license-plate-input">
               <p className="label-text">license plate #</p>
-              <p className="demi-text">Demi Text</p>
+              <p className="demi-text">{props.reportData[0] && props.reportData[0].license_plate_no}</p>
             </div>
           </Col>
           <Col span={12}>
             <div className="vin-input">
-              <p className="demi-text">Demi Text</p>
+              <p className="demi-text">{props.reportData[0] && props.reportData[0].vin}</p>
             </div>
             <p className="vin-text">VIN</p>
           </Col>
@@ -130,209 +128,110 @@ const LyftCertificate = (props) => {
         <Row>
           <Col span={8}>
             <p className="inspector-point-text">INSPECTOR POINT</p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">1. </span>Foot brakes
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">2. </span>Emergency brake (parking brake)
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">3. </span>Steering mechanism
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">4. </span>Windshield
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">5. </span>Rear window and other glass
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">6. </span>Windshield wipers
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">7. </span>Headlights
-            </p>
-
-            <p className="foot-brakes-text">
-              <span className="numeric-text">8. </span>Tail lights
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">9. </span>Turn indicator lights
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">10. </span>Stop lights
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">11. </span>Front seat adjustment
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">12. </span>Doors
-            </p>
+            {props?.checksData.map((check, index) =>
+              index <= 14 ? (
+                <p className="foot-brakes-text">
+                  <span className="numeric-text">{index + 1}. </span>
+                  {check.name}
+                </p>
+              ) : null
+            )}
           </Col>
           <Col span={2}>
             <p className="pass-text">PASS</p>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
+            {props?.checksData.map((check, index) =>
+              index <= 14 ? (
+                check.status === true ? (
+                  <div className="vehicle-inspection_chexbox">
+                    <Checkbox checked={true} />
+                  </div>
+                ) : (
+                  <div className="vehicle-inspection_chexbox">
+                    <Checkbox checked={false} />
+                  </div>
+                )
+              ) : null
+            )}
           </Col>
           <Col span={2}>
-            <p className="fail-text">FAIl</p>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
+            <p className="fail-text">FAIL</p>
+            {props?.checksData.map((check, index) =>
+              index <= 14 ? (
+                check.status === false ? (
+                  <div className="vehicle-inspection_chexbox">
+                    <Checkbox checked={true} />
+                  </div>
+                ) : (
+                  <div className="vehicle-inspection_chexbox">
+                    <Checkbox checked={false} />
+                  </div>
+                )
+              ) : null
+            )}
           </Col>
 
           <Col span={8}>
             <p className="inspector-point-text">INSPECTOR POINT</p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">13. </span>Horn
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">14. </span>Speedometer
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">15. </span>Bumpers
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">16. </span>Muffler and exhaust system
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">17. </span>Tires, incl, tread depth
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">18. </span>Interior and exterior rearview mirrors
-            </p>
-            <p className="foot-brakes-text">
-              <span className="numeric-text">19. </span>Safety belts for driver passenger(s)
-            </p>
-
+            {props?.checksData.map((check, index) =>
+              index > 14 ? (
+                <p className="foot-brakes-text">
+                  <span className="numeric-text">{index + 1}. </span>
+                  {check.name}
+                </p>
+              ) : null
+            )}
             <div className="doted-border-box">
               <Col span={16}>
                 <p className="vehicle-text">Vehicle Inspection</p>
                 <p className="circle-one-text">(Please circle one)</p>
               </Col>
               <Col span={4}>
-                <p className="box-pass-text">PASS</p>
+                <div className={props.reportData[0] && props.reportData[0].final_status === 'pass' ? 'yes-circle' : ''}>
+                  <p style={{ marginRight: '20px' }} className="box-fail-text">
+                    PASS
+                  </p>
+                </div>
               </Col>
               <Col span={4}>
-                <p className="box-fail-text">FAIL</p>
+                <div className={props.reportData[0] && props.reportData[0].final_status === 'fail' ? 'yes-circle' : ''}>
+                  <p className="box-fail-text">FAIL</p>
+                </div>
               </Col>
             </div>
           </Col>
 
           <Col span={2}>
             <p className="pass-text">PASS</p>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexbox">
-              <Checkbox onChange={onChange} />
-            </div>
+            {props?.checksData.map((check, index) =>
+              index > 14 ? (
+                check.status === true ? (
+                  <div className="vehicle-inspection_chexbox">
+                    <Checkbox checked={true} />
+                  </div>
+                ) : (
+                  <div className="vehicle-inspection_chexbox">
+                    <Checkbox checked={false} />
+                  </div>
+                )
+              ) : null
+            )}
           </Col>
 
           <Col span={2}>
-            <p className="fail-text">FAIl</p>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
-            <div className="vehicle-inspection_chexboxtwo">
-              <Checkbox onChange={onChange} />
-            </div>
+            <p className="fail-text">FAIL</p>
+            {props?.checksData.map((check, index) =>
+              index > 14 ? (
+                check.status === false ? (
+                  <div className="vehicle-inspection_chexbox">
+                    <Checkbox checked={true} />
+                  </div>
+                ) : (
+                  <div className="vehicle-inspection_chexbox">
+                    <Checkbox checked={false} />
+                  </div>
+                )
+              ) : null
+            )}
           </Col>
         </Row>
         <div className="completed-inspector-main_container">
@@ -360,51 +259,52 @@ const LyftCertificate = (props) => {
           </Row>
         </div>
         <div className="inspector-only-form">
-       
           <Row>
-          <Col lg={24} lg={12}>
-            <div className="inspector-only-container">
-              <p className="inspector-only-text">to be completed by inspector only</p>
-              <p className="fields-mandatory-text">[all fields are mandatory]</p>
-            </div>
-          </Col>
-          <Col lg={24} lg={12}>
-            <p className="inspection-date-text">inspection date</p>
-            <p className="document-expires-text">(document expires one year from this date) 14/4/2021</p>
-          </Col>
-          <Col span={12}>
-            <div className="inspector-only-input">
-              <p className="demi-text">{  props.reportData[0]&&props.reportData[0].model}</p>
-            </div>
-            <p className="applicant-text">{ props.reportData[0]&&props.reportData[0].companyName}</p>
-          </Col>
-          <Col span={12}>
-            <div className="inspector-only-input">
-              <p className="demi-text">{ props.reportData[0]&&props.reportData[0].email}</p>
-            </div>
-            <p className="applicant-text">{ props.reportData[0]&&props.reportData[0].name}</p>
-          </Col>
-          <Col span={12}>
-            <div className="inspector-only-input">
-              <p className="demi-text">{ props.reportData[0]&&props.reportData[0].address}</p>
-            </div>
-            <p className="applicant-text">Company address</p>
-          </Col>
-          <Col span={12}>
-            <div className="inspector-only-input">
-              <p className="demi-text">{ props.reportData[0]&&props.reportData[0].reviewLast}</p>
-            </div>
-            <p className="applicant-text">{ props.reportData[0]&&props.reportData[0].reviewName}</p>
-          </Col>
-  
-          <Col span={12}>
-            <div className="inspector-only-input">
-              <p className="demi-text"><img width="170px" height="130px" src={ props.reportData[0]&&props.reportData[0].reviewSignature} /></p>
-            </div>
-            <p className="applicant-text">inspector signature</p>
-          </Col>
-        </Row>
-        {/* <div className="inspector-only-form"> */}
+            <Col lg={24} lg={12}>
+              <div className="inspector-only-container">
+                <p className="inspector-only-text">to be completed by inspector only</p>
+                <p className="fields-mandatory-text">[all fields are mandatory]</p>
+              </div>
+            </Col>
+            <Col lg={24} lg={12}>
+              <p className="inspection-date-text">inspection date</p>
+              <p className="document-expires-text">(document expires one year from this date) 14/4/2021</p>
+            </Col>
+            <Col span={12}>
+              <div className="inspector-only-input">
+                <p className="demi-text">{props.reportData[0] && props.reportData[0].companyName}</p>
+              </div>
+              <p className="applicant-text">COMPANY NAME</p>
+            </Col>
+            <Col span={12}>
+              <div className="inspector-only-input">
+                <p className="demi-text">{props.reportData[0] && props.reportData[0].vehicle_mileage}</p>
+              </div>
+              <p className="applicant-text">VEHICLE MILEAGE FROM ODOMETER</p>
+            </Col>
+            <Col span={12}>
+              <div className="inspector-only-input">
+                <p className="demi-text">{props.reportData[0] && props.reportData[0].address}</p>
+              </div>
+              <p className="applicant-text">Company address</p>
+            </Col>
+            <Col span={12}>
+              <div className="inspector-only-input">
+                <p className="demi-text">{props.reportData[0] && props.reportData[0].reviewName}</p>
+              </div>
+              <p className="applicant-text">INSPECTOR NAME</p>
+            </Col>
+
+            <Col span={12}>
+              <div className="inspector-only-input">
+                <p className="demi-text">
+                  <img width="170px" height="130px" src={props.reportData[0] && props.reportData[0].reviewSignature} />
+                </p>
+              </div>
+              <p className="applicant-text">INSPECTOR SIGNATURE</p>
+            </Col>
+          </Row>
+          {/* <div className="inspector-only-form"> */}
           {/* <Row>
             <Col lg={24} lg={12}>
               <div className="inspector-only-container">
@@ -482,9 +382,8 @@ function mapStateToProps(state) {
   console.log('Lyft Certification dtsate', state);
   return {
     reportData: state.vehicleInstruction.vehicleCertificate,
+    checksData: setReportData(state.vehicleInstruction.vehicleCertificate),
   };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LyftCertificate);
-
-
