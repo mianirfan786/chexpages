@@ -123,7 +123,7 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                       ) : vehicle?.template_id == 2 ? (
                         <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} />
                       ) : vehicle?.template_id == 3 ? (
-                        <LyftCertificate setLoading={setLoading} refs={refs} />
+                        <LyftCertificate setLoading={setLoading}  id={vehicle?.id} refs={refs} />
                       ) : null}
                     </Panel>
                   ))}

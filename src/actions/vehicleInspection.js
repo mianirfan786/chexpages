@@ -221,6 +221,7 @@ export function getVehicleCertificate(params, setLoading) {
     axios
       .post(`${Api}/vehicle/${params.id}/files`, params, { headers })
       .then((resp) => {
+      
         setLoading(false);
         dispatch(setCertificateData(resp.data));
       })

@@ -1,15 +1,34 @@
 /* eslint-disable */
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { ClipLoader } from 'react-spinners';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Row, Col, Checkbox } from 'antd';
+
+import ActionCreators from '../../actions';
+
+
 import LyftImg from '../..//Assets/liftimg.png';
 import './LyftCertificate.css';
+
+
 
 function onChange(e) {
   console.log(`checked = ${e.target.checked}`);
 }
 
 const LyftCertificate = (props) => {
+  console.log('dsjdkskdhskdhkshdsd',props.id)
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const getToken = () => localStorage.getItem('token') || null;
+    if (getToken) {
+      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading);
+    } else {
+      props.history.push('/login');
+    }
+  }, []);
   return (
     <div style={{ position: 'absolute', left: '100%', width: '1200px' }} ref={props.refs} className="container lyft-container">
       <div className="lyft-top-header_container">
@@ -334,14 +353,59 @@ const LyftCertificate = (props) => {
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">Demi Text</p>
+                <p className="demi-text"></p>
               </div>
               <p className="applicant-text">applicant`s driver`s license #</p>
             </Col>
           </Row>
         </div>
         <div className="inspector-only-form">
+       
           <Row>
+          <Col lg={24} lg={12}>
+            <div className="inspector-only-container">
+              <p className="inspector-only-text">to be completed by inspector only</p>
+              <p className="fields-mandatory-text">[all fields are mandatory]</p>
+            </div>
+          </Col>
+          <Col lg={24} lg={12}>
+            <p className="inspection-date-text">inspection date</p>
+            <p className="document-expires-text">(document expires one year from this date) 14/4/2021</p>
+          </Col>
+          <Col span={12}>
+            <div className="inspector-only-input">
+              <p className="demi-text">{  props.reportData[0]&&props.reportData[0].model}</p>
+            </div>
+            <p className="applicant-text">{ props.reportData[0]&&props.reportData[0].companyName}</p>
+          </Col>
+          <Col span={12}>
+            <div className="inspector-only-input">
+              <p className="demi-text">{ props.reportData[0]&&props.reportData[0].email}</p>
+            </div>
+            <p className="applicant-text">{ props.reportData[0]&&props.reportData[0].name}</p>
+          </Col>
+          <Col span={12}>
+            <div className="inspector-only-input">
+              <p className="demi-text">{ props.reportData[0]&&props.reportData[0].address}</p>
+            </div>
+            <p className="applicant-text">Company address</p>
+          </Col>
+          <Col span={12}>
+            <div className="inspector-only-input">
+              <p className="demi-text">{ props.reportData[0]&&props.reportData[0].reviewLast}</p>
+            </div>
+            <p className="applicant-text">{ props.reportData[0]&&props.reportData[0].reviewName}</p>
+          </Col>
+  
+          <Col span={12}>
+            <div className="inspector-only-input">
+              <p className="demi-text"><img width="170px" height="130px" src={ props.reportData[0]&&props.reportData[0].reviewSignature} /></p>
+            </div>
+            <p className="applicant-text">inspector signature</p>
+          </Col>
+        </Row>
+        {/* <div className="inspector-only-form"> */}
+          {/* <Row>
             <Col lg={24} lg={12}>
               <div className="inspector-only-container">
                 <p className="inspector-only-text">to be completed by inspector only</p>
@@ -388,7 +452,7 @@ const LyftCertificate = (props) => {
               </div>
               <p className="applicant-text">inspector signature</p>
             </Col>
-          </Row>
+          </Row> */}
         </div>
         <Row>
           <Col span="24">
@@ -410,4 +474,17 @@ const LyftCertificate = (props) => {
   );
 };
 
-export default LyftCertificate;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+function mapStateToProps(state) {
+  console.log('Lyft Certification dtsate', state);
+  return {
+    reportData: state.vehicleInstruction.vehicleCertificate,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LyftCertificate);
+
+
