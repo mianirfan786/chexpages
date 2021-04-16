@@ -17,7 +17,6 @@ function onChange(e) {
 }
 
 const LyftCertificate = (props) => {
-  console.log('dsjdkskdhskdhkshdsd', props.id);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
@@ -27,6 +26,7 @@ const LyftCertificate = (props) => {
       props.history.push('/login');
     }
   }, []);
+
   return (
     <div style={{ position: 'absolute', left: '100%', width: '1200px' }} ref={props.refs} className="container lyft-container">
       <div className="lyft-top-header_container">
@@ -242,17 +242,41 @@ const LyftCertificate = (props) => {
             <Col xs={4} span={4}>
               <p className="id-verified">ID VERIFIED</p>
             </Col>
-            <Col xs={4} span={4}>
-              <div className="yes-circle">
-                <p className="yes-text">YES</p>
-              </div>
-            </Col>
-            <Col xs={4} span={4}>
-              <p className="no-text">NO</p>
-            </Col>
+            {props.reportData &&
+              props.reportData.map(
+                (checks) =>
+                  checks &&
+                  checks.vehicleChecks.map((value) =>
+                    value.category === 'verification_card' ? (
+                      value.status === true ? (
+                        <>
+                          <Col xs={4} span={4}>
+                            <div className="yes-circle">
+                              <p className="yes-text">YES</p>
+                            </div>
+                          </Col>
+                          <Col xs={4} span={4}>
+                            <p className="no-text">NO</p>
+                          </Col>
+                        </>
+                      ) : (
+                        <>
+                          <Col xs={4} span={4}>
+                            <p className="yes-text">YES</p>
+                          </Col>
+                          <Col xs={4} span={4}>
+                            <div className="yes-circle">
+                              <p className="no-text">NO</p>
+                            </div>
+                          </Col>
+                        </>
+                      )
+                    ) : null
+                  )
+              )}
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text"></p>
+                <p className="demi-text">{props.reportData[0] && props.reportData[0].driving_license}</p>
               </div>
               <p className="applicant-text">applicant`s driver`s license #</p>
             </Col>
@@ -294,6 +318,12 @@ const LyftCertificate = (props) => {
               </div>
               <p className="applicant-text">INSPECTOR NAME</p>
             </Col>
+            <Col span={12}>
+              <div className="inspector-only-input">
+                <p className="demi-text"></p>
+              </div>
+              <p className="applicant-text">ard number</p>
+            </Col>
 
             <Col span={12}>
               <div className="inspector-only-input">
@@ -304,55 +334,6 @@ const LyftCertificate = (props) => {
               <p className="applicant-text">INSPECTOR SIGNATURE</p>
             </Col>
           </Row>
-          {/* <div className="inspector-only-form"> */}
-          {/* <Row>
-            <Col lg={24} lg={12}>
-              <div className="inspector-only-container">
-                <p className="inspector-only-text">to be completed by inspector only</p>
-                <p className="fields-mandatory-text">[all fields are mandatory]</p>
-              </div>
-            </Col>
-            <Col lg={24} lg={12}>
-              <p className="inspection-date-text">inspection date</p>
-              <p className="document-expires-text">(document expires one year from this date) 14/4/2021</p>
-            </Col>
-            <Col span={12}>
-              <div className="inspector-only-input">
-                <p className="demi-text">Demi Text</p>
-              </div>
-              <p className="applicant-text">Company name</p>
-            </Col>
-            <Col span={12}>
-              <div className="inspector-only-input">
-                <p className="demi-text">Demi Text</p>
-              </div>
-              <p className="applicant-text">vehicle mileage from odometer</p>
-            </Col>
-            <Col span={12}>
-              <div className="inspector-only-input">
-                <p className="demi-text">Demi Text</p>
-              </div>
-              <p className="applicant-text">Company address</p>
-            </Col>
-            <Col span={12}>
-              <div className="inspector-only-input">
-                <p className="demi-text">Demi Text</p>
-              </div>
-              <p className="applicant-text">inspector name</p>
-            </Col>
-            <Col span={12}>
-              <div className="inspector-only-input">
-                <p className="demi-text">Demi Text</p>
-              </div>
-              <p className="applicant-text">ard number</p>
-            </Col>
-            <Col span={12}>
-              <div className="inspector-only-input">
-                <p className="demi-text">Demi Text</p>
-              </div>
-              <p className="applicant-text">inspector signature</p>
-            </Col>
-          </Row> */}
         </div>
         <Row>
           <Col span="24">
