@@ -1,0 +1,65 @@
+.signup-main-container{
+    width: 100%;
+    position: relative;
+}
+.signup-imagebackground-signin{
+    position: relative;
+  width: 100%;
+  background: url('../../Assets/bg_img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+@media screen and (min-width: 768px) {
+    .signup-imagebackground-signin {
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+  .signup-mainbg-signin{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+  }
+  .signup-header-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+  }
+  .signuparrow-back{
+    color: #fff;
+  }
+  .signuparrow-back a{
+    color: #fff;
+  }
+  .signup-content-vehicle-inspection{
+    margin: 0px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    text-align: center;
+    color: #ffffff;
+    align-self: center;
+    margin: 0 auto;
+  }
+  .signup-main-screen{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: #4a93e9;
+    text-align: center;
+    margin: 40px auto;
+  }
+  .signup-content-footer-area-signin{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    padding: 0 20px;
+    height: 100vh;
+  }
+  

@@ -1,0 +1,108 @@
+.veh-inspection-chexai_text {
+  /* font-family: Poppins; */
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+.vec-inspection-top_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+}
+
+.veh-inspection-mobilepaddind {
+  padding: 10x;
+  display: flex;
+  justify-content: center;
+}
+.veh-status-inspection-verification_text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #1468ba;
+  margin-left: 0px;
+}
+
+.veh-inspection-cards_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.veh-inspection-first_card {
+  width: 48%;
+}
+.veh-inspection-second_card {
+  width: 48%;
+}
+.vec-inspection-submit_button {
+  background-color: #ff7a00;
+  width: 80%;
+  padding: 7px;
+  border: none;
+  outline: none;
+  text-align: center;
+  border-radius: 100px;
+  color: white;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+  margin-top: 15px;
+  height: 54px !important;
+}
+.vec-inspection-submitbtn_container {
+  padding: 30px;
+  text-align: center;
+}
+/* .ant-collapse {
+    border-bottom: 6px solid red;
+  } */
+.ant-collapse .ant-collapse-item {
+  border-bottom: 7px solid #e5e5e5 !important;
+}
+
+.header-center {
+  display: flex;
+  justify-content: center;
+}
+.header-width {
+  width: 30%;
+}
+
+.vec-inspection-top_header {
+  display: flex;
+  justify-content: space-between !important;
+}
+
+@media only screen and (max-width: 900px) {
+  .header-width {
+    width: 80%;
+  }
+  .header-center {
+    /* display: flex; */
+    /* justify-content: center; */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header-width {
+    width: 100%;
+  }
+  .header-center {
+    /* display: flex; */
+    /* justify-content: center; */
+  }
+}

@@ -1,0 +1,23 @@
+.btnComponentContainerModal {
+  width: 70%;
+  /* background-color: red; */
+  margin-top: 20px;
+}
+
+.ant-modal-wrap.modalSize > div {
+  height: 50% !important;
+  width: 50% !important;
+}
+
+.textSize {
+  font-size: 25px;
+  font-weight: 500;
+  color: black;
+}
+
+@media screen and (max-width: 998px) {
+  .ant-modal-wrap.modalSize > div {
+    height: 50% !important;
+    width: 100% !important;
+  }
+}

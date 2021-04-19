@@ -1,0 +1,90 @@
+.transcation-container {
+  /* background: linear-gradient(182.55deg, #1876cc -17.67%, #001b51 115.19%), #191a1b; */
+}
+.trans-container {
+  background: linear-gradient(182.55deg, #1876cc -17.67%, #001b51 115.19%), #191a1b;
+  height: 120vh !important;
+  position: absolute;
+  width: 100%;
+}
+.transaction-screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-top: 10px; */
+  padding: 10px;
+}
+.header-icon {
+  color: #2584e0;
+  width: 20px;
+  height: 32px;
+}
+.header-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+.transaction-payment {
+  font-size: 64px;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  margin-bottom: -8px;
+}
+.transaction-amount {
+  font-size: 36px;
+  font-weight: 400;
+}
+.transaction-form-container {
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin: 10px;
+}
+.input-field-name {
+  font-size: 16px;
+  font-weight: 400;
+  color: #889bad;
+  margin-bottom: 6px;
+  margin-top: 10px;
+  font-family: 'Poppins' !important;
+}
+
+input,
+.StripeElement {
+  display: block;
+  margin: 10px 0 20px 0;
+  max-width: 500px;
+  padding: 15px 14px;
+  font-size: 1em;
+  font-family: 'Source Code Pro', monospace;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  background-color: #e7eef5;
+  width: 100%;
+}
+
+@media only screen and (min-width: 550px) {
+  .transcation-container {
+    width: 40%;
+    /* height: 100% !important; */
+  }
+  .trans-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .trans-container {
+    height: 100% !important;
+  }
+
+  .transcation-container {
+    width: 100% !important;
+  }
+}

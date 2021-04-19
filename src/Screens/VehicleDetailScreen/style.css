@@ -1,0 +1,97 @@
+.transcation-main-container {
+  background: linear-gradient(182.55deg, #1876cc -17.67%, #001b51 115.19%), #191a1b;
+  display: flex;
+  justify-content: center;
+}
+.transaction-screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 9%;
+}
+.header-icon {
+  color: #2584e0;
+  width: 25px;
+  height: 32px;
+}
+.vehicledetail-text {
+  font-family: Poppins;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
+
+.transaction-form-container-veh {
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 0px;
+  height: 100vh;
+  margin-bottom: 50px;
+}
+.input-field-name {
+  font-size: 16px;
+  font-weight: 400;
+  color: #889bad;
+  margin-bottom: 6px;
+  margin-top: 10px;
+  font-family: 'Poppins' !important;
+}
+
+input,
+.StripeElement {
+  display: block;
+  margin: 10px 0 20px 0;
+  max-width: 500px;
+  padding: 15px 14px;
+  font-size: 1em;
+  font-family: 'Source Code Pro', monospace;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  background-color: #e7eef5;
+  width: 100%;
+}
+
+@media only screen and (min-width: 550px) {
+  .transcation-container {
+    width: 40%;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.year-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.year-text {
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #889bad;
+}
+.year-date {
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: right;
+  color: #2a2a2a;
+}

@@ -1,0 +1,16 @@
+.vec-inspection-nextstep_button {
+  background-color: #4a93e9;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  outline: none;
+  text-align: center;
+  border-radius: 100px;
+  color: white;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+  margin-top: 15px;
+}

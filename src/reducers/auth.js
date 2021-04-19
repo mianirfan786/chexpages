@@ -3,8 +3,10 @@ import * as types from '../utils/constants';
 
 const initialState = {
   currentUser: JSON.parse(localStorage.getItem('currentUser')),
+  vehicleData: JSON.parse(localStorage.getItem('vehicleData')),
   isAuthenticated: false,
   loginMessage: false,
+  isAuthLoading: false,
 };
 
 const auth = createReducer(initialState, {
@@ -18,6 +20,24 @@ const auth = createReducer(initialState, {
     return {
       ...state,
       isAuthenticated: action.isAuthenticated,
+    };
+  },
+  [types.SET_VEHCILE_DATA](state, action) {
+    return {
+      ...state,
+      vehicleData: action.vehicleData,
+    };
+  },
+  [types.IS_AUTH_LOADING](state, action) {
+    return {
+      ...state,
+      isAuthLoading: action.isAuthLoading,
+    };
+  },
+  [types.SET_COMPANIES](state, action) {
+    return {
+      ...state,
+      companies: action.companies,
     };
   },
 });

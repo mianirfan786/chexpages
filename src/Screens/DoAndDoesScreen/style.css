@@ -1,0 +1,76 @@
+.doAndDoesContainer {
+    /* background-color: red; */
+    width: 50%;
+    margin: auto;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+}
+.doAndDoes-icon {
+    font-size: 26px;
+    color: #2584E0;
+}
+.doAndDoes-title {
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.doAndDoes-content {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    padding-top: 20px;
+    width: 80%;
+    /* background-color: yellow; */
+    margin: auto;
+}
+.doAndDoes-link {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-top: 10px;
+    color: #FF7A00;
+}
+.doAndDoes-video {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    height: 30%;
+}
+.doAndDoes-paragraph {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: start !important;
+    color: #888888;
+    padding: 30px;
+}
+
+@media only screen and (max-width: 700px) {
+    .doAndDoesContainer {
+        width: 100%;
+    }
+    .doAndDoes-content {
+    width: 90%;
+    }
+    .doAndDoes-video {
+        padding: 30px !important;     
+    }
+}

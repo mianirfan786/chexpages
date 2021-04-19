@@ -1,0 +1,37 @@
+.menu-image {
+  height: 130px;
+  background-size: cover;
+  width: 100%;
+  opacity: 0.7;
+  background-image: url(../../Assets/testing.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.img-container {
+  background-image: linear-gradient(to right, rgba(255, 154, 59, 0.8), rgba(255, 122, 0, 0.8));
+}
+.image-text {
+  position: absolute;
+  text-align: center;
+  z-index: 1000 !important;
+  font-size: 22px;
+  font-weight: 900;
+  color: white !important;
+}
+.icon-bar {
+  display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 14px;
+  color: black;
+  align-items: center;
+  cursor: pointer;
+}
+.icon-text {
+  margin-left: 10px;
+}
+.ant-drawer-body {
+  padding: 0 !important;
+}

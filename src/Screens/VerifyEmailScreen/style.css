@@ -1,0 +1,83 @@
+.verify-email-container {
+  background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%), url('../../Assets/bg_img.png');
+  width: 100%;
+  height: 100vh;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.verify-image-container {
+  position: relative;
+  height: 100vh;
+}
+
+.verify-email-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
+}
+
+.email-content-container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.email-content-heading {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #74b3fb;
+  text-align: center;
+  padding-top: 21px;
+  padding-bottom: 30px;
+  margin: 0px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.email-content-icon-wrapper {
+  color: white;
+}
+
+.email-icon {
+  color: #2584e0;
+
+  font-size: 14px;
+}
+
+.email-btn {
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  color: #ffffff;
+}
+
+.email-btn:focus {
+  outline: none;
+}
+
+.email-heading {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 86px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+.app-logo {
+  color: #ff9900;
+}
+
+.email-footer-content-container {
+  text-align: center;
+}
