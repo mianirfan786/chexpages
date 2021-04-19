@@ -72,7 +72,8 @@ export function register(params, history, addToast, lyftUser) {
       .post(`${Api}/auth/signup`, params)
       .then((resp) => {
         addToast(`User created successfully`, { appearance: 'success' });
-        history.push(`/verifyEmail?email=${params.email}&lyftUser=${lyftUser}&userId=${resp.data.user.id}`);
+        // history.push(`/verifyEmail?email=${params.email}&lyftUser=${lyftUser}&userId=${resp.data.user.id}`);
+        history.replace('/login');
         dispatch(isAuthLoading(false));
       })
       .catch((err) => {
