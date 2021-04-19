@@ -13,7 +13,7 @@ const getVehicleStatusWrapper = (ChildComponent) => {
     const history = useHistory();
     useEffect(() => {
       const user = JSON.parse(localStorage.getItem('currentUser'));
-      const recommendScreen = JSON.parse(localStorage.getItem('recommendScreen'));
+      const recommendScreen = JSON.parse(localStorage.getItem('doAndDont'));
       setLoadingStatus(true);
       axios
         .get(`${process.env.REACT_APP_DEVELOPMENT_URL}/vehicle/review/status/${user?.vehicles[0]?.id}`)

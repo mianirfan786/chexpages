@@ -11,8 +11,8 @@ export function setCompanies(companiesArray) {
 
 export function setReportData(array) {
   let vehicleArray = [];
-  array.map((vehicle) => {
-    vehicle.vehicleChecks.map((check) => {
+  array?.map((vehicle) => {
+    vehicle?.vehicleChecks.map((check) => {
       if (check.displayOnCertificate) {
         vehicleArray.push({
           name: check.name,

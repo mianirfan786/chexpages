@@ -12,15 +12,21 @@ const DoAndDontContainer = (props) => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    const recommendScreen = localStorage.getItem('recommendScreen');
-    if (recommendScreen == true) {
+    const doAndDont = localStorage.getItem('doAndDont');
+    console.log(doAndDont);
+    // const recommendScreen = localStorage.getItem('recommendScreen');
+    if (doAndDont == true) {
+      console.log('hahahah');
       history.push('/vehicleinspection');
     }
   }, []);
 
   const handleSubmit = (params) => {
-    const { changeRecommendation } = props;
-    changeRecommendation(setLoading, history);
+    // const { changeRecommendation } = props;
+
+    // changeRecommendation(setLoading, history);
+    localStorage.setItem('doAndDont', true);
+    history.push('/vehicleinspection');
   };
 
   return <DoAndDoesScreen companies={props.companies} handleSubmit={handleSubmit} loading={loading} />;

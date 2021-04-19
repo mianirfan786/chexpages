@@ -57,10 +57,10 @@ const LyftCertificate = (props) => {
           </Col>
           <Col span={12}>
             <div className="form-chexbox-container">
-              <Checkbox checked={props.reportData[0] && props.reportData[0].lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
+              <Checkbox checked={props.reportData[0] && props.reportData[0]?.lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
                 APPLICANT
               </Checkbox>
-              <Checkbox checked={!props.reportData[0] && props.reportData[0].lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
+              <Checkbox checked={!props.reportData[0] && props.reportData[0]?.lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
                 CURRENT LYFT DRIVER
               </Checkbox>
             </div>
@@ -186,8 +186,8 @@ const LyftCertificate = (props) => {
                 <p className="circle-one-text">(Please circle one)</p>
               </Col>
               <Col span={4}>
-                <div className={props.reportData[0] && props.reportData[0].final_status === 'pass' ? 'yes-circle' : ''}>
-                  <p style={{ marginRight: '20px' }} className="box-fail-text">
+                <div style={{ marginLeft: '-21px' }} className={props.reportData[0] && props.reportData[0].final_status === 'pass' ? 'yes-circle' : ''}>
+                  <p style={{ marginRight: '20px', marginLeft: '20px' }} className="box-fail-text">
                     PASS
                   </p>
                 </div>

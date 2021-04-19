@@ -122,9 +122,9 @@ export function resendEmail(params, addToast, history) {
     axios
       .post(`${Api}/users/resend/verify/email`, params)
       .then((resp) => {
-        addToast(`${resp.message}`, { appearance: 'success' });
+        addToast(`${resp.data}`, { appearance: 'success' });
         dispatch(isAuthLoading(false));
-        history.push('/login');
+        // history.push('/login');
       })
       .catch((err) => {
         addToast(`${err.response.data.message}`, { appearance: 'error' });
@@ -139,7 +139,7 @@ export function confirmEmail(email, token, addToast, history) {
     axios
       .get(`${Api}/users/verify/email?email=${email}&token=${token}`)
       .then((resp) => {
-        addToast(`${resp.data}`, { appearance: 'success' });
+        addToast(`${resp.data.message}`, { appearance: 'success' });
         dispatch(isAuthLoading(false));
         history.push('/login');
       })
