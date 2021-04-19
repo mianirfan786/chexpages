@@ -111,7 +111,7 @@ const VehicleInspectionScreen = ({
                 >
                   <div className="veh-inspection-cards_container">
                     {vehicleInstructions?.verificationItem?.map((item, index) =>
-                      currentUser?.lyft_user === true ? (
+                      currentUser?.lyft_user === true || currentUser?.lyft_user === false ? (
                         <div key={index} className="veh-inspection-first_card">
                           <InspectionCard
                             deleteFile={handleDeleteModal}
@@ -124,13 +124,13 @@ const VehicleInspectionScreen = ({
                             type={item.type}
                           />
                         </div>
-                      ) : (
+                      ) : currentUser?.lyft_user === null ? (
                         <div key={index} className="veh-inspection-first_card">
                           <>
                             {item.lyft ? null : (
                               <InspectionCard
                                 deleteFile={handleDeleteModal}
-                                groupType="interiorItems"
+                                groupType="carVerificiationItems"
                                 item={item}
                                 handleModal={handleModal}
                                 category={item.id}
@@ -141,7 +141,7 @@ const VehicleInspectionScreen = ({
                             )}
                           </>
                         </div>
-                      )
+                      ) : null
                     )}
                   </div>
                   {/* <NextStepButton /> */}

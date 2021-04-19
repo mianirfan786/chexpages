@@ -20,7 +20,9 @@ const DownloadCertifcate = (props) => {
     if (getToken) {
       props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading);
     } else {
-      localStorage.clear();
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('token');
+      localStorage.removeItem('vehicleData');
       window.location.reload('/login');
     }
   }, []);

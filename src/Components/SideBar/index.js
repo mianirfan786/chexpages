@@ -13,7 +13,9 @@ import './style.css';
 const SideBar = ({ drawerVisible, handleSideBar }) => {
   // const history = useHistory();
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
+    localStorage.removeItem('vehicleData');
     window.location.reload(false);
   };
   return (

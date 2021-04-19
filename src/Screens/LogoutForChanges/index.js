@@ -16,7 +16,10 @@ const LogoutForChange = () => {
         .put(`${process.env.REACT_APP_DEVELOPMENT_URL}/user/status/${user?.id}`, { updates: false })
         .then(async () => {
           setLoading(false);
-          await localStorage.clear();
+          // await localStorage.clear();
+          await localStorage.removeItem('currentUser');
+          await localStorage.removeItem('token');
+          await localStorage.removeItem('vehicleData');
           window.location.replace('/login');
         })
         .catch((err) => {
