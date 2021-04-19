@@ -8,5 +8,6 @@ import SurveyModal from './SurveyModal/index';
 import Loading from './LoadingComponent/index';
 import ConfimrationModal from './ConfirmationModal/index';
 import PrivacyModal from './PrivacyModal/index';
+import LyftConfirmationModal from './LyftConfirmationModal/index';
 
-export { Button, Input, InspectionCard, NextStepButton, InstructionModal, Header, SurveyModal, Loading, ConfimrationModal, PrivacyModal };
+export { Button, Input, InspectionCard, NextStepButton, InstructionModal, Header, SurveyModal, Loading, ConfimrationModal, PrivacyModal, LyftConfirmationModal };

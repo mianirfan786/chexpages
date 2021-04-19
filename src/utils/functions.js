@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export function setCompanies(companiesArray) {
   let updatedArray = [];
   companiesArray?.map((company) => {

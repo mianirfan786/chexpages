@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Collapse, Row, Col } from 'antd';
@@ -92,13 +94,23 @@ const VehicleInspectionScreen = ({
                   style={{ overflow: 'hidden' }}
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
-                      <Col>
-                        {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 || vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
-                          <BsCheckCircle color="#099220" size={22} />
-                        ) : (
-                          <BsCheckCircle color="#bab8b8" size={22} />
-                        )}
-                      </Col>
+                      {currentUser.lyft_user === true || currentUser.lyft_user === false ? (
+                        <Col>
+                          {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
+                            <BsCheckCircle color="#099220" size={22} />
+                          ) : (
+                            <BsCheckCircle color="#bab8b8" size={22} />
+                          )}
+                        </Col>
+                      ) : (
+                        <Col>
+                          {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
+                            <BsCheckCircle color="#099220" size={22} />
+                          ) : (
+                            <BsCheckCircle color="#bab8b8" size={22} />
+                          )}
+                        </Col>
+                      )}
 
                       <Col>
                         <div className="veh-inspection-verification_text">Car verification item</div>
@@ -257,53 +269,57 @@ const VehicleInspectionScreen = ({
                   {/* <NextStepButton /> */}
                 </Panel>
               </Collapse>
-              {(vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
-                vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
-                vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
-                vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2) ||
-              vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
-                <div className="vec-inspection-submitbtn_container">
-                  <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
-                    Submit
-                  </button>
-                </div>
-              ) : paymentStatus ? (
-                <div className="vec-inspection-submitbtn_container">
-                  <button disabled={vehicleStatusLoading} onClick={changeVehicleStatus} className="vec-inspection-submit_button">
-                    {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}
-                  </button>
-                </div>
+              {currentUser.lyft_user === true || currentUser.lyft_user === false ? (
+                <>
+                  {paymentStatus && paymentStatus == true ? (
+                    <div className="vec-inspection-submitbtn_container">
+                      <button disabled={vehicleStatusLoading} onClick={changeVehicleStatus} className="vec-inspection-submit_button">
+                        {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}
+                      </button>
+                    </div>
+                  ) : vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
+                    vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
+                    vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
+                    vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
+                    <div className="vec-inspection-submitbtn_container">
+                      <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
+                        Submit
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="vec-inspection-submitbtn_container">
+                      <button style={{ background: 'gray' }} disabled={true} className="vec-inspection-submit_button">
+                        Submit
+                      </button>
+                    </div>
+                  )}
+                </>
               ) : (
-                <div className="vec-inspection-submitbtn_container">
-                  <button style={{ background: 'gray' }} disabled={true} className="vec-inspection-submit_button">
-                    Submit
-                  </button>
-                </div>
+                <>
+                  {paymentStatus && paymentStatus == true ? (
+                    <div className="vec-inspection-submitbtn_container">
+                      <button disabled={vehicleStatusLoading} onClick={changeVehicleStatus} className="vec-inspection-submit_button">
+                        {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}
+                      </button>
+                    </div>
+                  ) : vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
+                    vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
+                    vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
+                    vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
+                    <div className="vec-inspection-submitbtn_container">
+                      <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
+                        Submit
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="vec-inspection-submitbtn_container">
+                      <button style={{ background: 'gray' }} disabled={true} className="vec-inspection-submit_button">
+                        Submit
+                      </button>
+                    </div>
+                  )}
+                </>
               )}
-
-              {/* {paymentStatus ? (
-                <div className="vec-inspection-submitbtn_container">
-                  <button disabled={vehicleStatusLoading} onClick={changeVehicleStatus} className="vec-inspection-submit_button">
-                    {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}
-                  </button>
-                </div>
-              ) : vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
-                vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
-                vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
-                vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
-                <div className="vec-inspection-submitbtn_container">
-                  {console.log('hehehehehe')}
-                  <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
-                    Submit
-                  </button>
-                </div>
-              ) : (
-                <div className="vec-inspection-submitbtn_container">
-                  <button style={{ background: 'gray' }} disabled={true} className="vec-inspection-submit_button">
-                    Submit
-                  </button>
-                </div>
-              )} */}
             </ContentFooterareaVehicleinspection>
             <InstructionModal
               isLoading={isLoading}

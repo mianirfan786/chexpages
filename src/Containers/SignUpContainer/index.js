@@ -8,6 +8,7 @@ import { useToasts } from 'react-toast-notifications';
 
 import ActionCreators from '../../actions';
 import { SignUpScreen } from '../../Screens';
+import { LyftConfirmationModal } from '../../Components';
 import { setCompanies } from '../../utils/functions';
 
 const SignUpContainer = (props) => {
@@ -15,7 +16,8 @@ const SignUpContainer = (props) => {
   const { addToast } = useToasts();
   const [checkboxValue, setCheckBox] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+  const [visible, setVisible] = useState(false);
+  const [userId, setUserId] = useState(null);
   useEffect(() => {
     const { getCompanies } = props;
     getCompanies();
@@ -25,7 +27,7 @@ const SignUpContainer = (props) => {
     const { register } = props;
     const lyftUser = params.companies.includes(lyft.value);
     if (checkboxValue) {
-      register(params, history, addToast, lyftUser);
+      register(params, history, addToast, lyftUser, handleModalLyft);
     } else {
       addToast('Please accept term of use', { appearance: 'warning' });
     }
@@ -40,15 +42,31 @@ const SignUpContainer = (props) => {
     setCheckBox(!checkboxValue);
   };
 
+  const handleModalLyft = (flag, userId) => {
+    setVisible(flag);
+    setUserId(userId);
+  };
+
+  const handleSubmitLyftModal = (value) => {
+    const { setLyftUserStatus } = props;
+    const status = {
+      lyft_user: value,
+    };
+    setLyftUserStatus(status, setVisible, userId, history);
+  };
+
   return (
-    <SignUpScreen
-      handleModal={handleModal}
-      showModal={showModal}
-      handleCheckBox={handleCheckBox}
-      companies={props.companies}
-      handleSubmit={handleSubmit}
-      isLoading={props.isLoading}
-    />
+    <>
+      <SignUpScreen
+        handleModal={handleModal}
+        showModal={showModal}
+        handleCheckBox={handleCheckBox}
+        companies={props.companies}
+        handleSubmit={handleSubmit}
+        isLoading={props.isLoading}
+      />
+      <LyftConfirmationModal handleSubmitLyftModal={handleSubmitLyftModal} visibleLyft={visible} />
+    </>
   );
 };
 

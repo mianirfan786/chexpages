@@ -65,16 +65,23 @@ export function login(params, history, addToast) {
   };
 }
 
-export function register(params, history, addToast, lyftUser) {
+export function register(params, history, addToast, lyftUser, handleModal) {
   return (dispatch) => {
     dispatch(isAuthLoading(true));
     axios
       .post(`${Api}/auth/signup`, params)
       .then((resp) => {
+        console.log(resp);
         addToast(`User created successfully`, { appearance: 'success' });
         // history.push(`/verifyEmail?email=${params.email}&lyftUser=${lyftUser}&userId=${resp.data.user.id}`);
-        history.replace('/login');
-        dispatch(isAuthLoading(false));
+        if (lyftUser) {
+          handleModal(true, resp.data?.user?.id);
+          dispatch(isAuthLoading(false));
+        } else {
+          history.replace('/login');
+          dispatch(isAuthLoading(false));
+        }
+        localStorage.setItem('doAndDont', false);
       })
       .catch((err) => {
         addToast(`${err.response.data.message}`, { appearance: 'error' });
@@ -169,7 +176,6 @@ export function contactUs(data, addToast, history, setLoading) {
       .post(`${Api}/auth/contactUs`, data, { headers })
       .then((resp) => {
         addToast(`Your message has been delivered to support`, { appearance: 'success' });
-        // history.replace('/');
         setLoading(false);
       })
       .catch((err) => {
@@ -196,17 +202,14 @@ export function changeRecommendation(setLoading, history) {
   };
 }
 
-export function setLyftUserStatus(params, setVisible, user_id, setLoading) {
+export function setLyftUserStatus(params, setVisible, user_id, history) {
   return (dispatch) => {
-    setLoading(true);
     axios
       .put(`${Api}/user/status/${user_id}`, params, { headers })
       .then((resp) => {
         setVisible(false);
-        setLoading(false);
+        history.push('/login');
       })
-      .catch((err) => {
-        setLoading(false);
-      });
+      .catch((err) => {});
   };
 }
