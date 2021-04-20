@@ -101,6 +101,9 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                           x={15.99}
                           // y={-7.5}
                           scale={0.55}
+                          onComplete={() => {
+                            window.location.reload();
+                          }}
                           filename={`Report of Vehicle ${vehicle?.id}.pdf`}
                         >
                           {({ toPdf }) => (
@@ -118,12 +121,21 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                       ) : (
                         'Vehicle is not yet Reviewed'
                       )}
-                      {vehicle?.template_id == 1 ? (
-                        <GeneralCertificate setLoading={setLoading} id={vehicle.id} refs={refs} />
-                      ) : vehicle?.template_id == 2 ? (
-                        <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} />
-                      ) : vehicle?.template_id == 3 ? (
-                        <LyftCertificate setLoading={setLoading}  id={vehicle?.id} refs={refs} />
+                      {vehicleStatuss === 'REVIEWED' ? (
+                        vehicle?.template_id == 1 ? (
+                          <>
+                            <GeneralCertificate setLoading={setLoading} id={vehicle.id} refs={refs} />
+                          </>
+                        ) : // : vehicle?.template_id == 2 ? (
+                        //   <>
+                        //     <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} />
+                        //   </>
+                        // )
+                        vehicle?.template_id == 3 ? (
+                          <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={refs} />
+                        ) : (
+                          <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} />
+                        )
                       ) : null}
                     </Panel>
                   ))}
