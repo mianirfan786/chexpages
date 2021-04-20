@@ -52,15 +52,15 @@ const LyftCertificate = (props) => {
           <Col span={12}>
             <div className="lyft-driver-name_input">
               <p className="label-text">lyft driver name</p>
-              <p className="demi-text">{props.reportData[0] && props.reportData[0].name}</p>
+              <p className="demi-text">{props.reportData && props.reportData[0].name}</p>
             </div>
           </Col>
           <Col span={12}>
             <div className="form-chexbox-container">
-              <Checkbox checked={props.reportData[0] && props.reportData[0]?.lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
+              <Checkbox checked={props.reportData && props.reportData[0]?.lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
                 APPLICANT
               </Checkbox>
-              <Checkbox checked={!props.reportData[0] && props.reportData[0]?.lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
+              <Checkbox checked={props.reportData && props.reportData[0]?.lyft_user ? false : true} className="form-checkbox" onChange={onChange}>
                 CURRENT LYFT DRIVER
               </Checkbox>
             </div>
@@ -71,13 +71,13 @@ const LyftCertificate = (props) => {
           <Col span={12}>
             <div className="phone-num_input">
               <p className="label-text">Phone number</p>
-              <p className="demi-text">{props.reportData[0] && props.reportData[0].phone}</p>
+              <p className="demi-text">{props.reportData && props.reportData[0].phone}</p>
             </div>
           </Col>
           <Col span={12}>
             <div className="email_input">
               <p className="label-text">email</p>
-              <p className="demi-text">{props.reportData[0] && props.reportData[0].email}</p>
+              <p className="demi-text">{props.reportData && props.reportData[0].email}</p>
             </div>
           </Col>
         </Row>
@@ -85,19 +85,19 @@ const LyftCertificate = (props) => {
           <Col span={6}>
             <div className="vehicle-year-input">
               <p className="label-text">vehicle year</p>
-              <p className="demi-text">{props.reportData[0] && props.reportData[0].year}</p>
+              <p className="demi-text">{props.reportData && props.reportData[0].year}</p>
             </div>
           </Col>
           <Col span={6}>
             <div className="vehicle-make-input">
               <p className="label-text">vehicle make</p>
-              <p className="demi-text">{props.reportData[0] && props.reportData[0].make}</p>
+              <p className="demi-text">{props.reportData && props.reportData[0].make}</p>
             </div>
           </Col>
           <Col span={12}>
             <div className="vehicle-model-input">
               <p className="label-text">vehicle model</p>
-              <p className="demi-text">{props.reportData[0] && props.reportData[0].model}</p>
+              <p className="demi-text">{props.reportData && props.reportData[0].model}</p>
             </div>
           </Col>
         </Row>
@@ -105,12 +105,12 @@ const LyftCertificate = (props) => {
           <Col span={12}>
             <div className="license-plate-input">
               <p className="label-text">license plate #</p>
-              <p className="demi-text">{props.reportData[0] && props.reportData[0].license_plate_no}</p>
+              <p className="demi-text">{props.reportData && props.reportData[0].license_plate_no}</p>
             </div>
           </Col>
           <Col span={12}>
             <div className="vin-input">
-              <p className="demi-text">{props.reportData[0] && props.reportData[0].vin}</p>
+              <p className="demi-text">{props.reportData && props.reportData[0].vin}</p>
             </div>
             <p className="vin-text">VIN</p>
           </Col>
@@ -186,14 +186,14 @@ const LyftCertificate = (props) => {
                 <p className="circle-one-text">(Please circle one)</p>
               </Col>
               <Col span={4}>
-                <div style={{ marginLeft: '-21px' }} className={props.reportData[0] && props.reportData[0].final_status === 'pass' ? 'yes-circle' : ''}>
+                <div style={{ marginLeft: '-21px' }} className={props.reportData && props.reportData[0].final_status === 'pass' ? 'yes-circle' : ''}>
                   <p style={{ marginRight: '20px', marginLeft: '20px' }} className="box-fail-text">
                     PASS
                   </p>
                 </div>
               </Col>
               <Col span={4}>
-                <div className={props.reportData[0] && props.reportData[0].final_status === 'fail' ? 'yes-circle' : ''}>
+                <div className={props.reportData && props.reportData[0].final_status === 'fail' ? 'yes-circle' : ''}>
                   <p className="box-fail-text">FAIL</p>
                 </div>
               </Col>
@@ -276,7 +276,7 @@ const LyftCertificate = (props) => {
               )}
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">{props.reportData[0] && props.reportData[0].driving_license}</p>
+                <p className="demi-text">{props.reportData && props.reportData[0].driving_license}</p>
               </div>
               <p className="applicant-text">applicant`s driver`s license #</p>
             </Col>
@@ -296,25 +296,25 @@ const LyftCertificate = (props) => {
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">{props.reportData[0] && props.reportData[0].companyName}</p>
+                <p className="demi-text">{props.reportData && props.reportData[0].companyName}</p>
               </div>
               <p className="applicant-text">COMPANY NAME</p>
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">{props.reportData[0] && props.reportData[0].vehicle_mileage}</p>
+                <p className="demi-text">{props.reportData && props.reportData[0].vehicle_mileage}</p>
               </div>
               <p className="applicant-text">VEHICLE MILEAGE FROM ODOMETER</p>
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">{props.reportData[0] && props.reportData[0].address}</p>
+                <p className="demi-text">{props.reportData && props.reportData[0].address}</p>
               </div>
               <p className="applicant-text">Company address</p>
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">{props.reportData[0] && props.reportData[0].reviewName}</p>
+                <p className="demi-text">{props.reportData && props.reportData[0].reviewName}</p>
               </div>
               <p className="applicant-text">INSPECTOR NAME</p>
             </Col>
@@ -328,7 +328,7 @@ const LyftCertificate = (props) => {
             <Col span={12}>
               <div className="inspector-only-input">
                 <p className="demi-text">
-                  <img width="170px" height="130px" src={props.reportData[0] && props.reportData[0].reviewSignature} />
+                  <img width="170px" height="130px" src={props.reportData && props.reportData[0].reviewSignature} />
                 </p>
               </div>
               <p className="applicant-text">INSPECTOR SIGNATURE</p>
