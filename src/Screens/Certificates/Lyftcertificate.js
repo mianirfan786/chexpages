@@ -5,7 +5,7 @@ import { ClipLoader } from 'react-spinners';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col, Checkbox } from 'antd';
-
+import moment from 'moment';
 import ActionCreators from '../../actions';
 import { setReportData } from '../../utils/functions';
 
@@ -291,12 +291,12 @@ const LyftCertificate = (props) => {
               </div>
             </Col>
             <Col lg={24} lg={12}>
-              <p className="inspection-date-text">inspection date</p>
-              <p className="document-expires-text">(document expires one year from this date) 14/4/2021</p>
+              <p className="inspection-date-text">inspection date: {moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM/DD/YYYY')}</p>
+              <p className="document-expires-text">(document expires one year from this date) </p>
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">{props.reportData && props.reportData[0].companyName}</p>
+                <p className="demi-text">Chex.AI</p>
               </div>
               <p className="applicant-text">COMPANY NAME</p>
             </Col>
@@ -308,7 +308,7 @@ const LyftCertificate = (props) => {
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">{props.reportData && props.reportData[0].address}</p>
+                <p className="demi-text">1383 SAN MATEO AVE. SOUTH SAN FRANCISCO. CA 94080</p>
               </div>
               <p className="applicant-text">Company address</p>
             </Col>
@@ -320,7 +320,7 @@ const LyftCertificate = (props) => {
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text"></p>
+                <p className="demi-text">27646</p>
               </div>
               <p className="applicant-text">ard number</p>
             </Col>

@@ -107,7 +107,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox, show
                   <Input.Password style={{ fontFamily: 'Poppins' }} className="input-field" placeholder="Password" />
                 </Form.Item>
                 <div className="warn-message-wrapper">{/* <div className="registration-warn-message">+$9.99 for each additional company selection.</div> */}</div>
-                <Form.Item style={{ position: 'relative' }} name="companies" rules={[{ required: true, message: 'Please select companies' }]}>
+                <Form.Item style={{ position: 'relative' }} name="companies" rules={[{ required: true, message: 'Please select company(s)' }]}>
                   <Select
                     dropdownRender={(menu) => (
                       <div>
@@ -118,7 +118,7 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox, show
                       </div>
                     )}
                     showSearch={false}
-                    placeholder="Companies"
+                    placeholder="Select company(s)"
                     mode="multiple"
                     className="input-field"
                     options={companies}

@@ -22,7 +22,11 @@ const LogoutForChange = () => {
           await localStorage.removeItem('vehicleData');
           window.location.replace('/login');
         })
-        .catch((err) => {
+        .catch(async (err) => {
+          await localStorage.removeItem('currentUser');
+          await localStorage.removeItem('token');
+          await localStorage.removeItem('vehicleData');
+          window.location.replace('/login');
           setLoading(false);
         });
     }

@@ -99,7 +99,7 @@ const DownloadCertifcate = (props) => {
                       <Col className="ml-2 d-flex-1 align-items-end" span={5}>
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">{moment(new Date()).format('MM-DD-YYYY')}</p>
+                            <p className="p-0 m-0">{moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM-DD-YYYY')}</p>
                           </div>
                           <p>
                             <b>DATE</b>
@@ -376,7 +376,7 @@ const DownloadCertifcate = (props) => {
                       <Col span={17} className="ml-2 d-flex-1 align-items-end mt-4">
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">1383 SAN MANTEO AVE. SOUTH SAN FRANCISCO. CA 94080</p>
+                            <p className="p-0 m-0">1383 SAN MATEO AVE. SOUTH SAN FRANCISCO. CA 94080</p>
                           </div>
                           <p>
                             <b>INSPECTOR ADDRESS</b>
@@ -402,11 +402,11 @@ const DownloadCertifcate = (props) => {
                           <div className="d-flex-1 flex-column w-100">
                             <div style={{ borderBottom: '1px solid black' }}>
                               <p className="p-0 m-0">
-                                {/* {reportData && reportData[0]?.reviewSignature ? (
-                                    <img style={{ width: '200px', height: '100%' }} src={reportData && reportData[0]?.reviewSignature} />
-                                  ) : (
-                                    `${reportData && reportData[0]?.reviewName} ${reportData && reportData[0]?.reviewLast}`
-                                  )} */}
+                                {props.reportData && props.reportData[0]?.reviewSignature ? (
+                                  <img style={{ width: '200px', height: '100%' }} src={props.reportData && props.reportData[0]?.reviewSignature} />
+                                ) : (
+                                  `${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}`
+                                )}
                               </p>
                             </div>
                             <p>
