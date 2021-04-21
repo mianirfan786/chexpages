@@ -8,14 +8,14 @@ import {
 } from 'antd';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
-// import { BsInfoCircle } from 'react-icons/bs';
+import { MdCancel } from 'react-icons/md';
 
 import { PrivacyModal } from '../../Components';
 
 import './style.css';
 import '../../App.css';
 
-const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox, showModal, handleModal }) => {
+const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleCheckBox, showModal, handleModal, handleDropDown }) => {
   return (
     <div className="register-main-container">
       <div className="register-background-image">
@@ -109,10 +109,17 @@ const SignUpScreen = ({ handleSubmit, isLoading, companies, handleCheckBox, show
                 <div className="warn-message-wrapper">{/* <div className="registration-warn-message">+$9.99 for each additional company selection.</div> */}</div>
                 <Form.Item style={{ position: 'relative' }} name="companies" rules={[{ required: true, message: 'Please select company(s)' }]}>
                   <Select
+                    open={dropDown}
+                    onDropdownVisibleChange={handleDropDown}
                     dropdownRender={(menu) => (
                       <div>
                         <div style={{ margin: '13px 5px 13px 5px' }} className="registration-warn-message">
                           +$9.99 for each additional company selection.
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '10px' }}>
+                          <div onClick={handleDropDown}>
+                            <MdCancel size={25} />
+                          </div>
                         </div>
                         <div>{menu}</div>
                       </div>
