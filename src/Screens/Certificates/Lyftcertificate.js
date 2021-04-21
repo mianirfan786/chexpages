@@ -57,12 +57,23 @@ const LyftCertificate = (props) => {
           </Col>
           <Col span={12}>
             <div className="form-chexbox-container">
-              <Checkbox checked={props.reportData && props.reportData[0]?.lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
+              {/* <Checkbox checked={props.reportData && props.reportData[0]?.lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
                 APPLICANT
-              </Checkbox>
-              <Checkbox checked={props.reportData && props.reportData[0]?.lyft_user ? false : true} className="form-checkbox" onChange={onChange}>
+              </Checkbox> */}
+              <label class="container">
+                APPLICANT
+                <input type="checkbox" checked={props.reportData && props.reportData[0]?.lyft_user ? true : false} />
+                <span class="checkmark"></span>
+              </label>
+
+              <label class="container">
                 CURRENT LYFT DRIVER
-              </Checkbox>
+                <input type="checkbox" checked={props.reportData && props.reportData[0]?.lyft_user ? false : true} />
+                <span class="checkmark"></span>
+              </label>
+              {/* <Checkbox checked={props.reportData && props.reportData[0]?.lyft_user ? false : true} className="form-checkbox" onChange={onChange}>
+                CURRENT LYFT DRIVER
+              </Checkbox> */}
             </div>
           </Col>
         </Row>
@@ -143,11 +154,14 @@ const LyftCertificate = (props) => {
               index <= 14 ? (
                 check.status === true ? (
                   <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={true} />
+                    <input type="checkbox" checked={true} />
+
+                    {/* <Checkbox checked={true} /> */}
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={false} />
+                    <input type="checkbox" checked={false} />
+                    {/* <Checkbox checked={false} /> */}
                   </div>
                 )
               ) : null
@@ -159,11 +173,13 @@ const LyftCertificate = (props) => {
               index <= 14 ? (
                 check.status === false ? (
                   <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={true} />
+                    <input type="checkbox" checked={true} />
+                    {/* <Checkbox checked={true} /> */}
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={false} />
+                    <input type="checkbox" checked={false} />
+                    {/* <Checkbox checked={false} /> */}
                   </div>
                 )
               ) : null
@@ -206,11 +222,13 @@ const LyftCertificate = (props) => {
               index > 14 ? (
                 check.status === true ? (
                   <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={true} />
+                    <input type="checkbox" checked={true} />
+                    {/* <Checkbox checked={true} /> */}
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={false} />
+                    {/* <Checkbox checked={false} /> */}
+                    <input type="checkbox" checked={false} />
                   </div>
                 )
               ) : null
@@ -223,11 +241,13 @@ const LyftCertificate = (props) => {
               index > 14 ? (
                 check.status === false ? (
                   <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={true} />
+                    <input type="checkbox" checked={true} />
+                    {/* <Checkbox checked={true} /> */}
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={false} />
+                    {/* <Checkbox checked={false} /> */}
+                    <input type="checkbox" checked={false} />
                   </div>
                 )
               ) : null
