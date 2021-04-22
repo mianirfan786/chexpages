@@ -328,7 +328,7 @@ const LyftCertificate = (props) => {
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">1383 SAN MATEO AVE. SOUTH SAN FRANCISCO. CA 94080</p>
+                <p className="demi-text"> </p>
               </div>
               <p className="applicant-text">Company address</p>
             </Col>
