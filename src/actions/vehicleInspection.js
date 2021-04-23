@@ -221,7 +221,6 @@ export function getVehicleCertificate(params, setLoading) {
     axios
       .post(`${Api}/vehicle/${params.id}/files`, params, { headers })
       .then((resp) => {
-      
         setLoading(false);
         dispatch(setCertificateData(resp.data));
       })
@@ -253,6 +252,21 @@ export function getReportData(vechileId, setLoading) {
       .get(`${Api}/vehicle/${vechileId}/files`, { headers })
       .then((resp) => {
         dispatch(setCertificateData(resp.data));
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  };
+}
+
+export function skipPaymentMethod(vehicleId, setLoading, history) {
+  setLoading(true);
+  return (dispatch) => {
+    axios
+      .post(`${Api}/vehicles/payment/${vehicleId}`, {}, { headers })
+      .then((resp) => {
+        history.push('/thankyouScreen');
         setLoading(false);
       })
       .catch((err) => {

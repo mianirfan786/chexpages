@@ -50,6 +50,7 @@ const VehicleInspectionScreen = ({
   changeVehicleStatus,
   vehicleStatusLoading,
   currentUser,
+  handleSkipPayment,
 }) => {
   const genExtra = () => (
     <UpCircleOutlined
@@ -156,7 +157,6 @@ const VehicleInspectionScreen = ({
                       ) : null
                     )}
                   </div>
-                  {/* <NextStepButton /> */}
                 </Panel>
                 <Panel
                   style={{ overflow: 'hidden' }}
@@ -194,7 +194,6 @@ const VehicleInspectionScreen = ({
                       </div>
                     ))}
                   </div>
-                  {/* <NextStepButton /> */}
                 </Panel>
                 <Panel
                   style={{ overflow: 'hidden' }}
@@ -232,7 +231,6 @@ const VehicleInspectionScreen = ({
                       </div>
                     ))}
                   </div>
-                  {/* <NextStepButton /> */}
                 </Panel>
                 <Panel
                   style={{ overflow: 'hidden' }}
@@ -266,7 +264,6 @@ const VehicleInspectionScreen = ({
                       </div>
                     ))}
                   </div>
-                  {/* <NextStepButton /> */}
                 </Panel>
               </Collapse>
               {currentUser.lyft_user === true || currentUser.lyft_user === false ? (
@@ -296,7 +293,17 @@ const VehicleInspectionScreen = ({
                 </>
               ) : (
                 <>
-                  {paymentStatus && paymentStatus == true ? (
+                  {vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
+                  vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
+                  vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
+                  vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 &&
+                  currentUser?.fountainId !== null ? (
+                    <div className="vec-inspection-submitbtn_container">
+                      <button disabled={vehicleStatusLoading} onClick={handleSkipPayment} className="vec-inspection-submit_button">
+                        {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}
+                      </button>
+                    </div>
+                  ) : paymentStatus && paymentStatus == true ? (
                     <div className="vec-inspection-submitbtn_container">
                       <button disabled={vehicleStatusLoading} onClick={changeVehicleStatus} className="vec-inspection-submit_button">
                         {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}
