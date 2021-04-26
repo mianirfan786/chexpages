@@ -21,14 +21,21 @@ const LyftCertificate = (props) => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading);
+      props.getVehicleCertificate(
+        { id: user?.vehicles[0]?.id, company_id: props.id },
+        props.setLoading
+      );
     } else {
       props.history.push('/login');
     }
   }, []);
 
   return (
-    <div style={{ position: 'absolute', left: '100%', width: '1200px' }} ref={props.refs} className="container lyft-container">
+    <div
+      style={{ position: 'absolute', left: '100%', width: '1200px' }}
+      ref={props.refs}
+      className="container lyft-container"
+    >
       <div className="lyft-top-header_container">
         <Row>
           <Col span={14}>
@@ -57,23 +64,22 @@ const LyftCertificate = (props) => {
           </Col>
           <Col span={12}>
             <div className="form-chexbox-container">
-              <Checkbox checked={props.reportData && props.reportData[0]?.lyft_user ? true : false} className="form-checkbox" onChange={onChange}>
-                APPLICANT
-              </Checkbox>
-              {/* <label class="container">
-                APPLICANT
-                <input type="checkbox" checked={props.reportData && props.reportData[0]?.lyft_user ? true : false} />
-                <span class="checkmark"></span>
-              </label>
-
               <label class="container">
+                <input
+                  className="form-checkbox-fixone"
+                  type="checkbox"
+                  checked={props.reportData && props.reportData[0]?.lyft_user ? true : false}
+                />
+                APPLICANT
+              </label>
+              <label class="container">
+                <input
+                  className="form-checkbox-fix"
+                  type="checkbox"
+                  checked={props.reportData && props.reportData[0]?.lyft_user ? false : true}
+                />
                 CURRENT LYFT DRIVER
-                <input type="checkbox" checked={props.reportData && props.reportData[0]?.lyft_user ? false : true} />
-                <span class="checkmark"></span>
-              </label> */}
-              <Checkbox checked={props.reportData && props.reportData[0]?.lyft_user ? false : true} className="form-checkbox" onChange={onChange}>
-                CURRENT LYFT DRIVER
-              </Checkbox>
+              </label>
             </div>
           </Col>
         </Row>
@@ -116,7 +122,9 @@ const LyftCertificate = (props) => {
           <Col span={12}>
             <div className="license-plate-input">
               <p className="label-text">license plate #</p>
-              <p className="demi-text">{props.reportData && props.reportData[0].license_plate_no}</p>
+              <p className="demi-text">
+                {props.reportData && props.reportData[0].license_plate_no}
+              </p>
             </div>
           </Col>
           <Col span={12}>
@@ -154,14 +162,11 @@ const LyftCertificate = (props) => {
               index <= 14 ? (
                 check.status === true ? (
                   <div className="vehicle-inspection_chexbox">
-                    {/* <input type="checkbox" checked={true} /> */}
-
-                    <Checkbox checked={true} />
+                    <input type="checkbox" checked={true} />
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexbox">
-                    {/* <input type="checkbox" checked={false} /> */}
-                    <Checkbox checked={false} />
+                    <input type="checkbox" checked={false} />
                   </div>
                 )
               ) : null
@@ -172,14 +177,12 @@ const LyftCertificate = (props) => {
             {props?.checksData.map((check, index) =>
               index <= 14 ? (
                 check.status === false ? (
-                  <div className="vehicle-inspection_chexbox">
-                    {/* <input type="checkbox" checked={true} /> */}
-                    <Checkbox checked={true} />
+                  <div className="vehicle-inspection_chexboxtwo">
+                    <input type="checkbox" checked={true} />
                   </div>
                 ) : (
-                  <div className="vehicle-inspection_chexbox">
-                    {/* <input type="checkbox" checked={false} /> */}
-                    <Checkbox checked={false} />
+                  <div className="vehicle-inspection_chexboxtwo">
+                    <input type="checkbox" checked={false} />
                   </div>
                 )
               ) : null
@@ -202,14 +205,27 @@ const LyftCertificate = (props) => {
                 <p className="circle-one-text">(Please circle one)</p>
               </Col>
               <Col span={4}>
-                <div style={{ marginLeft: '-21px' }} className={props.reportData && props.reportData[0].final_status === 'pass' ? 'yes-circle' : ''}>
+                <div
+                  style={{ marginLeft: '-21px' }}
+                  className={
+                    props.reportData && props.reportData[0].final_status === 'pass'
+                      ? 'pass-circle'
+                      : ''
+                  }
+                >
                   <p style={{ marginRight: '20px', marginLeft: '20px' }} className="box-fail-text">
                     PASS
                   </p>
                 </div>
               </Col>
               <Col span={4}>
-                <div className={props.reportData && props.reportData[0].final_status === 'fail' ? 'yes-circle' : ''}>
+                <div
+                  className={
+                    props.reportData && props.reportData[0].final_status === 'fail'
+                      ? 'pass-circle'
+                      : ''
+                  }
+                >
                   <p className="box-fail-text">FAIL</p>
                 </div>
               </Col>
@@ -222,13 +238,11 @@ const LyftCertificate = (props) => {
               index > 14 ? (
                 check.status === true ? (
                   <div className="vehicle-inspection_chexbox">
-                    {/* <input type="checkbox" checked={true} /> */}
-                    <Checkbox checked={true} />
+                    <input type="checkbox" checked={true} />
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={false} />
-                    {/* <input type="checkbox" checked={false} /> */}
+                    <input type="checkbox" checked={false} />
                   </div>
                 )
               ) : null
@@ -240,14 +254,12 @@ const LyftCertificate = (props) => {
             {props?.checksData.map((check, index) =>
               index > 14 ? (
                 check.status === false ? (
-                  <div className="vehicle-inspection_chexbox">
-                    {/* <input type="checkbox" checked={true} /> */}
-                    <Checkbox checked={true} />
+                  <div className="vehicle-inspection_chexboxtwo">
+                    <input type="checkbox" checked={true} />
                   </div>
                 ) : (
-                  <div className="vehicle-inspection_chexbox">
-                    <Checkbox checked={false} />
-                    {/* <input type="checkbox" checked={false} /> */}
+                  <div className="vehicle-inspection_chexboxtwo">
+                    <input type="checkbox" checked={false} />
                   </div>
                 )
               ) : null
@@ -257,7 +269,9 @@ const LyftCertificate = (props) => {
         <div className="completed-inspector-main_container">
           <Row>
             <Col span={24}>
-              <p className="completed-by-inspector_text">to be completed by inspector or lyft expert</p>
+              <p className="completed-by-inspector_text">
+                to be completed by inspector or lyft expert
+              </p>
             </Col>
             <Col xs={4} span={4}>
               <p className="id-verified">ID VERIFIED</p>
@@ -296,7 +310,9 @@ const LyftCertificate = (props) => {
               )}
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">{props.reportData && props.reportData[0].driving_license}</p>
+                <p className="demi-text">
+                  {props.reportData && props.reportData[0].driving_license}
+                </p>
               </div>
               <p className="applicant-text">applicant`s driver`s license #</p>
             </Col>
@@ -311,7 +327,12 @@ const LyftCertificate = (props) => {
               </div>
             </Col>
             <Col lg={24} lg={12}>
-              <p className="inspection-date-text">inspection date: {moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM/DD/YYYY')}</p>
+              <p className="inspection-date-text">
+                inspection date:{' '}
+                {moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format(
+                  'MM/DD/YYYY'
+                )}
+              </p>
               <p className="document-expires-text">(document expires one year from this date) </p>
             </Col>
             <Col span={12}>
@@ -322,7 +343,9 @@ const LyftCertificate = (props) => {
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">{props.reportData && props.reportData[0].vehicle_mileage}</p>
+                <p className="demi-text">
+                  {props.reportData && props.reportData[0].vehicle_mileage}
+                </p>
               </div>
               <p className="applicant-text">VEHICLE MILEAGE FROM ODOMETER</p>
             </Col>
@@ -348,7 +371,11 @@ const LyftCertificate = (props) => {
             <Col span={12}>
               <div className="inspector-only-input">
                 <p className="demi-text">
-                  <img width="170px" height="130px" src={props.reportData && props.reportData[0].reviewSignature} />
+                  <img
+                    width="170px"
+                    height="130px"
+                    src={props.reportData && props.reportData[0].reviewSignature}
+                  />
                 </p>
               </div>
               <p className="applicant-text">INSPECTOR SIGNATURE</p>
@@ -358,15 +385,18 @@ const LyftCertificate = (props) => {
         <Row>
           <Col span="24">
             <p className="bottom-paragraph">
-              Applicants who do not match the photo on their driver’s license or do not have the proper documents, cannot complete an inspection. Failing inspections can only be
-              remedied by the same shop on the same day. If an applicant fails the inspection and is unable to fix the issues on the spot, a new appointment must be made, and a new
+              Applicants who do not match the photo on their driver’s license or do not have the
+              proper documents, cannot complete an inspection. Failing inspections can only be
+              remedied by the same shop on the same day. If an applicant fails the inspection and is
+              unable to fix the issues on the spot, a new appointment must be made, and a new
               inspection form must be used.
             </p>
           </Col>
           <Col span="24">
             <p className="bottom-paragraph">
-              This inspection form reflects a 19 point inspection only on the date of the inspection listed above. For purposes of this inspection, the wheels were not removed from
-              the vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
+              This inspection form reflects a 19 point inspection only on the date of the inspection
+              listed above. For purposes of this inspection, the wheels were not removed from the
+              vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
             </p>
           </Col>
         </Row>
