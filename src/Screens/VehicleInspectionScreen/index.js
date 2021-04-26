@@ -36,6 +36,7 @@ const VehicleInspectionScreen = ({
   handleSurveyModal,
   changeRating,
   rating,
+  commentError,
   handleCheckBox,
   handleComment,
   handleSubmitSurvey,
@@ -341,10 +342,12 @@ const VehicleInspectionScreen = ({
             <SurveyModal
               changeRating={changeRating}
               rating={rating}
+              commentError={commentError}
               isSurveyModalVisible={isSurveyModalVisible}
               handleSurveyModal={handleSurveyModal}
               handleCheckBox={handleCheckBox}
               handleComment={handleComment}
+              commentError={commentError}
               handleSubmitSurvey={handleSubmitSurvey}
               surveyModalLoading={surveyModalLoading}
             />

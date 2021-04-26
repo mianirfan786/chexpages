@@ -3,12 +3,7 @@ import thunk from 'redux-thunk';
 import reducer from '../reducers';
 
 export default function configureStore(initialState) {
-  const finalCreateStore = compose(
-    applyMiddleware(
-      thunk,
-      ),
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f,
-  )(createStore);
+  const finalCreateStore = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f)(createStore);
 
   const store = finalCreateStore(reducer, initialState);
 

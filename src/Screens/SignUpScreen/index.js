@@ -94,7 +94,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                     dropdownRender={(menu) => (
                       <div>
                         <div style={{ margin: '13px 5px 13px 5px' }} className="registration-warn-message">
-                          $19.99 for first inspection and +$9.99 for each additional company selection.{' '}
+                          $24.99 for first inspection and +$14.99 for each additional company selection.{' '}
                           <span>
                             {' '}
                             <div onClick={handleDropDown}>

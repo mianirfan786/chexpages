@@ -8,7 +8,7 @@ import './style.css';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 
-const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRating, handleCheckBox, handleComment, handleSubmitSurvey, surveyModalLoading }) => {
+const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRating, handleCheckBox, handleComment, commentError, handleSubmitSurvey, surveyModalLoading }) => {
   return (
     <div className="survey-modal">
       <Modal
@@ -20,12 +20,6 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
         maskClosable={true}
         wrapClassName="survay-modallsss"
         className="survay-modallsss"
-        // closeIcon={}
-        // bodyStyle={{
-        //   width: '100%',
-        //   textAlign: 'center',
-        //   background: 'linear-gradient(0deg,rgba(27,104,179,0.6) 0%,#1b68b3 99.97%)',
-        // }}
       >
         <div className="server-form-container">
           <div className="server-form-heading">
@@ -36,18 +30,6 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
             How would you rate Chex<span className="server-form-title">.AI</span> app
           </div>
           <div className="server-form-rating-stars">
-            {/* <StarRatings
-              starHoverColor="#FF7A00"
-              rating={rating}
-              starSelectingHoverColor="#FF7A00"
-              starRatedColor="#FF7A00"
-              changeRating={changeRating}
-              starWidthAndHeight="20px"
-              numberOfStars={5}
-              name="rating"
-              starHoverColor="#cecece"
-            /> */}
-
             <ReactStars count={5} onChange={changeRating} size={30} activeColor="#ffd700" />
           </div>
           <div className="server-form-question">Which platform would you prefer for vehicle inspections?</div>
@@ -99,6 +81,7 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
               rows="5"
               cols="46"
             ></textarea>
+            {commentError ? <div style={{ color: '#c60303', font: '13px' }}>Comment should not be empty!</div> : null}
           </div>
           <div style={{ marginTop: '8px' }}>
             <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />

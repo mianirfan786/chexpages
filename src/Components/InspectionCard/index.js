@@ -23,7 +23,7 @@ const InspectionCard = ({ title, titletwo, handleModal, type, category, item, gr
             <div className="veh-inspection-downloadicon_center">
               <div className="veh-inspection-download_icon">
                 <AiOutlineUpload size={30} color="#1262B1" />
-                <div style={{ color: '#256EB5' }}>Click me</div>
+                <div style={{ color: '#256EB5', fontSize: '10px' }}>Click here</div>
               </div>
             </div>
           </div>
