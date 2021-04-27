@@ -77,11 +77,11 @@ const SurveyModal = ({ rating, handleSurveyModal, isSurveyModalVisible, changeRa
               style={{ resize: 'none' }}
               id="w3review"
               name="w3review"
-              placeholder="Any Comments"
+              placeholder="Comments"
               rows="5"
               cols="46"
             ></textarea>
-            {commentError ? <div style={{ color: '#c60303', font: '13px' }}>Comment should not be empty!</div> : null}
+            {commentError ? <div style={{ color: '#c60303', font: '13px' }}> Please provide some comments</div> : null}
           </div>
           <div style={{ marginTop: '8px' }}>
             <Button onClickButton={handleSubmitSurvey} loading={surveyModalLoading} title={'Next'} buttonClass="survey-button" />

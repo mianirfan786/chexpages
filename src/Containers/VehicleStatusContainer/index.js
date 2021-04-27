@@ -12,6 +12,8 @@ import ActionCreators from '../../actions';
 const VehicleStatusContainer = (props) => {
   const [loading, setLoading] = useState(false);
   const [vehicleLoading, setVehicleLoading] = useState(false);
+  const [panelValue, setPanelValue] = useState(1);
+
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     if (user?.updates || user?.updates === null || user?.updates === undefined) {
@@ -21,12 +23,18 @@ const VehicleStatusContainer = (props) => {
     getVehiclesStatus(currentUser?.vehicles[0]?.id, setLoading);
   }, []);
 
+  const handleSetPanelValue = (value) => {
+    setPanelValue(value);
+  };
+
   return (
     <VehicleStatusScreen
       vehicleStatuss={props.vehicleStatuss}
       vehicleLoading={vehicleLoading}
       setLoading={setVehicleLoading}
+      handleSetPanelValue={handleSetPanelValue}
       loading={loading}
+      panelValue={panelValue}
       vehicleStatus={props.vehicleStatus}
     />
   );

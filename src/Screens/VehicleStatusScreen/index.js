@@ -30,7 +30,7 @@ import './style.css';
 const { Panel } = Collapse;
 const refs = React.createRef();
 
-const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoading, vehicleStatuss }) => {
+const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, loading, setLoading, vehicleLoading, vehicleStatuss }) => {
   const genExtra = () => (
     <UpCircleOutlined
       onClick={(event) => {
@@ -70,7 +70,12 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                 </div>
               ) : (
                 <Collapse
-                  defaultActiveKey={['1']}
+                  defaultActiveKey={[`1`]}
+                  // onChange={(key) => {
+                  //   var value = key?.slice(-1);
+                  //   handleSetPanelValue(value[0]);
+                  // }}
+                  // activeKey={[`${panelValue}`]}
                   expandIconPosition="right"
                   expandIcon={({ isActive }) => (
                     <UpCircleOutlined
