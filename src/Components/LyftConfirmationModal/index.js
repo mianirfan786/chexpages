@@ -9,12 +9,13 @@ const LyftConfirmationModal = ({ loading, visibleLyft, handleSubmitLyftModal }) 
   return (
     <div>
       <Modal visible={visibleLyft} closable={false} footer={null} bodyStyle={{ height: '50%' }} wrapClassName="modalSize">
+        <div className="lyft-user-heading">(For Lyft Users)</div>
         <div className="textSize">Please select one of the below options:</div>
         <div className="btnComponentContainerModal">
-          <Button style={{ fontSize: '8px' }} onClickButton={() => handleSubmitLyftModal(true)} title="APPLICANT" />
+          <Button buttonClass="register-modal-btn" onClickButton={() => handleSubmitLyftModal(true)} title="APPLICANT" />
         </div>
         <div className="btnComponentContainerModal">
-          <Button style={{ fontSize: '8px' }} onClickButton={() => handleSubmitLyftModal(false)} title="CURRENT LYFT Driver" />
+          <Button buttonClass="register-modal-btn" onClickButton={() => handleSubmitLyftModal(false)} title="CURRENT LYFT Driver" />
         </div>
       </Modal>
     </div>

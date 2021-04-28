@@ -17,6 +17,7 @@ const SignUpContainer = (props) => {
   const [checkboxValue, setCheckBox] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [dropDown, setDropdownValue] = useState(false);
   const [userId, setUserId] = useState(null);
   useEffect(() => {
     const { getCompanies } = props;
@@ -55,15 +56,21 @@ const SignUpContainer = (props) => {
     setLyftUserStatus(status, setVisible, userId, history);
   };
 
+  const handleDropDown = () => {
+    setDropdownValue(!dropDown);
+  };
+
   return (
     <>
       <SignUpScreen
         handleModal={handleModal}
+        dropDown={dropDown}
         showModal={showModal}
         handleCheckBox={handleCheckBox}
         companies={props.companies}
         handleSubmit={handleSubmit}
         isLoading={props.isLoading}
+        handleDropDown={handleDropDown}
       />
       <LyftConfirmationModal handleSubmitLyftModal={handleSubmitLyftModal} visibleLyft={visible} />
     </>

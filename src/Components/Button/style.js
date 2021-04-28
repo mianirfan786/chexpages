@@ -11,7 +11,7 @@ export const ButtonContainer = styled.div`
   line-height: 27px;
   text-align: center;
   color: rgb(255, 255, 255);
-  padding: 14px 60px 15px;
+  padding: 14px 15px;
   text-decoration: none;
   cursor: pointer;
   width: 80%;
@@ -20,8 +20,8 @@ export const ButtonContainer = styled.div`
   @media screen and (min-width: 650px) {
     width: 70%;
   }
-  @media screen and (max-width: 650px) { 
-    width: 90%;
+  @media screen and (max-width: 650px) {
+    width: 100%;
   }
 `;
 

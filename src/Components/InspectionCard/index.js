@@ -14,10 +14,7 @@ const InspectionCard = ({ title, titletwo, handleModal, type, category, item, gr
             <img alt="" className="inspection-image" src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}`} />
           ) : (
             <video preload="metadata" autoPlay={false} className="inspection-image">
-              <source
-                src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}#t=0.5`}
-                type="video/mp4"
-              />
+              <source src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}#t=0.5`} type="video/mp4" />
             </video>
           )
         ) : (
@@ -25,7 +22,8 @@ const InspectionCard = ({ title, titletwo, handleModal, type, category, item, gr
             <div className="vec-inspection-camera_icon">{type === 'Photo' ? <AiFillCamera size={22} color="#97A9C5" /> : <MdPlayArrow size={22} color="#97A9C5" />}</div>
             <div className="veh-inspection-downloadicon_center">
               <div className="veh-inspection-download_icon">
-                <AiOutlineUpload size={26} color="#1262B1" />
+                <AiOutlineUpload size={30} color="#1262B1" />
+                <div style={{ color: '#256EB5', fontSize: '10px' }}>Click here</div>
               </div>
             </div>
           </div>

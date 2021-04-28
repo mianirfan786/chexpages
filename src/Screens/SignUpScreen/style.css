@@ -103,6 +103,8 @@
 .registration-warn-message {
   background: rgb(247, 178, 22);
   color: white;
+  text-align: center;
+  font-size: 9px;
   border-radius: 4px;
   margin-bottom: 13px;
 }

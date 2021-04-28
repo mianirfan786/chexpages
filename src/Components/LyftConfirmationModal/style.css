@@ -5,19 +5,35 @@
 }
 
 .ant-modal-wrap.modalSize > div {
-  height: 50% !important;
+  height: 100% !important;
   width: 50% !important;
+  background: white;
 }
 
 .textSize {
   font-size: 25px;
   font-weight: 500;
   color: black;
+  text-align: center;
+}
+
+.lyft-user-heading {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.register-modal-btn {
 }
 
 @media screen and (max-width: 998px) {
   .ant-modal-wrap.modalSize > div {
     height: 50% !important;
     width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .register-modal-btn {
+    font-size: 14px !important;
   }
 }

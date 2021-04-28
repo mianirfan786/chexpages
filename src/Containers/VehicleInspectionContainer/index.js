@@ -26,7 +26,8 @@ const VehicleInspectionContainer = (props) => {
   const [fileToBeDeleted, setDeletingFile] = useState(null);
   const [imageCategory, setImageCategory] = useState(null);
   const [rating, setNewRating] = useState(0);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState(null);
+  const [commentError, setCommentError] = useState(false);
   const [surveyModalLoading, setSurveyModalLoading] = useState(false);
   const [surveyChecks, setSurveyChecks] = useState({
     online_services: false,
@@ -112,17 +113,22 @@ const VehicleInspectionContainer = (props) => {
   };
 
   const handleComment = (e) => {
+    setCommentError(false);
     setComment(e.target.value);
   };
 
   const handleSubmitSurvey = async () => {
     const { submitSurvey } = props;
-    const params = {
-      ...surveyChecks,
-      comment: comment,
-      rating: rating,
-    };
-    await submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading, history);
+    if (comment) {
+      const params = {
+        ...surveyChecks,
+        comment: comment,
+        rating: rating,
+      };
+      await submitSurvey(params, addToast, setSurveyModal, setSurveyModalLoading, history);
+    } else {
+      setCommentError(true);
+    }
   };
 
   const deleteFile = () => {
@@ -144,6 +150,10 @@ const VehicleInspectionContainer = (props) => {
   const handleChangeVehicleStatus = () => {
     const { changeVehicleStatus, vehicleData } = props;
     changeVehicleStatus(vehicleData.id, setVehicleStatusLoading, history);
+  };
+  const handleSkipPayment = (paymentStatus) => {
+    const { vehicleData, skipPaymentMethod } = props;
+    skipPaymentMethod(vehicleData.id, setVehicleStatusLoading, history, paymentStatus);
   };
   return (
     <VehicleInspectionScreen
@@ -170,9 +180,11 @@ const VehicleInspectionContainer = (props) => {
       handleComment={handleComment}
       setDeleteModal={setDeleteModal}
       handleSubmitSurvey={handleSubmitSurvey}
+      commentError={commentError}
       paymentStatus={props.paymentStatus}
       changeVehicleStatus={handleChangeVehicleStatus}
       vehicleStatusLoading={vehicleStatusLoading}
+      handleSkipPayment={handleSkipPayment}
     />
   );
 };
