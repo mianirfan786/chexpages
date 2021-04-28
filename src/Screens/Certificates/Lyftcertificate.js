@@ -323,7 +323,7 @@ const LyftCertificate = (props) => {
             <Col span={12}>
               <div style={{ height: '130px' }}>
                 <div className="inspector-only-input">
-                  <p className="demi-text">27646</p>
+                  <p className="demi-text">217646</p>
                 </div>
                 <p className="applicant-text">ard number</p>
               </div>
