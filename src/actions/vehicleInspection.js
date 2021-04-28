@@ -260,13 +260,17 @@ export function getReportData(vechileId, setLoading) {
   };
 }
 
-export function skipPaymentMethod(vehicleId, setLoading, history) {
+export function skipPaymentMethod(vehicleId, setLoading, history, paymentStatus) {
   setLoading(true);
   return (dispatch) => {
     axios
       .post(`${Api}/vehicles/payment/${vehicleId}`, {}, { headers })
       .then((resp) => {
-        history.push('/thankyouScreen');
+        if (paymentStatus) {
+          history.push('/vehicleStatus');
+        } else {
+          history.push('/thankyouScreen');
+        }
         setLoading(false);
       })
       .catch((err) => {

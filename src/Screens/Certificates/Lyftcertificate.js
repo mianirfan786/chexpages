@@ -56,15 +56,15 @@ const LyftCertificate = (props) => {
           </Col>
         </Row>
         <Row>
-          <Col span={12}>
+          <Col span={24}>
             <div className="lyft-driver-name_input">
               <p className="label-text">lyft driver name</p>
               <p className="demi-text">{props.reportData && props.reportData[0].name}</p>
             </div>
           </Col>
-          <Col span={12}>
+          {/* <Col span={12}>
             <div className="form-chexbox-container">
-              <label class="container">
+              <label style={{ display: 'flex' }}>
                 <input
                   className="form-checkbox-fixone"
                   type="checkbox"
@@ -72,7 +72,7 @@ const LyftCertificate = (props) => {
                 />
                 APPLICANT
               </label>
-              <label class="container">
+              <label style={{ display: 'flex' }}>
                 <input
                   className="form-checkbox-fix"
                   type="checkbox"
@@ -81,7 +81,7 @@ const LyftCertificate = (props) => {
                 CURRENT LYFT DRIVER
               </label>
             </div>
-          </Col>
+          </Col> */}
         </Row>
 
         <Row gutter={[8, 8]}>
@@ -129,7 +129,16 @@ const LyftCertificate = (props) => {
           </Col>
           <Col span={12}>
             <div className="vin-input">
-              <p className="demi-text">{props.reportData && props.reportData[0].vin}</p>
+              <p className="demi-text">
+                {props.reportData &&
+                  props.reportData[0].vin.split('').map((char, index) => (
+                    <>
+                      {index == 0 ? <span>|</span> : null}
+                      <span className="border-right-Container">{char}</span>
+                      <span>|</span>
+                    </>
+                  ))}
+              </p>
             </div>
             <p className="vin-text">VIN</p>
           </Col>
@@ -266,7 +275,7 @@ const LyftCertificate = (props) => {
             )}
           </Col>
         </Row>
-        <div className="completed-inspector-main_container">
+        {/* <div className="completed-inspector-main_container">
           <Row>
             <Col span={24}>
               <p className="completed-by-inspector_text">
@@ -317,7 +326,7 @@ const LyftCertificate = (props) => {
               <p className="applicant-text">applicant`s driver`s license #</p>
             </Col>
           </Row>
-        </div>
+        </div> */}
         <div className="inspector-only-form">
           <Row>
             <Col lg={24} lg={12}>
@@ -351,7 +360,7 @@ const LyftCertificate = (props) => {
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text"> </p>
+                <p className="demi-text">1383 SAN MATEO AVE. SOUTH SAN FRANCISCO. CA 94080</p>
               </div>
               <p className="applicant-text">Company address</p>
             </Col>
@@ -362,16 +371,19 @@ const LyftCertificate = (props) => {
               <p className="applicant-text">INSPECTOR NAME</p>
             </Col>
             <Col span={12}>
-              <div className="inspector-only-input">
-                <p className="demi-text">27646</p>
+              <div className="margin-top-container" style={{ height: '130px' }}>
+                <div className="inspector-only-input">
+                  <p className="demi-text">217646</p>
+                </div>
+                <p className="applicant-text">ard number</p>
               </div>
-              <p className="applicant-text">ard number</p>
             </Col>
 
             <Col span={12}>
               <div className="inspector-only-input">
                 <p className="demi-text">
                   <img
+                    style={{ marginBottom: '5px' }}
                     width="170px"
                     height="130px"
                     src={props.reportData && props.reportData[0].reviewSignature}

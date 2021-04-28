@@ -151,9 +151,9 @@ const VehicleInspectionContainer = (props) => {
     const { changeVehicleStatus, vehicleData } = props;
     changeVehicleStatus(vehicleData.id, setVehicleStatusLoading, history);
   };
-  const handleSkipPayment = () => {
+  const handleSkipPayment = (paymentStatus) => {
     const { vehicleData, skipPaymentMethod } = props;
-    skipPaymentMethod(vehicleData.id, setVehicleStatusLoading, history);
+    skipPaymentMethod(vehicleData.id, setVehicleStatusLoading, history, paymentStatus);
   };
   return (
     <VehicleInspectionScreen

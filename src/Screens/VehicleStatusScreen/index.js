@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useRef } from 'react';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 import { ClipLoader } from 'react-spinners';
@@ -28,9 +28,12 @@ import {
 import './style.css';
 
 const { Panel } = Collapse;
-const refs = React.createRef();
+// const refs = React.createRef();
 
-const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoading, vehicleStatuss }) => {
+const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, loading, setLoading, vehicleLoading, vehicleStatuss }) => {
+  const refs = useRef();
+  const ref1 = useRef();
+  const ref2 = useRef();
   const genExtra = () => (
     <UpCircleOutlined
       onClick={(event) => {
@@ -52,7 +55,6 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                   : 'Your vehicle is in review once your vehicle is reviewed you will get a notification and then you download certificate'}
               </VehicleInspectionP>
             </MainDownContainer>
-
             {/* <div className="veh-inspection-mobilepaddind">
               <MobileViewWarningContainer>
                 <MobileViewWarning>
@@ -70,7 +72,12 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                 </div>
               ) : (
                 <Collapse
-                  defaultActiveKey={['1']}
+                  defaultActiveKey={[`1`]}
+                  // onChange={(key) => {
+                  //   var value = key?.slice(-1);
+                  //   handleSetPanelValue(value[0]);
+                  // }}
+                  // activeKey={[`${panelValue}`]}
                   expandIconPosition="right"
                   expandIcon={({ isActive }) => (
                     <UpCircleOutlined
@@ -96,14 +103,14 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                     >
                       {vehicleStatuss === 'REVIEWED' ? (
                         <Pdf
-                          targetRef={refs}
+                          targetRef={vehicle?.template_id == 1 ? refs : vehicle?.template_id == 3 ? ref2 : ref1}
                           // options={options}
                           x={15.99}
                           // y={-7.5}
                           scale={0.55}
-                          onComplete={() => {
-                            window.location.reload();
-                          }}
+                          // onComplete={() => {
+                          //   window.location.reload();
+                          // }}
                           filename={`Report of Vehicle ${vehicle?.id}.pdf`}
                         >
                           {({ toPdf }) => (
@@ -132,9 +139,9 @@ const VehicleStatusScreen = ({ vehicleStatus, loading, setLoading, vehicleLoadin
                         //   </>
                         // )
                         vehicle?.template_id == 3 ? (
-                          <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={refs} />
+                          <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
                         ) : (
-                          <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} />
+                          <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={ref1} />
                         )
                       ) : null}
                     </Panel>
