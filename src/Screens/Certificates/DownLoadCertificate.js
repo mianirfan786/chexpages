@@ -417,7 +417,7 @@ const DownloadCertifcate = (props) => {
                         <Col span={8} className=" d-flex-1 align-items-end mt-4">
                           <div className="d-flex-1 flex-column w-100">
                             <div style={{ borderBottom: '1px solid black' }}>
-                              <p className="p-0 m-0">27646</p>
+                              <p className="p-0 m-0">217646</p>
                             </div>
                             <p>
                               <b>STATE CERTIFICATION NUMBER</b>
