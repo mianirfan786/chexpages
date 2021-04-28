@@ -108,9 +108,9 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                           x={15.99}
                           // y={-7.5}
                           scale={0.55}
-                          onComplete={() => {
-                            window.location.reload();
-                          }}
+                          // onComplete={() => {
+                          //   window.location.reload();
+                          // }}
                           filename={`Report of Vehicle ${vehicle?.id}.pdf`}
                         >
                           {({ toPdf }) => (
