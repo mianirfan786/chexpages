@@ -8,7 +8,7 @@ import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 //@ts-ignore
 import ActionCreators from '../../actions';
-
+import signature from '../../Assets/signature.png';
 import './styles.css';
 
 const DownloadCertifcate = (props) => {
@@ -376,7 +376,7 @@ const DownloadCertifcate = (props) => {
                       <Col span={17} className="ml-2 d-flex-1 align-items-end mt-4">
                         <div className="d-flex-1 flex-column w-100">
                           <div style={{ borderBottom: '1px solid black' }}>
-                            <p className="p-0 m-0">1383 SAN MATEO AVE. SOUTH SAN FRANCISCO. CA 94080</p>
+                            <p className="p-0 m-0">1383 SAN MANTEO AVE. SOUTH SAN FRANCISCO. CA 94080</p>
                           </div>
                           <p>
                             <b>INSPECTOR ADDRESS</b>
@@ -403,7 +403,11 @@ const DownloadCertifcate = (props) => {
                             <div style={{ borderBottom: '1px solid black' }}>
                               <p className="p-0 m-0">
                                 {props.reportData && props.reportData[0]?.reviewSignature ? (
-                                  <img style={{ width: '200px', height: '100%' }} src={props.reportData && props.reportData[0]?.reviewSignature} />
+                                  <img
+                                    style={{ width: '200px' }}
+                                    src={signature}
+                                    // {props.reportData && props.reportData[0]?.reviewSignature}
+                                  />
                                 ) : (
                                   `${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}`
                                 )}

@@ -119,7 +119,7 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                                 <div style={{ textAlign: 'center' }}>
                                   <ClipLoader color={'#246DB5'} size={40} />
                                 </div>
-                              ) : (
+                              ) : vehicle?.template_id == 3 || vehicle.name === 'Uber' || vehicle.name === 'uber' ? null : (
                                 <NextStepButton onClickButton={toPdf} title="Download vehicle report" />
                               )}
                             </>
@@ -139,7 +139,10 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                         //   </>
                         // )
                         vehicle?.template_id == 3 ? (
-                          <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
+                          <div>Please check your email for lyft certificates.</div>
+                        ) : // <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
+                        vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
+                          <div>Please check your email for uber certificates.</div>
                         ) : (
                           <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={ref1} />
                         )
