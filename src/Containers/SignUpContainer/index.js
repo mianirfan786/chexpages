@@ -16,9 +16,9 @@ const SignUpContainer = (props) => {
   const { addToast } = useToasts();
   const [checkboxValue, setCheckBox] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
   const [dropDown, setDropdownValue] = useState(false);
-  const [userId, setUserId] = useState(null);
+  // const [userId, setUserId] = useState(null);
   useEffect(() => {
     const { getCompanies } = props;
     getCompanies();
@@ -26,9 +26,9 @@ const SignUpContainer = (props) => {
 
   const handleSubmit = (params) => {
     const { register } = props;
-    const lyftUser = params.companies.includes(lyft.value);
+    // const lyftUser = params.companies.includes(lyft.value);
     if (checkboxValue) {
-      register(params, history, addToast, lyftUser, handleModalLyft);
+      register(params, history, addToast);
     } else {
       addToast('Please accept term of use', { appearance: 'warning' });
     }
@@ -43,18 +43,18 @@ const SignUpContainer = (props) => {
     setCheckBox(!checkboxValue);
   };
 
-  const handleModalLyft = (flag, userId) => {
-    setVisible(flag);
-    setUserId(userId);
-  };
+  // const handleModalLyft = (flag, userId) => {
+  //   setVisible(flag);
+  //   setUserId(userId);
+  // };
 
-  const handleSubmitLyftModal = (value) => {
-    const { setLyftUserStatus } = props;
-    const status = {
-      lyft_user: value,
-    };
-    setLyftUserStatus(status, setVisible, userId, history);
-  };
+  // const handleSubmitLyftModal = (value) => {
+  //   const { setLyftUserStatus } = props;
+  //   const status = {
+  //     lyft_user: value,
+  //   };
+  //   setLyftUserStatus(status, setVisible, userId, history);
+  // };
 
   const handleDropDown = () => {
     setDropdownValue(!dropDown);
@@ -72,7 +72,7 @@ const SignUpContainer = (props) => {
         isLoading={props.isLoading}
         handleDropDown={handleDropDown}
       />
-      <LyftConfirmationModal handleSubmitLyftModal={handleSubmitLyftModal} visibleLyft={visible} />
+      {/* <LyftConfirmationModal handleSubmitLyftModal={handleSubmitLyftModal} visibleLyft={visible} /> */}
     </>
   );
 };

@@ -74,13 +74,13 @@ export function register(params, history, addToast, lyftUser, handleModal) {
         console.log(resp);
         addToast(`User created successfully`, { appearance: 'success' });
         // history.push(`/verifyEmail?email=${params.email}&lyftUser=${lyftUser}&userId=${resp.data.user.id}`);
-        if (lyftUser) {
-          handleModal(true, resp.data?.user?.id);
-          dispatch(isAuthLoading(false));
-        } else {
-          history.replace('/login');
-          dispatch(isAuthLoading(false));
-        }
+        // if (lyftUser) {
+        //   handleModal(true, resp.data?.user?.id);
+        //   dispatch(isAuthLoading(false));
+        // } else {
+        history.replace('/login');
+        dispatch(isAuthLoading(false));
+        // }
         localStorage.setItem('doAndDont', false);
       })
       .catch((err) => {
