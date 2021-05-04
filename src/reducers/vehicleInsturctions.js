@@ -36,7 +36,7 @@ const initialState = {
       fileId: null,
       groupType: 'carVerificiationItems',
       steps: ['Please upload a selfie holding the drivers license card. Please make sure that the ID number and the card expiration date are clearly visible.'],
-      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1618429172/chex-instruction/Rectangle_137_m1sfba.png',
+      image: 'https://res.cloudinary.com/tech-qalanders/image/upload/v1620158291/chex-instruction/Group_44982_lnqvib.png',
       loading: false,
       lyft: true,
     },
