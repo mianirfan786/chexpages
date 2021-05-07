@@ -135,7 +135,7 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                           </>
                         ) : vehicle?.template_id == 2 ? (
                           <>
-                            <div>Please check your email for lyft certificates.</div>
+                            <div>Please check your email for certificates.</div>
                             {/* <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} /> */}
                           </>
                         ) : vehicle?.template_id == 3 ? (
