@@ -490,7 +490,7 @@
   justify-content: center;
 }
 .pass-circle {
-  border: 5px solid green;
+  border: 6px solid #fc6522;
   width: 62px;
   height: 62px;
   border-radius: 50px;
@@ -514,9 +514,60 @@
   text-transform: uppercase;
 }
 .demi-text {
+  font-size: 28px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 36px;
+  color: #191a1b;
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+.demi-text-address {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
+  line-height: 36px;
+  color: #191a1b;
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+.demi-text-one {
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #191a1b;
+  margin-top: -7px;
+  margin-left: 25%;
+}
+.demi-text-two {
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #191a1b;
+  margin-top: -5px;
+  margin-left: 50%;
+}
+.demi-text-three {
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #191a1b;
+  margin-top: -5px;
+  margin-left: 43%;
+}
+.demi-text-four {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
   line-height: 23px;
   letter-spacing: 0em;
   text-align: left;
@@ -525,10 +576,60 @@
 }
 
 .margin-top-container {
-  margin-top: 110px;
+  margin-top: 100px;
 }
 
 .border-right-Container {
   padding-left: 7.5px;
   padding-right: 7.5px;
+}
+.custom-chexbox-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Create a custom checkbox */
+.checked-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  border: 1px solid black !important;
+  width: 18px;
+  background-color: #fff;
+}
+/* On mouse-over, add a grey background color */
+.custom-chexbox-container:hover input ~ .checked-checkbox {
+  background-color: #fff;
+}
+/* When the checkbox is checked, add a blue background */
+.custom-chexbox-container input:checked ~ .checked-checkbox {
+  background-color: #fff;
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checked-checkbox:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+/* Show the checkmark when checked */
+.custom-chexbox-container input:checked ~ .checked-checkbox:after {
+  display: block;
+}
+/* Style the checkmark/indicator */
+.custom-chexbox-container .checked-checkbox:after {
+  left: 3px;
+  top: -7px;
+  width: 10px;
+  height: 22px;
+  border: solid #fc6522;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

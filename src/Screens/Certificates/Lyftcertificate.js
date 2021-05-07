@@ -21,21 +21,14 @@ const LyftCertificate = (props) => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate(
-        { id: user?.vehicles[0]?.id, company_id: props.id },
-        props.setLoading
-      );
+      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading);
     } else {
       props.history.push('/login');
     }
   }, []);
 
   return (
-    <div
-      style={{ position: 'absolute', left: '100%', width: '1200px' }}
-      ref={props.refs}
-      className="container lyft-container"
-    >
+    <div style={{ position: 'absolute', left: '100%', width: '1200px' }} ref={props.refs} className="container lyft-container">
       <div className="lyft-top-header_container">
         <Row>
           <Col span={14}>
@@ -59,7 +52,7 @@ const LyftCertificate = (props) => {
           <Col span={24}>
             <div className="lyft-driver-name_input">
               <p className="label-text">lyft driver name</p>
-              <p className="demi-text">{props.reportData && props.reportData[0].name}</p>
+              <p className="demi-text-one">{props.reportData && props.reportData[0].name}</p>
             </div>
           </Col>
           {/* <Col span={12}>
@@ -85,36 +78,30 @@ const LyftCertificate = (props) => {
         </Row>
 
         <Row gutter={[8, 8]}>
-          <Col span={12}>
+          <Col span={24}>
             <div className="phone-num_input">
               <p className="label-text">Phone number</p>
-              <p className="demi-text">{props.reportData && props.reportData[0].phone}</p>
-            </div>
-          </Col>
-          <Col span={12}>
-            <div className="email_input">
-              <p className="label-text">email</p>
-              <p className="demi-text">{props.reportData && props.reportData[0].email}</p>
+              <p className="demi-text-one">{props.reportData && props.reportData[0].phone}</p>
             </div>
           </Col>
         </Row>
         <Row gutter={[8, 8]}>
-          <Col span={6}>
+          <Col span={7}>
             <div className="vehicle-year-input">
               <p className="label-text">vehicle year</p>
-              <p className="demi-text">{props.reportData && props.reportData[0].year}</p>
+              <p className="demi-text-two">{props.reportData && props.reportData[0].year}</p>
             </div>
           </Col>
-          <Col span={6}>
+          <Col span={7}>
             <div className="vehicle-make-input">
               <p className="label-text">vehicle make</p>
-              <p className="demi-text">{props.reportData && props.reportData[0].make}</p>
+              <p className="demi-text-three">{props.reportData && props.reportData[0].make}</p>
             </div>
           </Col>
-          <Col span={12}>
+          <Col span={10}>
             <div className="vehicle-model-input">
               <p className="label-text">vehicle model</p>
-              <p className="demi-text">{props.reportData && props.reportData[0].model}</p>
+              <p className="demi-text-three">{props.reportData && props.reportData[0].model}</p>
             </div>
           </Col>
         </Row>
@@ -122,14 +109,12 @@ const LyftCertificate = (props) => {
           <Col span={12}>
             <div className="license-plate-input">
               <p className="label-text">license plate #</p>
-              <p className="demi-text">
-                {props.reportData && props.reportData[0].license_plate_no}
-              </p>
+              <p className="demi-text-three">{props.reportData && props.reportData[0].license_plate_no}</p>
             </div>
           </Col>
           <Col span={12}>
             <div className="vin-input">
-              <p className="demi-text">
+              <p className="demi-text-four">
                 {props.reportData &&
                   props.reportData[0].vin.split('').map((char, index) => (
                     <>
@@ -171,11 +156,17 @@ const LyftCertificate = (props) => {
               index <= 14 ? (
                 check.status === true ? (
                   <div className="vehicle-inspection_chexbox">
-                    <input type="checkbox" checked={true} />
+                    <label className="custom-chexbox-container">
+                      <input type="checkbox" checked={true} />
+                      <span className="checked-checkbox"></span>
+                    </label>
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexbox">
-                    <input type="checkbox" checked={false} />
+                    <label className="custom-chexbox-container">
+                      <input type="checkbox" checked={false} />
+                      <span className="checked-checkbox"></span>
+                    </label>
                   </div>
                 )
               ) : null
@@ -187,11 +178,17 @@ const LyftCertificate = (props) => {
               index <= 14 ? (
                 check.status === false ? (
                   <div className="vehicle-inspection_chexboxtwo">
-                    <input type="checkbox" checked={true} />
+                    <label className="custom-chexbox-container">
+                      <input type="checkbox" checked={true} />
+                      <span className="checked-checkbox"></span>
+                    </label>
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexboxtwo">
-                    <input type="checkbox" checked={false} />
+                    <label className="custom-chexbox-container">
+                      <input type="checkbox" checked={false} />
+                      <span className="checked-checkbox"></span>
+                    </label>
                   </div>
                 )
               ) : null
@@ -214,27 +211,14 @@ const LyftCertificate = (props) => {
                 <p className="circle-one-text">(Please circle one)</p>
               </Col>
               <Col span={4}>
-                <div
-                  style={{ marginLeft: '-21px' }}
-                  className={
-                    props.reportData && props.reportData[0].final_status === 'pass'
-                      ? 'pass-circle'
-                      : ''
-                  }
-                >
+                <div style={{ marginLeft: '-21px' }} className={props.reportData && props.reportData[0].final_status === 'pass' ? 'pass-circle' : ''}>
                   <p style={{ marginRight: '20px', marginLeft: '20px' }} className="box-fail-text">
                     PASS
                   </p>
                 </div>
               </Col>
               <Col span={4}>
-                <div
-                  className={
-                    props.reportData && props.reportData[0].final_status === 'fail'
-                      ? 'pass-circle'
-                      : ''
-                  }
-                >
+                <div className={props.reportData && props.reportData[0].final_status === 'fail' ? 'pass-circle' : ''}>
                   <p className="box-fail-text">FAIL</p>
                 </div>
               </Col>
@@ -247,11 +231,17 @@ const LyftCertificate = (props) => {
               index > 14 ? (
                 check.status === true ? (
                   <div className="vehicle-inspection_chexbox">
-                    <input type="checkbox" checked={true} />
+                    <label className="custom-chexbox-container">
+                      <input type="checkbox" checked={true} />
+                      <span className="checked-checkbox"></span>
+                    </label>
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexbox">
-                    <input type="checkbox" checked={false} />
+                    <label className="custom-chexbox-container">
+                      <input type="checkbox" checked={false} />
+                      <span className="checked-checkbox"></span>
+                    </label>
                   </div>
                 )
               ) : null
@@ -264,11 +254,17 @@ const LyftCertificate = (props) => {
               index > 14 ? (
                 check.status === false ? (
                   <div className="vehicle-inspection_chexboxtwo">
-                    <input type="checkbox" checked={true} />
+                    <label className="custom-chexbox-container">
+                      <input type="checkbox" checked={true} />
+                      <span className="checked-checkbox"></span>
+                    </label>
                   </div>
                 ) : (
                   <div className="vehicle-inspection_chexboxtwo">
-                    <input type="checkbox" checked={false} />
+                    <label className="custom-chexbox-container">
+                      <input type="checkbox" checked={false} />
+                      <span className="checked-checkbox"></span>
+                    </label>
                   </div>
                 )
               ) : null
@@ -336,12 +332,7 @@ const LyftCertificate = (props) => {
               </div>
             </Col>
             <Col lg={24} lg={12}>
-              <p className="inspection-date-text">
-                inspection date:{' '}
-                {moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format(
-                  'MM/DD/YYYY'
-                )}
-              </p>
+              <p className="inspection-date-text">inspection date: {moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM/DD/YYYY')}</p>
               <p className="document-expires-text">(document expires one year from this date) </p>
             </Col>
             <Col span={12}>
@@ -352,15 +343,13 @@ const LyftCertificate = (props) => {
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">
-                  {props.reportData && props.reportData[0].vehicle_mileage}
-                </p>
+                <p className="demi-text">{props.reportData && props.reportData[0].vehicle_mileage}</p>
               </div>
               <p className="applicant-text">VEHICLE MILEAGE FROM ODOMETER</p>
             </Col>
             <Col span={12}>
               <div className="inspector-only-input">
-                <p className="demi-text">1383 SAN MATEO AVE. SOUTH SAN FRANCISCO. CA 94080</p>
+                <p className="demi-text-address">1383 SAN MATEO AVE. SOUTH SAN FRANCISCO. CA 94080</p>
               </div>
               <p className="applicant-text">Company address</p>
             </Col>
@@ -382,12 +371,7 @@ const LyftCertificate = (props) => {
             <Col span={12}>
               <div className="inspector-only-input">
                 <p className="demi-text">
-                  <img
-                    style={{ marginBottom: '5px' }}
-                    width="170px"
-                    height="130px"
-                    src={props.reportData && props.reportData[0].reviewSignature}
-                  />
+                  <img style={{ marginBottom: '5px' }} width="170px" height="130px" src={props.reportData && props.reportData[0].reviewSignature} />
                 </p>
               </div>
               <p className="applicant-text">INSPECTOR SIGNATURE</p>
@@ -397,18 +381,15 @@ const LyftCertificate = (props) => {
         <Row>
           <Col span="24">
             <p className="bottom-paragraph">
-              Applicants who do not match the photo on their driver’s license or do not have the
-              proper documents, cannot complete an inspection. Failing inspections can only be
-              remedied by the same shop on the same day. If an applicant fails the inspection and is
-              unable to fix the issues on the spot, a new appointment must be made, and a new
+              Applicants who do not match the photo on their driver’s license or do not have the proper documents, cannot complete an inspection. Failing inspections can only be
+              remedied by the same shop on the same day. If an applicant fails the inspection and is unable to fix the issues on the spot, a new appointment must be made, and a new
               inspection form must be used.
             </p>
           </Col>
           <Col span="24">
             <p className="bottom-paragraph">
-              This inspection form reflects a 19 point inspection only on the date of the inspection
-              listed above. For purposes of this inspection, the wheels were not removed from the
-              vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
+              This inspection form reflects a 19 point inspection only on the date of the inspection listed above. For purposes of this inspection, the wheels were not removed from
+              the vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
             </p>
           </Col>
         </Row>
