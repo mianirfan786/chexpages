@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { Row, Col, Checkbox } from 'antd';
 import moment from 'moment';
 import ActionCreators from '../../actions';
-import { setReportData } from '../../utils/functions';
+import { setLyftReportData } from '../../utils/functions';
 
 import LyftImg from '../..//Assets/liftimg.png';
 import './LyftCertificate.css';
@@ -154,7 +154,7 @@ const LyftCertificate = (props) => {
             <p className="pass-text">PASS</p>
             {props?.checksData.map((check, index) =>
               index <= 14 ? (
-                check.status === true ? (
+                check.status === true || check.status === 1 ? (
                   <div className="vehicle-inspection_chexbox">
                     <label className="custom-chexbox-container">
                       <input type="checkbox" checked={true} />
@@ -176,7 +176,7 @@ const LyftCertificate = (props) => {
             <p className="fail-text">FAIL</p>
             {props?.checksData.map((check, index) =>
               index <= 14 ? (
-                check.status === false ? (
+                check.status === false || check.status === 0 ? (
                   <div className="vehicle-inspection_chexboxtwo">
                     <label className="custom-chexbox-container">
                       <input type="checkbox" checked={true} />
@@ -197,7 +197,9 @@ const LyftCertificate = (props) => {
 
           <Col span={8}>
             <p className="inspector-point-text">INSPECTOR POINT</p>
+            {console.log("props?.checksData", props?.checksData)}
             {props?.checksData.map((check, index) =>
+              
               index > 14 ? (
                 <p className="foot-brakes-text">
                   <span className="numeric-text">{index + 1}. </span>
@@ -229,7 +231,7 @@ const LyftCertificate = (props) => {
             <p className="pass-text">PASS</p>
             {props?.checksData.map((check, index) =>
               index > 14 ? (
-                check.status === true ? (
+                check.status === true || check.status === 1 ?  (
                   <div className="vehicle-inspection_chexbox">
                     <label className="custom-chexbox-container">
                       <input type="checkbox" checked={true} />
@@ -252,7 +254,7 @@ const LyftCertificate = (props) => {
             <p className="fail-text">FAIL</p>
             {props?.checksData.map((check, index) =>
               index > 14 ? (
-                check.status === false ? (
+                check.status === false || check.status === 0 ? (
                   <div className="vehicle-inspection_chexboxtwo">
                     <label className="custom-chexbox-container">
                       <input type="checkbox" checked={true} />
@@ -406,7 +408,7 @@ function mapStateToProps(state) {
   console.log('Lyft Certification dtsate', state);
   return {
     reportData: state.vehicleInstruction.vehicleCertificate,
-    checksData: setReportData(state.vehicleInstruction.vehicleCertificate),
+    checksData: setLyftReportData(state.vehicleInstruction.vehicleCertificate),
   };
 }
 

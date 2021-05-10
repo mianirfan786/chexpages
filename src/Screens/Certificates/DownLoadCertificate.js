@@ -8,6 +8,7 @@ import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 //@ts-ignore
 import ActionCreators from '../../actions';
+import { setOtherReportData } from '../../utils/functions';
 
 import './styles.css';
 
@@ -127,10 +128,10 @@ const DownloadCertifcate = (props) => {
                     </div>
                   </Col>
                   <Row style={{ padding: 22 }} gutter={20}>
-                    {props.reportData &&
-                      props.reportData?.map((vehicleData) =>
-                        vehicleData?.vehicleChecks.map((j) =>
-                          j.displayOnCertificate ? (
+                    {props.checksData &&
+                        props.checksData.map((data, index) =>
+                        index <10 ?
+                          data.displayOnCertificate ? (
                             <Col span={12}>
                               <div>
                                 <div className="d-flex-1 justify-content-end" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
@@ -145,7 +146,7 @@ const DownloadCertifcate = (props) => {
                                 </div>
                               </div>
                               <div className="d-flex-1 justify-content-between" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <label>{j.name}</label>
+                                <label>{data.name}</label>
                                 <div
                                   style={{
                                     width: '14%',
@@ -154,7 +155,7 @@ const DownloadCertifcate = (props) => {
                                   }}
                                   className="d-flex-1 justify-content-between"
                                 >
-                                  <input type="checkbox" style={{ fontSize: '15px' }} checked={!!(j.status === 1 || j.status === true)} />
+                                  <input type="checkbox" style={{ fontSize: '15px' }} checked={!!(data.status === 1 || data.status === true)} />
 
                                   <input
                                     type="checkbox"
@@ -162,15 +163,17 @@ const DownloadCertifcate = (props) => {
                                       fontSize: '15px',
                                       marginRight: '8px',
                                     }}
-                                    checked={!!(j.status === 0 || j.status === false)}
+                                    checked={!!(data.status === 0 || data.status === false)}
                                   />
                                 </div>
                               </div>
                             </Col>
                           ) : null
+                          : null
                         )
-                      )}
+                      }
                   </Row>
+                  
 
                   <Col xs={24} span={24}>
                     <div className="vechilebgColor">
@@ -447,6 +450,7 @@ function mapStateToProps(state) {
   console.log(state);
   return {
     reportData: state.vehicleInstruction.vehicleCertificate,
+    checksData: setOtherReportData(state.vehicleInstruction.vehicleCertificate, 'index_2')
   };
 }
 
