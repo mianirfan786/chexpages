@@ -142,7 +142,7 @@ const LyftCertificate = (props) => {
           <Col span={8}>
             <p className="inspector-point-text">INSPECTOR POINT</p>
             {props?.checksData.map((check, index) =>
-              index <= 14 ? (
+              index < 12 ? (
                 <p className="foot-brakes-text">
                   <span className="numeric-text">{index + 1}. </span>
                   {check.name}
@@ -153,7 +153,7 @@ const LyftCertificate = (props) => {
           <Col span={2}>
             <p className="pass-text">PASS</p>
             {props?.checksData.map((check, index) =>
-              index <= 14 ? (
+              index < 12 ? (
                 check.status === true || check.status === 1 ? (
                   <div className="vehicle-inspection_chexbox">
                     <label className="custom-chexbox-container">
@@ -175,7 +175,7 @@ const LyftCertificate = (props) => {
           <Col span={2}>
             <p className="fail-text">FAIL</p>
             {props?.checksData.map((check, index) =>
-              index <= 14 ? (
+              index < 12 ? (
                 check.status === false || check.status === 0 ? (
                   <div className="vehicle-inspection_chexboxtwo">
                     <label className="custom-chexbox-container">
@@ -197,10 +197,9 @@ const LyftCertificate = (props) => {
 
           <Col span={8}>
             <p className="inspector-point-text">INSPECTOR POINT</p>
-            {console.log("props?.checksData", props?.checksData)}
+            {console.log('props?.checksData', props?.checksData)}
             {props?.checksData.map((check, index) =>
-              
-              index > 14 ? (
+              index >= 12 ? (
                 <p className="foot-brakes-text">
                   <span className="numeric-text">{index + 1}. </span>
                   {check.name}
@@ -230,8 +229,8 @@ const LyftCertificate = (props) => {
           <Col span={2}>
             <p className="pass-text">PASS</p>
             {props?.checksData.map((check, index) =>
-              index > 14 ? (
-                check.status === true || check.status === 1 ?  (
+              index >= 12 ? (
+                check.status === true || check.status === 1 ? (
                   <div className="vehicle-inspection_chexbox">
                     <label className="custom-chexbox-container">
                       <input type="checkbox" checked={true} />
@@ -253,7 +252,7 @@ const LyftCertificate = (props) => {
           <Col span={2}>
             <p className="fail-text">FAIL</p>
             {props?.checksData.map((check, index) =>
-              index > 14 ? (
+              index >= 12 ? (
                 check.status === false || check.status === 0 ? (
                   <div className="vehicle-inspection_chexboxtwo">
                     <label className="custom-chexbox-container">
@@ -373,7 +372,13 @@ const LyftCertificate = (props) => {
             <Col span={12}>
               <div className="inspector-only-input">
                 <p className="demi-text">
-                  <img style={{ marginBottom: '5px' }} width="170px" height="130px" src={props.reportData && props.reportData[0].reviewSignature} />
+                  <img
+                    crossOrigin="anonymous"
+                    style={{ marginBottom: '5px' }}
+                    width="170px"
+                    height="130px"
+                    src={`${props.reportData && props.reportData[0].reviewSignature}?x-request=xhr`}
+                  />
                 </p>
               </div>
               <p className="applicant-text">INSPECTOR SIGNATURE</p>

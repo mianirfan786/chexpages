@@ -129,51 +129,47 @@ const DownloadCertifcate = (props) => {
                   </Col>
                   <Row style={{ padding: 22 }} gutter={20}>
                     {props.checksData &&
-                        props.checksData.map((data, index) =>
-                        index <10 ?
-                          data.displayOnCertificate ? (
-                            <Col span={12}>
-                              <div>
-                                <div className="d-flex-1 justify-content-end" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                  <div
-                                    style={{ width: '16%' }}
-                                    className="d-flex-1 justify-content-between"
-                                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-                                  >
-                                    <h6>Pass</h6>
-                                    <h6 style={{ paddingRight: '16px' }}>Fail</h6>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="d-flex-1 justify-content-between" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <label>{data.name}</label>
+                      props.checksData.map((data, index) =>
+                        data.displayOnCertificate ? (
+                          <Col span={12}>
+                            <div>
+                              <div className="d-flex-1 justify-content-end" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                                 <div
-                                  style={{
-                                    width: '14%',
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                  }}
+                                  style={{ width: '16%' }}
                                   className="d-flex-1 justify-content-between"
+                                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
                                 >
-                                  <input type="checkbox" style={{ fontSize: '15px' }} checked={!!(data.status === 1 || data.status === true)} />
-
-                                  <input
-                                    type="checkbox"
-                                    style={{
-                                      fontSize: '15px',
-                                      marginRight: '8px',
-                                    }}
-                                    checked={!!(data.status === 0 || data.status === false)}
-                                  />
+                                  <h6>Pass</h6>
+                                  <h6 style={{ paddingRight: '16px' }}>Fail</h6>
                                 </div>
                               </div>
-                            </Col>
-                          ) : null
-                          : null
-                        )
-                      }
+                            </div>
+                            <div className="d-flex-1 justify-content-between" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                              <label>{data.name}</label>
+                              <div
+                                style={{
+                                  width: '14%',
+                                  display: 'flex',
+                                  justifyContent: 'space-between',
+                                }}
+                                className="d-flex-1 justify-content-between"
+                              >
+                                <input type="checkbox" style={{ fontSize: '15px' }} checked={!!(data.status === 1 || data.status === true)} />
+
+                                <input
+                                  type="checkbox"
+                                  style={{
+                                    fontSize: '15px',
+                                    marginRight: '8px',
+                                  }}
+                                  checked={!!(data.status === 0 || data.status === false)}
+                                />
+                              </div>
+                            </div>
+                          </Col>
+                        ) : null
+                      )}
                   </Row>
-                  
 
                   <Col xs={24} span={24}>
                     <div className="vechilebgColor">
@@ -450,7 +446,7 @@ function mapStateToProps(state) {
   console.log(state);
   return {
     reportData: state.vehicleInstruction.vehicleCertificate,
-    checksData: setOtherReportData(state.vehicleInstruction.vehicleCertificate, 'index_2')
+    checksData: setOtherReportData(state.vehicleInstruction.vehicleCertificate, 'index_2'),
   };
 }
 
