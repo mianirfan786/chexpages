@@ -52,7 +52,7 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
               <VehicleInspectionP>
                 {vehicleStatuss === 'REVIEWED'
                   ? 'Use below link to download your certificate in PDF'
-                  : 'Your vehicle is in review once your vehicle is reviewed you will get a notification and then you download certificate'}
+                  : 'Your vehicle is currently under review. Once your vehicle inspection is complete, we will notify you via email. Thank you for your patience.'}
               </VehicleInspectionP>
             </MainDownContainer>
             {/* <div className="veh-inspection-mobilepaddind">
@@ -119,9 +119,7 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                                 <div style={{ textAlign: 'center' }}>
                                   <ClipLoader color={'#246DB5'} size={40} />
                                 </div>
-                              ) : // vehicle?.template_id == 3 ||
-                              // vehicle?.template_id == 2 || 
-                              vehicle.name === 'Uber' || vehicle.name === 'uber' ? null : (
+                              ) : vehicle?.template_id == 3 || vehicle?.template_id == 2 || vehicle.name === 'Uber' || vehicle.name === 'uber' ? null : (
                                 <NextStepButton onClickButton={toPdf} title="Download vehicle report" />
                               )}
                             </>
@@ -137,13 +135,13 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                           </>
                         ) : vehicle?.template_id == 2 ? (
                           <>
-                            {/* <div>Please check your email for certificates.</div> */}
-                            <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={ref1} />
+                            <div>Please check your email for certificates.</div>
+                            {/* <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={ref1} /> */}
                           </>
                         ) : vehicle?.template_id == 3 ? (
-                          // <div>Please check your email for lyft certificates.</div>
-                          <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
+                          <div>Please check your email for lyft certificates.</div>
                         ) : // <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
+                        // <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
                         vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
                           <div>Please check your email for uber certificates.</div>
                         ) : (
