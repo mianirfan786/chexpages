@@ -7,6 +7,7 @@ import Pdf from 'react-to-pdf';
 
 import DownloadCertifcate from '../Certificates/DownLoadCertificate';
 import GeneralCertificate from '../Certificates/GeneralCertificate';
+import UberCertificate from '../Certificates/UberCertificate';
 import LyftCertificate from '../Certificates/Lyftcertificate';
 import {
   // InspectionCard,
@@ -101,7 +102,7 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                       key={index + 1}
                       extra={genExtra}
                     >
-                      {vehicleStatuss === 'REVIEWED' ? (
+                      {/* {vehicleStatuss === 'REVIEWED' ? (
                         <Pdf
                           targetRef={vehicle?.template_id == 1 ? refs : vehicle?.template_id == 3 ? ref2 : ref1}
                           // options={options}
@@ -127,25 +128,27 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                         </Pdf>
                       ) : (
                         'Vehicle is not yet Reviewed'
-                      )}
+                      )} */}
+
                       {vehicleStatuss === 'REVIEWED' ? (
-                        vehicle?.template_id == 1 ? (
+                        // vehicle?.template_id == 1 ? (
+                        //   <>
+                        //     <GeneralCertificate setLoading={setLoading} id={vehicle.id} refs={refs} />
+                        //   </>
+                        // ) :
+                        vehicle?.template_id == 2 ? (
                           <>
-                            <GeneralCertificate setLoading={setLoading} id={vehicle.id} refs={refs} />
-                          </>
-                        ) : vehicle?.template_id == 2 ? (
-                          <>
-                            <div>Please check your email for certificates.</div>
-                            {/* <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={ref1} /> */}
+                            {/* <div>Please check your email for certificates.</div> */}
+                            <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
                           </>
                         ) : vehicle?.template_id == 3 ? (
-                          <div>Please check your email for lyft certificates.</div>
+                          // <div>Please check your email for lyft certificates.</div>
+                          <LyftCertificate setLoading={setLoading} id={vehicle?.id} />
                         ) : // <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
-                        // <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
                         vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
-                          <div>Please check your email for uber certificates.</div>
+                          <UberCertificate setLoading={setLoading} id={vehicle.id} />
                         ) : (
-                          <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={ref1} />
+                          <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
                         )
                       ) : null}
                     </Panel>

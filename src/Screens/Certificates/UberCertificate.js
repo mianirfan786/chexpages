@@ -20,19 +20,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   headerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: '30px',
-    marginTop: '10px',
+    padding: '20px',
+    backgroundColor: 'black',
+    height: '100px',
   },
-
+  vehicleinspectionText: {
+    color: 'white',
+    fontSize: '30px',
+    fontWeight: '300',
+    fontStyle: 'normal',
+  },
   tobecompletedContainer: {
     backgroundColor: '#E6E6E6',
     padding: '5px',
   },
   tobecompletedText: {
-    color: '#FF4A86',
+    color: '#151515',
     fontSize: '9px',
     fontWeight: '200',
     fontStyle: 'normal',
@@ -147,11 +150,11 @@ const styles = StyleSheet.create({
   },
   nameText: {
     color: 'black',
-    fontSize: '9px',
+    fontSize: '8px',
     fontWeight: '300',
     fontStyle: 'normal',
     textTransform: 'uppercase',
-    width: '60%',
+    width: '50%',
   },
   passText: {
     color: '#959595',
@@ -275,7 +278,7 @@ const styles = StyleSheet.create({
     fontSize: '10px',
     fontStyle: 'normal',
     fontWeight: '500',
-    color: '#FF4A86',
+    color: 'black',
     textTransform: 'uppercase',
   },
   firstfourfieldsContainer: {
@@ -283,12 +286,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: '15px',
     marginBottom: '10px',
-  },
-  firstfourfieldsContainerTop: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: '25px',
-    marginBottom: '5px',
   },
   bottomboxBorder: {
     borderBottomWidth: 1,
@@ -317,15 +314,9 @@ const styles = StyleSheet.create({
     fontSize: '10px',
     color: '#4F4F4F',
   },
-  vehicleinspectiontopText: {
-    fontSize: '20px',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    color: 'black',
-  },
 });
 
-const DownloadCertifcate = (props) => {
+const UberCertificate = (props) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -348,13 +339,7 @@ const DownloadCertifcate = (props) => {
           <Document>
             <Page size="A3" style={styles.body}>
               <View style={styles.headerContainer}>
-                <View></View>
-                <Text style={styles.vehicleinspectiontopText}>Vehicle Inspection</Text>
-                {props.reportData && props.reportData[0]?.url ? (
-                  <Image style={{ width: '80px' }} source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0]?.url}?x-request=xhr`} />
-                ) : (
-                  <Text style={{ color: 'white', fontSize: '100px' }}>Test</Text>
-                )}
+                <Text style={styles.vehicleinspectionText}>Vehicle Inspection</Text>
               </View>
               <View style={styles.tobecompletedContainer}>
                 <Text style={styles.tobecompletedText}>TO BE COMPLETED BY VEHICLE OPERATOR</Text>
@@ -367,32 +352,14 @@ const DownloadCertifcate = (props) => {
                     <Text style={styles.bottomnameText}>FULL NAME</Text>
                   </View>
                   <View style={styles.secondfield}>
-                    <Text style={styles.topnameText}>{props.reportData && props.reportData[0]?.email}</Text>
+                    <Text style={styles.topnameText}>{props.reportData && props.reportData[0]?.phone}</Text>
                     <View style={styles.fieldBorder2} />
-                    <Text style={styles.bottomnameText}>Email</Text>
-                  </View>
-                </View>
-
-                <View style={styles.firstfourfieldsContainerTop}>
-                  <View style={{ width: '35%', marginRight: '15px' }}>
-                    <Text style={{ color: '#F7F7F7' }}>Testing</Text>
-                    {/* <Image style={{ width: '100px', marginTop: -25, marginLeft: '50px' }} source={SignatureImage} /> */}
-                    <View style={styles.bottomboxBorder} />
-                    <Text style={styles.bottomboxbootomText}>Signature</Text>
-                  </View>
-                  <View style={{ width: '20%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM-DD-YYYY')}</Text>
-                    <View style={styles.bottomboxBorder} />
-                    <Text style={styles.bottomboxbootomText}>Date</Text>
-                  </View>
-                  <View style={{ width: '46%' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.phone}</Text>
-                    <View style={styles.bottomboxBorder} />
-                    <Text style={styles.bottomboxbootomText}>phone number</Text>
+                    <Text style={styles.bottomnameText}>PHONE NUMBER</Text>
                   </View>
                 </View>
               </View>
               <Text style={styles.inspectionpointsText}>INSPECTION POINTS</Text>
+
               <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                   {props.checksData &&
@@ -401,14 +368,14 @@ const DownloadCertifcate = (props) => {
                         <Text style={styles.nameText}>{data.name} </Text>
                         <View style={styles.dashedBorder} />
                         {data.status === 1 || data.status === true ? (
-                          <View style={{ flexDirection: 'row', marginRight: '10px' }}>
+                          <View style={{ flexDirection: 'row', marginLeft: '9px' }}>
                             <View style={styles.tickimgContainer}>
                               <Image style={{ width: '15px' }} source={TicketImg} />
                             </View>
                             <Text style={styles.passText}>PASS</Text>
                           </View>
                         ) : (
-                          <View style={{ flexDirection: 'row', marginRight: '16px' }}>
+                          <View style={{ flexDirection: 'row', marginRight: '3px' }}>
                             <View style={styles.emptytickimgContainer}></View>
                             <Text style={styles.passText}>PASS</Text>
                           </View>
@@ -433,7 +400,7 @@ const DownloadCertifcate = (props) => {
               </View>
 
               <View style={styles.inspectionresultContainer}>
-                <Text style={styles.inspectionrexultText}>VEHICLE INSPECTION RESULTS (Inspector To Circle)</Text>
+                <Text style={styles.inspectionrexultText}>vehicle inspection results (Inspector to circle)</Text>
               </View>
               <View style={styles.inspectiondatemainContainer}>
                 <Text style={styles.markingText}>Any markings on the “fail” side will automatically fail inspection</Text>
@@ -446,9 +413,8 @@ const DownloadCertifcate = (props) => {
                   ) : (
                     <Text style={styles.boxpassText}>PASS</Text>
                   )}
-
                   <View style={styles.textDirection}>
-                    <Text style={styles.boxdateText}>{/* {moment(firstHalfData && firstHalfData[0]?.updated_at).format('MM-DD-YYYY')} */}</Text>
+                    <Text style={styles.boxdateText}>{/* {moment(firstHalfData && firstHalfData[0].updated_at).format('MM-DD-YYYY')} */}</Text>
                     <View style={styles.boxBorder} />
                     <Text style={styles.inspectiondateText}>Inspection Date</Text>
                   </View>
@@ -512,7 +478,7 @@ const DownloadCertifcate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '41%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>CHEX.AI</Text>
+                    <Text style={styles.bottomboxtoptext}>Chex.AI</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector company</Text>
                   </View>
@@ -533,12 +499,10 @@ const DownloadCertifcate = (props) => {
                     {props.reportData && props.reportData[0]?.reviewSignature ? (
                       <Image
                         style={{ width: '100px', marginLeft: '50px', marginBottom: -16 }}
-                        source={`${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`}
+                        source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`}
                       />
                     ) : (
-                      <Text style={styles.bottomboxtoptext}>
-                        ${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}
-                      </Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}`}</Text>
                     )}
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector signature</Text>
@@ -575,9 +539,8 @@ const DownloadCertifcate = (props) => {
                     borderRadius: '50px',
                   }}
                 >
-                  Download vehicle report
+                  Download pdf
                 </div>
-                <i className="fa fa-download" />
               </div>
             )}
             {console.log(error)}
@@ -600,4 +563,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DownloadCertifcate);
+export default connect(mapStateToProps, mapDispatchToProps)(UberCertificate);

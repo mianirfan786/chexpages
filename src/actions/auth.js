@@ -78,8 +78,9 @@ export function register(params, history, addToast, lyftUser, handleModal) {
         //   handleModal(true, resp.data?.user?.id);
         //   dispatch(isAuthLoading(false));
         // } else {
-        history.replace('/login');
-        dispatch(isAuthLoading(false));
+        dispatch(login({ email: params.email, password: params.password }, null, addToast));
+        // history.replace('/login');
+        // dispatch(isAuthLoading(false));
         // }
         localStorage.setItem('doAndDont', false);
       })
