@@ -105,20 +105,24 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                         // ) :
                         vehicle?.template_id == 2 ? (
                           <>
-                            {vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
-                              <>
-                                <UberCertificate setLoading={setLoading} id={vehicle.id} />
-                              </>
+                            {vehicleStatuss !== 'REVIEWED' ? (
+                              <div>Vehicle inspection is in process</div>
                             ) : (
-                              <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
+                              <>
+                                {vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
+                                  <>
+                                    <UberCertificate setLoading={setLoading} id={vehicle.id} />
+                                  </>
+                                ) : (
+                                  <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
+                                )}
+                              </>
                             )}
                           </>
                         ) : vehicle?.template_id == 3 ? (
-                          <LyftCertificate setLoading={setLoading} id={vehicle?.id} />
+                          <>{vehicleStatuss !== 'REVIEWED' ? <div>Vehicle inspection is in process</div> : <LyftCertificate setLoading={setLoading} id={vehicle?.id} />}</>
                         ) : vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
-                          <>
-                            <UberCertificate setLoading={setLoading} id={vehicle.id} />
-                          </>
+                          <>{vehicleStatuss !== 'REVIEWED' ? <div>Vehicle inspection is in process</div> : <UberCertificate setLoading={setLoading} id={vehicle.id} />}</>
                         ) : (
                           <>
                             <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />

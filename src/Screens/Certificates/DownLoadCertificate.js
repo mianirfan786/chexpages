@@ -449,7 +449,7 @@ const DownloadCertifcate = (props) => {
                   )}
 
                   <View style={styles.textDirection}>
-                    <Text style={styles.boxdateText}>{/* {moment(firstHalfData && firstHalfData[0]?.updated_at).format('MM-DD-YYYY')} */}</Text>
+                    <Text style={styles.boxdateText}>{moment(props.reportData && props.reportData[0]?.vehicleUpdatedAt).format('MM-DD-YYYY')}</Text>
                     <View style={styles.boxBorder} />
                     <Text style={styles.inspectiondateText}>Inspection Date</Text>
                   </View>

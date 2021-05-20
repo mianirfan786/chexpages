@@ -602,7 +602,7 @@ const LyftCertificate = (props) => {
                     <View style={{ width: '50%', marginRight: '20@s' }}>
                       <Text style={styles.topName}>299664</Text>
                       <View style={styles.borderWidth} />
-                      <Text style={styles.bottomName}>ard numbere</Text>
+                      <Text style={styles.bottomName}>ard number</Text>
                     </View>
                     <View style={{ width: '50%', marginTop: '15px' }}>
                       {/* <Text style={styles.topName}>12122</Text> */}
