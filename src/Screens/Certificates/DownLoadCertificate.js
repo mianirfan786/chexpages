@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 import { PDFDownloadLink, Page, Text, View, Image, Document, StyleSheet } from '@react-pdf/renderer';
+
 //@ts-ignore
 import TicketImg from '../../Assets/tickimg.png';
 import ActionCreators from '../../actions';
@@ -332,7 +333,7 @@ const DownloadCertifcate = (props) => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading);
+      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading, 'template2');
     } else {
       localStorage.removeItem('currentUser');
       localStorage.removeItem('token');
@@ -529,12 +530,9 @@ const DownloadCertifcate = (props) => {
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
-                  <View style={{ width: '30%', marginRight: '15px', marginBottom: '11px' }}>
+                  <View style={{ width: '30%', marginRight: '15px', marginTop: -80 }}>
                     {props.reportData && props.reportData[0]?.reviewSignature ? (
-                      <Image
-                        style={{ width: '100px', marginLeft: '50px', marginBottom: -16 }}
-                        source={`${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`}
-                      />
+                      <Image style={{ width: '100px', marginLeft: '50px' }} source={`${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`} />
                     ) : (
                       <Text style={styles.bottomboxtoptext}>
                         ${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}
@@ -593,7 +591,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     reportData: state.vehicleInstruction.vehicleCertificate,
     checksData: setOtherReportData(state.vehicleInstruction.vehicleCertificate, 'index_2'),

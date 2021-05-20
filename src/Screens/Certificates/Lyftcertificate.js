@@ -108,12 +108,12 @@ const styles = StyleSheet.create({
     width: '40%',
   },
   threeinputFields: {
-    fontSize: '16px',
+    fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '300',
     lineHeight: '23@s',
     color: 'black',
-    marginLeft: '54%',
+    marginLeft: '50%',
   },
   licenseplateContainer: {
     borderWidth: 1,
@@ -149,8 +149,8 @@ const styles = StyleSheet.create({
     marginTop: '30px',
     fontSize: '12px',
     // borderLeftWidth: 1,
-
-    paddingLeft: '10px',
+    paddingLeft: '14px',
+    paddingRight: '12px',
   },
   vehicleinspectionPadding: {
     paddingHorizontal: '30@s',
@@ -316,6 +316,7 @@ const styles = StyleSheet.create({
   inpectionText: {
     fontSize: '16px',
     color: '#47484F',
+    marginRight: '10px',
   },
   documentexpiryText: {
     fontSize: '12px',
@@ -325,12 +326,8 @@ const styles = StyleSheet.create({
     fontSize: '12px',
   },
   datemainContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
     marginTop: '10@s',
-    marginRight: '10%',
-    alignItems: 'center',
+    marginLeft: '52%',
   },
   namesfieldscontainer: {
     flexDirection: 'row',
@@ -377,6 +374,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: '28px',
   },
+  inspectiondateContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });
 
 const LyftCertificate = (props) => {
@@ -384,7 +385,7 @@ const LyftCertificate = (props) => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading);
+      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading, 'template3');
     } else {
       props.history.push('/login');
     }
@@ -444,7 +445,7 @@ const LyftCertificate = (props) => {
                           props.reportData[0].vin.split('').map((char, index) => (
                             <Text style={styles.topText}>
                               {char}
-                              <Text style={{ paddingRight: '10px' }}>|</Text>
+                              <Text>|</Text>
                             </Text>
                           ))}
                       </View>
@@ -569,9 +570,9 @@ const LyftCertificate = (props) => {
                   <View style={styles.datemainContainer}>
                     <View style={styles.inspectiondateContainer}>
                       <Text style={styles.inpectionText}>Inspection date</Text>
-                      <Text style={styles.documentexpiryText}>(document expires one year from this date)</Text>
+                      <Text style={styles.dateText}>{moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM/DD/YYYY')}</Text>
                     </View>
-                    <Text style={styles.dateText}>{moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM/DD/YYYY')}</Text>
+                    <Text style={styles.documentexpiryText}>(document expires one year from this date)</Text>
                   </View>
                   <View style={styles.namesfieldscontainer}>
                     <View style={{ width: '50%', marginRight: '20@s' }}>
@@ -603,7 +604,7 @@ const LyftCertificate = (props) => {
                       <View style={styles.borderWidth} />
                       <Text style={styles.bottomName}>ard numbere</Text>
                     </View>
-                    <View style={{ width: '50%' }}>
+                    <View style={{ width: '50%', marginTop: '15px' }}>
                       {/* <Text style={styles.topName}>12122</Text> */}
                       <Image
                         style={{ position: 'absolute', height: '100px', width: '100px', top: '-50px', right: '10px' }}
@@ -667,8 +668,8 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   console.log('Lyft Certification dtsate', state);
   return {
-    reportData: state.vehicleInstruction.vehicleCertificate,
-    checksData: setLyftReportData(state.vehicleInstruction.vehicleCertificate),
+    reportData: state.vehicleInstruction.lyftVehicleCertificate,
+    checksData: setLyftReportData(state.vehicleInstruction.lyftVehicleCertificate),
   };
 }
 

@@ -323,7 +323,7 @@ const UberCertificate = (props) => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading);
+      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading, 'uber');
     } else {
       localStorage.removeItem('currentUser');
       localStorage.removeItem('token');
@@ -558,8 +558,8 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   console.log(state);
   return {
-    reportData: state.vehicleInstruction.vehicleCertificate,
-    checksData: setOtherReportData(state.vehicleInstruction.vehicleCertificate, 'index_2'),
+    reportData: state.vehicleInstruction.uberVehicleCertificate,
+    checksData: setOtherReportData(state.vehicleInstruction.uberVehicleCertificate, 'index_2'),
   };
 }
 

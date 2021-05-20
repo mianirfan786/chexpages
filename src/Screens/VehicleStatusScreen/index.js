@@ -74,11 +74,6 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
               ) : (
                 <Collapse
                   defaultActiveKey={[`1`]}
-                  // onChange={(key) => {
-                  //   var value = key?.slice(-1);
-                  //   handleSetPanelValue(value[0]);
-                  // }}
-                  // activeKey={[`${panelValue}`]}
                   expandIconPosition="right"
                   expandIcon={({ isActive }) => (
                     <UpCircleOutlined
@@ -102,34 +97,6 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                       key={index + 1}
                       extra={genExtra}
                     >
-                      {/* {vehicleStatuss === 'REVIEWED' ? (
-                        <Pdf
-                          targetRef={vehicle?.template_id == 1 ? refs : vehicle?.template_id == 3 ? ref2 : ref1}
-                          // options={options}
-                          x={15.99}
-                          // y={-7.5}
-                          scale={0.55}
-                          // onComplete={() => {
-                          //   window.location.reload();
-                          // }}
-                          filename={`Report of Vehicle ${vehicle?.id}.pdf`}
-                        >
-                          {({ toPdf }) => (
-                            <>
-                              {vehicleLoading ? (
-                                <div style={{ textAlign: 'center' }}>
-                                  <ClipLoader color={'#246DB5'} size={40} />
-                                </div>
-                              ) : vehicle?.template_id == 3 || vehicle?.template_id == 2 || vehicle.name === 'Uber' || vehicle.name === 'uber' ? null : (
-                                <NextStepButton onClickButton={toPdf} title="Download vehicle report" />
-                              )}
-                            </>
-                          )}
-                        </Pdf>
-                      ) : (
-                        'Vehicle is not yet Reviewed'
-                      )} */}
-
                       {vehicleStatuss === 'REVIEWED' ? (
                         // vehicle?.template_id == 1 ? (
                         //   <>
@@ -138,17 +105,24 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                         // ) :
                         vehicle?.template_id == 2 ? (
                           <>
-                            {/* <div>Please check your email for certificates.</div> */}
-                            <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
+                            {vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
+                              <>
+                                <UberCertificate setLoading={setLoading} id={vehicle.id} />
+                              </>
+                            ) : (
+                              <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
+                            )}
                           </>
                         ) : vehicle?.template_id == 3 ? (
-                          // <div>Please check your email for lyft certificates.</div>
                           <LyftCertificate setLoading={setLoading} id={vehicle?.id} />
-                        ) : // <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
-                        vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
-                          <UberCertificate setLoading={setLoading} id={vehicle.id} />
+                        ) : vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
+                          <>
+                            <UberCertificate setLoading={setLoading} id={vehicle.id} />
+                          </>
                         ) : (
-                          <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
+                          <>
+                            <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
+                          </>
                         )
                       ) : null}
                     </Panel>

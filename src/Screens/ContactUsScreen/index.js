@@ -44,7 +44,7 @@ const ContactUsScreen = ({ handleSubmit, handleChange, loading }) => {
         </div>
         <div className="email-container">
           <AiOutlinePhone size={24} color="#FF7A00" style={{ marginTop: '5px' }} />
-          <p className="email-text">(650) 665-9068</p>
+          <p className="email-text">(415) 234-3496</p>
         </div>
       </div>
     </div>

@@ -315,5 +315,17 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
       vehicleCertificate: action.vehicleCertificate,
     };
   },
+  [types.SET_UBER_CERTIFICATE_DATA](state, action) {
+    return {
+      ...state,
+      uberVehicleCertificate: action.uberVehicleCertificate,
+    };
+  },
+  [types.SET_LYFT_CERTIFICATE_DATA](state, action) {
+    return {
+      ...state,
+      lyftVehicleCertificate: action.lyftVehicleCertificate,
+    };
+  },
 });
 export default vehicleInsturctionsReducer;

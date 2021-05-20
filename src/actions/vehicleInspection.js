@@ -65,6 +65,20 @@ function setCertificateData(data) {
   };
 }
 
+function setUberCertificate(data) {
+  return {
+    type: types.SET_UBER_CERTIFICATE_DATA,
+    uberVehicleCertificate: data,
+  };
+}
+
+function setLyftCertificate(data) {
+  return {
+    type: types.SET_LYFT_CERTIFICATE_DATA,
+    lyftVehicleCertificate: data,
+  };
+}
+
 export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue, imageUploadingProgress) {
   return (dispatch) => {
     dispatch(setVehicleLoading(true));
@@ -215,14 +229,20 @@ export function getVehiclesStatus(vehicleId, setLoading) {
   };
 }
 
-export function getVehicleCertificate(params, setLoading) {
+export function getVehicleCertificate(params, setLoading, template) {
   return (dispatch) => {
     setLoading(true);
     axios
       .post(`${Api}/vehicle/${params.id}/files`, params, { headers })
       .then((resp) => {
         setLoading(false);
-        dispatch(setCertificateData(resp.data));
+        if (template == 'template2') {
+          dispatch(setCertificateData(resp.data));
+        } else if (template === 'uber') {
+          dispatch(setUberCertificate(resp.data));
+        } else if (template === 'template3') {
+          dispatch(setLyftCertificate(resp.data));
+        }
       })
       .catch((err) => {
         setLoading(false);
