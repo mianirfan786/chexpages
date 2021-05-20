@@ -534,9 +534,7 @@ const DownloadCertifcate = (props) => {
                     {props.reportData && props.reportData[0]?.reviewSignature ? (
                       <Image style={{ width: '100px', marginLeft: '50px' }} source={`${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`} />
                     ) : (
-                      <Text style={styles.bottomboxtoptext}>
-                        ${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}
-                      </Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}`}</Text>
                     )}
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector signature</Text>
