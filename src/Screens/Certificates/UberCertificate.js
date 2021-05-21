@@ -359,7 +359,7 @@ const UberCertificate = (props) => {
                   </View>
                 </View>
               </View>
-              <View style={{ marginLeft: '10@s' }}>
+              <View style={{ marginLeft: '20@s' }}>
                 <Text style={styles.inspectionpointsText}>INSPECTION POINTS</Text>
                 <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
                   <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
