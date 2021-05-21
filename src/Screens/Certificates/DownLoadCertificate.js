@@ -530,15 +530,25 @@ const DownloadCertifcate = (props) => {
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
-                  <View style={{ width: '30%', marginRight: '15px', marginTop: -80 }}>
-                    {props.reportData && props.reportData[0]?.reviewSignature ? (
-                      <Image style={{ width: '100px', marginLeft: '50px' }} source={`${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`} />
-                    ) : (
-                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}`}</Text>
-                    )}
-                    <View style={styles.bottomboxBorder} />
-                    <Text style={styles.bottomboxbootomText}>inspector signature</Text>
-                  </View>
+                  {props?.reportData && props?.reportData[0]?.reviewSignature ? (
+                    <View style={{ width: '30%', marginRight: '15px', marginTop: -9 }}>
+                      <Image
+                        style={{ width: '100px', marginLeft: '50px', marginBottom: -20 }}
+                        source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`}
+                      />
+                      <View style={styles.bottomboxBorder} />
+                      <Text style={styles.bottomboxbootomText}>inspector signature</Text>
+                    </View>
+                  ) : (
+                    <View style={{ width: '30%', marginRight: '15px' }}>
+                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData[0]?.reviewName} ${
+                        props.reportData && props.reportData[0]?.reviewLast
+                      }`}</Text>
+                      <View style={styles.bottomboxBorder} />
+                      <Text style={styles.bottomboxbootomText}>inspector signature</Text>
+                    </View>
+                  )}
+
                   <View style={{ width: '30%' }}>
                     <Text style={styles.bottomboxtoptext}>299664</Text>
                     <View style={styles.bottomboxBorder} />
