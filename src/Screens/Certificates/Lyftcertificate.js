@@ -451,10 +451,12 @@ const LyftCertificate = (props) => {
                       <View style={{ flexDirection: 'row' }}>
                         {props.reportData &&
                           props.reportData[0].vin.split('').map((char, index) => (
-                            <Text style={styles.topText}>
-                              {char}
-                              <Text>|</Text>
-                            </Text>
+                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-start' }}>
+                              {index == 0 ? <Text style={{ paddingRight: '4px', marginTop: 22, fontSize: 20 }}>|</Text> : null}
+
+                              <Text style={[styles.topText]}>{char}</Text>
+                              <Text style={{ marginTop: 22, marginLeft: 4, fontSize: 20 }}>|</Text>
+                            </View>
                           ))}
                       </View>
 
