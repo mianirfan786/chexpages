@@ -317,13 +317,18 @@ const styles = StyleSheet.create({
     fontSize: '16px',
     color: '#47484F',
     marginRight: '10px',
+    fontWeight: '600',
+    fontStyle: 'noraml',
+    lineHeight: '22@s',
   },
   documentexpiryText: {
     fontSize: '12px',
     color: '#47484F',
   },
   dateText: {
-    fontSize: '12px',
+    fontSize: '18px',
+    color: 'black',
+    fontWeight: 'extralight',
   },
   datemainContainer: {
     marginTop: '10@s',
@@ -335,6 +340,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     marginTop: '15@s',
+    alignItems: 'flex-end',
   },
   borderWidth: {
     borderBottomWidth: 1,
@@ -377,6 +383,8 @@ const styles = StyleSheet.create({
   inspectiondateContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '90%',
   },
 });
 
@@ -537,7 +545,7 @@ const LyftCertificate = (props) => {
                     ) : null
                   )}
 
-                  <View style={[styles.inspectionsecondContainer, { marginTop: '20px' }]}>
+                  <View style={[styles.inspectionsecondContainer, { marginTop: '20px', width: '96%', marginLeft: -13 }]}>
                     <View style={styles.failpassbox}>
                       <View style={styles.boxinspectionContainer}>
                         <Text style={styles.boxinspectionText}>VEHICLE INSPCTION</Text>
@@ -607,7 +615,7 @@ const LyftCertificate = (props) => {
                     <View style={{ width: '50%', marginTop: '15px' }}>
                       {/* <Text style={styles.topName}>12122</Text> */}
                       <Image
-                        style={{ position: 'absolute', height: '100px', width: '100px', top: '-50px', right: '10px' }}
+                        style={{ position: 'absolute', height: '100px', width: '100px', top: '-45px', right: '10px' }}
                         src={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0].reviewSignature}?x-request=xhr`}
                       />
                       <View style={styles.borderWidth} />
@@ -616,15 +624,17 @@ const LyftCertificate = (props) => {
                   </View>
                 </View>
               </View>
-              <Text style={styles.bottomPara}>
-                Applicants who do not match the photo on their driver’s license or do not have the proper documents, cannot complete an inspection. Failing inspections can only be
-                remedied by the same shop on the same day. If an applicant fails the inspection and is unable to fix the issues on the spot, a new appointment must be made, and a
-                new inspection form must be used.
-              </Text>
-              <Text style={styles.bottomPara}>
-                This inspection form reflects a 19 point inspection only on the date of the inspection listed above. For purposes of this inspection, the wheels were not removed
-                from the vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
-              </Text>
+              <View style={{ paddingHorizontal: '20px' }}>
+                <Text style={styles.bottomPara}>
+                  Applicants who do not match the photo on their driver’s license or do not have the proper documents, cannot complete an inspection. Failing inspections can only
+                  be remedied by the same shop on the same day. If an applicant fails the inspection and is unable to fix the issues on the spot, a new appointment must be made,
+                  and a new inspection form must be used.
+                </Text>
+                <Text style={styles.bottomPara}>
+                  This inspection form reflects a 19 point inspection only on the date of the inspection listed above. For purposes of this inspection, the wheels were not removed
+                  from the vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
+                </Text>
+              </View>
             </Page>
           </Document>
         }

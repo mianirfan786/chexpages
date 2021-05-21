@@ -47,6 +47,8 @@ const styles = StyleSheet.create({
   namefiledsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    alignItems: 'flex-end',
+    marginTop: '15@s',
   },
   firstField: {
     width: '55%',
@@ -80,19 +82,17 @@ const styles = StyleSheet.create({
   },
   inspectionpointsText: {
     color: 'black',
-    fontSize: '15px',
-    fontWeight: '700',
-    fontStyle: 'normal',
+    fontSize: '16px',
+    fontWeight: 'bold',
     marginTop: '25px',
   },
   passfailrowmainContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: '10px',
-
     justifyContent: 'space-around',
     flex: '0 0 45%',
-    marginRight: '10px',
+    marginRight: '30px',
   },
 
   dashedBorder: {
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   nameText: {
     color: 'black',
     fontSize: '9px',
-    fontWeight: '300',
+    fontWeight: 'bold',
     fontStyle: 'normal',
     textTransform: 'uppercase',
     width: '60%',
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   passText: {
     color: '#959595',
     fontSize: '11px',
-    fontWeight: '700',
+    fontWeight: 'bold',
     fontStyle: 'normal',
     textTransform: 'uppercase',
     marginLeft: '5px',
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   failText: {
     color: '#959595',
     fontSize: '11px',
-    fontWeight: '700',
+    fontWeight: 'bold',
     fontStyle: 'normal',
     textTransform: 'uppercase',
     marginLeft: '5px',
@@ -206,9 +206,9 @@ const styles = StyleSheet.create({
   inspectionrexultText: {
     fontSize: '20px',
     fontStyle: 'normal',
-    fontWeight: '700',
     color: 'white',
     textAlign: 'center',
+    fontWeight: 'bold',
   },
   inspectiondatemainContainer: {
     padding: '10px',
@@ -284,12 +284,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: '15px',
     marginBottom: '10px',
+    alignItems: 'flex-end',
   },
   firstfourfieldsContainerTop: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: '25px',
     marginBottom: '5px',
+    alignItems: 'flex-end',
   },
   bottomboxBorder: {
     borderBottomWidth: 1,
@@ -303,6 +305,7 @@ const styles = StyleSheet.create({
     marginLeft: '10px',
     marginBottom: '3px',
     textTransform: 'uppercase',
+    lineHeight: '22@s',
   },
   bottomboxbootomText: {
     fontSize: '8px',
@@ -393,43 +396,45 @@ const DownloadCertifcate = (props) => {
                   </View>
                 </View>
               </View>
-              <Text style={styles.inspectionpointsText}>INSPECTION POINTS</Text>
-              <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                  {props.checksData &&
-                    props.checksData.map((data) => (
-                      <View style={styles.passfailrowmainContainer}>
-                        <Text style={styles.nameText}>{data.name} </Text>
-                        <View style={styles.dashedBorder} />
-                        {data.status === 1 || data.status === true ? (
-                          <View style={{ flexDirection: 'row', marginRight: '10px' }}>
-                            <View style={styles.tickimgContainer}>
-                              <Image style={{ width: '15px' }} source={TicketImg} />
+              <View style={{ marginLeft: '10@s' }}>
+                <Text style={styles.inspectionpointsText}>INSPECTION POINTS</Text>
+                <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
+                  <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                    {props.checksData &&
+                      props.checksData.map((data) => (
+                        <View style={styles.passfailrowmainContainer}>
+                          <Text style={styles.nameText}>{data.name} </Text>
+                          <View style={styles.dashedBorder} />
+                          {data.status === 1 || data.status === true ? (
+                            <View style={{ flexDirection: 'row', marginRight: '10px' }}>
+                              <View style={styles.tickimgContainer}>
+                                <Image style={{ width: '15px' }} source={TicketImg} />
+                              </View>
+                              <Text style={styles.passText}>PASS</Text>
                             </View>
-                            <Text style={styles.passText}>PASS</Text>
-                          </View>
-                        ) : (
-                          <View style={{ flexDirection: 'row', marginRight: '16px' }}>
-                            <View style={styles.emptytickimgContainer}></View>
-                            <Text style={styles.passText}>PASS</Text>
-                          </View>
-                        )}
+                          ) : (
+                            <View style={{ flexDirection: 'row', marginRight: '16px' }}>
+                              <View style={styles.emptytickimgContainer}></View>
+                              <Text style={styles.passText}>PASS</Text>
+                            </View>
+                          )}
 
-                        {data.status === 0 || data.status === false ? (
-                          <View style={{ flexDirection: 'row' }}>
-                            <View style={styles.tickimgContainer}>
-                              <Image style={{ width: '15px' }} source={TicketImg} />
+                          {data.status === 0 || data.status === false ? (
+                            <View style={{ flexDirection: 'row' }}>
+                              <View style={styles.tickimgContainer}>
+                                <Image style={{ width: '15px' }} source={TicketImg} />
+                              </View>
+                              <Text style={styles.passText}>FAIL</Text>
                             </View>
-                            <Text style={styles.passText}>FAIL</Text>
-                          </View>
-                        ) : (
-                          <View style={{ flexDirection: 'row' }}>
-                            <View style={styles.emptytickimgContainer}></View>
-                            <Text style={styles.passText}>FAIL</Text>
-                          </View>
-                        )}
-                      </View>
-                    ))}
+                          ) : (
+                            <View style={{ flexDirection: 'row' }}>
+                              <View style={styles.emptytickimgContainer}></View>
+                              <Text style={styles.passText}>FAIL</Text>
+                            </View>
+                          )}
+                        </View>
+                      ))}
+                  </View>
                 </View>
               </View>
 
@@ -531,9 +536,9 @@ const DownloadCertifcate = (props) => {
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
                   {props?.reportData && props?.reportData[0]?.reviewSignature ? (
-                    <View style={{ width: '30%', marginRight: '15px', marginTop: -9 }}>
+                    <View style={{ width: '30%', marginRight: '15px' }}>
                       <Image
-                        style={{ width: '100px', marginLeft: '50px', marginBottom: -20 }}
+                        style={{ width: '100px', marginLeft: '50px', marginBottom: -18 }}
                         source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`}
                       />
                       <View style={styles.bottomboxBorder} />
