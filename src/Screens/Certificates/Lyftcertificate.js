@@ -634,6 +634,10 @@ const LyftCertificate = (props) => {
                   This inspection form reflects a 19 point inspection only on the date of the inspection listed above. For purposes of this inspection, the wheels were not removed
                   from the vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
                 </Text>
+                {/* <Text style={styles.bottomPara}>
+                  This inspection form reflects a 19 point inspection only on the date of the inspection listed above. For purposes of this inspection, the wheels were not removed
+                  from the vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
+                </Text> */}
               </View>
             </Page>
           </Document>
