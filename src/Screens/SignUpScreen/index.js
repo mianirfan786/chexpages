@@ -53,7 +53,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                   className="form-item-style"
                   rules={[
                     {
-                      type: 'email',
+                      // type: 'email',
                       required: true,
                       message: 'Please enter valid email!',
                     },
