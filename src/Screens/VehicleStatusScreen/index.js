@@ -97,8 +97,7 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                       key={index + 1}
                       extra={genExtra}
                     >
-                      {console.log(vehicleStatuss)}
-                      {vehicleStatuss !== 'REVIEWED' ? (
+                      {vehicleStatuss === 'REVIEWED' ? (
                         // vehicle?.template_id == 1 ? (
                         //   <>
                         //     <GeneralCertificate setLoading={setLoading} id={vehicle.id} refs={refs} />
@@ -129,7 +128,9 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                             <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
                           </>
                         )
-                      ) : null}
+                      ) : (
+                        <div>Vehicle inspection is in process</div>
+                      )}
                     </Panel>
                   ))}
                 </Collapse>
