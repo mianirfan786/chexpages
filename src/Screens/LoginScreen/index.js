@@ -35,6 +35,9 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
                   {
                     required: true,
                     message: 'Please enter your email!',
+                    pattern: new RegExp(
+                      /^\s*(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*\s*$/
+                    ),
                   },
                 ]}
               >

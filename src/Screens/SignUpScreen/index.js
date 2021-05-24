@@ -53,9 +53,11 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                   className="form-item-style"
                   rules={[
                     {
-                      type: 'email',
                       required: true,
                       message: 'Please enter valid email!',
+                      pattern: new RegExp(
+                        /^\s*(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*\s*$/
+                      ),
                     },
                   ]}
                 >
