@@ -15,6 +15,7 @@ import DoAndDoesScreen from './DoAndDoesScreen';
 import TermsAndPolicyScreen from './TermsAndPolicyScreen';
 import ContactUsScreen from './ContactUsScreen';
 import LyftCertificate from './Certificates/Lyftcertificate';
+import MaintancePage from './MaintanceScreen/index';
 export {
   IntroScreen,
   LoginScreen,
@@ -33,4 +34,5 @@ export {
   TermsAndPolicyScreen,
   ContactUsScreen,
   LyftCertificate,
+  MaintancePage,
 };
