@@ -416,7 +416,7 @@ const UberCertificate = (props) => {
                     <Text style={styles.boxpassText}>PASS</Text>
                   )}
                   <View style={styles.textDirection}>
-                    <Text style={styles.boxdateText}>{moment(props.reportData && props.reportData[0]?.vehicleUpdatedAt).format('MM-DD-YYYY')}</Text>
+                    <Text style={styles.boxdateText}>{moment(props.reportData && props.reportData[0]?.VehicleUpdatedAt).format('MM-DD-YYYY')}</Text>
                     <View style={styles.boxBorder} />
                     <Text style={styles.inspectiondateText}>Inspection Date</Text>
                   </View>
