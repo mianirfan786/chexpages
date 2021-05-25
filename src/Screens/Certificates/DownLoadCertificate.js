@@ -111,8 +111,8 @@ const styles = StyleSheet.create({
   },
 
   tickimgContainer: {
-    width: '13px',
-    height: '13px',
+    width: '18px',
+    height: '15px',
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
     marginLeft: '4px',
   },
   tickimgContainer2: {
-    width: '13px',
-    height: '13px',
+    width: '18px',
+    height: '15px',
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
@@ -129,8 +129,8 @@ const styles = StyleSheet.create({
     marginLeft: '4px',
   },
   emptytickimgContainer: {
-    width: '13px',
-    height: '13px',
+    width: '19px',
+    height: '15px',
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
@@ -138,8 +138,8 @@ const styles = StyleSheet.create({
     marginLeft: '8px',
   },
   emptytickimgContainer2: {
-    width: '13px',
-    height: '13px',
+    width: '18px',
+    height: '15px',
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontStyle: 'normal',
     textTransform: 'uppercase',
-    width: '60%',
+    width: '65%',
   },
   passText: {
     color: '#959595',
