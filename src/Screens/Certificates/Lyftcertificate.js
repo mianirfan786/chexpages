@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
   californiaText: {
     color: 'white',
     fontSize: '20px',
+    textTransform: 'uppercase',
+    fontWeight: '500',
   },
   boxContainer: {
     borderWidth: 1,
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   allfieldsText: {
-    color: '#8E8B8C',
+    color: '#47484F',
     fontSize: '10px',
     fontWeight: '400',
     marginLeft: '8@s',
@@ -119,7 +121,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#47484F',
     width: '45%',
-    marginRight: '10@s',
+    marginRight: '13@s',
   },
   codeText: {
     fontSize: '16px',
@@ -149,8 +151,8 @@ const styles = StyleSheet.create({
     marginTop: '30px',
     fontSize: '12px',
     // borderLeftWidth: 1,
-    paddingLeft: '14px',
-    paddingRight: '12px',
+    paddingLeft: '8 px',
+    paddingRight: '10px',
   },
   vehicleinspectionPadding: {
     paddingHorizontal: '30@s',
@@ -180,34 +182,38 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   inspectionText: {
-    fontSize: '16px',
+    fontSize: '13px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '21@s',
     color: '#716E6E',
+    textTransform: 'uppercase',
   },
   inspectiontextTwo: {
-    fontSize: '16px',
+    fontSize: '13px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '21@s',
     color: '#716E6E',
     marginLeft: '15@s',
+    textTransform: 'uppercase',
   },
   passText: {
-    fontSize: '14px',
+    fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '21@s',
     color: '#716E6E',
     marginRight: '15@s',
+    textTransform: 'uppercase',
   },
   failText: {
-    fontSize: '14px',
+    fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '21@s',
     color: '#716E6E',
+    textTransform: 'uppercase',
   },
   passfailContainer: {
     flexDirection: 'row',
@@ -384,7 +390,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: '90%',
+    width: '95%',
   },
 });
 
@@ -452,10 +458,10 @@ const LyftCertificate = (props) => {
                         {props.reportData &&
                           props.reportData[0].vin.split('').map((char, index) => (
                             <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-start' }}>
-                              {index == 0 ? <Text style={{ paddingRight: '4px', marginTop: 22, fontSize: 20 }}>|</Text> : null}
+                              {index == 0 ? <Text style={{ marginTop: 27, fontSize: 15, paddingLeft: -1 }}>|</Text> : null}
 
                               <Text style={[styles.topText]}>{char}</Text>
-                              <Text style={{ marginTop: 22, marginLeft: 4, fontSize: 20 }}>|</Text>
+                              <Text style={{ marginTop: 27, fontSize: 15 }}>|</Text>
                             </View>
                           ))}
                       </View>
@@ -493,14 +499,14 @@ const LyftCertificate = (props) => {
                         <View style={styles.passfailContainer}>
                           {check.status == true || check.status == 1 ? (
                             <View style={styles.tickpassContainer}>
-                              <Image style={{ width: '10px' }} source={TicketImg} />
+                              <Image style={{ width: '14px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickpassContainer}></View>
                           )}
                           {check.status == false || check.status == 0 ? (
                             <View style={styles.tickfailContainer}>
-                              <Image style={{ width: '10px' }} source={TicketImg} />
+                              <Image style={{ width: '14px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickfailContainer}></View>
@@ -530,14 +536,14 @@ const LyftCertificate = (props) => {
                         <View style={styles.passfailContainer}>
                           {check.status == true || check.status == 1 ? (
                             <View style={styles.tickpassContainer}>
-                              <Image style={{ width: '10px' }} source={TicketImg} />
+                              <Image style={{ width: '14px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickpassContainer}></View>
                           )}
                           {check.status == false || check.status == 0 ? (
                             <View style={styles.tickfailContainer}>
-                              <Image style={{ width: '10px' }} source={TicketImg} />
+                              <Image style={{ width: '14px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickfailContainer}></View>
@@ -614,10 +620,10 @@ const LyftCertificate = (props) => {
                       <View style={styles.borderWidth} />
                       <Text style={styles.bottomName}>ard number</Text>
                     </View>
-                    <View style={{ width: '50%', marginTop: '15px' }}>
+                    <View style={{ width: '50%', marginTop: '20px' }}>
                       {/* <Text style={styles.topName}>12122</Text> */}
                       <Image
-                        style={{ position: 'absolute', height: '100px', width: '100px', top: '-45px', right: '10px' }}
+                        style={{ position: 'absolute', height: '100px', width: '100px', top: '-45px', right: '100px' }}
                         src={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0].reviewSignature}?x-request=xhr`}
                       />
                       <View style={styles.borderWidth} />
@@ -636,10 +642,6 @@ const LyftCertificate = (props) => {
                   This inspection form reflects a 19 point inspection only on the date of the inspection listed above. For purposes of this inspection, the wheels were not removed
                   from the vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
                 </Text>
-                {/* <Text style={styles.bottomPara}>
-                  This inspection form reflects a 19 point inspection only on the date of the inspection listed above. For purposes of this inspection, the wheels were not removed
-                  from the vehicle, and the vehicle was not put on a lift, nor was it checked for emissions.
-                </Text> */}
               </View>
             </Page>
           </Document>

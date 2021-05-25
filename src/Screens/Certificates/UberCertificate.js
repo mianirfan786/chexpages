@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     flex: '0 0 45%',
     marginRight: '30px',
+    width: '100%',
   },
 
   dashedBorder: {
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     marginRight: '5px',
   },
   dashedBorder2: {
-    width: '80px',
+    width: '100%',
     borderStyle: 'dashed',
     borderWidth: 1,
     borderColor: '#959595',
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
   passText: {
     color: '#959595',
     fontSize: '11px',
-    fontWeight: '700',
+    fontWeight: 'bold',
     fontStyle: 'normal',
     textTransform: 'uppercase',
     marginLeft: '5px',
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
   failText: {
     color: '#959595',
     fontSize: '11px',
-    fontWeight: '700',
+    fontWeight: 'bold',
     fontStyle: 'normal',
     textTransform: 'uppercase',
     marginLeft: '5px',
