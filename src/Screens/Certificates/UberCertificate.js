@@ -11,6 +11,8 @@ import { PDFDownloadLink, Page, Text, View, Image, Document, StyleSheet } from '
 import TicketImg from '../../Assets/tickimg.png';
 import ActionCreators from '../../actions';
 import { setOtherReportData } from '../../utils/functions';
+import ChackboxImg from '../../Assets/Checkbox.png';
+
 
 import './styles.css';
 
@@ -360,7 +362,7 @@ const UberCertificate = (props) => {
                   </View>
                 </View>
               </View>
-              <View style={{ marginLeft: '20@s' }}>
+              {/* <View style={{ marginLeft: '20@s' }}>
                 <Text style={styles.inspectionpointsText}>INSPECTION POINTS</Text>
                 <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
                   <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
@@ -400,7 +402,8 @@ const UberCertificate = (props) => {
                       ))}
                   </View>
                 </View>
-              </View>
+              </View> */}
+              <Image style={{width:'100%',marginLeft:-7,marginTop:'20px'}} source={ChackboxImg}/>
 
               <View style={styles.inspectionresultContainer}>
                 <Text style={styles.inspectionrexultText}>VEHICLE INSPECTION RESULTS (Inspector to circle)</Text>
