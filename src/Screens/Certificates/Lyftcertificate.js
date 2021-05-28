@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   },
   headerWidth: {
     paddingHorizontal: 10,
+    marginBottom:'25px',
   },
   header: {
     backgroundColor: '#47484F',
@@ -244,6 +245,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
+    position:'absolute',
+    height:'50px',
+    top:10,
   },
 
   boxinspectionText: {
@@ -252,6 +256,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     lineHeight: '21@s',
     color: 'black',
+    textTransform:'uppercase',
   },
   circleoneText: {
     fontSize: '12px',
@@ -259,6 +264,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: '21@s',
     color: '#716E6E',
+    marginTop:'5px',
   },
   boxpassText: {
     fontSize: '14px',
@@ -268,11 +274,11 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   orangeCircle: {
-    borderWidth: 6,
+    borderWidth: 7,
     borderColor: '#FC6522',
     borderRadius: '50%',
-    height: '60px',
-    width: '60px',
+    height: '75px',
+    width: '75px',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -326,6 +332,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontStyle: 'noraml',
     lineHeight: '22@s',
+    textTransform:'uppercase',
   },
   documentexpiryText: {
     fontSize: '12px',
@@ -499,14 +506,14 @@ const LyftCertificate = (props) => {
                         <View style={styles.passfailContainer}>
                           {check.status == true || check.status == 1 ? (
                             <View style={styles.tickpassContainer}>
-                              <Image style={{ width: '14px' }} source={TicketImg} />
+                              <Image style={{ width: '16px',marginLeft:'2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickpassContainer}></View>
                           )}
                           {check.status == false || check.status == 0 ? (
                             <View style={styles.tickfailContainer}>
-                              <Image style={{ width: '14px' }} source={TicketImg} />
+                              <Image style={{ width: '16px',marginLeft:'2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickfailContainer}></View>
@@ -536,14 +543,14 @@ const LyftCertificate = (props) => {
                         <View style={styles.passfailContainer}>
                           {check.status == true || check.status == 1 ? (
                             <View style={styles.tickpassContainer}>
-                              <Image style={{ width: '14px' }} source={TicketImg} />
+                              <Image style={{ width: '16px',marginLeft:'2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickpassContainer}></View>
                           )}
                           {check.status == false || check.status == 0 ? (
                             <View style={styles.tickfailContainer}>
-                              <Image style={{ width: '14px' }} source={TicketImg} />
+                              <Image style={{ width: '16px',marginLeft:'2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickfailContainer}></View>
@@ -557,7 +564,7 @@ const LyftCertificate = (props) => {
                     <View style={styles.failpassbox}>
                       <View style={styles.boxinspectionContainer}>
                         <Text style={styles.boxinspectionText}>VEHICLE INSPCTION</Text>
-                        <Text style={styles.circleoneText}>(Please Circle One)</Text>
+                        <Text style={styles.circleoneText}>(Please circle one)</Text>
                       </View>
                       {props.reportData && props.reportData[0].final_status === 'pass' ? (
                         <View style={styles.orangeCircle}>
@@ -586,7 +593,7 @@ const LyftCertificate = (props) => {
                   <View style={styles.datemainContainer}>
                     <View style={styles.inspectiondateContainer}>
                       <Text style={styles.inpectionText}>Inspection date</Text>
-                      <Text style={styles.dateText}>{moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM/DD/YYYY')}</Text>
+                      <Text style={styles.dateText}>{moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM/ DD /YYYY')}</Text>
                     </View>
                     <Text style={styles.documentexpiryText}>(document expires one year from this date)</Text>
                   </View>

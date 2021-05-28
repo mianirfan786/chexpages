@@ -237,10 +237,11 @@ const styles = StyleSheet.create({
     marginBottom: '15px',
   },
   boxBorder: {
-    borderStyle: 'dotted',
-    borderWidth: 1,
-    borderColor: 'black',
-    width: '110px',
+    borderBottomStyle: 'dashed',
+    borderBottomWidth: 2,
+    borderBottomColor: 'black',
+    width: '130%',
+    letterSpacing:'10px',
   },
   boxpasscircleContainer: {
     width: '70px',

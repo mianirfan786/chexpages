@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     fontWeight: '100',
     fontStyle: 'normal',
     marginTop: '3px',
+    textTransform:'uppercase',
   },
   inspectionpointsText: {
     color: 'black',
@@ -234,10 +235,11 @@ const styles = StyleSheet.create({
     marginBottom: '15px',
   },
   boxBorder: {
-    borderStyle: 'dotted',
-    borderWidth: 1,
-    borderColor: 'black',
-    width: '110px',
+    borderBottomStyle: 'dashed',
+    borderBottomWidth: 2,
+    borderBottomColor: 'black',
+    width: '130%',
+    letterSpacing:'10px',
   },
   boxpasscircleContainer: {
     width: '70px',
@@ -375,7 +377,7 @@ const DownloadCertifcate = (props) => {
                   <View style={styles.secondfield}>
                     <Text style={styles.topnameText}>{props.reportData && props.reportData[0]?.email}</Text>
                     <View style={styles.fieldBorder2} />
-                    <Text style={styles.bottomnameText}>Email</Text>
+                    <Text style={styles.bottomnameText}>EMAIL ADDRESS</Text>
                   </View>
                 </View>
 
