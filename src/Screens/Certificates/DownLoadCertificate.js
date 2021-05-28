@@ -12,7 +12,7 @@ import { PDFDownloadLink, Page, Text, View, Image, Document, StyleSheet } from '
 import TicketImg from '../../Assets/tickimg.png';
 import ActionCreators from '../../actions';
 import { setOtherReportData } from '../../utils/functions';
-import ChackboxImg from '../../Assets/Checkbox.png';
+import ChackboxImg from '../../Assets/generalChecks.png';
 
 import './styles.css';
 import CheckableTag from 'antd/lib/tag/CheckableTag';
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
   },
   lastbottomText: {
     textAlign: 'center',
-    marginTop: '15px',
+    marginTop: '5px',
     fontSize: '10px',
     color: '#4F4F4F',
   },
@@ -439,7 +439,7 @@ const DownloadCertifcate = (props) => {
                   </View>
                 </View>
               </View> */}
-              <Image style={{width:'100%',marginTop:'20px',marginLeft:-7}} source={ChackboxImg}/>
+              <Image style={{ width: '100%', marginTop: '10px', marginLeft: -7 }} source={ChackboxImg} />
 
               <View style={styles.inspectionresultContainer}>
                 <Text style={styles.inspectionrexultText}>VEHICLE INSPECTION RESULTS (Inspector To Circle)</Text>
