@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   headerWidth: {
     paddingHorizontal: 10,
-    marginBottom:'25px',
+    marginBottom: '25px',
   },
   header: {
     backgroundColor: '#47484F',
@@ -245,9 +245,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    position:'absolute',
-    height:'50px',
-    top:10,
+    position: 'absolute',
+    height: '50px',
+    top: 10,
   },
 
   boxinspectionText: {
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     lineHeight: '21@s',
     color: 'black',
-    textTransform:'uppercase',
+    textTransform: 'uppercase',
   },
   circleoneText: {
     fontSize: '12px',
@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: '21@s',
     color: '#716E6E',
-    marginTop:'5px',
+    marginTop: '5px',
   },
   boxpassText: {
     fontSize: '14px',
@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontStyle: 'noraml',
     lineHeight: '22@s',
-    textTransform:'uppercase',
+    textTransform: 'uppercase',
   },
   documentexpiryText: {
     fontSize: '12px',
@@ -506,14 +506,14 @@ const LyftCertificate = (props) => {
                         <View style={styles.passfailContainer}>
                           {check.status == true || check.status == 1 ? (
                             <View style={styles.tickpassContainer}>
-                              <Image style={{ width: '16px',marginLeft:'2px' }} source={TicketImg} />
+                              <Image style={{ width: '16px', marginLeft: '2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickpassContainer}></View>
                           )}
                           {check.status == false || check.status == 0 ? (
                             <View style={styles.tickfailContainer}>
-                              <Image style={{ width: '16px',marginLeft:'2px' }} source={TicketImg} />
+                              <Image style={{ width: '16px', marginLeft: '2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickfailContainer}></View>
@@ -543,14 +543,14 @@ const LyftCertificate = (props) => {
                         <View style={styles.passfailContainer}>
                           {check.status == true || check.status == 1 ? (
                             <View style={styles.tickpassContainer}>
-                              <Image style={{ width: '16px',marginLeft:'2px' }} source={TicketImg} />
+                              <Image style={{ width: '16px', marginLeft: '2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickpassContainer}></View>
                           )}
                           {check.status == false || check.status == 0 ? (
                             <View style={styles.tickfailContainer}>
-                              <Image style={{ width: '16px',marginLeft:'2px' }} source={TicketImg} />
+                              <Image style={{ width: '16px', marginLeft: '2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickfailContainer}></View>
@@ -563,7 +563,7 @@ const LyftCertificate = (props) => {
                   <View style={[styles.inspectionsecondContainer, { marginTop: '20px', width: '96%', marginLeft: -13 }]}>
                     <View style={styles.failpassbox}>
                       <View style={styles.boxinspectionContainer}>
-                        <Text style={styles.boxinspectionText}>VEHICLE INSPCTION</Text>
+                        <Text style={styles.boxinspectionText}>VEHICLE INSPECTION</Text>
                         <Text style={styles.circleoneText}>(Please circle one)</Text>
                       </View>
                       {props.reportData && props.reportData[0].final_status === 'pass' ? (

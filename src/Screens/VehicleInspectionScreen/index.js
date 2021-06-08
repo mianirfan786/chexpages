@@ -5,6 +5,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { Collapse, Row, Col } from 'antd';
 import { UpCircleOutlined } from '@ant-design/icons';
 import { BsCheckCircle } from 'react-icons/bs';
+import { useHistory } from 'react-router-dom';
 
 import { InspectionCard, InstructionModal, Header, SurveyModal, ConfimrationModal } from '../../Components';
 import {
@@ -53,6 +54,7 @@ const VehicleInspectionScreen = ({
   currentUser,
   handleSkipPayment,
 }) => {
+  const history = useHistory();
   const genExtra = () => (
     <UpCircleOutlined
       onClick={(event) => {
@@ -280,7 +282,13 @@ const VehicleInspectionScreen = ({
                     vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
                     vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
                     <div className="vec-inspection-submitbtn_container">
-                      <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
+                      <button
+                        onClick={() => {
+                          // handleSurveyModal(true)
+                          history.push('/transcationScreen');
+                        }}
+                        className="vec-inspection-submit_button"
+                      >
                         Submit
                       </button>
                     </div>
@@ -320,7 +328,13 @@ const VehicleInspectionScreen = ({
                     vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
                     vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 ? (
                     <div className="vec-inspection-submitbtn_container">
-                      <button onClick={() => handleSurveyModal(true)} className="vec-inspection-submit_button">
+                      <button
+                        onClick={() => {
+                          history.push('/transcationScreen');
+                          //  handleSurveyModal(true)
+                        }}
+                        className="vec-inspection-submit_button"
+                      >
                         Submit
                       </button>
                     </div>
