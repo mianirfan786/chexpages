@@ -60,7 +60,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
           ) : (
             <>
               <div style={{ fontSize: '26px', color: 'white', marginTop: '50px' }}>{vehicleInstructionValues?.title}</div>
-              <div style={{ color: 'white' }}>{vehicleInstructionValues?.description}</div>
+              <div style={{ color: 'white', marginTop: '20px' }}>{vehicleInstructionValues?.description}</div>
               <div style={{ marginBottom: '60px', marginTop: '60px' }}>
                 {vehicleInstructionValues?.type === 'Photo' ? (
                   <>
@@ -71,9 +71,9 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                     <source src={`${vehicleInstructionValues?.video}#t=0.5`} type="video/mp4" />
                   </video>
                 )}
-                <div className="instruction-modal-step-container">
+                <div style={{ paddingLeft: '18px' }} className="instruction-modal-step-container">
                   {vehicleInstructionValues?.steps.map((step, index) => (
-                    <ul style={{ listStyle: 'none', padding: 0 }} key={index}>
+                    <ul style={{ padding: 0, marginLeft: 0 }} key={index}>
                       <li>
                         <div className="instruction-modal-step">{step}</div>
                       </li>
