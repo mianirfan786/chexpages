@@ -53,6 +53,7 @@ const VehicleInspectionScreen = ({
   vehicleStatusLoading,
   currentUser,
   handleSkipPayment,
+  vehicleStatus,
 }) => {
   const history = useHistory();
   const genExtra = () => (
@@ -302,11 +303,14 @@ const VehicleInspectionScreen = ({
                 </>
               ) : (
                 <>
-                  {vehicleInstructions?.exteriorItems.filter((e) => e.url).length === 4 &&
-                  vehicleInstructions?.interiorItems.filter((e) => e.url).length === 6 &&
-                  vehicleInstructions?.tires.filter((e) => e.url).length === 4 &&
-                  vehicleInstructions?.verificationItem.filter((e) => e.url).length === 2 &&
-                  currentUser?.fountainId !== null ? (
+                  {vehicleInstructions?.exteriorItems.filter((e) => e.url)?.length === 4 &&
+                  vehicleInstructions?.interiorItems.filter((e) => e.url)?.length === 6 &&
+                  vehicleInstructions?.tires.filter((e) => e.url)?.length === 4 &&
+                  vehicleInstructions?.verificationItem.filter((e) => e.url)?.length === 2 &&
+                  vehicleStatus &&
+                  vehicleStatus?.length == 1 &&
+                  vehicleStatus &&
+                  vehicleStatus[0]?.name.toLowerCase() == 'zum' ? (
                     <div className="vec-inspection-submitbtn_container">
                       <button disabled={vehicleStatusLoading} onClick={() => handleSkipPayment(paymentStatus)} className="vec-inspection-submit_button">
                         {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}

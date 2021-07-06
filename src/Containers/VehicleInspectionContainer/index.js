@@ -27,6 +27,7 @@ const VehicleInspectionContainer = (props) => {
   const [imageCategory, setImageCategory] = useState(null);
   const [rating, setNewRating] = useState(0);
   const [comment, setComment] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [commentError, setCommentError] = useState(false);
   const [surveyModalLoading, setSurveyModalLoading] = useState(false);
   const [surveyChecks, setSurveyChecks] = useState({
@@ -47,13 +48,13 @@ const VehicleInspectionContainer = (props) => {
   }, []);
 
   const handleRequests = () => {
-    const { getVehicleFile, currentUser, getSurveyStatus } = props;
+    const { getVehicleFile, currentUser, getSurveyStatus, getVehiclesStatus } = props;
     getSurveyStatus(currentUser?.id, setSurveyCheck);
     getVehicleFile(currentUser?.vehicles[0]?.id);
+    getVehiclesStatus(currentUser?.vehicles[0]?.id, setLoading);
   };
 
   const handleModal = (value, groupType) => {
-    console.log(value, groupType);
     setImageCategory(value.id);
     setGroupType(groupType);
     setVehicleInstruction(value);
@@ -185,6 +186,7 @@ const VehicleInspectionContainer = (props) => {
       changeVehicleStatus={handleChangeVehicleStatus}
       vehicleStatusLoading={vehicleStatusLoading}
       handleSkipPayment={handleSkipPayment}
+      vehicleStatus={props?.vehicleStatus}
     />
   );
 };
@@ -199,6 +201,7 @@ function mapStateToProps(state) {
     isLoading: state.vehicleInstruction.isVehicleLoading,
     vehicleInstructions: state.vehicleInstruction,
     currentUser: state.auth.currentUser,
+    vehicleStatus: state.vehicleInstruction.vehicleStatus,
   };
 }
 

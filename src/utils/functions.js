@@ -2,7 +2,7 @@
 
 export function setCompanies(companiesArray) {
   let updatedArray = [];
-  companiesArray?.data?.map((company) => {
+  companiesArray?.map((company) => {
     return updatedArray.push({
       label: `${company.name}`,
       value: company.id,

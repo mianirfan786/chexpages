@@ -59,7 +59,7 @@ export function login(params, history, addToast) {
         window.location.reload(`/vehicleinspection`);
       })
       .catch((err) => {
-        addToast(`${err.response.data.message}`, { appearance: 'error' });
+        addToast(`${err?.response?.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
