@@ -11,7 +11,7 @@ import { PrivacyModal } from '../../Components';
 import './style.css';
 import '../../App.css';
 
-const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleCheckBox, showModal, handleModal, handleDropDown }) => {
+const SignUpScreen = ({ dropDown, handleSubmit, isLoading, handleCheckBox, showModal, handleModal, handleDropDown }) => {
   return (
     <div className="register-main-container">
       <div className="register-background-image">
@@ -91,7 +91,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                 >
                   <Input.Password style={{ fontFamily: 'Poppins' }} className="input-field" placeholder="Password" />
                 </Form.Item>
-                <Form.Item style={{ position: 'relative' }} name="companies" rules={[{ required: true, message: 'Please select company(s)' }]}>
+                {/* <Form.Item style={{ position: 'relative' }} name="companies" rules={[{ required: true, message: 'Please select company(s)' }]}>
                   <Select
                     open={dropDown}
                     onDropdownVisibleChange={handleDropDown}
@@ -115,7 +115,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                     className="input-field"
                     options={companies}
                   />
-                </Form.Item>
+                </Form.Item> */}
 
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <div></div>

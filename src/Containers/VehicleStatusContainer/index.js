@@ -16,9 +16,9 @@ const VehicleStatusContainer = (props) => {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    if (user?.updates || user?.updates === null || user?.updates === undefined) {
-      window.location.replace('/logoutForChanges');
-    }
+    // if (user?.updates || user?.updates === null || user?.updates === undefined) {
+    //   window.location.replace('/logoutForChanges');
+    // }
     const { currentUser, getVehiclesStatus } = props;
     getVehiclesStatus(currentUser?.vehicles[0]?.id, setLoading);
   }, []);

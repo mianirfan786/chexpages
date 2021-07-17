@@ -56,7 +56,8 @@ export function login(params, history, addToast) {
         localStorage.setItem('vehicleData', JSON.stringify(resp.data.data.vehicles[0]));
         localStorage.setItem('recommendScreen', JSON.stringify(resp.data.data?.recommendation_seen));
         dispatch(setIsAuthenticated(true));
-        window.location.reload(`/vehicleinspection`);
+        history.push('/userVehicleStatus');
+        // window.location.reload(`/vehicleinspection`);
       })
       .catch((err) => {
         addToast(`${err?.response?.data.message}`, { appearance: 'error' });

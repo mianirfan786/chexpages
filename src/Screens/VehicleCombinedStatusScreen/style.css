@@ -1,0 +1,36 @@
+.content-main-container {
+  width: 375px;
+  border-radius: 20px;
+  /* background-color: #084e8f ; */
+  /* margin-top: 40px; */
+}
+
+.main-container {
+  background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
+  position: absolute;
+  min-height: 100%;
+  height: auto;
+  width: 100%;
+  border: none;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modals-main-container {
+  background-color: #e5e5e5;
+  border-radius: 20px;
+  margin-top: 30px;
+  height: auto;
+}
+.white-border-bottom_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.white-border-bottom {
+  border-bottom: 2px solid white;
+  width: 80%;
+  margin-top: 20px;
+}

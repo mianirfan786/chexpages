@@ -26,6 +26,7 @@ import {
   TermsAndPolicyContainer,
   ContactUsContainer,
   LyftCertificateContainer,
+  VehicleCombinedStatusContainer,
 } from './Containers';
 import { LogoutForChanges } from '../src/Screens';
 
@@ -40,6 +41,7 @@ function App(props) {
   let isAuthenticated = currentUser ? true : false;
   return (
     <Switch>
+      <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/userVehicleStatus" component={VehicleCombinedStatusContainer} />
       <Route storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/logoutForChanges" component={LogoutForChanges} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleStatus" component={VehicleStatusContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleinspection" component={VehicleInspectionContainer} />

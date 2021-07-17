@@ -14,6 +14,7 @@ import DoAndDoesContainer from './DoAndDoesContainer';
 import TermsAndPolicyContainer from './TermsAndPolicyContainer';
 import ContactUsContainer from './ContactUsContainer';
 import LyftCertificateContainer from './LyftCertificateContainer';
+import VehicleCombinedStatusContainer from './VehicleCombinedStatusContainer';
 export {
   IntroContainer,
   LoginContainer,
@@ -31,4 +32,5 @@ export {
   TermsAndPolicyContainer,
   ContactUsContainer,
   LyftCertificateContainer,
+  VehicleCombinedStatusContainer,
 };

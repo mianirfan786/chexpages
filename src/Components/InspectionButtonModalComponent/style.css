@@ -1,0 +1,106 @@
+.inspection-modal-container .ant-modal-content {
+  width: 300px !important;
+  height: 510px !important;
+  border-radius: 10px !important;
+}
+.inspection-modal-container .ant-modal-footer{
+  display: none !important;
+}
+.inspection-modal-container .ant-modal-header{
+  display: none !important;
+}
+.inspection-btn-align{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.inspection-btn-container{
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 8px;
+margin-top: 80px;
+background: linear-gradient(90deg, #FF7A00 0%, #FF9900 94.74%);
+border-radius: 100px;
+width: 80%;
+cursor: pointer;
+}
+.inspections-btn-text{
+color: white;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 27px;
+letter-spacing: 0em;
+text-align: center;
+margin-left: 3px;
+}
+.inspection-modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  padding: 10px;
+}
+.select-company-text{
+color: black;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+margin-left: 10px;
+}
+.additional-selection-container{
+  background-color: #FFC700;
+  width: 300px;
+  padding: 1px;
+}
+.additional-selection-text{
+font-size: 9px;
+/* font-style: italic; */
+font-weight: 500;
+line-height: 12px;
+text-align: center;
+color: black;
+}
+.inspection-modal-content_container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  padding: 10px;
+  border-bottom: 0.5px solid rgba(85, 83, 83, 0.1);
+}
+
+.select-btn-container{
+  background: linear-gradient(90deg, #FF7A00 0%, #FF9900 94.74%);
+border-radius: 100px;
+padding: 7px;
+width: 70%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 30px;
+cursor: pointer;
+}
+
+.select-text{
+color: white;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.select-text:hover{
+  color: white;
+  }
+  .inspection-modal-content_text{
+color: #1468BA;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 14px;
+cursor: pointer;
+  }

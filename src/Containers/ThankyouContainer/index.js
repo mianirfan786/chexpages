@@ -13,9 +13,9 @@ const ThankyouContainer = () => {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    if (user?.updates) {
-      window.location.replace('/logoutForChanges');
-    }
+    // if (user?.updates) {
+    //   window.location.replace('/logoutForChanges');
+    // }
   });
   const handleNext = () => {
     history.push('/vehicleStatus');

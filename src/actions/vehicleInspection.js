@@ -58,6 +58,13 @@ function setVehicleStatus(data) {
   };
 }
 
+function setInspectionByStatus(data) {
+  return {
+    type: types.SET_INSPECTION_BY_STATUS,
+    inspectionByStatus: data,
+  };
+}
+
 function setCertificateData(data) {
   return {
     type: types.SET_CERTIFICATE_DATA,
@@ -295,6 +302,21 @@ export function skipPaymentMethod(vehicleId, setLoading, history, paymentStatus)
       })
       .catch((err) => {
         setLoading(false);
+      });
+  };
+}
+
+export function getInspectionByStatus(params, setLoading) {
+  // setLoading(true);
+  return (dispatch) => {
+    axios
+      .post(`${Api}/status/vehicle`, params, { headers })
+      .then((resp) => {
+        dispatch(setInspectionByStatus(resp.data));
+        // setLoading(false);
+      })
+      .catch((err) => {
+        // setLoading(false);
       });
   };
 }

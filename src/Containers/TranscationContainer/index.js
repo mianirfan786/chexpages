@@ -25,9 +25,9 @@ const TranscationContainer = (props) => {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const { getPaymentPriceInfo, vehicleData } = props;
-    if (user?.updates || user?.updates === null || user?.updates === undefined) {
-      window.location.replace('/logoutForChanges');
-    }
+    // if (user?.updates || user?.updates === null || user?.updates === undefined) {
+    //   window.location.replace('/logoutForChanges');
+    // }
     getPaymentPriceInfo(user?.vehicles[0]?.id, setPrice, setPriceLoading);
   }, []);
   const handleSubmit = async () => {

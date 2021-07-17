@@ -323,5 +323,11 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
       lyftVehicleCertificate: action.lyftVehicleCertificate,
     };
   },
+  [types.SET_INSPECTION_BY_STATUS](state, action) {
+    return {
+      ...state,
+      inspectionByStatus: action.inspectionByStatus,
+    };
+  },
 });
 export default vehicleInsturctionsReducer;

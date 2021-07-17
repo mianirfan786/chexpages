@@ -16,6 +16,7 @@ import TermsAndPolicyScreen from './TermsAndPolicyScreen';
 import ContactUsScreen from './ContactUsScreen';
 import LyftCertificate from './Certificates/Lyftcertificate';
 import MaintancePage from './MaintanceScreen/index';
+import VehicleCombineStatusScreen from './VehicleCombinedStatusScreen';
 export {
   IntroScreen,
   LoginScreen,
@@ -35,4 +36,5 @@ export {
   ContactUsScreen,
   LyftCertificate,
   MaintancePage,
+  VehicleCombineStatusScreen,
 };

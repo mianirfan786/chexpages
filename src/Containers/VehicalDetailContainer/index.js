@@ -20,9 +20,9 @@ const VehicleDetailContainer = (props) => {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    if (user?.updates || user?.updates === null || user?.updates === undefined) {
-      window.location.replace('/logoutForChanges');
-    }
+    // if (user?.updates || user?.updates === null || user?.updates === undefined) {
+    //   window.location.replace('/logoutForChanges');
+    // }
   });
   const handleSubmit = async () => {
     if (!stripe || !elements) {
