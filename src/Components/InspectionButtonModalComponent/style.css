@@ -2,6 +2,8 @@
   width: 300px !important;
   height: 510px !important;
   border-radius: 10px !important;
+  overflow: scroll;
+  padding: 10px !important;
 }
 .inspection-modal-container .ant-modal-footer{
   display: none !important;

@@ -201,7 +201,7 @@ export function getSurveyStatus(id, setSurveyCheck) {
           setSurveyCheck(false);
         }
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }
 
@@ -307,12 +307,26 @@ export function skipPaymentMethod(vehicleId, setLoading, history, paymentStatus)
 }
 
 export function getInspectionByStatus(params, setLoading) {
-  // setLoading(true);
+  setLoading(true);
   return (dispatch) => {
     axios
       .post(`${Api}/status/vehicle`, params, { headers })
       .then((resp) => {
         dispatch(setInspectionByStatus(resp.data));
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  };
+}
+
+export function createInspection(body) {
+  // setLoading(true);
+  return (dispatch) => {
+    axios
+      .post(`${Api}/create/inspection`, body)
+      .then((resp) => {
         // setLoading(false);
       })
       .catch((err) => {

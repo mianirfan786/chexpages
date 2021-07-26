@@ -7,25 +7,15 @@ import { TiTick } from 'react-icons/ti';
 import './style.css';
 import { Link } from 'react-router-dom';
 
-const InspectionButtonModalComponent = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isModalChecked, setIsModalChecked] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const checkModal = () => {
-    setIsModalChecked(!isModalChecked);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+const InspectionButtonModalComponent = ({
+  companies,
+  handleCancel,
+  handleOk,
+  checkModal,
+  showModal,
+  isModalVisible,
+  modalChecked,
+  handleCreateInspection }) => {
 
   return (
     <>
@@ -47,48 +37,20 @@ const InspectionButtonModalComponent = () => {
             <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
           </div>
         </div>
+        {companies?.map((company) => {
+          return (
+            <div className="inspection-modal-content_container"
+              onClick={() => checkModal(company?.id)}
+            >
+              {console.log(modalChecked.includes(company?.id))}
+              <div style={{ margin: '10px' }} className="inspection-modal-content_text" >{company?.name}</div>
+              {modalChecked.includes(company?.id) ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
 
-        <div className="inspection-modal-content_container" onClick={checkModal}>
-          <div className="inspection-modal-content_text">Adroit</div>
-          {isModalChecked ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
-        </div>
+            </div>
+          );
+        })}
 
-        <div className="inspection-modal-content_container" onClick={checkModal}>
-          <div className="inspection-modal-content_text">Lyft</div>
-          {isModalChecked ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
-        </div>
-
-        <div className="inspection-modal-content_container" onClick={checkModal}>
-          <div className="inspection-modal-content_text">Uber</div>
-          {isModalChecked ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
-        </div>
-
-        <div className="inspection-modal-content_container" onClick={checkModal}>
-          <div className="inspection-modal-content_text">Zum</div>
-          {isModalChecked ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
-        </div>
-
-        <div className="inspection-modal-content_container" onClick={checkModal}>
-          <div className="inspection-modal-content_text">Travellers</div>
-          {isModalChecked ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
-        </div>
-
-        <div className="inspection-modal-content_container" onClick={checkModal}>
-          <div className="inspection-modal-content_text">Hertz</div>
-          {isModalChecked ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
-        </div>
-
-        <div className="inspection-modal-content_container" onClick={checkModal}>
-          <div className="inspection-modal-content_text">Travel AB</div>
-          {isModalChecked ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
-        </div>
-
-        <div className="inspection-modal-content_container" onClick={checkModal}>
-          <div className="inspection-modal-content_text">TravelZ</div>
-          {isModalChecked ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
-        </div>
-
-        <div className="select-btn-container">
+        <div className="select-btn-container" onClick={() => handleCreateInspection()}>
           <Link className="select-text">Select</Link>
         </div>
       </Modal>
