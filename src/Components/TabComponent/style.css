@@ -5,6 +5,7 @@
 }
 .open-tab-container {
   padding: 8px;
+  cursor: pointer;
 }
 
 .arrow-icon-container {

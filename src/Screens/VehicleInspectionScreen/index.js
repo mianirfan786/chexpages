@@ -99,7 +99,7 @@ const VehicleInspectionScreen = ({
                   style={{ overflow: 'hidden' }}
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
-                      {currentUser.lyft_user === true || currentUser.lyft_user === false ? (
+                      {currentUser.lyftUser === true || currentUser.lyftUser === false ? (
                         <Col>
                           {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
                             <BsCheckCircle color="#099220" size={22} />
@@ -128,7 +128,7 @@ const VehicleInspectionScreen = ({
                 >
                   <div className="veh-inspection-cards_container">
                     {vehicleInstructions?.verificationItem?.map((item, index) =>
-                      currentUser?.lyft_user === true || currentUser?.lyft_user === false ? (
+                      currentUser?.lyftUser === true || currentUser?.lyftUser === false ? (
                         <div key={index} className="veh-inspection-first_card">
                           <InspectionCard
                             deleteFile={handleDeleteModal}
@@ -141,7 +141,7 @@ const VehicleInspectionScreen = ({
                             type={item.type}
                           />
                         </div>
-                      ) : currentUser?.lyft_user === null ? (
+                      ) : currentUser?.lyftUser === null ? (
                         <div key={index} className="veh-inspection-first_card">
                           <>
                             {item.lyft ? null : (
@@ -270,7 +270,7 @@ const VehicleInspectionScreen = ({
                   </div>
                 </Panel>
               </Collapse>
-              {currentUser.lyft_user === true || currentUser.lyft_user === false ? (
+              {currentUser.lyftUser === true || currentUser.lyftUser === false ? (
                 <>
                   {paymentStatus && paymentStatus == true ? (
                     <div className="vec-inspection-submitbtn_container">
@@ -304,13 +304,13 @@ const VehicleInspectionScreen = ({
               ) : (
                 <>
                   {vehicleInstructions?.exteriorItems.filter((e) => e.url)?.length === 4 &&
-                  vehicleInstructions?.interiorItems.filter((e) => e.url)?.length === 6 &&
-                  vehicleInstructions?.tires.filter((e) => e.url)?.length === 4 &&
-                  vehicleInstructions?.verificationItem.filter((e) => e.url)?.length === 2 &&
-                  vehicleStatus &&
-                  vehicleStatus?.length == 1 &&
-                  vehicleStatus &&
-                  vehicleStatus[0]?.name.toLowerCase() == 'zum' ? (
+                    vehicleInstructions?.interiorItems.filter((e) => e.url)?.length === 6 &&
+                    vehicleInstructions?.tires.filter((e) => e.url)?.length === 4 &&
+                    vehicleInstructions?.verificationItem.filter((e) => e.url)?.length === 2 &&
+                    vehicleStatus &&
+                    vehicleStatus?.length == 1 &&
+                    vehicleStatus &&
+                    vehicleStatus[0]?.name.toLowerCase() == 'zum' ? (
                     <div className="vec-inspection-submitbtn_container">
                       <button disabled={vehicleStatusLoading} onClick={() => handleSkipPayment(paymentStatus)} className="vec-inspection-submit_button">
                         {vehicleStatusLoading ? <ClipLoader color={'white'} size={20} /> : 'Submit'}

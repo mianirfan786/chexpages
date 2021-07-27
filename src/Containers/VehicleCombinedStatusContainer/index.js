@@ -1,18 +1,27 @@
 /*eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 import ActionCreators from '../../actions';
 import { VehicleCombineStatusScreen } from '../../Screens';
 
 const VehicleCombinedStatusContainer = (props) => {
+  const history = useHistory();
   const { getInspectionByStatus, createInspection, vehiclesByStatus, getCompanies, companies } = props;
   const [loading, setLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   // const [isModalChecked, setIsModalChecked] = useState(false);
   const [modalChecked, setModalChecked] = useState([]);
 
+
+  useEffect(() => {
+    getInspectionByStatus({
+      status: 'REVIEWED'
+    }, setLoading);
+    getCompanies();
+  }, []);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -40,12 +49,7 @@ const VehicleCombinedStatusContainer = (props) => {
   };
 
 
-  useEffect(() => {
-    getInspectionByStatus({
-      status: 'REVIEWED'
-    }, setLoading);
-    getCompanies();
-  }, []);
+
 
   const handleStatus = (status) => {
     getInspectionByStatus({
@@ -57,7 +61,7 @@ const VehicleCombinedStatusContainer = (props) => {
     const body = {
       companies: modalChecked
     }
-    createInspection(body);
+    createInspection(body, history);
   }
   return (
     <div>

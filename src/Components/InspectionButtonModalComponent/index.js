@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal } from 'antd';
 
 import { AiOutlinePlus } from 'react-icons/ai';
@@ -42,7 +42,6 @@ const InspectionButtonModalComponent = ({
             <div className="inspection-modal-content_container"
               onClick={() => checkModal(company?.id)}
             >
-              {console.log(modalChecked.includes(company?.id))}
               <div style={{ margin: '10px' }} className="inspection-modal-content_text" >{company?.name}</div>
               {modalChecked.includes(company?.id) ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
 

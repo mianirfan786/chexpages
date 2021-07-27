@@ -40,7 +40,6 @@ const VehicleInspectionContainer = (props) => {
   const [surveyCheck, setSurveyCheck] = useState(false);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('currentUser'));
     // if (user?.updates || user?.updates === null || user?.updates === undefined) {
     //   window.location.replace('/logoutForChanges');
     // }
@@ -48,10 +47,10 @@ const VehicleInspectionContainer = (props) => {
   }, []);
 
   const handleRequests = () => {
-    const { getVehicleFile, currentUser, getSurveyStatus, getVehiclesStatus } = props;
-    getSurveyStatus(currentUser?.id, setSurveyCheck);
-    getVehicleFile(currentUser?.vehicles[0]?.id);
-    getVehiclesStatus(currentUser?.vehicles[0]?.id, setLoading);
+    const { getVehicleFile, currentUser, getSurveyStatus, getVehiclesStatus, match } = props;
+    // getSurveyStatus(currentUser?.id, setSurveyCheck);
+    getVehicleFile(match?.params?.id);
+    getVehiclesStatus(match?.params?.vehicleId, setLoading);
   };
 
   const handleModal = (value, groupType) => {
@@ -81,10 +80,11 @@ const VehicleInspectionContainer = (props) => {
     };
     await imageCompression(imageFile, options)
       .then(function (compressedFile) {
-        const { uploadFile, vehicleData } = props;
-        uploadFile(compressedFile, { type: compressedFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
+        const { uploadFile, match } = props;
+
+        uploadFile(compressedFile, { type: compressedFile.type }, match?.params?.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
       })
-      .catch(function (error) {});
+      .catch(function (error) { });
     setuploadingPercentage(0);
   };
 
@@ -92,8 +92,8 @@ const VehicleInspectionContainer = (props) => {
     var videoFile = event.target.files[0];
     event.target.value = '';
 
-    const { uploadFile, vehicleData } = props;
-    uploadFile(videoFile, { type: videoFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
+    const { uploadFile, match } = props;
+    uploadFile(videoFile, { type: videoFile.type }, match?.params?.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
     setuploadingPercentage(0);
   };
 
@@ -133,8 +133,8 @@ const VehicleInspectionContainer = (props) => {
   };
 
   const deleteFile = () => {
-    const { deleteVehicleFile, vehicleData } = props;
-    deleteVehicleFile(vehicleData.id, fileToBeDeleted?.id, fileToBeDeleted?.groupType, setDeleteLoading, setDeleteModal);
+    const { deleteVehicleFile } = props;
+    deleteVehicleFile(fileToBeDeleted?.id, fileToBeDeleted?.groupType, setDeleteLoading, setDeleteModal);
   };
 
   const handleDeleteModal = (groupType, id) => {
@@ -149,12 +149,12 @@ const VehicleInspectionContainer = (props) => {
   };
 
   const handleChangeVehicleStatus = () => {
-    const { changeVehicleStatus, vehicleData } = props;
-    changeVehicleStatus(vehicleData.id, setVehicleStatusLoading, history);
+    const { changeVehicleStatus, match } = props;
+    changeVehicleStatus(match?.params?.id, setVehicleStatusLoading, history);
   };
   const handleSkipPayment = (paymentStatus) => {
-    const { vehicleData, skipPaymentMethod } = props;
-    skipPaymentMethod(vehicleData.id, setVehicleStatusLoading, history, paymentStatus);
+    const { match, skipPaymentMethod } = props;
+    skipPaymentMethod(match?.params?.id, setVehicleStatusLoading, history, paymentStatus);
   };
   return (
     <VehicleInspectionScreen
