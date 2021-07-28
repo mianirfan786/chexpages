@@ -55,6 +55,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, handleCheckBox, showM
                   className="form-item-style"
                   rules={[
                     {
+                      // type: 'email',
                       required: true,
                       message: 'Please enter valid email!',
                       pattern: new RegExp(
