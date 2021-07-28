@@ -1,11 +1,10 @@
 import React from 'react';
-import { Modal } from 'antd';
-
 import { AiOutlinePlus } from 'react-icons/ai';
 import { GrFormClose } from 'react-icons/gr';
 import { TiTick } from 'react-icons/ti';
+
+import { Modal } from 'antd';
 import './style.css';
-import { Link } from 'react-router-dom';
 
 const InspectionButtonModalComponent = ({
   companies,
@@ -15,7 +14,10 @@ const InspectionButtonModalComponent = ({
   showModal,
   isModalVisible,
   modalChecked,
-  handleCreateInspection }) => {
+  handleToast,
+  handleCreateInspection,
+  handleLicensePlateNumber,
+  licensePlateNumber }) => {
 
   return (
     <>
@@ -39,7 +41,7 @@ const InspectionButtonModalComponent = ({
             <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
           </div>
         </div>
-        <input type="input" placeholder="License Plate Number" className="modal-input-field" />
+        <input type="input" placeholder="License Plate Number" className="modal-input-field" onChange={(number) => handleLicensePlateNumber(number.target.value)} />
         {companies?.map((company) => {
           return (
             <div className="inspection-modal-content_container"
@@ -51,10 +53,15 @@ const InspectionButtonModalComponent = ({
             </div>
           );
         })}
-
-        <div className="select-btn-container" onClick={() => handleCreateInspection()}>
-          <Link className="select-text">Select</Link>
-        </div>
+        {licensePlateNumber !== "" && modalChecked.length !== 0 ?
+          <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleCreateInspection()}>
+            <div className="select-text">Select</div>
+          </button>
+          :
+          <button style={{ border: 'none', marginBottom: '10px' }} className="select-btn-container" onClick={() => handleToast()}>
+            <div className="select-text">Select</div>
+          </button>
+        }
       </Modal>
     </>
   );

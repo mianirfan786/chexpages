@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import { useToasts } from 'react-toast-notifications';
 
 import ActionCreators from '../../actions';
 import { VehicleCombineStatusScreen } from '../../Screens';
@@ -14,6 +15,9 @@ const VehicleCombinedStatusContainer = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   // const [isModalChecked, setIsModalChecked] = useState(false);
   const [modalChecked, setModalChecked] = useState([]);
+  const [licensePlateNumber, setLicensePlateNumber] = useState("");
+
+  const { addToast } = useToasts();
 
 
   useEffect(() => {
@@ -26,6 +30,10 @@ const VehicleCombinedStatusContainer = (props) => {
   const showModal = () => {
     setIsModalVisible(true);
   };
+
+  const handleLicensePlateNumber = (number) => {
+    setLicensePlateNumber(number);
+  }
 
   const checkModal = (id) => {
     const arr = [...modalChecked];
@@ -48,7 +56,9 @@ const VehicleCombinedStatusContainer = (props) => {
     setIsModalVisible(false);
   };
 
-
+  const handleToast = () => {
+    { addToast('Incomplete information ', { appearance: 'warning' }) }
+  }
 
 
   const handleStatus = (status) => {
@@ -59,6 +69,7 @@ const VehicleCombinedStatusContainer = (props) => {
 
   const handleCreateInspection = () => {
     const body = {
+      licensePlateNumber,
       companies: modalChecked
     }
     createInspection(body, history);
@@ -69,12 +80,15 @@ const VehicleCombinedStatusContainer = (props) => {
         isModalVisible={isModalVisible}
         modalChecked={modalChecked}
         handleCancel={handleCancel}
+        handleToast={handleToast}
         handleOk={handleOk}
         checkModal={checkModal}
         showModal={showModal}
         companies={companies}
         isLoading={loading}
         handleCreateInspection={handleCreateInspection}
+        handleLicensePlateNumber={handleLicensePlateNumber}
+        licensePlateNumber={licensePlateNumber}
         vehiclesByStatus={vehiclesByStatus}
         handleStatus={handleStatus} />
     </div>

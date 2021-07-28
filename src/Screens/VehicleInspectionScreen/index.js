@@ -54,6 +54,7 @@ const VehicleInspectionScreen = ({
   currentUser,
   handleSkipPayment,
   vehicleStatus,
+  match,
 }) => {
   const history = useHistory();
   const genExtra = () => (
@@ -290,7 +291,7 @@ const VehicleInspectionScreen = ({
                       <button
                         onClick={() => {
                           // handleSurveyModal(true)
-                          history.push('/transcationScreen');
+                          history.push(`/transcationScreen/${match?.id}/${match.vehicleId}`);
                         }}
                         className="vec-inspection-submit_button"
                       >
@@ -338,7 +339,7 @@ const VehicleInspectionScreen = ({
                     <div className="vec-inspection-submitbtn_container">
                       <button
                         onClick={() => {
-                          history.push('/transcationScreen');
+                          history.push(`/transcationScreen/${match?.id}/${match.vehicleId}`);
                           //  handleSurveyModal(true)
                         }}
                         className="vec-inspection-submit_button"

@@ -183,6 +183,7 @@ const VehicleInspectionContainer = (props) => {
       handleSubmitSurvey={handleSubmitSurvey}
       commentError={commentError}
       paymentStatus={props.paymentStatus}
+      match={props.match.params}
       changeVehicleStatus={handleChangeVehicleStatus}
       vehicleStatusLoading={vehicleStatusLoading}
       handleSkipPayment={handleSkipPayment}

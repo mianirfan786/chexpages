@@ -14,7 +14,10 @@ const VehicleCombinedStatusScreen = ({
   showModal,
   isModalVisible,
   modalChecked,
-  handleCreateInspection }) => {
+  handleToast,
+  handleCreateInspection,
+  handleLicensePlateNumber,
+  licensePlateNumber }) => {
 
   return (
     <div className="main-container">
@@ -43,6 +46,9 @@ const VehicleCombinedStatusScreen = ({
               checkModal={checkModal}
               showModal={showModal}
               companies={companies}
+              handleToast={handleToast}
+              licensePlateNumber={licensePlateNumber}
+              handleLicensePlateNumber={handleLicensePlateNumber}
               handleCreateInspection={handleCreateInspection} />
           </div>
         </div>
