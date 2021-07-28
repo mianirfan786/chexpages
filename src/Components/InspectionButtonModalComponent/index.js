@@ -53,15 +53,17 @@ const InspectionButtonModalComponent = ({
             </div>
           );
         })}
-        {licensePlateNumber !== "" && modalChecked.length !== 0 ?
-          <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleCreateInspection()}>
-            <div className="select-text">Select</div>
-          </button>
-          :
-          <button style={{ border: 'none', marginBottom: '10px' }} className="select-btn-container" onClick={() => handleToast()}>
-            <div className="select-text">Select</div>
-          </button>
-        }
+        <div style={{ padding: '15px', width: '80%' }}>
+          {licensePlateNumber !== "" && modalChecked.length !== 0 ?
+            <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleCreateInspection()}>
+              <div className="select-text">Select</div>
+            </button>
+            :
+            <button style={{ border: 'none', marginBottom: '10px' }} className="select-btn-container" onClick={() => handleToast()}>
+              <div className="select-text">Select</div>
+            </button>
+          }
+        </div>
       </Modal>
     </>
   );
