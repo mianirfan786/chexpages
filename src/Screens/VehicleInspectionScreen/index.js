@@ -69,7 +69,11 @@ const VehicleInspectionScreen = ({
       <ImageBackgroundVehicleInspection>
         <MainBgInsertDetails>
           <ContentVehicleInspection>
-            <Header arrow={false} />
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+              <div style={{ width: '30%' }}>
+                <Header arrow={false} />
+              </div>
+            </div>
             <MainDownContainer>
               <VehicleInspectionP>Please complete inspection items within each category below</VehicleInspectionP>
             </MainDownContainer>

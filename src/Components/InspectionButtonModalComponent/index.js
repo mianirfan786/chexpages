@@ -25,7 +25,9 @@ const InspectionButtonModalComponent = ({
           <div className="inspections-btn-text">New Inspection</div>
         </div>
       </div>
+
       <Modal className="inspection-modal-container" title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+
         <div className="inspection-modal-header">
           <div></div>
           <div className="select-company-text">Select Compnay</div>
@@ -37,6 +39,7 @@ const InspectionButtonModalComponent = ({
             <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
           </div>
         </div>
+        <input type="input" placeholder="License Plate Number" className="modal-input-field" />
         {companies?.map((company) => {
           return (
             <div className="inspection-modal-content_container"

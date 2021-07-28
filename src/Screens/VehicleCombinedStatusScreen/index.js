@@ -20,9 +20,9 @@ const VehicleCombinedStatusScreen = ({
     <div className="main-container">
       <div className="container">
         <div className="content-main-container">
-          <div style={{ width: '100%' }}>
-            <Header />
-          </div>
+
+          <Header />
+
           <div className="modals-main-container">
             <TabComponent
               handleCancel={handleCancel}

@@ -1,10 +1,12 @@
 .inspection-modal-container .ant-modal-content {
-  width: 300px !important;
-  height: 510px !important;
+  width: 317px !important;
+  height: auto !important;
   border-radius: 10px !important;
-  overflow: scroll;
+  overflow-y: scroll;
+  height: 510px !important;
   padding: 10px !important;
 }
+
 .inspection-modal-container .ant-modal-footer{
   display: none !important;
 }
@@ -105,4 +107,15 @@ font-style: normal;
 font-weight: 500;
 line-height: 14px;
 cursor: pointer;
+  }
+
+  .modal-input-field{
+    padding: 7px;
+    margin-top: 15px;
+    width: 100%;
+    color: black;
+    font-size: 13px;
+    font-weight: 400;
+    background-color: rgb(233, 233, 233);
+
   }
