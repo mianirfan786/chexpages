@@ -51,9 +51,10 @@ const InspectionButtonModalComponent = ({
             </div>
           );
         })}
-
-        <div className="select-btn-container" onClick={() => handleCreateInspection()}>
-          <Link className="select-text">Select</Link>
+        <div style={{ padding: '15px', width: '80%' }}>
+          <div className="select-btn-container" onClick={() => handleCreateInspection()}>
+            <Link className="select-text">Select</Link>
+          </div>
         </div>
       </Modal>
     </>

@@ -10,7 +10,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading }) => {
   return (
     <div>
       <Tabs onChange={(key) => handleStatus(key)} defaultActiveKey="REVIEWED" centered>
-        <TabPane key="REVIEWED" tab={<div style={{ color: '#084e8f', fontSize: '16px' }}>Reviewed</div>}>
+        <TabPane key="REVIEWED" tab={<div style={{ color: '#084e8f', fontSize: '15px' }}>Reviewed</div>}>
           {isLoading ?
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }}>
               <ClipLoader color={'#246DB5'} size={20} />
@@ -25,7 +25,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading }) => {
             </>}
 
         </TabPane>
-        <TabPane key="IN_REVIEW" tab={<div style={{ color: '#084e8f', fontSize: '16px', marginLeft: '30px', marginRight: '30px' }}>In Review</div>}>
+        <TabPane key="IN_REVIEW" tab={<div style={{ color: '#084e8f', fontSize: '15px', marginLeft: '35px', marginRight: '35px' }}>In Review</div>}>
           {isLoading ?
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }}>
               <ClipLoader color={'#246DB5'} size={20} />
@@ -39,7 +39,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading }) => {
               }) : null}
             </>}
         </TabPane>
-        <TabPane key="IN_PROGRESS" tab={<div style={{ color: '#084e8f', fontSize: '16px' }}>Draft</div>}>
+        <TabPane key="IN_PROGRESS" tab={<div style={{ color: '#084e8f', fontSize: '15px' }}>Draft</div>}>
           {isLoading ?
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }}>
               <ClipLoader color={'#246DB5'} size={20} />

@@ -69,8 +69,8 @@ const VehicleInspectionScreen = ({
       <ImageBackgroundVehicleInspection>
         <MainBgInsertDetails>
           <ContentVehicleInspection>
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-              <div style={{ width: '30%' }}>
+            <div className="header-min-width">
+              <div className="header-max-width">
                 <Header arrow={false} />
               </div>
             </div>
@@ -94,7 +94,7 @@ const VehicleInspectionScreen = ({
                 expandIconPosition="right"
                 expandIcon={({ isActive }) => (
                   <UpCircleOutlined
-                    style={isActive ? { fontSize: 32, color: '#FF7A00', marginTop: -7 } : { fontSize: 32, color: 'lightGray', marginTop: -7 }}
+                    style={isActive ? { fontSize: 32, color: '#FF7A00', marginTop: 0 } : { fontSize: 32, color: 'lightGray', marginTop: 0 }}
                     rotate={isActive ? 180 : 0}
                   />
                 )}

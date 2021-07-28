@@ -31,7 +31,7 @@
 .sure-modal .ant-modal-content {
   border-radius: 15px;
   height: 70% !important;
-  width: 30% !important;
+  width: 27% !important;  
 }
 
 .d-flex {
@@ -77,11 +77,20 @@
 
 
 
-@media only screen and (max-width:900px) {
+@media only screen and (max-width:1000px) {
  
   .sure-modal .ant-modal-content {
     border-radius: 15px;
     height: 68% !important;
-    width: 100% !important;
+    width: 50% !important;
+  }
+}
+
+@media only screen and (max-width:768px) {
+ 
+  .sure-modal .ant-modal-content {
+    border-radius: 15px;
+    height: 68% !important;
+    width: 85% !important;
   }
 }
