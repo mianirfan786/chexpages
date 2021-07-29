@@ -30,7 +30,7 @@ const VehicleDetailContainer = (props) => {
     }
     const card = elements.getElement(CardNumberElement);
     const result = await stripe.createToken(card);
-    const { vehicleData, startPayment } = props;
+    const { vehicleData, startPayment, location } = props;
     if (result.error) {
       console.log(error);
       // toast(result.error.message, { type: 'error' });
@@ -42,7 +42,7 @@ const VehicleDetailContainer = (props) => {
     }
     // setDisableButton(false);
   };
-  return <VehicalDetailScreen handleSubmit={handleSubmit} />;
+  return <VehicalDetailScreen vehicleData={location?.state?.Vehicle} handleSubmit={handleSubmit} />;
 };
 
 function mapDispatchToProps(dispatch) {

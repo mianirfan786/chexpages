@@ -18,7 +18,7 @@ const ThankyouContainer = () => {
     // }
   });
   const handleNext = () => {
-    history.push('/vehicleStatus');
+    window.location.href = '/userVehicleStatus';
   };
 
   return <ThankyouScreen handleNext={handleNext} />;

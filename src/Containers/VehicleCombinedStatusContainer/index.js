@@ -10,9 +10,12 @@ import { VehicleCombineStatusScreen } from '../../Screens';
 
 const VehicleCombinedStatusContainer = (props) => {
   const history = useHistory();
-  const { getInspectionByStatus, createInspection, vehiclesByStatus, getCompanies, companies } = props;
+  const { getInspectionByStatus, createInspection, createReInspection, vehiclesByStatus, getCompanies, companies } = props;
   const [loading, setLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [reInspectionModal, setReInspectionModal] = useState(false);
+  const [reInspectionId, setReInspectionId] = useState("");
+  const [reInspectionLisencePlateNumber, setReInspectionLisencePlateNumber] = useState("");
   // const [isModalChecked, setIsModalChecked] = useState(false);
   const [modalChecked, setModalChecked] = useState([]);
   const [licensePlateNumber, setLicensePlateNumber] = useState("");
@@ -69,6 +72,13 @@ const VehicleCombinedStatusContainer = (props) => {
     }, setLoading);
   };
 
+  const handleCreateReInspection = () => {
+    const body = {
+      companies: modalChecked
+    }
+    createReInspection(reInspectionId, body, history, setReInspectionModal);
+  }
+
   const handleCreateInspection = () => {
     const body = {
       licensePlateNumber,
@@ -89,6 +99,12 @@ const VehicleCombinedStatusContainer = (props) => {
         companies={companies}
         isLoading={loading}
         status={status}
+        setReInspectionId={setReInspectionId}
+        reInspectionModal={reInspectionModal}
+        setReInspectionModal={setReInspectionModal}
+        handleCreateReInspection={handleCreateReInspection}
+        reInspectionLisencePlateNumber={reInspectionLisencePlateNumber}
+        setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
         handleCreateInspection={handleCreateInspection}
         handleLicensePlateNumber={handleLicensePlateNumber}
         licensePlateNumber={licensePlateNumber}

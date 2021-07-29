@@ -227,7 +227,6 @@ export function getVehiclesStatus(vehicleId, setLoading) {
     axios
       .get(`${Api}/vehicle/company/${vehicleId}`, { headers })
       .then((resp) => {
-        console.log("getVehiclesStatus : ", resp?.data)
         setLoading(false);
         dispatch(setVehicleStatus(resp.data));
       })
@@ -328,12 +327,28 @@ export function createInspection(body, history) {
     axios
       .post(`${Api}/create/inspection`, body, { headers })
       .then((resp) => {
-        console.log(resp);
         history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}`);
         // setLoading(false);
       })
       .catch((err) => {
         // setLoading(false);
+      });
+  };
+}
+
+export function createReInspection(reInspectionId, body, history, setReInspectionModal) {
+  // setLoading(true);
+  return (dispatch) => {
+    axios
+      .post(`${Api}/create/reinspection/${reInspectionId}`, body, { headers })
+      .then((resp) => {
+        history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}`);
+        setReInspectionModal(false);
+        // setLoading(false);
+      })
+      .catch((err) => {
+        // setLoading(false);
+        setReInspectionModal(false);
       });
   };
 }

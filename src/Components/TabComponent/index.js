@@ -6,7 +6,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import TabContentComponent from '../TabContentComponent';
 
 const { TabPane } = Tabs;
-const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading }) => {
+const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading, showModal, setReInspectionId, setReInspectionModal, setReInspectionLisencePlateNumber }) => {
   return (
     <div>
       <Tabs onChange={(key) => handleStatus(key)} defaultActiveKey="REVIEWED" centered>
@@ -19,7 +19,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading }) => {
             <>
               {vehiclesByStatus?.[0]?.status === "REVIEWED" ? vehiclesByStatus?.map((item) => {
                 return (
-                  <TabContentComponent title={item?.Vehicle?.licensePlateNumber} />
+                  <TabContentComponent title={item?.Vehicle?.licensePlateNumber} reviewed={true} item={item} showModal={showModal} setReInspectionId={setReInspectionId} setReInspectionModal={setReInspectionModal} setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber} />
                 );
               }) : null}
             </>}
@@ -47,7 +47,6 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading }) => {
             :
             <>
               {vehiclesByStatus?.[0]?.status === "IN_PROGRESS" ? vehiclesByStatus?.map((item) => {
-                console.log("item : ", item);
                 return (
                   <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />
                 );
