@@ -19,7 +19,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading }) => {
             <>
               {vehiclesByStatus?.[0]?.status === "REVIEWED" ? vehiclesByStatus?.map((item) => {
                 return (
-                  <TabContentComponent title="Honda Civic" />
+                  <TabContentComponent title={item?.Vehicle?.licensePlateNumber} />
                 );
               }) : null}
             </>}
@@ -34,7 +34,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading }) => {
             <>
               {vehiclesByStatus?.[0]?.status === "IN_REVIEW" ? vehiclesByStatus?.map((item) => {
                 return (
-                  <TabContentComponent title="Honda Civic" />
+                  <TabContentComponent title={item?.Vehicle?.licensePlateNumber} />
                 );
               }) : null}
             </>}
@@ -47,8 +47,9 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading }) => {
             :
             <>
               {vehiclesByStatus?.[0]?.status === "IN_PROGRESS" ? vehiclesByStatus?.map((item) => {
+                console.log("item : ", item);
                 return (
-                  <TabContentComponent title={"Honda Civic"} draft={true} item={item} />
+                  <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />
                 );
               }) : null}
             </>}

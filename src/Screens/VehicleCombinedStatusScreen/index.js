@@ -15,6 +15,7 @@ const VehicleCombinedStatusScreen = ({
   isModalVisible,
   modalChecked,
   handleToast,
+  status,
   handleCreateInspection,
   handleLicensePlateNumber,
   licensePlateNumber }) => {
@@ -35,9 +36,14 @@ const VehicleCombinedStatusScreen = ({
               isLoading={isLoading}
               vehiclesByStatus={vehiclesByStatus}
               handleStatus={handleStatus} />
-            <div className="white-border-bottom_container">
-              <div className="white-border-bottom" />
-            </div>
+            {isLoading ? null :
+              <> {vehiclesByStatus?.length === 0 ? <div className="white-border-bottom_container"><div>{status === 'IN_PROGRESS' ? "No vehicle is in Draft state" : status === 'REVIEWED' ? 'No vehicle is in Reviewed state' : "No vehicle is in In-review state"}</div></div>
+                :
+                <div className="white-border-bottom_container">
+                  <div className="white-border-bottom" />
+                </div>}
+              </>
+            }
             <InspectionButtonModalComponent
               isModalVisible={isModalVisible}
               modalChecked={modalChecked}

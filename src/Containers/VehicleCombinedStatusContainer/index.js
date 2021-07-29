@@ -16,6 +16,7 @@ const VehicleCombinedStatusContainer = (props) => {
   // const [isModalChecked, setIsModalChecked] = useState(false);
   const [modalChecked, setModalChecked] = useState([]);
   const [licensePlateNumber, setLicensePlateNumber] = useState("");
+  const [status, setStatus] = useState("");
 
   const { addToast } = useToasts();
 
@@ -62,6 +63,7 @@ const VehicleCombinedStatusContainer = (props) => {
 
 
   const handleStatus = (status) => {
+    setStatus(status);
     getInspectionByStatus({
       status: status,
     }, setLoading);
@@ -86,6 +88,7 @@ const VehicleCombinedStatusContainer = (props) => {
         showModal={showModal}
         companies={companies}
         isLoading={loading}
+        status={status}
         handleCreateInspection={handleCreateInspection}
         handleLicensePlateNumber={handleLicensePlateNumber}
         licensePlateNumber={licensePlateNumber}

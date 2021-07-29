@@ -24,7 +24,7 @@ const TranscationContainer = (props) => {
   const [buttonDisable, setButtonDisable] = useState(false);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    const { getPaymentPriceInfo, vehicleData, match } = props;
+    const { getPaymentPriceInfo, match } = props;
     // if (user?.updates || user?.updates === null || user?.updates === undefined) {
     //   window.location.replace('/logoutForChanges');
     // }
@@ -37,7 +37,7 @@ const TranscationContainer = (props) => {
     const card = elements.getElement(CardNumberElement);
     setButtonDisable(true);
     const result = await stripe.createToken(card);
-    const { vehicleData, startPayment, match } = props;
+    const { startPayment, match } = props;
     if (result.error) {
       addToast(`${result.error.message}`, { appearance: 'error' });
       setButtonDisable(false);
