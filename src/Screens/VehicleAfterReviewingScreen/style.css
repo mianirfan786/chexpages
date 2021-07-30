@@ -1,0 +1,125 @@
+.after-reviewing-content-main_container{
+    width: 375px;
+    border-radius:20px;
+  /* background-color: #084e8f ; */
+  }
+  @media only screen and (max-width:415px) {
+    .after-reviewing-content-main_container{
+      width: 300px;
+     
+    }
+  }
+  .after-reviewing-main_container{
+    background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
+    position: absolute;
+    min-height: 100%;
+    height: auto;
+    width: 100%;
+    border: none;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .after-reviewing-white_container{
+    background-color: #E5E5E5;
+  border-radius: 20px;
+  margin-top: 10px;
+  height: auto;
+  padding: 10px;
+  }
+  .after-reviewing-header-bottom_para{
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #77A1DF;
+  }
+  .after-reviewing-wrap_container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .after-reviewing-bottom_border{
+    border-bottom:1px solid #cccccc;
+    width: 80%;
+    margin-top: 30px;
+  }
+  .border-align-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .no-of-door_container{
+    background: #d6d2d2;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 20px;
+  }
+  .no-of-door_text{
+  color: #414B55;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  }
+  .text-area-container{
+    width: 100%;
+    border: none;
+    background: #d6d2d2;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  .text-area-container:focus{
+    outline: none;
+    border: none;
+  }
+  .final-status-container{
+    background: #d6d2d2;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .pass-container{
+    display: flex;
+    align-items: center;
+  }
+  .checked-icon-container{
+    background-color: #75BA5C;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    margin-right: 10px;
+  }
+  .Unchecked-icon-container{
+    background-color: #d42316;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    margin-right: 10px;
+  }
+  .pass-text{
+  color: #414B55;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  
+  }

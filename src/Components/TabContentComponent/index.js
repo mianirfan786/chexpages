@@ -31,7 +31,7 @@ const TabContentComponent = ({ title, draft, reviewed, item, showModal, setReIns
 
   const handleVehicleDetails = (item) => {
     console.log("item ::: ", item);
-    history.push("/vehicleDetail", item);
+    history.push(`/VehicleAfterReviewing/${item?.id}/${item?.vehicleId}`);
   }
 
   const handleRedirect = (item) => {
@@ -65,7 +65,7 @@ const TabContentComponent = ({ title, draft, reviewed, item, showModal, setReIns
           </div>
           <>
             {reviewed === true ?
-              <Modal destroyOnClose={() => setReInspectionModal(false)} style={{ width: '40px', height: '40px' }} title="Basic Modal" visible={isModalVisible} onOk={handleOkLittle} onCancel={handleCancelLittle}>
+              <Modal style={{ width: '40px', height: '40px' }} title="Basic Modal" visible={isModalVisible} onOk={handleOkLittle} onCancel={() => { handleCancelLittle(); setReInspectionModal(false) }}>
                 <div className="modal-content-container">
                   <div></div>
                   <div className="option-text">Options</div>
@@ -83,9 +83,7 @@ const TabContentComponent = ({ title, draft, reviewed, item, showModal, setReIns
                 </div>
                 <div className="modal-links-container_noneborder" onClick={() => handleVehicleDetails(item)}>
                   <AiOutlineCar color="#1468BA" size={18} />
-                  <Link
-                    // to="/vehicleDetail"
-                    className="modal-links-text">Car Details</Link>
+                  <Link className="modal-links-text">Car Details</Link>
                 </div>
               </Modal>
               :

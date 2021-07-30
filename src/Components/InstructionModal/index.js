@@ -73,7 +73,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                 )}
                 <div style={{ paddingLeft: '18px' }} className="instruction-modal-step-container">
                   {vehicleInstructionValues?.steps.map((step, index) => (
-                    <ul style={{ padding: 0, marginLeft: 0 }} key={index}>
+                    <ul style={{ padding: 0, marginLeft: 10 }} key={index}>
                       <li>
                         <div className="instruction-modal-step">{step}</div>
                       </li>
@@ -91,8 +91,8 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                             ? parseInt(uploadingPercentage) == 0 || uploadingPercentage == 0
                               ? '0%'
                               : parseInt(uploadingPercentage) == 100
-                              ? 'Finalizing upload'
-                              : `${parseInt(uploadingPercentage)}%`
+                                ? 'Finalizing upload'
+                                : `${parseInt(uploadingPercentage)}%`
                             : 'Next'}
                         </div>
                       </label>
@@ -106,8 +106,8 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                             ? parseInt(uploadingPercentage) == 0 || uploadingPercentage == 0
                               ? '0%'
                               : parseInt(uploadingPercentage) == 100
-                              ? 'Finalizing upload'
-                              : `${parseInt(uploadingPercentage)}%`
+                                ? 'Finalizing upload'
+                                : `${parseInt(uploadingPercentage)}%`
                             : 'Next'}
                         </div>
                       </label>
