@@ -19,7 +19,14 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading, showModal, se
             <>
               {vehiclesByStatus?.[0]?.status === "REVIEWED" ? vehiclesByStatus?.map((item) => {
                 return (
-                  <TabContentComponent title={item?.Vehicle?.licensePlateNumber} reviewed={true} item={item} showModal={showModal} setReInspectionId={setReInspectionId} setReInspectionModal={setReInspectionModal} setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber} />
+                  <TabContentComponent
+                    title={item?.Vehicle?.licensePlateNumber}
+                    reviewed={true}
+                    item={item}
+                    showModal={showModal}
+                    setReInspectionId={setReInspectionId}
+                    setReInspectionModal={setReInspectionModal}
+                    setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber} />
                 );
               }) : null}
             </>}
@@ -34,7 +41,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading, showModal, se
             <>
               {vehiclesByStatus?.[0]?.status === "IN_REVIEW" ? vehiclesByStatus?.map((item) => {
                 return (
-                  <TabContentComponent title={item?.Vehicle?.licensePlateNumber} />
+                  <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />
                 );
               }) : null}
             </>}
