@@ -31,3 +31,10 @@
   letter-spacing: 0em;
   text-align: left;
 }
+
+.tabs-content-bg-color{
+  background-color: #e5e5e5;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 5px;
+}
