@@ -10,7 +10,7 @@ import { VehicleCombineStatusScreen } from '../../Screens';
 
 const VehicleCombinedStatusContainer = (props) => {
   const history = useHistory();
-  const { getInspectionByStatus, createInspection, createReInspection, vehiclesByStatus, getCompanies, companies } = props;
+  const { getInspectionByStatus, getVehicleCertificate, createInspection, createReInspection, vehiclesByStatus, getCompanies, companies } = props;
   const [loading, setLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [reInspectionModal, setReInspectionModal] = useState(false);
@@ -64,7 +64,6 @@ const VehicleCombinedStatusContainer = (props) => {
     { addToast('Incomplete information ', { appearance: 'warning' }) }
   }
 
-
   const handleStatus = (status) => {
     setStatus(status);
     getInspectionByStatus({
@@ -99,6 +98,7 @@ const VehicleCombinedStatusContainer = (props) => {
         companies={companies}
         isLoading={loading}
         status={status}
+        setLoading={setLoading}
         setReInspectionId={setReInspectionId}
         reInspectionModal={reInspectionModal}
         setReInspectionModal={setReInspectionModal}

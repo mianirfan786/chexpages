@@ -3,15 +3,21 @@ import { Link, useHistory } from 'react-router-dom';
 import { RiArrowRightSLine } from 'react-icons/ri';
 import { GrFormClose } from 'react-icons/gr';
 import { IoDocumentTextOutline } from 'react-icons/io5';
-import { AiOutlineCar } from 'react-icons/ai';
+import { AiOutlineCar, AiOutlineDownload } from 'react-icons/ai';
+
 import { Modal } from 'antd';
 import './style.css';
 
-const TabContentComponent = ({ title, draft, reviewed, inReview, item, showModal, setReInspectionId, setReInspectionModal, setReInspectionLisencePlateNumber }) => {
+import DownloadCertifcate from '../../Screens/Certificates/DownLoadCertificate';
+import Lyftcertificate from '../../Screens/Certificates/Lyftcertificate';
+import UberCertificate from '../../Screens/Certificates/UberCertificate';
+
+
+const TabContentComponent = ({ title, draft, reviewed, inReview, item, setLoading, showModal, setReInspectionId, setReInspectionModal, setReInspectionLisencePlateNumber }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [companyModalVisible, setCompanyModalVisible] = useState(false);
 
   const history = useHistory();
-
   const showModalLittle = () => {
     setIsModalVisible(true);
   };
@@ -24,19 +30,57 @@ const TabContentComponent = ({ title, draft, reviewed, inReview, item, showModal
     setIsModalVisible(false);
   };
 
+  const showModalCompany = () => {
+    setCompanyModalVisible(true);
+  };
+
+  const handleOkCompany = () => {
+    setCompanyModalVisible(false);
+  };
+
+  const handleCancelCompany = () => {
+    setCompanyModalVisible(false);
+  };
+
   const handleReInspectionId = (item) => {
     console.log("item ::: ", item);
     setReInspectionId(item?.id);
   }
 
+  const handleDownload = (items) => {
+    return (
+      <>
+        {items?.Company?.templateId === 2 ?
+          <>
+            {items?.Company?.name === 'Uber' || items?.Company?.name === 'uber' ?
+              <>
+                <UberCertificate setLoading={setLoading} id={item?.id} />
+              </> :
+              <>
+                <DownloadCertifcate setLoading={setLoading} id={item?.id} />
+              </>}
+          </>
+          : items?.Company?.templateId === 3 ?
+            <>
+              {items?.Company?.name === 'Uber' || items?.Company?.name === 'uber' ?
+                <>
+                  <UberCertificate setLoading={setLoading} id={item?.id} />
+                </> : items?.Company?.name !== 'Uber' || items?.Company?.name !== 'uber' ?
+                  <>
+                    <Lyftcertificate setLoading={setLoading} id={item?.id} />
+                  </> :
+                  <>
+                    <DownloadCertifcate setLoading={setLoading} id={item?.id} />
+                  </>}
+            </> : null
+        }
+      </>
+    );
+  }
+
   const handleVehicleDetails = (item) => {
     console.log("item ::: ", item);
     history.push(`/VehicleAfterReviewing/${item?.id}/${item?.vehicleId}`);
-  }
-
-  const handleCertificate = (item) => {
-    console.log("item ::: ", item);
-    history.push(`/LyftCertificate/${item?.id}/${item?.vehicleId}`);
   }
 
   const handleRedirect = (item) => {
@@ -76,9 +120,9 @@ const TabContentComponent = ({ title, draft, reviewed, inReview, item, showModal
                 <GrFormClose color="black" size={25} />
               </div>
 
-              <div className="modal-links-container" onClick={() => { handleCertificate(item) }}>
+              <div className="modal-links-container" onClick={() => { showModalCompany(); setReInspectionModal(true); }}>
                 <IoDocumentTextOutline color="#1468BA" size={18} />
-                <Link className="modal-links-text">Download Certificate</Link>
+                <div className="modal-links-text">Download Certificate</div>
               </div>
 
               <div className="modal-links-container" onClick={() => { showModal(); handleCancelLittle(); setReInspectionModal(true); setReInspectionLisencePlateNumber(title); handleReInspectionId(item) }}>
@@ -91,6 +135,26 @@ const TabContentComponent = ({ title, draft, reviewed, inReview, item, showModal
                 <AiOutlineCar color="#1468BA" size={18} />
                 <Link className="modal-links-text">Car Details</Link>
               </div>
+            </Modal>
+
+
+            <Modal style={{ width: '40px', height: '40px' }} title="Basic Modal" visible={companyModalVisible} onOk={handleOkCompany} onCancel={() => { handleCancelCompany(); handleCancelLittle(); setReInspectionModal(false) }}>
+
+              <div className="modal-content-container">
+                <div></div>
+                <div className="option-text">Companies</div>
+                <GrFormClose color="black" size={25} />
+              </div>
+              {item?.CompanyInspections?.map((items) => {
+                return (
+                  <div className="modal-company-text" >
+                    <div className="modal-links-text">{items?.Company?.name}</div>
+                    <AiOutlineDownload color="red" size={18} style={{ cursor: 'pointer' }}
+                      onClick={() => handleDownload(items)}
+                    />
+                  </div>
+                );
+              })}
             </Modal>
           </>
         )

@@ -6,7 +6,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import TabContentComponent from '../TabContentComponent';
 
 const { TabPane } = Tabs;
-const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading, showModal, setReInspectionId, setReInspectionModal, setReInspectionLisencePlateNumber }) => {
+const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, showModal, setReInspectionId, setReInspectionModal, setReInspectionLisencePlateNumber }) => {
   return (
     <div>
       <Tabs onChange={(key) => handleStatus(key)} defaultActiveKey="REVIEWED" centered>
@@ -23,6 +23,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, isLoading, showModal, se
                     title={item?.Vehicle?.licensePlateNumber}
                     reviewed={true}
                     item={item}
+                    setLoading={setLoading}
                     showModal={showModal}
                     setReInspectionId={setReInspectionId}
                     setReInspectionModal={setReInspectionModal}

@@ -49,7 +49,7 @@ const VehicleInspectionContainer = (props) => {
   const handleRequests = () => {
     const { getVehicleFile, currentUser, getSurveyStatus, getVehiclesStatus, match } = props;
     // getSurveyStatus(currentUser?.id, setSurveyCheck);
-    getVehicleFile(match?.params?.id);
+    getVehicleFile(match?.params?.id, setLoading);
     getVehiclesStatus(match?.params?.vehicleId, setLoading);
   };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { HiCamera } from 'react-icons/hi';
 import { BiCheck } from 'react-icons/bi';
 import { IoIosClose } from 'react-icons/io';
+
 import { Modal } from 'antd';
 
 import './style.css';
@@ -9,7 +10,7 @@ import './style.css';
 import AfterReviewingHeaderComponent from '../../Components/AfterReviewingHeaderComponent';
 import AfterReviewingScreenProductCardComponent from '../../Components/AfterReviewingScreenProductCardComponent';
 
-const VehicleAfterReviewingScreen = ({ vehicleDetails, filesDetails, handleModal, handleModalClose, isModalVisible, url, type }) => {
+const VehicleAfterReviewingScreen = ({ vehicleDetails, loading, filesDetails, handleModal, handleModalClose, isModalVisible, url, type }) => {
 
   return (
     <div className="after-reviewing-main_container">

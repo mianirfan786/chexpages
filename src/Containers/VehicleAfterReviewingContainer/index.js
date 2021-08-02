@@ -10,7 +10,7 @@ import { VehicleAfterReviewingScreen } from '../../Screens';
 const VehicleAfterReviewingContainer = (props) => {
     // const history = useHistory();
     const { match, getVehicleDetails, getFileDetails, vehicleDetails, filesDetails } = props;
-    // const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [isModalVisible, setModalValue] = useState(false);
     const [url, setUrl] = useState('');
     const [type, setType] = useState('');
@@ -18,8 +18,8 @@ const VehicleAfterReviewingContainer = (props) => {
 
 
     useEffect(() => {
-        getVehicleDetails(match?.params?.id);
-        getFileDetails(match?.params?.id);
+        getVehicleDetails(match?.params?.id, setLoading);
+        getFileDetails(match?.params?.id, setLoading);
     }, [])
 
     const handleModal = async (Url, type) => {
@@ -36,6 +36,7 @@ const VehicleAfterReviewingContainer = (props) => {
     return (
         <div>
             <VehicleAfterReviewingScreen
+                loading={loading}
                 handleModal={handleModal} handleModalClose={handleModalClose}
                 vehicleDetails={vehicleDetails} filesDetails={filesDetails}
                 isModalVisible={isModalVisible}

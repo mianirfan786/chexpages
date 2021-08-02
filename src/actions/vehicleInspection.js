@@ -153,8 +153,9 @@ export function addFileInDB(params, setModalValue) {
   };
 }
 
-export function getVehicleFile(vehicleId, setModalValue) {
+export function getVehicleFile(vehicleId, setModalValue, setLoading) {
   return (dispatch) => {
+    setLoading(true);
     const carVerificationItems = [];
     const interiorItems = [];
     const exteriorItems = [];
@@ -173,6 +174,7 @@ export function getVehicleFile(vehicleId, setModalValue) {
           } else if (dat.groupType === 'tires') {
             tires.push(dat);
           }
+          setLoading(false);
           dispatch(setCarVerificationItems(carVerificationItems));
           dispatch(setInteriorItems(interiorItems));
           dispatch(setExteriorItems(exteriorItems));
@@ -184,6 +186,7 @@ export function getVehicleFile(vehicleId, setModalValue) {
         });
       })
       .catch((err) => {
+        setLoading(false);
         console.log(err);
       });
   };
@@ -370,34 +373,34 @@ export function createReInspection(reInspectionId, body, history, setReInspectio
   };
 }
 
-export function getVehicleDetails(inspectionId) {
-  // setLoading(true);
+export function getVehicleDetails(inspectionId, setLoading) {
+  setLoading(true);
   return (dispatch) => {
     axios
       .get(`${Api}/vehicle/detail/${inspectionId}`, { headers })
       .then((resp) => {
         console.log("vehicle detail :: ", resp);
         dispatch(setVehicleDetails(resp.data));
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((err) => {
-        // setLoading(false);
+        setLoading(false);
       });
   };
 }
 
-export function getFileDetails(inspectionId) {
-  // setLoading(true);
+export function getFileDetails(inspectionId, setLoading) {
+  setLoading(true);
   return (dispatch) => {
     axios
       .get(`${Api}/files/details/${inspectionId}`, { headers })
       .then((resp) => {
         console.log("vehicle files :: ", resp);
         dispatch(setFileDetails(resp.data));
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((err) => {
-        // setLoading(false);
+        setLoading(false);
         console.log("vehicle files :: ", err);
       });
   };
