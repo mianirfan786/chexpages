@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: 'black',
     width: '130%',
-    letterSpacing:'10px',
+    letterSpacing: '10px',
   },
   boxpasscircleContainer: {
     width: '70px',
@@ -328,7 +328,7 @@ const UberCertificate = (props) => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading, 'uber');
+      props.getVehicleCertificate({ id: props?.id, company_id: props.companyId }, props.setLoading, 'uber');
     } else {
       localStorage.removeItem('currentUser');
       localStorage.removeItem('token');
@@ -404,7 +404,7 @@ const UberCertificate = (props) => {
                   </View>
                 </View>
               </View> */}
-              <Image style={{width:'100%',marginLeft:-7,marginTop:'20px'}} source={ChackboxImg}/>
+              <Image style={{ width: '100%', marginLeft: -7, marginTop: '20px' }} source={ChackboxImg} />
 
               <View style={styles.inspectionresultContainer}>
                 <Text style={styles.inspectionrexultText}>VEHICLE INSPECTION RESULTS (Inspector to circle)</Text>

@@ -10,12 +10,16 @@ import { VehicleCombineStatusScreen } from '../../Screens';
 
 const VehicleCombinedStatusContainer = (props) => {
   const history = useHistory();
-  const { getInspectionByStatus, createInspection, vehiclesByStatus, getCompanies, companies } = props;
+  const { getInspectionByStatus, getVehicleCertificate, createInspection, createReInspection, vehiclesByStatus, getCompanies, companies } = props;
   const [loading, setLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [reInspectionModal, setReInspectionModal] = useState(false);
+  const [reInspectionId, setReInspectionId] = useState("");
+  const [reInspectionLisencePlateNumber, setReInspectionLisencePlateNumber] = useState("");
   // const [isModalChecked, setIsModalChecked] = useState(false);
   const [modalChecked, setModalChecked] = useState([]);
   const [licensePlateNumber, setLicensePlateNumber] = useState("");
+  const [status, setStatus] = useState("");
 
   const { addToast } = useToasts();
 
@@ -60,12 +64,19 @@ const VehicleCombinedStatusContainer = (props) => {
     { addToast('Incomplete information ', { appearance: 'warning' }) }
   }
 
-
   const handleStatus = (status) => {
+    setStatus(status);
     getInspectionByStatus({
       status: status,
     }, setLoading);
   };
+
+  const handleCreateReInspection = () => {
+    const body = {
+      companies: modalChecked
+    }
+    createReInspection(reInspectionId, body, history, setReInspectionModal);
+  }
 
   const handleCreateInspection = () => {
     const body = {
@@ -86,6 +97,14 @@ const VehicleCombinedStatusContainer = (props) => {
         showModal={showModal}
         companies={companies}
         isLoading={loading}
+        status={status}
+        setLoading={setLoading}
+        setReInspectionId={setReInspectionId}
+        reInspectionModal={reInspectionModal}
+        setReInspectionModal={setReInspectionModal}
+        handleCreateReInspection={handleCreateReInspection}
+        reInspectionLisencePlateNumber={reInspectionLisencePlateNumber}
+        setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
         handleCreateInspection={handleCreateInspection}
         handleLicensePlateNumber={handleLicensePlateNumber}
         licensePlateNumber={licensePlateNumber}

@@ -329,5 +329,17 @@ const vehicleInsturctionsReducer = createReducer(initialState, {
       inspectionByStatus: action.inspectionByStatus,
     };
   },
+  [types.SET_VEHICLE_DETAILS](state, action) {
+    return {
+      ...state,
+      vehicleDetails: action.vehicleDetails,
+    };
+  },
+  [types.SET_FILE_DETAILS](state, action) {
+    return {
+      ...state,
+      fileDetails: action.fileDetails,
+    };
+  },
 });
 export default vehicleInsturctionsReducer;

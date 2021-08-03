@@ -97,7 +97,6 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                       key={index + 1}
                       extra={genExtra}
                     >
-                      {console.log(vehicleStatuss)}
                       {vehicleStatuss === 'REVIEWED' ? (
                         // vehicle?.template_id == 1 ? (
                         //   <>

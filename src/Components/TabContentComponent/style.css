@@ -39,6 +39,13 @@
   padding: 10px;
   margin-top: 5px;
 }
+.modal-company-text{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-top: 10px;
+width: 100%;
+}
 .modal-links-text {
   color: #1468ba;
   font-size: 14px;
@@ -46,6 +53,7 @@
   font-weight: 500;
   line-height: 14px;
   margin-left: 5px;
+  cursor: pointer;
 }
 
 .modal-links-text:hover {
