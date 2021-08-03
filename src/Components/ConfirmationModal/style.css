@@ -30,8 +30,8 @@
 
 .sure-modal .ant-modal-content {
   border-radius: 15px;
-  height: 45% !important;
-  width: 90% !important;  
+  height: 60% !important;
+  width: 28% !important;  
 }
 
 .d-flex {
@@ -76,24 +76,39 @@
 
 
 
-/* 
 @media only screen and (max-width:1000px) {
  
   .sure-modal .ant-modal-content {
     border-radius: 15px;
-    height: 68% !important;
+    height: 60% !important;
     width: 50% !important;
   }
-} */
+} 
 
-/* @media only screen and (max-width:768px) {
+@media only screen and (max-width:768px) {
  
   .sure-modal .ant-modal-content {
     border-radius: 15px;
-    height: 68% !important;
+    height: 80% !important;
+    width: 70% !important;
+  }
+} 
+@media only screen and (max-width:450px) {
+ 
+  .sure-modal .ant-modal-content {
+    border-radius: 15px;
+    height: 55% !important;
     width: 85% !important;
   }
-} */
+  .yes-btn-container{
+    padding: 10px !important;
+    font-size: 14px !important;
+  }
+  .no-btn-container{
+    padding: 10px !important;
+    font-size: 14px !important;
+  }
+} 
 
 .yes-btn-container{
   background-color: orange;
