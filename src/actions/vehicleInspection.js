@@ -114,7 +114,7 @@ export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, grou
         onUploadProgress: imageUploadingProgress,
       })
       .then((resp) => {
-        const params = { url: key, vehicle_id, category, ext: ext, group_type: groupType };
+        const params = { url: key, vehicle_id, category, ext: ext, groupType: groupType };
         dispatch(addFileInDB(params, setModalValue));
       })
       .catch((err) => {
@@ -147,13 +147,13 @@ export function getVehicleFile(vehicleId, setModalValue) {
       .then((resp) => {
         const { data } = resp;
         data.map((dat) => {
-          if (dat.group_type === 'carVerificiationItems') {
+          if (dat.groupType === 'carVerificiationItems') {
             carVerificationItems.push(dat);
-          } else if (dat.group_type === 'interiorItems') {
+          } else if (dat.groupType === 'interiorItems') {
             interiorItems.push(dat);
-          } else if (dat.group_type === 'exteriorItems') {
+          } else if (dat.groupType === 'exteriorItems') {
             exteriorItems.push(dat);
-          } else if (dat.group_type === 'tires') {
+          } else if (dat.groupType === 'tires') {
             tires.push(dat);
           }
           dispatch(setCarVerificationItems(carVerificationItems));
@@ -201,15 +201,15 @@ export function getSurveyStatus(id, setSurveyCheck) {
           setSurveyCheck(false);
         }
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }
 
-export function deleteVehicleFile(vehicleId, fileId, groupType, deleteVehicleFile, setDeleteModal) {
+export function deleteVehicleFile(fileId, groupType, deleteVehicleFile, setDeleteModal) {
   return (dispatch) => {
     deleteVehicleFile(true);
     axios
-      .delete(`${Api}/files/${vehicleId}/${fileId}`, { headers })
+      .delete(`${Api}/files/${fileId}`, { headers })
       .then((resp) => {
         dispatch(setDeleteLocalFile({ fileId, groupType }));
         setDeleteModal(false);
@@ -227,6 +227,7 @@ export function getVehiclesStatus(vehicleId, setLoading) {
     axios
       .get(`${Api}/vehicle/company/${vehicleId}`, { headers })
       .then((resp) => {
+        console.log("getVehiclesStatus : ", resp?.data)
         setLoading(false);
         dispatch(setVehicleStatus(resp.data));
       })
@@ -307,12 +308,28 @@ export function skipPaymentMethod(vehicleId, setLoading, history, paymentStatus)
 }
 
 export function getInspectionByStatus(params, setLoading) {
-  // setLoading(true);
+  setLoading(true);
   return (dispatch) => {
     axios
       .post(`${Api}/status/vehicle`, params, { headers })
       .then((resp) => {
         dispatch(setInspectionByStatus(resp.data));
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  };
+}
+
+export function createInspection(body, history) {
+  // setLoading(true);
+  return (dispatch) => {
+    axios
+      .post(`${Api}/create/inspection`, body, { headers })
+      .then((resp) => {
+        console.log(resp);
+        history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}`);
         // setLoading(false);
       })
       .catch((err) => {

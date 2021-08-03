@@ -167,7 +167,7 @@ export function getCompanies() {
       .then((resp) => {
         dispatch(setCompanies(resp.data));
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }
 
@@ -212,6 +212,6 @@ export function setLyftUserStatus(params, setVisible, user_id, history) {
         setVisible(false);
         history.push('/login');
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }

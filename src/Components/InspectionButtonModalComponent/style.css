@@ -1,8 +1,11 @@
 .inspection-modal-container .ant-modal-content {
-  width: 300px !important;
-  height: 510px !important;
+  width: 317px !important;
   border-radius: 10px !important;
+  overflow-y: scroll;
+  height: 500px !important;
+  padding: 10px !important;
 }
+
 .inspection-modal-container .ant-modal-footer{
   display: none !important;
 }
@@ -76,7 +79,7 @@ color: black;
   background: linear-gradient(90deg, #FF7A00 0%, #FF9900 94.74%);
 border-radius: 100px;
 padding: 7px;
-width: 70%;
+width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -103,4 +106,21 @@ font-style: normal;
 font-weight: 500;
 line-height: 14px;
 cursor: pointer;
+  }
+
+  .modal-input-field{
+    padding: 7px;
+    margin-top: 15px;
+    width: 100%;
+    color: black;
+    font-size: 13px;
+    font-weight: 400;
+    background-color: rgb(233, 233, 233);
+
+  }
+
+  @media only screen and (max-width:399px) {
+    .inspection-modal-container .ant-modal-content {
+      width: 285px !important;
+    }
   }

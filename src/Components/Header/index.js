@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { FiMenu } from 'react-icons/fi';
 import SideBar from '../SideBar';
+import './style.css';
+
 const Header = ({ arrow }) => {
   const [sideBar, setSideBar] = useState(false);
 

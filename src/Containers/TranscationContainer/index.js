@@ -24,11 +24,11 @@ const TranscationContainer = (props) => {
   const [buttonDisable, setButtonDisable] = useState(false);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    const { getPaymentPriceInfo, vehicleData } = props;
+    const { getPaymentPriceInfo, vehicleData, match } = props;
     // if (user?.updates || user?.updates === null || user?.updates === undefined) {
     //   window.location.replace('/logoutForChanges');
     // }
-    getPaymentPriceInfo(user?.vehicles[0]?.id, setPrice, setPriceLoading);
+    getPaymentPriceInfo(match?.params?.id, setPrice, setPriceLoading);
   }, []);
   const handleSubmit = async () => {
     if (!stripe || !elements) {
@@ -37,7 +37,7 @@ const TranscationContainer = (props) => {
     const card = elements.getElement(CardNumberElement);
     setButtonDisable(true);
     const result = await stripe.createToken(card);
-    const { vehicleData, startPayment } = props;
+    const { vehicleData, startPayment, match } = props;
     if (result.error) {
       addToast(`${result.error.message}`, { appearance: 'error' });
       setButtonDisable(false);
@@ -45,7 +45,7 @@ const TranscationContainer = (props) => {
       // setDisableButton(false);
     } else {
       // setDisableButton(true);
-      startPayment({ source: result.token.id, vehicleId: vehicleData.id }, addToast, setLoading, history, setButtonDisable);
+      startPayment({ source: result.token.id, vehicleId: match?.params?.id }, addToast, setLoading, history, setButtonDisable);
     }
     // setDisableButton(false);
   };
