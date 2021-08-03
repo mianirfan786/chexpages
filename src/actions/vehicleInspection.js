@@ -153,9 +153,8 @@ export function addFileInDB(params, setModalValue) {
   };
 }
 
-export function getVehicleFile(vehicleId, setModalValue, setLoading) {
+export function getVehicleFile(vehicleId, setModalValue) {
   return (dispatch) => {
-    setLoading(true);
     const carVerificationItems = [];
     const interiorItems = [];
     const exteriorItems = [];
@@ -174,7 +173,6 @@ export function getVehicleFile(vehicleId, setModalValue, setLoading) {
           } else if (dat.groupType === 'tires') {
             tires.push(dat);
           }
-          setLoading(false);
           dispatch(setCarVerificationItems(carVerificationItems));
           dispatch(setInteriorItems(interiorItems));
           dispatch(setExteriorItems(exteriorItems));
@@ -186,7 +184,6 @@ export function getVehicleFile(vehicleId, setModalValue, setLoading) {
         });
       })
       .catch((err) => {
-        setLoading(false);
         console.log(err);
       });
   };
@@ -260,7 +257,7 @@ export function getVehicleCertificate(params, setLoading, template) {
   return (dispatch) => {
     setLoading(true);
     axios
-      .post(`${Api}/vehicle/${params.id}/files`, params, { headers })
+      .post(`${Api}/vehicle/${params?.id}/files`, { companyId: params?.companyId }, { headers })
       .then((resp) => {
         setLoading(false);
         if (template == 'template2') {

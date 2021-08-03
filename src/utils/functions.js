@@ -14,25 +14,26 @@ export function setCompanies(companiesArray) {
 export function setLyftReportData(array) {
   let vehicleArray = [];
   array?.map((vehicle) => {
-    vehicle?.vehicleChecks.map((check) => {
-      if (check.displayOnCertificate) {
+    vehicle?.InspectionChecks.map((check) => {
+      if (check?.Check?.displayOnCertificate) {
         vehicleArray.push(check);
       }
     });
   });
-  vehicleArray.sort((a, b) => a.index_3 - b.index_3);
+  vehicleArray.sort((a, b) => a?.Check?.index_3 - b?.Check?.index_3);
   return vehicleArray;
 }
 
 export function setOtherReportData(array) {
   let vehicleArray = [];
   array?.map((vehicle) => {
-    vehicle?.vehicleChecks.map((check) => {
-      if (check.displayOnCertificate) {
+    vehicle?.InspectionChecks.map((check) => {
+      if (check?.Check?.displayOnCertificate) {
         vehicleArray.push(check);
       }
     });
   });
-  vehicleArray.sort((a, b) => a.index_2 - b.index_2);
+  console.log("vehicleArray : ", vehicleArray);
+  vehicleArray.sort((a, b) => a.Check?.index_2 - b.Check?.index_2);
   return vehicleArray;
 }

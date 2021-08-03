@@ -23,7 +23,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
         // closeIcon={false}
 
         maskClosable={isLoading ? false : true}
-        // closeIcon={<IoMdClose color={'black'} size={22} />}
+        closeIcon={<IoMdClose color={'white'} size={22} />}
         maskStyle={{ backgroundColor: '#266FB7' }}
         bodyStyle={{
           width: '100%',

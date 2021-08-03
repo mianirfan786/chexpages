@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     fontWeight: '100',
     fontStyle: 'normal',
     marginTop: '3px',
-    textTransform:'uppercase',
+    textTransform: 'uppercase',
   },
   inspectionpointsText: {
     color: 'black',
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: 'black',
     width: '130%',
-    letterSpacing:'10px',
+    letterSpacing: '10px',
   },
   boxpasscircleContainer: {
     width: '70px',
@@ -334,13 +334,14 @@ const styles = StyleSheet.create({
 });
 
 const DownloadCertifcate = (props) => {
+  const { checksData } = props;
+  console.log("props :::", props);
   const history = useHistory();
-
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading, 'template2');
+      props.getVehicleCertificate({ id: props?.id, companyId: props.companyId }, props.setLoading, 'template2');
     } else {
       localStorage.removeItem('currentUser');
       localStorage.removeItem('token');
@@ -400,6 +401,7 @@ const DownloadCertifcate = (props) => {
                   </View>
                 </View>
               </View>
+              {console.log("checksData:: ", checksData)}
               {/* <View style={{ marginLeft: '20@s' }}>
                 <Text style={styles.inspectionpointsText}>INSPECTION POINTS</Text>
                 <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
@@ -551,9 +553,8 @@ const DownloadCertifcate = (props) => {
                     </View>
                   ) : (
                     <View style={{ width: '30%', marginRight: '15px' }}>
-                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData[0]?.reviewName} ${
-                        props.reportData && props.reportData[0]?.reviewLast
-                      }`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast
+                        }`}</Text>
                       <View style={styles.bottomboxBorder} />
                       <Text style={styles.bottomboxbootomText}>inspector signature</Text>
                     </View>
@@ -611,7 +612,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     reportData: state.vehicleInstruction.vehicleCertificate,
-    checksData: setOtherReportData(state.vehicleInstruction.vehicleCertificate, 'index_2'),
+    checksData: setOtherReportData(state.vehicleInstruction.vehicleCertificate?.Files, 'index_2'),
   };
 }
 
