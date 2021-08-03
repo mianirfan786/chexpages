@@ -100,9 +100,6 @@ function setFileDetails(data) {
   };
 }
 
-
-
-
 export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue, imageUploadingProgress) {
   return (dispatch) => {
     dispatch(setVehicleLoading(true));
@@ -218,7 +215,7 @@ export function getSurveyStatus(id, setSurveyCheck) {
           setSurveyCheck(false);
         }
       })
-      .catch((err) => { });
+      .catch((err) => {});
   };
 }
 
@@ -255,11 +252,11 @@ export function getVehiclesStatus(vehicleId, setLoading) {
 
 export function getVehicleCertificate(params, setLoading, template) {
   return (dispatch) => {
-    setLoading(true);
+    // setLoading(true);
     axios
       .post(`${Api}/vehicle/${params?.id}/files`, { companyId: params?.companyId }, { headers })
       .then((resp) => {
-        setLoading(false);
+        // setLoading(false);
         if (template == 'template2') {
           dispatch(setCertificateData(resp.data));
         } else if (template === 'uber') {
@@ -269,7 +266,7 @@ export function getVehicleCertificate(params, setLoading, template) {
         }
       })
       .catch((err) => {
-        setLoading(false);
+        // setLoading(false);
       });
   };
 }
@@ -376,7 +373,7 @@ export function getVehicleDetails(inspectionId, setLoading) {
     axios
       .get(`${Api}/vehicle/detail/${inspectionId}`, { headers })
       .then((resp) => {
-        console.log("vehicle detail :: ", resp);
+        console.log('vehicle detail :: ', resp);
         dispatch(setVehicleDetails(resp.data));
         setLoading(false);
       })
@@ -392,13 +389,13 @@ export function getFileDetails(inspectionId, setLoading) {
     axios
       .get(`${Api}/files/details/${inspectionId}`, { headers })
       .then((resp) => {
-        console.log("vehicle files :: ", resp);
+        console.log('vehicle files :: ', resp);
         dispatch(setFileDetails(resp.data));
         setLoading(false);
       })
       .catch((err) => {
         setLoading(false);
-        console.log("vehicle files :: ", err);
+        console.log('vehicle files :: ', err);
       });
   };
 }

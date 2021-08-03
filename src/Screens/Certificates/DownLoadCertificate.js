@@ -335,7 +335,7 @@ const styles = StyleSheet.create({
 
 const DownloadCertifcate = (props) => {
   const { checksData } = props;
-  console.log("props :::", props);
+  console.log('props :::', props);
   const history = useHistory();
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -356,7 +356,7 @@ const DownloadCertifcate = (props) => {
         document={
           <Document>
             <Page size="A3" style={styles.body}>
-              <View style={styles.headerContainer}>
+              {/* <View style={styles.headerContainer}>
                 <View></View>
                 <Text style={styles.vehicleinspectiontopText}>Vehicle Inspection</Text>
                 {props.reportData && props.reportData[0]?.url ? (
@@ -364,19 +364,19 @@ const DownloadCertifcate = (props) => {
                 ) : (
                   <Text style={{ color: 'white', fontSize: '100px' }}>Test</Text>
                 )}
-              </View>
+              </View> */}
               <View style={styles.tobecompletedContainer}>
                 <Text style={styles.tobecompletedText}>TO BE COMPLETED BY VEHICLE OPERATOR</Text>
               </View>
               <View style={styles.topfieldsmainContainer}>
                 <View style={styles.namefiledsContainer}>
                   <View style={styles.firstField}>
-                    <Text style={styles.topnameText}>{`${props.reportData && props.reportData[0]?.name}`}</Text>
+                    <Text style={styles.topnameText}>{`${props.reportData && props.reportData.Username}`}</Text>
                     <View style={styles.fieldBorder} />
                     <Text style={styles.bottomnameText}>FULL NAME</Text>
                   </View>
                   <View style={styles.secondfield}>
-                    <Text style={styles.topnameText}>{props.reportData && props.reportData[0]?.email}</Text>
+                    <Text style={styles.topnameText}>{props.reportData && props.reportData.Useremail}</Text>
                     <View style={styles.fieldBorder2} />
                     <Text style={styles.bottomnameText}>EMAIL ADDRESS</Text>
                   </View>
@@ -390,18 +390,18 @@ const DownloadCertifcate = (props) => {
                     <Text style={styles.bottomboxbootomText}>Signature</Text>
                   </View>
                   <View style={{ width: '20%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM-DD-YYYY')}</Text>
+                    <Text style={styles.bottomboxtoptext}>{moment(new Date(props.reportData && props.reportData.updatedAt)).format('MM-DD-YYYY')}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>Date</Text>
                   </View>
                   <View style={{ width: '46%' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.phone}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData.Userphone}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>phone number</Text>
                   </View>
                 </View>
               </View>
-              {console.log("checksData:: ", checksData)}
+              {console.log('checksData:: ', checksData)}
               {/* <View style={{ marginLeft: '20@s' }}>
                 <Text style={styles.inspectionpointsText}>INSPECTION POINTS</Text>
                 <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
@@ -452,7 +452,7 @@ const DownloadCertifcate = (props) => {
                 <Text style={styles.markingText}>Any markings on the “fail” side will automatically fail inspection</Text>
 
                 <View style={styles.passfaildatedirectionContainer}>
-                  {props.reportData && props.reportData[0]?.final_status === 'pass' ? (
+                  {props.reportData && props.reportData.finalStatus === 'pass' ? (
                     <View style={styles.boxpasscircleContainer}>
                       <Text style={styles.boxpassText}>PASS</Text>
                     </View>
@@ -461,11 +461,11 @@ const DownloadCertifcate = (props) => {
                   )}
 
                   <View style={styles.textDirection}>
-                    <Text style={styles.boxdateText}>{moment(props.reportData && props.reportData[0]?.VehicleUpdatedAt).format('MM-DD-YYYY')}</Text>
+                    <Text style={styles.boxdateText}>{moment(props.reportData && props.reportData.updatedAt).format('MM-DD-YYYY')}</Text>
                     <View style={styles.boxBorder} />
                     <Text style={styles.inspectiondateText}>Inspection Date</Text>
                   </View>
-                  {props.reportData && props.reportData[0]?.final_status === 'fail' ? (
+                  {props.reportData && props.reportData.finalStatus === 'fail' ? (
                     <View style={styles.boxpasscircleContainer}>
                       <Text style={styles.boxpassText}>FAIL</Text>
                     </View>
@@ -479,22 +479,22 @@ const DownloadCertifcate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '20%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.vehicle_mileage}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData.milage}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>Vehicle mileage</Text>
                   </View>
                   <View style={{ width: '20%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.registration_state}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData.registrationState}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>license plate state</Text>
                   </View>
                   <View style={{ width: '20%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.license_plate_no}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData.licensePlateNumber}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>License plate number</Text>
                   </View>
                   <View style={{ width: '40%' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.vin}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.vin}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>Vin</Text>
                   </View>
@@ -502,22 +502,22 @@ const DownloadCertifcate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '40%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.make}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.make}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>vehicle make</Text>
                   </View>
                   <View style={{ width: '22%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.model}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.model}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>vehicle model</Text>
                   </View>
                   <View style={{ width: '18%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.year}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.year}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>vehicle year</Text>
                   </View>
                   <View style={{ width: '15%' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.vehicleDoors}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.vehicleDoors}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>number of doors</Text>
                   </View>
@@ -538,23 +538,26 @@ const DownloadCertifcate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '42%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}`}</Text>
+                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
+                      props.reportData && props.reportData?.InspectorlastName
+                    }`}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
-                  {props?.reportData && props?.reportData[0]?.reviewSignature ? (
+                  {props?.reportData && props?.reportData?.Inspectorsignature ? (
                     <View style={{ width: '30%', marginRight: '15px' }}>
                       <Image
                         style={{ width: '100px', marginLeft: '50px', marginBottom: -18 }}
-                        source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`}
+                        source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData?.Inspectorsignature}?x-request=xhr`}
                       />
                       <View style={styles.bottomboxBorder} />
                       <Text style={styles.bottomboxbootomText}>inspector signature</Text>
                     </View>
                   ) : (
                     <View style={{ width: '30%', marginRight: '15px' }}>
-                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast
-                        }`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData?.Inspectorname} ${
+                        props.reportData && props.reportData?.InspectorlastName
+                      }`}</Text>
                       <View style={styles.bottomboxBorder} />
                       <Text style={styles.bottomboxbootomText}>inspector signature</Text>
                     </View>
@@ -575,29 +578,28 @@ const DownloadCertifcate = (props) => {
       >
         {({ blob, url, loading, error }) => (
           <>
-            {loading ? (
+            {/* {loading ? (
               <ClipLoader color={'#246DB5'} size={40} />
-            ) : (
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                <div
-                  style={{
-                    fontSize: '15px',
-                    marginBottom: '20px',
-                    marginTop: '20px',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    margin: 'auto',
-                    background: '#3276ba',
-                    padding: '13px',
-                    borderRadius: '50px',
-                  }}
-                >
-                  Download vehicle report
-                </div>
-                <i className="fa fa-download" />
+            ) : ( */}
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <div
+                style={{
+                  fontSize: '15px',
+                  marginBottom: '20px',
+                  marginTop: '20px',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  margin: 'auto',
+                  background: '#3276ba',
+                  padding: '13px',
+                  borderRadius: '50px',
+                }}
+              >
+                Download vehicle report
               </div>
-            )}
-            {console.log(error)}
+              <i className="fa fa-download" />
+            </div>
+            {/* )} */}
           </>
         )}
       </PDFDownloadLink>

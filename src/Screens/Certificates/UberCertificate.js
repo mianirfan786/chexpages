@@ -13,7 +13,6 @@ import ActionCreators from '../../actions';
 import { setOtherReportData } from '../../utils/functions';
 import ChackboxImg from '../../Assets/Checkbox.png';
 
-
 import './styles.css';
 
 const styles = StyleSheet.create({
@@ -328,7 +327,7 @@ const UberCertificate = (props) => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate({ id: props?.id, company_id: props.companyId }, props.setLoading, 'uber');
+      props.getVehicleCertificate({ id: props?.id, companyId: props.companyId }, props.setLoading, 'uber');
     } else {
       localStorage.removeItem('currentUser');
       localStorage.removeItem('token');
@@ -352,12 +351,12 @@ const UberCertificate = (props) => {
               <View style={styles.topfieldsmainContainer}>
                 <View style={styles.namefiledsContainer}>
                   <View style={styles.firstField}>
-                    <Text style={styles.topnameText}>{`${props.reportData && props.reportData[0]?.name}`}</Text>
+                    <Text style={styles.topnameText}>{`${props.reportData && props.reportData?.Username}`}</Text>
                     <View style={styles.fieldBorder} />
                     <Text style={styles.bottomnameText}>FULL NAME</Text>
                   </View>
                   <View style={styles.secondfield}>
-                    <Text style={styles.topnameText}>{props.reportData && props.reportData[0]?.phone}</Text>
+                    <Text style={styles.topnameText}>{props.reportData && props.reportData?.Userphone}</Text>
                     <View style={styles.fieldBorder2} />
                     <Text style={styles.bottomnameText}>PHONE NUMBER</Text>
                   </View>
@@ -413,7 +412,7 @@ const UberCertificate = (props) => {
                 <Text style={styles.markingText}>Any markings on the “fail” side will automatically fail inspection</Text>
 
                 <View style={styles.passfaildatedirectionContainer}>
-                  {props.reportData && props.reportData[0]?.final_status === 'pass' ? (
+                  {props.reportData && props.reportData[0]?.finalStatus === 'pass' ? (
                     <View style={styles.boxpasscircleContainer}>
                       <Text style={styles.boxpassText}>PASS</Text>
                     </View>
@@ -421,11 +420,11 @@ const UberCertificate = (props) => {
                     <Text style={styles.boxpassText}>PASS</Text>
                   )}
                   <View style={styles.textDirection}>
-                    <Text style={styles.boxdateText}>{moment(props.reportData && props.reportData[0]?.VehicleUpdatedAt).format('MM-DD-YYYY')}</Text>
+                    <Text style={styles.boxdateText}>{moment(props.reportData && props.reportData[0]?.updatedAt).format('MM-DD-YYYY')}</Text>
                     <View style={styles.boxBorder} />
                     <Text style={styles.inspectiondateText}>Inspection Date</Text>
                   </View>
-                  {props.reportData && props.reportData[0]?.final_status === 'fail' ? (
+                  {props.reportData && props.reportData[0]?.finalStatus === 'fail' ? (
                     <View style={styles.boxpasscircleContainer}>
                       <Text style={styles.boxpassText}>FAIL</Text>
                     </View>
@@ -439,22 +438,22 @@ const UberCertificate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '20%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.vehicle_mileage}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.milage}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>Vehicle mileage</Text>
                   </View>
                   <View style={{ width: '20%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.registration_state}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.registrationState}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>license plate state</Text>
                   </View>
                   <View style={{ width: '20%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.license_plate_no}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.licensePlateNumber}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>License plate number</Text>
                   </View>
                   <View style={{ width: '40%' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.vin}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.vin}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>Vin</Text>
                   </View>
@@ -462,22 +461,22 @@ const UberCertificate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '40%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.make}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.make}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>vehicle make</Text>
                   </View>
                   <View style={{ width: '22%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.model}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.model}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>vehicle model</Text>
                   </View>
                   <View style={{ width: '18%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.year}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.year}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>vehicle year</Text>
                   </View>
                   <View style={{ width: '15%' }}>
-                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData[0]?.vehicleDoors}</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.vehicleDoors}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>number of doors</Text>
                   </View>
@@ -498,18 +497,22 @@ const UberCertificate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '42%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}`}</Text>
+                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
+                      props.reportData && props.reportData?.InspectorlastName
+                    }`}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
                   <View style={{ width: '30%', marginRight: '15px' }}>
-                    {props.reportData && props.reportData[0]?.reviewSignature ? (
+                    {props.reportData && props.reportData?.Inspectorsignature ? (
                       <Image
                         style={{ width: '100px', marginLeft: '50px', marginBottom: -13 }}
-                        source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0]?.reviewSignature}?x-request=xhr`}
+                        source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData?.Inspectorsignature}?x-request=xhr`}
                       />
                     ) : (
-                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.reviewName} ${props.reportData && props.reportData[0]?.reviewLast}`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.Inspectorname} ${
+                        props.reportData && props.reportData[0]?.InspectorlastName
+                      }`}</Text>
                     )}
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector signature</Text>
@@ -566,7 +569,7 @@ function mapStateToProps(state) {
   console.log(state);
   return {
     reportData: state.vehicleInstruction.uberVehicleCertificate,
-    checksData: setOtherReportData(state.vehicleInstruction.uberVehicleCertificate, 'index_2'),
+    checksData: setOtherReportData(state.vehicleInstruction.uberVehicleCertificate?.Files, 'index_2'),
   };
 }
 

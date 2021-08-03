@@ -12,15 +12,14 @@ import DownloadCertifcate from '../../Screens/Certificates/DownLoadCertificate';
 import Lyftcertificate from '../../Screens/Certificates/Lyftcertificate';
 import UberCertificate from '../../Screens/Certificates/UberCertificate';
 
-
 const TabContentComponent = ({ title, draft, reviewed, inReview, item, setLoading, showModal, setReInspectionId, setReInspectionModal, setReInspectionLisencePlateNumber }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [companyModalVisible, setCompanyModalVisible] = useState(false);
   const [certificateData, setCertificateData] = useState({
-    id: "",
-    companyId: "",
-    companyName: "",
-    templateId: ""
+    id: '',
+    companyId: '',
+    companyName: '',
+    templateId: '',
   });
 
   const history = useHistory();
@@ -49,31 +48,30 @@ const TabContentComponent = ({ title, draft, reviewed, inReview, item, setLoadin
   };
 
   const handleReInspectionId = (item) => {
-    console.log("item ::: ", item);
+    console.log('item ::: ', item);
     setReInspectionId(item?.id);
-  }
+  };
 
   const handleDownload = (items, id) => {
     setCertificateData({
       id: id,
       companyId: items?.Company?.id,
       companyName: items?.Company?.name,
-      templateId: items?.Company?.templateId
-    })
-
-  }
+      templateId: items?.Company?.templateId,
+    });
+  };
 
   const handleVehicleDetails = (item) => {
-    console.log("item ::: ", item);
+    console.log('item ::: ', item);
     history.push(`/VehicleAfterReviewing/${item?.id}/${item?.vehicleId}`);
-  }
+  };
 
   const handleRedirect = (item) => {
     window.location.href = `/vehicleinspection/${item?.id}/${item?.vehicleId}`;
-  }
+  };
   return (
     <div>
-      {draft === true ?
+      {draft === true ? (
         <div onClick={() => handleRedirect(item)} className="open-tab-container">
           <div className="open-tab-bg_color">
             <div className="tab-content-container">
@@ -84,11 +82,133 @@ const TabContentComponent = ({ title, draft, reviewed, inReview, item, setLoadin
             </div>
           </div>
         </div>
-        :
-        reviewed === true ? (
-          <>
+      ) : reviewed === true ? (
+        <>
+          <div className="open-tab-container">
+            <div
+              className="open-tab-bg_color"
+              onClick={() => {
+                showModalLittle();
+                setReInspectionModal(false);
+              }}
+            >
+              <div className="tab-content-container">
+                <div className="content-text">{title}</div>
+                <div className="arrow-icon-container">
+                  <RiArrowRightSLine color="orange" size={30} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <Modal
+            style={{ width: '40px', height: '40px' }}
+            title="Basic Modal"
+            visible={isModalVisible}
+            onOk={handleOkLittle}
+            onCancel={() => {
+              handleCancelLittle();
+              setReInspectionModal(false);
+            }}
+          >
+            <div className="modal-content-container">
+              <div></div>
+              <div className="option-text">Options</div>
+              <GrFormClose color="black" size={25} />
+            </div>
+
+            <div
+              className="modal-links-container"
+              onClick={() => {
+                showModalCompany();
+                setReInspectionModal(true);
+              }}
+            >
+              <IoDocumentTextOutline color="#1468BA" size={18} />
+              <div className="modal-links-text">Download Certificate</div>
+            </div>
+
+            <div
+              className="modal-links-container"
+              onClick={() => {
+                showModal();
+                handleCancelLittle();
+                setReInspectionModal(true);
+                setReInspectionLisencePlateNumber(title);
+                handleReInspectionId(item);
+              }}
+            >
+              <AiOutlineCar color="#1468BA" size={18} />
+              <Link href="#" className="modal-links-text">
+                Re-Inspect Car
+              </Link>
+            </div>
+            <div className="modal-links-container_noneborder" onClick={() => handleVehicleDetails(item)}>
+              <AiOutlineCar color="#1468BA" size={18} />
+              <Link className="modal-links-text">Car Details</Link>
+            </div>
+          </Modal>
+
+          <Modal
+            style={{ width: '40px', height: '40px' }}
+            title="Basic Modal"
+            visible={companyModalVisible}
+            onOk={handleOkCompany}
+            onCancel={() => {
+              handleCancelCompany();
+              handleCancelLittle();
+              setReInspectionModal(false);
+            }}
+          >
+            <div className="modal-content-container">
+              <div></div>
+              <div className="option-text">Companies</div>
+              <GrFormClose color="black" size={25} />
+            </div>
+            {item?.CompanyInspections?.map((items) => {
+              return (
+                <div className="modal-company-text">
+                  <div className="modal-links-text">{items?.Company?.name}</div>
+                  <AiOutlineDownload color="red" size={18} style={{ cursor: 'pointer' }} onClick={() => handleDownload(items, item?.id)} />
+                </div>
+              );
+            })}
+          </Modal>
+
+          {certificateData?.templateId === 3 ? (
+            <>
+              {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
+                <>
+                  <UberCertificate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                </>
+              ) : (
+                <>
+                  <DownloadCertifcate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                </>
+              )}
+            </>
+          ) : certificateData?.templateId === 2 ? (
+            <>
+              {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
+                <>
+                  <UberCertificate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                </>
+              ) : certificateData?.companyName !== 'Uber' || certificateData?.companyName !== 'uber' ? (
+                <>
+                  <Lyftcertificate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                </>
+              ) : (
+                <>
+                  <DownloadCertifcate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                </>
+              )}
+            </>
+          ) : null}
+        </>
+      ) : (
+        <>
+          {inReview === true ? (
             <div className="open-tab-container">
-              <div className="open-tab-bg_color" onClick={() => { showModalLittle(); setReInspectionModal(false) }}>
+              <div className="open-tab-bg_color">
                 <div className="tab-content-container">
                   <div className="content-text">{title}</div>
                   <div className="arrow-icon-container">
@@ -97,93 +217,9 @@ const TabContentComponent = ({ title, draft, reviewed, inReview, item, setLoadin
                 </div>
               </div>
             </div>
-            <Modal style={{ width: '40px', height: '40px' }} title="Basic Modal" visible={isModalVisible} onOk={handleOkLittle} onCancel={() => { handleCancelLittle(); setReInspectionModal(false) }}>
-
-              <div className="modal-content-container">
-                <div></div>
-                <div className="option-text">Options</div>
-                <GrFormClose color="black" size={25} />
-              </div>
-
-              <div className="modal-links-container" onClick={() => { showModalCompany(); setReInspectionModal(true); }}>
-                <IoDocumentTextOutline color="#1468BA" size={18} />
-                <div className="modal-links-text">Download Certificate</div>
-              </div>
-
-              <div className="modal-links-container" onClick={() => { showModal(); handleCancelLittle(); setReInspectionModal(true); setReInspectionLisencePlateNumber(title); handleReInspectionId(item) }}>
-                <AiOutlineCar color="#1468BA" size={18} />
-                <Link href="#" className="modal-links-text">
-                  Re-Inspect Car
-                  </Link>
-              </div>
-              <div className="modal-links-container_noneborder" onClick={() => handleVehicleDetails(item)}>
-                <AiOutlineCar color="#1468BA" size={18} />
-                <Link className="modal-links-text">Car Details</Link>
-              </div>
-            </Modal>
-
-            <Modal style={{ width: '40px', height: '40px' }} title="Basic Modal" visible={companyModalVisible} onOk={handleOkCompany} onCancel={() => { handleCancelCompany(); handleCancelLittle(); setReInspectionModal(false) }}>
-
-              <div className="modal-content-container">
-                <div></div>
-                <div className="option-text">Companies</div>
-                <GrFormClose color="black" size={25} />
-              </div>
-              {item?.CompanyInspections?.map((items) => {
-                return (
-                  <div className="modal-company-text" >
-                    <div className="modal-links-text">{items?.Company?.name}</div>
-                    <AiOutlineDownload color="red" size={18} style={{ cursor: 'pointer' }} onClick={() => handleDownload(items, item?.id)}
-                    />
-                  </div>
-                );
-              })}
-            </Modal>
-
-            {certificateData?.templateId === 2 ?
-              <>
-                {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ?
-                  <>
-                    <UberCertificate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                  </> :
-                  <>
-                    <DownloadCertifcate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                  </>}
-              </>
-              : certificateData?.templateId === 3 ?
-                <>
-                  {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ?
-                    <>
-                      <UberCertificate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                    </> : certificateData?.companyName !== 'Uber' || certificateData?.companyName !== 'uber' ?
-                      <>
-                        <Lyftcertificate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                      </> :
-                      <>
-                        <DownloadCertifcate setLoading={setLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                      </>}
-                </> : null
-            }
-          </>
-
-        )
-          :
-          <>
-            {inReview === true ?
-              <div className="open-tab-container">
-                <div className="open-tab-bg_color">
-                  <div className="tab-content-container">
-                    <div className="content-text">{title}</div>
-                    <div className="arrow-icon-container">
-                      <RiArrowRightSLine color="orange" size={30} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              : null
-            }
-          </>
-      }
+          ) : null}
+        </>
+      )}
     </div>
   );
 };

@@ -25,6 +25,7 @@ export function setLyftReportData(array) {
 }
 
 export function setOtherReportData(array) {
+  console.log(array);
   let vehicleArray = [];
   array?.map((vehicle) => {
     vehicle?.InspectionChecks.map((check) => {
@@ -33,7 +34,7 @@ export function setOtherReportData(array) {
       }
     });
   });
-  console.log("vehicleArray : ", vehicleArray);
+  console.log('vehicleArray : ', vehicleArray);
   vehicleArray.sort((a, b) => a.Check?.index_2 - b.Check?.index_2);
   return vehicleArray;
 }

@@ -46,19 +46,6 @@ const VehicleCombinedStatusScreen = ({
             handleStatus={handleStatus}
           />
           <div className="modals-main-container">
-            <TabComponent
-              handleCancel={handleCancel}
-              handleOk={handleOk}
-              checkModal={checkModal}
-              showModal={showModal}
-              isLoading={isLoading}
-              setLoading={setLoading}
-              setReInspectionId={setReInspectionId}
-              setReInspectionModal={setReInspectionModal}
-              setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
-              vehiclesByStatus={vehiclesByStatus}
-              handleStatus={handleStatus}
-            />
             {isLoading ? null : (
               <>
                 {' '}

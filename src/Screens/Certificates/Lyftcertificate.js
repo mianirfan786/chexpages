@@ -406,7 +406,7 @@ const LyftCertificate = (props) => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
     if (getToken) {
-      props.getVehicleCertificate({ id: user?.vehicles[0]?.id, company_id: props.id }, props.setLoading, 'template3');
+      props.getVehicleCertificate({ id: props?.id, companyId: props.companyId }, props.setLoading, 'template3');
     } else {
       props.history.push('/login');
     }
@@ -434,36 +434,36 @@ const LyftCertificate = (props) => {
 
                   <View style={styles.nameinputContainer}>
                     <Text style={styles.lyftdriverName}>LYFT DRIVER NAME</Text>
-                    <Text style={styles.nameText}>{props.reportData && props.reportData[0]?.name}</Text>
+                    <Text style={styles.nameText}>{props.reportData && props.reportData?.Username}</Text>
                   </View>
                   <View style={styles.nameinputContainer}>
                     <Text style={styles.lyftdriverName}>PHONE NUMBER</Text>
-                    <Text style={styles.nameText}>{props.reportData && props.reportData[0].phone}</Text>
+                    <Text style={styles.nameText}>{props.reportData && props.reportData.Userphone}</Text>
                   </View>
                   <View style={styles.threeinputfieldContainer}>
                     <View style={styles.nameinputContainerOne}>
                       <Text style={styles.lyftdriverName}>VEHICLE YEAR</Text>
-                      <Text style={styles.threeinputFields}>{props.reportData && props.reportData[0].year}</Text>
+                      <Text style={styles.threeinputFields}>{props.reportData && props.reportData?.year}</Text>
                     </View>
                     <View style={styles.nameinputContainerTwo}>
                       <Text style={styles.lyftdriverName}>VEHICLE MAKE</Text>
-                      <Text style={styles.threeinputFields}>{props.reportData && props.reportData[0].make}</Text>
+                      <Text style={styles.threeinputFields}>{props.reportData && props.reportData?.make}</Text>
                     </View>
                     <View style={styles.nameinputContainerThree}>
                       <Text style={styles.lyftdriverName}>VEHICLE MODEL</Text>
-                      <Text style={styles.threeinputFields}>{props.reportData && props.reportData[0].model}</Text>
+                      <Text style={styles.threeinputFields}>{props.reportData && props.reportData?.model}</Text>
                     </View>
                   </View>
 
                   <View style={styles.twoinputfieldContainer}>
                     <View style={styles.licenseplateContainer}>
                       <Text style={styles.lyftdriverName}>LICENSE PLATE #</Text>
-                      <Text style={styles.codeText}>{props.reportData && props.reportData[0].license_plate_no}</Text>
+                      <Text style={styles.codeText}>{props.reportData && props.reportData.licensePlateNumber}</Text>
                     </View>
                     <View style={{ width: '60%' }}>
                       <View style={{ flexDirection: 'row' }}>
                         {props.reportData &&
-                          props.reportData[0].vin.split('').map((char, index) => (
+                          props?.reportData?.vin?.split('').map((char, index) => (
                             <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-start' }}>
                               {index == 0 ? <Text style={{ marginTop: 27, fontSize: 15, paddingLeft: -1 }}>|</Text> : null}
 
@@ -495,23 +495,22 @@ const LyftCertificate = (props) => {
                       <Text style={styles.failText}>Fail</Text>
                     </View>
                   </View>
-
                   {props?.checksData?.map((check, index) =>
                     index <= 11 ? (
                       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: '10px' }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                           <Text style={styles.numbersText}>{index + 1}.</Text>
-                          <Text style={styles.detailsText}>{check.name}</Text>
+                          <Text style={styles.detailsText}>{check?.Check?.name}</Text>
                         </View>
                         <View style={styles.passfailContainer}>
-                          {check.status == true || check.status == 1 ? (
+                          {check?.status == true || check?.status == 1 ? (
                             <View style={styles.tickpassContainer}>
                               <Image style={{ width: '16px', marginLeft: '2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickpassContainer}></View>
                           )}
-                          {check.status == false || check.status == 0 ? (
+                          {check?.status == false || check?.status == 0 ? (
                             <View style={styles.tickfailContainer}>
                               <Image style={{ width: '16px', marginLeft: '2px' }} source={TicketImg} />
                             </View>
@@ -523,7 +522,7 @@ const LyftCertificate = (props) => {
                     ) : null
                   )}
                 </View>
-
+                {console.log(props?.checksData)}
                 <View style={{ flexDirection: 'column', width: '50%' }}>
                   <View style={styles.inspectionfirstContainer}>
                     <Text style={styles.inspectionText}>Inspection Point</Text>
@@ -538,17 +537,17 @@ const LyftCertificate = (props) => {
                       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: '10px' }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                           <Text style={styles.numbersText}>{index + 1}.</Text>
-                          <Text style={styles.detailsText}>{check.name}</Text>
+                          <Text style={styles.detailsText}>{check?.Check?.name}</Text>
                         </View>
                         <View style={styles.passfailContainer}>
-                          {check.status == true || check.status == 1 ? (
+                          {check?.status == true || check?.status == 1 ? (
                             <View style={styles.tickpassContainer}>
                               <Image style={{ width: '16px', marginLeft: '2px' }} source={TicketImg} />
                             </View>
                           ) : (
                             <View style={styles.tickpassContainer}></View>
                           )}
-                          {check.status == false || check.status == 0 ? (
+                          {check?.status == false || check?.status == 0 ? (
                             <View style={styles.tickfailContainer}>
                               <Image style={{ width: '16px', marginLeft: '2px' }} source={TicketImg} />
                             </View>
@@ -566,14 +565,14 @@ const LyftCertificate = (props) => {
                         <Text style={styles.boxinspectionText}>VEHICLE INSPECTION</Text>
                         <Text style={styles.circleoneText}>(Please circle one)</Text>
                       </View>
-                      {props.reportData && props.reportData[0].final_status === 'pass' ? (
+                      {props.reportData && props?.reportData?.finalStatus === 'pass' ? (
                         <View style={styles.orangeCircle}>
                           <Text style={styles.boxpassText}>PASS</Text>
                         </View>
                       ) : (
                         <Text style={styles.boxpassText}>PASS</Text>
                       )}
-                      {props.reportData && props.reportData[0].final_status === 'fail' ? (
+                      {props.reportData && props.reportData?.finalStatus === 'fail' ? (
                         <View style={styles.orangeCircle}>
                           <Text style={styles.boxpassText}>FAIL</Text>
                         </View>
@@ -593,7 +592,7 @@ const LyftCertificate = (props) => {
                   <View style={styles.datemainContainer}>
                     <View style={styles.inspectiondateContainer}>
                       <Text style={styles.inpectionText}>Inspection date</Text>
-                      <Text style={styles.dateText}>{moment(new Date(props.reportData && props.reportData[0]?.VehicleUpdatedAt)).format('MM/ DD /YYYY')}</Text>
+                      <Text style={styles.dateText}>{moment(new Date(props.reportData && props.reportData?.updatedAt)).format('MM/ DD /YYYY')}</Text>
                     </View>
                     <Text style={styles.documentexpiryText}>(document expires one year from this date)</Text>
                   </View>
@@ -604,7 +603,7 @@ const LyftCertificate = (props) => {
                       <Text style={styles.bottomName}>Company Name</Text>
                     </View>
                     <View style={{ width: '50%' }}>
-                      <Text style={styles.topName}>{props.reportData && props.reportData[0].vehicle_mileage}</Text>
+                      <Text style={styles.topName}>{props.reportData && props.reportData?.milage}</Text>
                       <View style={styles.borderWidth} />
                       <Text style={styles.bottomName}>vehicle mileage from odometer</Text>
                     </View>
@@ -616,7 +615,7 @@ const LyftCertificate = (props) => {
                       <Text style={styles.bottomName}>Company Address</Text>
                     </View>
                     <View style={{ width: '50%' }}>
-                      <Text style={styles.topName}>{`${props.reportData && props.reportData[0].reviewName} ${props.reportData && props.reportData[0].reviewLast}`}</Text>
+                      <Text style={styles.topName}>{`${props.reportData && props.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName}`}</Text>
                       <View style={styles.borderWidth} />
                       <Text style={styles.bottomName}>inspector name</Text>
                     </View>
@@ -631,7 +630,7 @@ const LyftCertificate = (props) => {
                       {/* <Text style={styles.topName}>12122</Text> */}
                       <Image
                         style={{ position: 'absolute', height: '100px', width: '100px', top: '-45px', right: '100px' }}
-                        src={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0].reviewSignature}?x-request=xhr`}
+                        src={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData?.Inspectorsignature}?x-request=xhr`}
                       />
                       <View style={styles.borderWidth} />
                       <Text style={styles.bottomName}>inspector signature</Text>
@@ -694,7 +693,7 @@ function mapStateToProps(state) {
   console.log('Lyft Certification dtsate', state);
   return {
     reportData: state.vehicleInstruction.lyftVehicleCertificate,
-    checksData: setLyftReportData(state.vehicleInstruction.lyftVehicleCertificate),
+    checksData: setLyftReportData(state.vehicleInstruction.lyftVehicleCertificate?.Files),
   };
 }
 
