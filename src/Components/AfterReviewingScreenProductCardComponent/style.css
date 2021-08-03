@@ -2,14 +2,14 @@
     /* background: url(../../Assets/carimg.png); */
     background-repeat: no-repeat;
     background-size: contain;
-    width: 150px;
+    width: 147px;
     height: 100px;
     margin-top: 20px;
     position: relative;
   }
   .camera-icon_container{
-    margin-left: 6px;
-    margin-top: 5px;
+    margin-left: 4px;
+    margin-top: 3px;
     position: absolute;
     left: 0;
   }

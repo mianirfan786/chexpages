@@ -25,13 +25,26 @@ const VehicleCombinedStatusScreen = ({
   handleLicensePlateNumber,
   setReInspectionLisencePlateNumber,
   reInspectionLisencePlateNumber,
-  licensePlateNumber }) => {
-
+  licensePlateNumber,
+}) => {
   return (
     <div className="main-container">
       <div className="container">
         <div className="content-main-container">
           <Header />
+
+          <TabComponent
+            handleCancel={handleCancel}
+            handleOk={handleOk}
+            checkModal={checkModal}
+            showModal={showModal}
+            isLoading={isLoading}
+            setReInspectionId={setReInspectionId}
+            setReInspectionModal={setReInspectionModal}
+            setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
+            vehiclesByStatus={vehiclesByStatus}
+            handleStatus={handleStatus}
+          />
           <div className="modals-main-container">
             <TabComponent
               handleCancel={handleCancel}
@@ -44,15 +57,25 @@ const VehicleCombinedStatusScreen = ({
               setReInspectionModal={setReInspectionModal}
               setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
               vehiclesByStatus={vehiclesByStatus}
-              handleStatus={handleStatus} />
-            {isLoading ? null :
-              <> {vehiclesByStatus?.length === 0 ? <div className="white-border-bottom_container"><div>{status === 'IN_PROGRESS' ? "No vehicle is in Draft state" : status === 'REVIEWED' ? 'No vehicle is in Reviewed state' : "No vehicle is in In-review state"}</div></div>
-                :
-                <div className="white-border-bottom_container">
-                  <div className="white-border-bottom" />
-                </div>}
+              handleStatus={handleStatus}
+            />
+            {isLoading ? null : (
+              <>
+                {' '}
+                {vehiclesByStatus?.length === 0 ? (
+                  <div className="white-border-bottom_container">
+                    <div>
+                      {status === 'IN_PROGRESS' ? 'No vehicle is in Draft state' : status === 'REVIEWED' ? 'No vehicle is in Reviewed state' : 'No vehicle is in In-review state'}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="white-border-bottom_container">
+                    <div className="white-border-bottom" />
+                  </div>
+                )}
               </>
-            }
+            )}
+
             <InspectionButtonModalComponent
               isModalVisible={isModalVisible}
               modalChecked={modalChecked}
@@ -68,7 +91,8 @@ const VehicleCombinedStatusScreen = ({
               reInspectionLisencePlateNumber={reInspectionLisencePlateNumber}
               handleCreateReInspection={handleCreateReInspection}
               handleLicensePlateNumber={handleLicensePlateNumber}
-              handleCreateInspection={handleCreateInspection} />
+              handleCreateInspection={handleCreateInspection}
+            />
           </div>
         </div>
       </div>

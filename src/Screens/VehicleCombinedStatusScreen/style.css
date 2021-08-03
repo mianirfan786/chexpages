@@ -19,23 +19,27 @@
 }
 .modals-main-container {
   background-color: #e5e5e5;
-  border-radius: 20px;
-  margin-top: 30px;
-  height: auto;
-  padding: 5px;
+margin-top: -22px;
+
+
 }
+
 .white-border-bottom_container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
 }
-.white-border-bottom {
+/* .white-border-bottom {
   border-bottom: 2px solid white;
   width: 80%;
   margin-top: 20px;
-}
+} */
 
+
+.ant-tabs > .ant-tabs-nav, .ant-tabs > div > .ant-tabs-nav {
+    position: unset !important;
+}
 
 
 

@@ -58,11 +58,13 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
               >
                 <Input.Password style={{ border: 'none', fontFamily: 'Poppins' }} placeholder="Password" className="input-field" />
               </Form.Item>
-              <Form.Item>
-                <Link to="/forgotpassword" className="forgot-password-link">
-                  Forgot Password?
-                </Link>
-              </Form.Item>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: -15, marginBottom: 10 }}>
+                <Form.Item>
+                  <Link to="/forgotpassword" className="forgot-password-link">
+                    Forgot Password?
+                  </Link>
+                </Form.Item>
+              </div>
               <Form.Item>
                 <Button disabled={isLoading ? true : false} className="button-wrapper" htmlType="submit">
                   {isLoading ? <ClipLoader color={'white'} size={20} /> : 'Sign in'}

@@ -59,14 +59,14 @@
 }
 .intro-contentP {
   font-style: normal;
-  font-weight: 200;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 15px;
   line-height: 27px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #ffffff;
   text-align: center;
-  margin: 0px;
+
 }
 .intro-content-footer-area-intro {
   position: absolute;

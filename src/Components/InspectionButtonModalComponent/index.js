@@ -25,12 +25,14 @@ const InspectionButtonModalComponent = ({
 
   return (
     <>
+
       <div className="inspection-btn-align">
         <div className="inspection-btn-container" onClick={() => { setReInspectionModal(false); showModal() }}>
           <AiOutlinePlus color="white" size={22} />
           <div className="inspections-btn-text">New Inspection</div>
         </div>
       </div>
+
       {console.log(reInspectionModal)}
       {reInspectionModal === true ?
         <Modal className="inspection-modal-container" title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
@@ -44,7 +46,7 @@ const InspectionButtonModalComponent = ({
           <div className="additional-selection-container">
             <div className="additional-selection-text">
               <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
-        </div>
+            </div>
           </div>
           <input type="input" placeholder="License Plate Number" className="modal-input-field" defaultValue={reInspectionLisencePlateNumber} />
           {companies?.map((company) => {
@@ -82,7 +84,7 @@ const InspectionButtonModalComponent = ({
           <div className="additional-selection-container">
             <div className="additional-selection-text">
               <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
-          </div>
+            </div>
           </div>
           <input type="input" placeholder="License Plate Number" className="modal-input-field" onChange={(number) => handleLicensePlateNumber(number.target.value)} />
           {companies?.map((company) => {

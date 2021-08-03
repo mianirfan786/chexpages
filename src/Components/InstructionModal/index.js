@@ -23,7 +23,14 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
         // closeIcon={false}
 
         maskClosable={isLoading ? false : true}
-        closeIcon={<IoMdClose color={'white'} size={22} />}
+        closeIcon={
+          vehicleInstructionValues?.type === 'Photo' ? (
+            <IoMdClose color={'white'} size={22} className="cloes-icon-photo" />
+          ) : (
+            //video icon
+            <IoMdClose color={'white'} size={22} className="cloes-icon" />
+          )
+        }
         maskStyle={{ backgroundColor: '#266FB7' }}
         bodyStyle={{
           width: '100%',
@@ -67,7 +74,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                     <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
                   </>
                 ) : (
-                  <video preload="metadata" id="myVideo" autoPlay={false} width="320" height="240" controls src={`${vehicleInstructionValues?.video}#t=0.5`}>
+                  <video preload="metadata" id="myVideo" autoPlay={false} width="100%" height="240" controls src={`${vehicleInstructionValues?.video}#t=0.5`}>
                     <source src={`${vehicleInstructionValues?.video}#t=0.5`} type="video/mp4" />
                   </video>
                 )}
@@ -91,8 +98,8 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                             ? parseInt(uploadingPercentage) == 0 || uploadingPercentage == 0
                               ? '0%'
                               : parseInt(uploadingPercentage) == 100
-                                ? 'Finalizing upload'
-                                : `${parseInt(uploadingPercentage)}%`
+                              ? 'Finalizing upload'
+                              : `${parseInt(uploadingPercentage)}%`
                             : 'Next'}
                         </div>
                       </label>
@@ -106,8 +113,8 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                             ? parseInt(uploadingPercentage) == 0 || uploadingPercentage == 0
                               ? '0%'
                               : parseInt(uploadingPercentage) == 100
-                                ? 'Finalizing upload'
-                                : `${parseInt(uploadingPercentage)}%`
+                              ? 'Finalizing upload'
+                              : `${parseInt(uploadingPercentage)}%`
                             : 'Next'}
                         </div>
                       </label>

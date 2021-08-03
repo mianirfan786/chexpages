@@ -22,6 +22,9 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, handleCheckBox, showM
               <span className="register-logoSpanColor">.AI</span>
             </div>
             <div className="register-mainScreenP">Virtual Inspections</div>
+            <div className="intro-validation-text">
+              (Only valid for <span className="intro-state-name">CA</span> drivers)
+            </div>
           </div>
           <div className="register-contentFooterAreaSignin">
             <div className="register-signinHeadingH3">Register</div>
@@ -34,7 +37,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, handleCheckBox, showM
                   remember: true,
                 }}
                 onFinish={handleSubmit}
-                // onFinishFailed={onFinishFailed}
+              // onFinishFailed={onFinishFailed}
               >
                 <Form.Item
                   name="name"
@@ -118,7 +121,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, handleCheckBox, showM
                   />
                 </Form.Item> */}
 
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', marginBottom: 15 }}>
                   <div></div>
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div style={{ display: 'flex' }}>
@@ -141,7 +144,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, handleCheckBox, showM
                 </Form.Item>
                 <Form.Item>
                   <Link to="/login" style={{ color: 'white' }}>
-                    Sign in to an account
+                    Already have an account. <span style={{ color: 'orange' }}>Signin!</span>
                   </Link>
                 </Form.Item>
               </Form>

@@ -95,7 +95,7 @@ const VehicleInspectionScreen = ({
                 expandIconPosition="right"
                 expandIcon={({ isActive }) => (
                   <UpCircleOutlined
-                    style={isActive ? { fontSize: 32, color: '#FF7A00', marginTop: 0 } : { fontSize: 32, color: 'lightGray', marginTop: 0 }}
+                    style={isActive ? { fontSize: 35, color: '#FF7A00', marginTop: 0 } : { fontSize: 35, color: 'lightGray', marginTop: 0 }}
                     rotate={isActive ? 180 : 0}
                   />
                 )}
@@ -383,7 +383,7 @@ const VehicleInspectionScreen = ({
           </MainDownContainer>
         </MainBgInsertDetails>
       </ImageBackgroundVehicleInspection>
-    </MainContainer>
+    </MainContainer >
   );
 };
 export default VehicleInspectionScreen;

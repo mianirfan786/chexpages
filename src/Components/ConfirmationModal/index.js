@@ -17,12 +17,13 @@ const DeleteImageModal = ({ isVisible, imageId, handleModal, onClickYes, loading
             <InSideBody>
               <ModalHeading>Are you sure you want to delete this inspection item?</ModalHeading>
               <MtB5>
-                <LinkSignInBtn onClick={onClickYes} type="submit">
-                  {loading ? <ClipLoader color={'white'} size={20} /> : 'Yes'}
-                </LinkSignInBtn>
-                <LinkSignInBtn style={{ marginTop: '10px' }} onClick={() => handleModal(false)} type="submit">
+                <div className="no-btn-container" onClick={() => handleModal(false)} type="submit">
                   No
-                </LinkSignInBtn>
+                </div>
+
+                <div className="yes-btn-container" onClick={onClickYes} type="submit">
+                  {loading ? <ClipLoader color={'white'} size={20} /> : 'Yes'}
+                </div>
               </MtB5>
             </InSideBody>
           </ModalBody>
