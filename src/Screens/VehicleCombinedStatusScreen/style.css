@@ -20,8 +20,10 @@
 .modals-main-container {
   background-color: #e5e5e5;
 margin-top: -22px;
-
-
+min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .white-border-bottom_container {

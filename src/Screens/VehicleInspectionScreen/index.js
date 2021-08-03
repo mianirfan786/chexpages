@@ -276,7 +276,7 @@ const VehicleInspectionScreen = ({
                 </Panel>
               </Collapse>
               {currentUser.lyftUser === true || currentUser.lyftUser === false ? (
-                <>
+                <div style={{ minHeight: '550px', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column' }}>
                   {paymentStatus && paymentStatus == true ? (
                     <div className="vec-inspection-submitbtn_container">
                       <button disabled={vehicleStatusLoading} onClick={changeVehicleStatus} className="vec-inspection-submit_button">
@@ -305,7 +305,7 @@ const VehicleInspectionScreen = ({
                       </button>
                     </div>
                   )}
-                </>
+                </div>
               ) : (
                 <>
                   {vehicleInstructions?.exteriorItems.filter((e) => e.url)?.length === 4 &&
