@@ -160,8 +160,18 @@
 }
 
 .instruction-modalls .ant-modal-close {
-  top: 8%;
+  top: 20%;
   right: 2%;
+}
+.cloes-icon{
+  position: absolute;
+  top: -205px;
+  right: 10px;
+}
+.cloes-icon-photo{
+  position: absolute;
+  top: -245px;
+  left:30px;
 }
 @media screen and (min-width: 600px) {
   .button-container {
@@ -181,6 +191,19 @@
     top: 0;
     right: 0;
   }
+
+  .cloes-icon{
+    position: absolute;
+    top: -130px;
+    right: 10px;
+  }
+
+  .cloes-icon-photo{
+    position: absolute;
+    top: -210px;
+  }
+  
+
 }
 
 @media only screen and (max-width: 500px) {

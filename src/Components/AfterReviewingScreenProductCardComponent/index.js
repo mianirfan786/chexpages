@@ -11,13 +11,14 @@ const AfterReviewingScreenProductCardComponent = ({ item, handleModal, handleMod
                 {item.url ? (
                     item.extension.includes('image') ? (
                         <div onClick={() => handleModal(`${process.env.REACT_APP_AWS_S3_LINK}/${item?.url}`, "image")} className="produc-card-bg_img">
-                            <img style={{ height: '100px', width: '150px' }} alt="" src={`${process.env.REACT_APP_AWS_S3_LINK}/${item?.url}`} />
-                            <HiCamera color="#97A9C5" size={20} className="camera-icon_container" />
+                            <img style={{ height: '100px', width: '147px' }} alt="" src={`${process.env.REACT_APP_AWS_S3_LINK}/${item?.url}`} />
+                            <HiCamera color="#97A9C5" size={18} className="camera-icon_container" />
                         </div>
                     ) : (item.extension.includes('video') ? (
                         <div onClick={() => handleModal(`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}#t=0.5`, "video")}>
                             <video preload="metadata" autoPlay={false} className="produc-card-bg_img">
-                                <source src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}#t=0.5`} type="video/mp4" />
+                                <source src={`${process.env.REACT_APP_AWS_S3_LINK}/${item.url}#t=0.5`} type="video/mp4"
+                                />
                             </video>
                         </div>
                         // <HiCamera color="#97A9C5" size={20} className="camera-icon_container" />

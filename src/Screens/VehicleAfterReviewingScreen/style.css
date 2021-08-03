@@ -1,14 +1,4 @@
-.after-reviewing-content-main_container{
-    width: 375px;
-    border-radius:20px;
-  /* background-color: #084e8f ; */
-  }
-  @media only screen and (max-width:415px) {
-    .after-reviewing-content-main_container{
-      width: 300px;
-     
-    }
-  }
+
   .after-reviewing-main_container{
     background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
     position: absolute;
@@ -23,7 +13,9 @@
   }
   .after-reviewing-white_container{
     background-color: #E5E5E5;
-  border-radius: 20px;
+  /* border-radius: 20px; */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   margin-top: 10px;
   height: auto;
   padding: 10px;
@@ -139,7 +131,17 @@
   line-height: 21px;
   letter-spacing: 0em;
   text-align: left;
-  
+  }
+  .main-container-width{
+    width: 370px ;
+    align-self: center ;
+  }
+
+  @media only screen and (max-width: 550px) {
+    .main-container-width{
+      width: 100% !important;
+      align-self: center !important;
+    }
   }
 
   .instruction-modalls .after-review-in-screen .ant-modal-close{
@@ -167,3 +169,9 @@
       margin-left: 30px;
     }
   }
+
+  .ant-modal-close-x {
+    margin-top: -40px;
+    margin-right: 23px;
+  }
+  

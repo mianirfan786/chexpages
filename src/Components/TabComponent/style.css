@@ -38,3 +38,6 @@
   border-top-right-radius: 20px;
   padding: 5px;
 }
+.ant-tabs > .ant-tabs-nav, .ant-tabs > div > .ant-tabs-nav {
+  position: unset !important;
+}

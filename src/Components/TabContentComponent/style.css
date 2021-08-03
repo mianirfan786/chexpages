@@ -51,3 +51,7 @@
 .modal-links-text:hover {
   color: #1468ba;
 }
+
+{
+  position: none !important;
+}

@@ -29,7 +29,7 @@ const InspectionCard = ({ title, titletwo, handleModal, type, category, item, gr
           </div>
         )}
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <p className="veh-inspection-registrationcard_text">{title}</p>
         {item.url ? (
           <div style={{ marginLeft: '5px', marginTop: '10px' }} onClick={() => deleteFile(item.groupType, item.fileId)}>

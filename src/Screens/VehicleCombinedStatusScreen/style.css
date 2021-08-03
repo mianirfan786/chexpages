@@ -19,7 +19,7 @@
 }
 .modals-main-container {
   background-color: #e5e5e5;
-margin-top: -20px;
+margin-top: -22px;
 
 
 }
@@ -30,12 +30,16 @@ margin-top: -20px;
   justify-content: center;
   margin-top: 20px;
 }
-.white-border-bottom {
+/* .white-border-bottom {
   border-bottom: 2px solid white;
   width: 80%;
   margin-top: 20px;
-}
+} */
 
+
+.ant-tabs > .ant-tabs-nav, .ant-tabs > div > .ant-tabs-nav {
+    position: unset !important;
+}
 
 
 

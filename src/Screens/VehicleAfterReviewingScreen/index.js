@@ -10,6 +10,7 @@ import AfterReviewingHeaderComponent from '../../Components/AfterReviewingHeader
 import AfterReviewingScreenProductCardComponent from '../../Components/AfterReviewingScreenProductCardComponent';
 
 const VehicleAfterReviewingScreen = ({ vehicleDetails, filesDetails, handleModal, handleModalClose, isModalVisible, url, type }) => {
+  console.log("vehicleDetails :::: ", vehicleDetails);
 
   return (
     <div className="after-reviewing-main_container">
@@ -43,7 +44,7 @@ const VehicleAfterReviewingScreen = ({ vehicleDetails, filesDetails, handleModal
 
       </Modal>
       <div className="container">
-        <div className="after-reviewing-content-main_container">
+        <div className="main-container-width">
           <AfterReviewingHeaderComponent />
           <div className="after-reviewing-white_container">
             <div className="after-reviewing-wrap_container">
@@ -63,7 +64,7 @@ const VehicleAfterReviewingScreen = ({ vehicleDetails, filesDetails, handleModal
               : null
             }
             <textarea className="text-area-container" type="textarea" placeholder="Discription" />
-            {vehicleDetails?.finalStatus ? vehicleDetails?.finalStatus === true ?
+            {vehicleDetails?.finalStatus ? vehicleDetails?.finalStatus === "pass" ?
               <>
                 <div className="final-status-container">
                   <div className="final-status-text">Final Status</div>
@@ -76,7 +77,7 @@ const VehicleAfterReviewingScreen = ({ vehicleDetails, filesDetails, handleModal
                 </div>
               </>
               :
-              vehicleDetails?.finalStatus === false ?
+              vehicleDetails?.finalStatus === "fail" ?
                 <>
                   <div className="final-status-container">
                     <div className="final-status-text">Final Status</div>
@@ -89,8 +90,8 @@ const VehicleAfterReviewingScreen = ({ vehicleDetails, filesDetails, handleModal
                   </div>
                 </>
                 : null : null}
-
           </div>
+
         </div>
       </div>
     </div>
