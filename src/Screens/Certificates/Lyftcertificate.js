@@ -673,7 +673,7 @@ const LyftCertificate = (props) => {
                     borderRadius: '50px',
                   }}
                 >
-                  Download lyft report
+                  Download vehicle report
                 </div>
                 <i className="fa fa-download" />
               </div>
