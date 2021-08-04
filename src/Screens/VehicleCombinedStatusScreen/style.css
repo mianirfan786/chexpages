@@ -1,9 +1,17 @@
-/* .content-main-container {
-  width: 375px;
+.content-main-container {
+  /* width: 375px;
   border-radius: 20px;
    background-color: #084e8f ; 
-   margin-top: 40px; 
-} */
+   margin-top: 40px;  */
+  position: absolute;
+  bottom: 0;
+}
+@media only screen and (max-width: 550px) {
+  .content-main-container {
+    position: relative;
+    margin-bottom: -160px;
+  }
+}
 
 .main-container {
   background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
@@ -19,11 +27,10 @@
 }
 .modals-main-container {
   background-color: #e5e5e5;
-margin-top: -22px;
-min-height: 550px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  margin-top: -2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .white-border-bottom_container {
@@ -38,16 +45,17 @@ min-height: 550px;
   margin-top: 20px;
 } */
 
-
-.ant-tabs > .ant-tabs-nav, .ant-tabs > div > .ant-tabs-nav {
-    position: unset !important;
+.ant-tabs > .ant-tabs-nav,
+.ant-tabs > div > .ant-tabs-nav {
+  position: unset !important;
 }
 
-
-
-
-
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
   width: 100%;
   padding-right: 0px;
   padding-left: 0px;

@@ -1,72 +1,78 @@
 .inspection-modal-container .ant-modal-content {
   width: 317px !important;
   border-radius: 10px !important;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   height: 500px !important;
   padding: 10px !important;
 }
 
-.inspection-modal-container .ant-modal-footer{
+.sham {
+  height: 400px;
+  overflow-y: scroll;
+  margin-top: 20px;
+}
+
+.inspection-modal-container .ant-modal-footer {
   display: none !important;
 }
-.inspection-modal-container .ant-modal-header{
+.inspection-modal-container .ant-modal-header {
   display: none !important;
 }
-.inspection-btn-align{
+.inspection-btn-align {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
 }
-.inspection-btn-container{
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 8px;
-margin-top: 40px;
-background: linear-gradient(90deg, #FF7A00 0%, #FF9900 94.74%);
-border-radius: 100px;
-width: 80%;
-cursor: pointer;
+.inspection-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin-top: 40px;
+  background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
+  border-radius: 100px;
+  width: 80%;
+  cursor: pointer;
 }
-.inspections-btn-text{
-color: white;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: 27px;
-letter-spacing: 0em;
-text-align: center;
-margin-left: 3px;
+.inspections-btn-text {
+  color: white;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-left: 3px;
 }
-.inspection-modal-header{
+.inspection-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 300px;
   padding: 10px;
 }
-.select-company-text{
-color: black;
-font-size: 18px;
-font-style: normal;
-font-weight: 600;
-margin-left: 10px;
+.select-company-text {
+  color: black;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  margin-left: 10px;
 }
-.additional-selection-container{
-  background-color: #FFC700;
+.additional-selection-container {
+  background-color: #ffc700;
   width: 300px;
   padding: 1px;
 }
-.additional-selection-text{
-font-size: 9px;
-/* font-style: italic; */
-font-weight: 500;
-line-height: 12px;
-text-align: center;
-color: black;
+.additional-selection-text {
+  font-size: 9px;
+  /* font-style: italic; */
+  font-weight: 500;
+  line-height: 12px;
+  text-align: center;
+  color: black;
 }
-.inspection-modal-content_container{
+.inspection-modal-content_container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,20 +81,20 @@ color: black;
   border-bottom: 0.5px solid rgba(85, 83, 83, 0.1);
 }
 
-.select-btn-container{
-  background: linear-gradient(90deg, #FF7A00 0%, #FF9900 94.74%);
-border-radius: 100px;
-padding: 7px;
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 30px;
-cursor: pointer;
+.select-btn-container {
+  background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
+  border-radius: 100px;
+  padding: 7px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  cursor: pointer;
 }
 
-.select-text{
-color: white;
+.select-text {
+  color: white;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -96,31 +102,30 @@ color: white;
   letter-spacing: 0em;
   text-align: center;
 }
-.select-text:hover{
+.select-text:hover {
   color: white;
-  }
-  .inspection-modal-content_text{
-color: #1468BA;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 14px;
-cursor: pointer;
-  }
+}
+.inspection-modal-content_text {
+  color: #1468ba;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  cursor: pointer;
+}
 
-  .modal-input-field{
-    padding: 7px;
-    margin-top: 15px;
-    width: 100%;
-    color: black;
-    font-size: 13px;
-    font-weight: 400;
-    background-color: rgb(233, 233, 233);
+.modal-input-field {
+  padding: 7px;
+  margin-top: 15px;
+  width: 100%;
+  color: black;
+  font-size: 13px;
+  font-weight: 400;
+  background-color: rgb(233, 233, 233);
+}
 
+@media only screen and (max-width: 399px) {
+  .inspection-modal-container .ant-modal-content {
+    width: 300px !important;
   }
-
-  @media only screen and (max-width:399px) {
-    .inspection-modal-container .ant-modal-content {
-      width: 285px !important;
-    }
-  }
+}
