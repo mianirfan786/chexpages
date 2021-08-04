@@ -12,6 +12,7 @@ const VehicleCombinedStatusContainer = (props) => {
   const history = useHistory();
   const { getInspectionByStatus, getVehicleCertificate, createInspection, createReInspection, vehiclesByStatus, getCompanies, companies } = props;
   const [loading, setLoading] = useState(false);
+  const [certificateLoading, setCertificateLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [reInspectionModal, setReInspectionModal] = useState(false);
   const [reInspectionId, setReInspectionId] = useState("");
@@ -99,6 +100,8 @@ const VehicleCombinedStatusContainer = (props) => {
         isLoading={loading}
         status={status}
         setLoading={setLoading}
+        certificateLoading={certificateLoading}
+        setCertificateLoading={setCertificateLoading}
         setReInspectionId={setReInspectionId}
         reInspectionModal={reInspectionModal}
         setReInspectionModal={setReInspectionModal}

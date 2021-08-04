@@ -334,7 +334,7 @@ const UberCertificate = (props) => {
       localStorage.removeItem('vehicleData');
       window.location.reload('/login');
     }
-  }, []);
+  }, [props?.companyId]);
   return (
     <div className="App">
       <PDFDownloadLink
@@ -497,9 +497,8 @@ const UberCertificate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '42%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
-                      props.reportData && props.reportData?.InspectorlastName
-                    }`}</Text>
+                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
+                      }`}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
@@ -510,9 +509,8 @@ const UberCertificate = (props) => {
                         source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData?.Inspectorsignature}?x-request=xhr`}
                       />
                     ) : (
-                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.Inspectorname} ${
-                        props.reportData && props.reportData[0]?.InspectorlastName
-                      }`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.Inspectorname} ${props.reportData && props.reportData[0]?.InspectorlastName
+                        }`}</Text>
                     )}
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector signature</Text>

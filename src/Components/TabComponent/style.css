@@ -36,7 +36,7 @@
   background-color: #e5e5e5;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: 5px;
+  padding: 10px;
 }
 .ant-tabs > .ant-tabs-nav, .ant-tabs > div > .ant-tabs-nav {
   position: unset !important;

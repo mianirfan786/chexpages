@@ -215,7 +215,7 @@ export function getSurveyStatus(id, setSurveyCheck) {
           setSurveyCheck(false);
         }
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }
 
@@ -252,11 +252,11 @@ export function getVehiclesStatus(vehicleId, setLoading) {
 
 export function getVehicleCertificate(params, setLoading, template) {
   return (dispatch) => {
-    // setLoading(true);
+    setLoading(true);
     axios
       .post(`${Api}/vehicle/${params?.id}/files`, { companyId: params?.companyId }, { headers })
       .then((resp) => {
-        // setLoading(false);
+        setLoading(false);
         if (template == 'template2') {
           dispatch(setCertificateData(resp.data));
         } else if (template === 'uber') {
@@ -266,7 +266,7 @@ export function getVehicleCertificate(params, setLoading, template) {
         }
       })
       .catch((err) => {
-        // setLoading(false);
+        setLoading(false);
       });
   };
 }

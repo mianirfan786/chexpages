@@ -6,7 +6,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import TabContentComponent from '../TabContentComponent';
 
 const { TabPane } = Tabs;
-const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, showModal, setReInspectionId, setReInspectionModal, setReInspectionLisencePlateNumber }) => {
+const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, certificateLoading, setCertificateLoading, showModal, setReInspectionId, setReInspectionModal, setReInspectionLisencePlateNumber }) => {
   return (
     <div>
       <Tabs onChange={(key) => handleStatus(key)} defaultActiveKey="REVIEWED" centered>
@@ -21,19 +21,21 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, s
               <>
                 {vehiclesByStatus?.[0]?.status === 'REVIEWED'
                   ? vehiclesByStatus?.map((item) => {
-                      return (
-                        <TabContentComponent
-                          title={item?.Vehicle?.licensePlateNumber}
-                          reviewed={true}
-                          item={item}
-                          setLoading={setLoading}
-                          showModal={showModal}
-                          setReInspectionId={setReInspectionId}
-                          setReInspectionModal={setReInspectionModal}
-                          setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
-                        />
-                      );
-                    })
+                    return (
+                      <TabContentComponent
+                        title={item?.Vehicle?.licensePlateNumber}
+                        reviewed={true}
+                        item={item}
+                        setLoading={setLoading}
+                        showModal={showModal}
+                        certificateLoading={certificateLoading}
+                        setCertificateLoading={setCertificateLoading}
+                        setReInspectionId={setReInspectionId}
+                        setReInspectionModal={setReInspectionModal}
+                        setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
+                      />
+                    );
+                  })
                   : null}
               </>
             )}
@@ -49,8 +51,8 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, s
               <>
                 {vehiclesByStatus?.[0]?.status === 'IN_REVIEW'
                   ? vehiclesByStatus?.map((item) => {
-                      return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />;
-                    })
+                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />
+                  })
                   : null}
               </>
             )}
@@ -66,8 +68,8 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, s
               <>
                 {vehiclesByStatus?.[0]?.status === 'IN_PROGRESS'
                   ? vehiclesByStatus?.map((item) => {
-                      return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
-                    })
+                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
+                  })
                   : null}
               </>
             )}

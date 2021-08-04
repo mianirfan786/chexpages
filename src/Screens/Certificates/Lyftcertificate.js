@@ -410,7 +410,7 @@ const LyftCertificate = (props) => {
     } else {
       props.history.push('/login');
     }
-  }, []);
+  }, [props?.companyId]);
 
   return (
     <div className="App">
@@ -659,7 +659,7 @@ const LyftCertificate = (props) => {
             {loading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <div style={{ display: 'flex', marginTop: '30px', flexDirection: 'row', alignItems: 'center' }}>
                 <div
                   style={{
                     fontSize: '15px',
@@ -673,7 +673,7 @@ const LyftCertificate = (props) => {
                     borderRadius: '50px',
                   }}
                 >
-                  Download vehicle report
+                  Download lyft report
                 </div>
                 <i className="fa fa-download" />
               </div>
