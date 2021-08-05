@@ -187,6 +187,10 @@ const TabContentComponent = ({ title,
                   <div className="modal-company-text" key={items?.id}>
                     <div className="modal-links-text">{items?.Company?.name}</div>
                     <input className="checkbox-container" type="radio" name="name" onClick={() => { handleDownload(items, item?.id); handleCancelLittle(); }} />
+                    {/* <form>
+                      <input type="radio" id="html" name="fav_language" value="HTML" />
+                      <label for="html">HTML</label>
+                    </form> */}
                   </div>
                 );
               })}
@@ -222,8 +226,6 @@ const TabContentComponent = ({ title,
               ) : null) : null}
             </div>
           </Modal>
-
-
         </>
       ) : (
         <>

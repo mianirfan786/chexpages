@@ -2,10 +2,10 @@
   background: #ffffff;
   border-radius: 3px;
   padding: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 .open-tab-container {
-  padding: 8px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -38,13 +38,13 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: 10px;
-  height: 400px;
+  height: 320px;
   overflow-y: scroll;
 }
 
 @media only screen and (max-width: 550px) {
   .tabs-content-bg-color {
-    height: 500px;
+    height: 400px ;
   }
 }
 

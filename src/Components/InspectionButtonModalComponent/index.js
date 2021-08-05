@@ -53,16 +53,18 @@ const InspectionButtonModalComponent = ({
             </div>
           </div>
           <input type="input" placeholder="License Plate Number" className="modal-input-field" defaultValue={reInspectionLisencePlateNumber} />
-          {companies?.map((company) => {
-            return (
-              <div className="inspection-modal-content_container" onClick={() => checkModal(company?.id)} key={company?.id}>
-                <div style={{ margin: '10px' }} className="inspection-modal-content_text">
-                  {company?.name}
+          <div className="modal-content-scroll">
+            {companies?.map((company) => {
+              return (
+                <div className="inspection-modal-content_container" onClick={() => checkModal(company?.id)} key={company?.id}>
+                  <div style={{ margin: '10px' }} className="inspection-modal-content_text">
+                    {company?.name}
+                  </div>
+                  {modalChecked.includes(company?.id) ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
                 </div>
-                {modalChecked.includes(company?.id) ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
           <div style={{ padding: '15px', width: '80%' }}>
             {reInspectionLisencePlateNumber !== '' && modalChecked.length !== 0 ? (
               <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleCreateReInspection()}>
@@ -89,7 +91,8 @@ const InspectionButtonModalComponent = ({
             </div>
           </div>
           <input type="input" placeholder="License Plate Number" className="modal-input-field" onChange={(number) => handleLicensePlateNumber(number.target.value)} />
-          <div className="sham">
+
+          <div className="modal-content-scroll">
             {companies?.map((company) => {
               return (
                 <div className="inspection-modal-content_container" onClick={() => checkModal(company?.id)} key={company?.id}>

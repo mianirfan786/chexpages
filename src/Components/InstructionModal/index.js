@@ -219,6 +219,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
                       <source src={`${vehicleInstructionValues?.video}#t=0.5`} type="video/mp4" />
                     </video>
                   )}
+
                   <div style={{ paddingLeft: '18px' }} className="instruction-modal-step-container">
                     {vehicleInstructionValues?.steps.map((step, index) => (
                       <ul style={{ padding: 0, marginLeft: 10 }} key={index}>

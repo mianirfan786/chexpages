@@ -32,6 +32,7 @@ const VehicleCombinedStatusScreen = ({
   return (
     <div className="main-container">
       <div className="container">
+
         <div className="content-main-container">
           <Header />
 
@@ -50,6 +51,8 @@ const VehicleCombinedStatusScreen = ({
             vehiclesByStatus={vehiclesByStatus}
             handleStatus={handleStatus}
           />
+
+
           <div className="modals-main-container">
             {isLoading ? null : (
               <>
@@ -86,6 +89,7 @@ const VehicleCombinedStatusScreen = ({
               handleCreateInspection={handleCreateInspection}
             />
           </div>
+
         </div>
       </div>
     </div>
