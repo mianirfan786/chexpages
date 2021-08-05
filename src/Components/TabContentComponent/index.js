@@ -23,6 +23,7 @@ const TabContentComponent = ({ title,
   setReInspectionModal,
   setReInspectionLisencePlateNumber }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [company, setCompany] = useState(false);
   const [companyModalVisible, setCompanyModalVisible] = useState(false);
   const [certificateData, setCertificateData] = useState({
     id: '',
@@ -54,6 +55,7 @@ const TabContentComponent = ({ title,
 
   const handleCancelCompany = () => {
     setCompanyModalVisible(false);
+    setCompany(false);
   };
 
   const handleReInspectionId = (item) => {
@@ -62,6 +64,7 @@ const TabContentComponent = ({ title,
   };
 
   const handleDownload = (items, id) => {
+    setCompany(false);
     setCertificateData({
       id: id,
       companyId: items?.Company?.id,
@@ -178,11 +181,14 @@ const TabContentComponent = ({ title,
                   <div className="modal-company-text">
                     <div className="modal-links-text">{items?.Company?.name}</div>
                     <input className="checkbox-container" type="radio" name="name" onClick={() => { handleDownload(items, item?.id); handleCancelLittle(); }} />
+                    {/* <form>
+                      <input type="radio" id="html" name="fav_language" value="HTML" />
+                      <label for="html">HTML</label>
+                    </form> */}
                   </div>
-
                 );
               })}
-              {certificateData?.templateId === 3 ? (
+              {company === true ? (certificateData?.templateId === 3 ? (
                 <>
                   {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
                     <>
@@ -190,19 +196,16 @@ const TabContentComponent = ({ title,
                     </>
                   ) : (
                     <>
-                      <DownloadCertifcate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                      <Lyftcertificate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
                     </>
                   )}
                 </>
               ) : certificateData?.templateId === 2 ? (
                 <>
+
                   {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
                     <>
                       <UberCertificate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                    </>
-                  ) : certificateData?.companyName !== 'Uber' || certificateData?.companyName !== 'uber' ? (
-                    <>
-                      <Lyftcertificate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
                     </>
                   ) : (
                     <>
@@ -210,11 +213,13 @@ const TabContentComponent = ({ title,
                     </>
                   )}
                 </>
-              ) : null}
+              ) : certificateData?.templateId.length ? (
+                <>
+                  <DownloadCertifcate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                </>
+              ) : null) : null}
             </div>
           </Modal>
-
-
         </>
       ) : (
         <>

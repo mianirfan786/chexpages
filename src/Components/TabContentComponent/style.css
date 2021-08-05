@@ -14,7 +14,6 @@
    background-color: white;
    width: 300px !important;
   /* height: 300px; */
-  padding: 10px;
   border-radius: 10px !important;
 }
 .ant-modal-footer {
@@ -50,8 +49,9 @@
 display: flex;
 align-items: center;
 justify-content: space-between;
-margin-top: 22px;
+margin-top: 10px;
 width: 100%;
+padding: 8px;
 }
 .modal-links-text {
   color: #1468ba;
@@ -70,4 +70,5 @@ width: 100%;
 .checkbox-container{
   width: 16px;
   height: 16px;
+  box-shadow: none;
 }

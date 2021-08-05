@@ -6,7 +6,7 @@
   padding: 10px !important;
 }
 
-.sham {
+.modal-content-scroll {
   height: 400px;
   overflow-y: scroll;
   margin-top: 20px;
@@ -23,7 +23,19 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
+
 }
+
+/* @media only screen and (max-width:550px){
+  .inspection-btn-align {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    background-color: #e5e5e5;
+    height: 280px;
+  }
+} */
+
 .inspection-btn-container {
   display: flex;
   align-items: center;

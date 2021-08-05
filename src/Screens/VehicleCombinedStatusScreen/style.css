@@ -1,15 +1,13 @@
 .content-main-container {
-  /* width: 375px;
-  border-radius: 20px;
-   background-color: #084e8f ; 
-   margin-top: 40px;  */
-  position: absolute;
-  bottom: 0;
+  position: absolute; 
+  bottom: 0; 
+
 }
 @media only screen and (max-width: 550px) {
   .content-main-container {
-    position: relative;
-    margin-bottom: -160px;
+    position: absolute; 
+  bottom: 0; 
+    width: 100%;
   }
 }
 
@@ -23,8 +21,15 @@
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* flex-direction: column; */
 }
+
+/* @media  only screen and (max-width:550px){
+  .main-container{
+    overflow: hidden;
+  }
+} */
+
 .modals-main-container {
   background-color: #e5e5e5;
   margin-top: -2px;
