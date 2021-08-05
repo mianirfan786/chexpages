@@ -16,15 +16,19 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, c
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }}>
                 <ClipLoader color={'#246DB5'} size={20} />
               </div>
-            ) : (
-              <>
-                {vehiclesByStatus?.[0]?.status === 'IN_PROGRESS'
-                  ? vehiclesByStatus?.map((item) => {
-                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
-                  })
-                  : null}
-              </>
-            )}
+            ) : vehiclesByStatus?.length === 0 ?
+              <div className="draft-message-show">
+                {'No vehicle is in Draft state'}
+              </div>
+              : (
+                <>
+                  {vehiclesByStatus?.[0]?.status === 'IN_PROGRESS'
+                    ? vehiclesByStatus?.map((item) => {
+                      return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
+                    })
+                    : null}
+                </>
+              )}
           </div>
         </TabPane>
 
@@ -34,15 +38,19 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, c
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }}>
                 <ClipLoader color={'#246DB5'} size={20} />
               </div>
-            ) : (
-              <>
-                {vehiclesByStatus?.[0]?.status === 'IN_REVIEW'
-                  ? vehiclesByStatus?.map((item) => {
-                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />
-                  })
-                  : null}
-              </>
-            )}
+            ) : vehiclesByStatus?.length === 0 ?
+              <div className="draft-message-show">
+                {'No vehicle is in In-review state'}
+              </div>
+              : (
+                <>
+                  {vehiclesByStatus?.[0]?.status === 'IN_REVIEW'
+                    ? vehiclesByStatus?.map((item) => {
+                      return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />
+                    })
+                    : null}
+                </>
+              )}
           </div>
         </TabPane>
 
@@ -53,29 +61,33 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, c
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }}>
                 <ClipLoader color={'#246DB5'} size={20} />
               </div>
-            ) : (
-              <>
-                {vehiclesByStatus?.[0]?.status === 'REVIEWED'
-                  ? vehiclesByStatus?.map((item) => {
-                    return (
-                      <TabContentComponent
-                        title={item?.Vehicle?.licensePlateNumber}
-                        reviewed={true}
-                        item={item}
-                        setLoading={setLoading}
-                        showModal={showModal}
-                        certificateLoading={certificateLoading}
-                        setCertificateLoading={setCertificateLoading}
-                        setReInspectionId={setReInspectionId}
-                        setReInspectionModal={setReInspectionModal}
-                        setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
-                        key={item?.id}
-                      />
-                    );
-                  })
-                  : null}
-              </>
-            )}
+            ) : vehiclesByStatus?.length === 0 ?
+              <div className="draft-message-show">
+                {'No vehicle is in Draft state'}
+              </div>
+              : (
+                <>
+                  {vehiclesByStatus?.[0]?.status === 'REVIEWED'
+                    ? vehiclesByStatus?.map((item) => {
+                      return (
+                        <TabContentComponent
+                          title={item?.Vehicle?.licensePlateNumber}
+                          reviewed={true}
+                          item={item}
+                          setLoading={setLoading}
+                          showModal={showModal}
+                          certificateLoading={certificateLoading}
+                          setCertificateLoading={setCertificateLoading}
+                          setReInspectionId={setReInspectionId}
+                          setReInspectionModal={setReInspectionModal}
+                          setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
+                          key={item?.id}
+                        />
+                      );
+                    })
+                    : null}
+                </>
+              )}
           </div>
         </TabPane>
         {/* <TabPane key="IN_REVIEW" tab={<div style={{ color: 'white', fontSize: '15px', marginLeft: '35px', marginRight: '35px', fontWeight: '500' }}>In Review</div>}>

@@ -53,23 +53,26 @@ const VehicleCombinedStatusScreen = ({
           />
 
 
+
           <div className="modals-main-container">
-            {isLoading ? null : (
-              <>
-                {' '}
-                {vehiclesByStatus?.length === 0 ? (
-                  <div className="white-border-bottom_container">
-                    <div>
-                      {status === 'IN_PROGRESS' ? 'No vehicle is in Draft state' : status === 'REVIEWED' ? 'No vehicle is in Reviewed state' : 'No vehicle is in In-review state'}
+            {/* <div style={{ position: 'absolute', bottom: 250, left: 60 }}>
+              {isLoading ? null : (
+                <>
+                  {' '}
+                  {vehiclesByStatus?.length === 0 ? (
+                    <div className="white-border-bottom_container">
+                      <div>
+                        {status === 'IN_PROGRESS' ? 'No vehicle is in Draft state' : status === 'REVIEWED' ? 'No vehicle is in Reviewed state' : 'No vehicle is in In-review state'}
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <div className="white-border-bottom_container">
-                    <div className="white-border-bottom" />
-                  </div>
-                )}
-              </>
-            )}
+                  ) : (
+                    <div className="white-border-bottom_container">
+                      <div className="white-border-bottom" />
+                    </div>
+                  )}
+                </>
+              )}
+            </div> */}
 
             <InspectionButtonModalComponent
               isModalVisible={isModalVisible}

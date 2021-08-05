@@ -70,3 +70,10 @@
   background: rgb(231, 231, 231);
   border-radius: 10px;
 }
+
+.draft-message-show{
+  display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 200px;
+}
