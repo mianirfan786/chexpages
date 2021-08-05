@@ -350,7 +350,6 @@ const DownloadCertifcate = (props) => {
   }, [props?.companyId]);
   return (
     <div className="App">
-
       <PDFDownloadLink
         wrap={false}
         document={
@@ -597,7 +596,6 @@ const DownloadCertifcate = (props) => {
                 <i className="fa fa-download" />
               </div>
             )}
-            {console.log('121212', error)}
           </>
         )}
       </PDFDownloadLink>

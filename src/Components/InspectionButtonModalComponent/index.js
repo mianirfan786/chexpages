@@ -55,7 +55,7 @@ const InspectionButtonModalComponent = ({
           <input type="input" placeholder="License Plate Number" className="modal-input-field" defaultValue={reInspectionLisencePlateNumber} />
           {companies?.map((company) => {
             return (
-              <div className="inspection-modal-content_container" onClick={() => checkModal(company?.id)}>
+              <div className="inspection-modal-content_container" onClick={() => checkModal(company?.id)} key={company?.id}>
                 <div style={{ margin: '10px' }} className="inspection-modal-content_text">
                   {company?.name}
                 </div>
@@ -92,7 +92,7 @@ const InspectionButtonModalComponent = ({
           <div className="sham">
             {companies?.map((company) => {
               return (
-                <div className="inspection-modal-content_container" onClick={() => checkModal(company?.id)}>
+                <div className="inspection-modal-content_container" onClick={() => checkModal(company?.id)} key={company?.id}>
                   <div style={{ margin: '10px' }} className="inspection-modal-content_text">
                     {company?.name}
                   </div>

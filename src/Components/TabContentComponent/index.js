@@ -23,6 +23,7 @@ const TabContentComponent = ({ title,
   setReInspectionModal,
   setReInspectionLisencePlateNumber }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [company, setCompany] = useState(false);
   const [companyModalVisible, setCompanyModalVisible] = useState(false);
   const [certificateData, setCertificateData] = useState({
     id: '',
@@ -54,14 +55,22 @@ const TabContentComponent = ({ title,
 
   const handleCancelCompany = () => {
     setCompanyModalVisible(false);
+    setCompany(false);
+    setCertificateData({
+      id: '',
+      companyId: '',
+      companyName: '',
+      templateId: '',
+    })
+    window.location.reload();
   };
 
   const handleReInspectionId = (item) => {
-    console.log('item ::: ', item);
     setReInspectionId(item?.id);
   };
 
   const handleDownload = (items, id) => {
+    setCompany(true);
     setCertificateData({
       id: id,
       companyId: items?.Company?.id,
@@ -128,7 +137,7 @@ const TabContentComponent = ({ title,
               className="modal-links-container"
               onClick={() => {
                 showModalCompany();
-                setReInspectionModal(true);
+                setReInspectionModal(false);
               }}
             >
               <IoDocumentTextOutline color="#1468BA" size={18} />
@@ -175,14 +184,13 @@ const TabContentComponent = ({ title,
               </div>
               {item?.CompanyInspections?.map((items) => {
                 return (
-                  <div className="modal-company-text">
+                  <div className="modal-company-text" key={items?.id}>
                     <div className="modal-links-text">{items?.Company?.name}</div>
                     <input className="checkbox-container" type="radio" name="name" onClick={() => { handleDownload(items, item?.id); handleCancelLittle(); }} />
                   </div>
-
                 );
               })}
-              {certificateData?.templateId === 3 ? (
+              {company === true ? (certificateData?.templateId === 3 ? (
                 <>
                   {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
                     <>
@@ -190,19 +198,16 @@ const TabContentComponent = ({ title,
                     </>
                   ) : (
                     <>
-                      <DownloadCertifcate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                      <Lyftcertificate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
                     </>
                   )}
                 </>
               ) : certificateData?.templateId === 2 ? (
                 <>
+
                   {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
                     <>
                       <UberCertificate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                    </>
-                  ) : certificateData?.companyName !== 'Uber' || certificateData?.companyName !== 'uber' ? (
-                    <>
-                      <Lyftcertificate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
                     </>
                   ) : (
                     <>
@@ -210,7 +215,11 @@ const TabContentComponent = ({ title,
                     </>
                   )}
                 </>
-              ) : null}
+              ) : certificateData?.templateId.length ? (
+                <>
+                  <DownloadCertifcate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                </>
+              ) : null) : null}
             </div>
           </Modal>
 

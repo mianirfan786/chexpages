@@ -230,3 +230,12 @@
     margin-left: 10px;
   }
 }
+
+.ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-bottom > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before, .ant-tabs-bottom > div > .ant-tabs-nav::before {
+  position: none !important;
+  border-bottom:none !important;
+}
+
+.instruction-tab-names{
+  color: white;
+}
