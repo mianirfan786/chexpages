@@ -144,7 +144,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, handleCheckBox, showM
                 </Form.Item>
                 <Form.Item>
                   <Link to="/login" style={{ color: 'white' }}>
-                    Already have an account. <span style={{ color: 'orange' }}>Signin!</span>
+                    Already have an account. <span style={{ color: 'white' }}>SignIn!</span>
                   </Link>
                 </Form.Item>
               </Form>

@@ -63,7 +63,7 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
           </div>
           <div className="transaction-input-field">
             <div className="input-field-name">Cardholder Name</div>
-            <input style={{ fontSize: 20, fontWeight: '600' }} />
+            <input className="cardholder-input" />
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>

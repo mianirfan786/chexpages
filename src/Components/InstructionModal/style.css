@@ -160,18 +160,18 @@
 }
 
 .instruction-modalls .ant-modal-close {
-  top: 20%;
-  right: 2%;
+  top: 36%;
+  right: -7%;
 }
 .cloes-icon{
   position: absolute;
-  top: -255px;
+  top: -220px;
   right: 10px;
 }
 .cloes-icon-photo{
   position: absolute;
-  top: -250px;
-  left:30px;
+  top: -225px;
+  left:40px;
 }
 
 
@@ -190,14 +190,14 @@
   }
 
   .instruction-modalls .ant-modal-close {
-    top: 0;
-    right: 0;
+    top: 20%;
+    right: -7%;
   }
 
   .cloes-icon{
     position: absolute;
-    top: -240px;
-    right: -16px;
+    top: -205px;
+    right: 15px;
   }
 
   .cloes-icon-photo{

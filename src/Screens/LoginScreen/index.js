@@ -19,6 +19,9 @@ const LoginScreen = ({ handleSubmit, isLoading }) => {
               <span className="logo-span-color">.AI</span>
             </h1>
             <div className="login-desp-heading">Virtual Inspections</div>
+            <div className="intro-validation-text">
+              (Only valid for <span className="intro-state-name">CA</span> drivers)
+            </div>
           </div>
           <div className="login-form-main-container">
             <h3 className="login-form-heading">Sign in</h3>

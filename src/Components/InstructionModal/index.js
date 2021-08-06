@@ -74,7 +74,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
               <>
                 <div style={{ fontSize: '26px', color: 'white', marginTop: '50px' }}>{vehicleInstructionValues?.title}</div>
                 <div style={{ color: 'white', marginTop: '20px' }}>{vehicleInstructionValues?.description}</div>
-                <div style={{ marginBottom: '60px', marginTop: '60px' }}>
+                <div style={{ marginBottom: '40px', marginTop: '40px' }}>
                   <div>
                     <Tabs defaultActiveKey="1" onChange={callback} centered>
                       <TabPane tab={<div className="instruction-tab-names" style={{ fontWeight: 'bold' }}>Individually</div>} key="1">
@@ -209,7 +209,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
               <>
                 <div style={{ fontSize: '26px', color: 'white', marginTop: '50px' }}>{vehicleInstructionValues?.title}</div>
                 <div style={{ color: 'white', marginTop: '20px' }}>{vehicleInstructionValues?.description}</div>
-                <div style={{ marginBottom: '60px', marginTop: '60px' }}>
+                <div style={{ marginBottom: '40px', marginTop: '0px' }}>
                   {vehicleInstructionValues?.type === 'Photo' ? (
                     <>
                       <img alt="" className="modal-image" src={vehicleInstructionValues?.image} />
