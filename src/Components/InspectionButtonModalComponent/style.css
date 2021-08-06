@@ -122,13 +122,13 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px;
+  /* line-height: 14px; */
   cursor: pointer;
 }
 
 .modal-input-field {
+  font-family: 'poppins' !important;
   padding: 7px;
-  margin-top: 15px;
   width: 100%;
   color: black;
   font-size: 13px;
@@ -140,4 +140,35 @@
   .inspection-modal-container .ant-modal-content {
     width: 300px !important;
   }
+}
+
+
+.tick-background-color{
+  background-color: rgb(233, 233, 233) ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+.select-companies-text{
+  font-size: medium;
+  text-align: left;
+  font-weight: 500;
+  margin-left: -42%;
+  margin-top: 22px;
+  color: grey;
+  font-size: 16px;
+  margin-bottom: -20px;
+}
+
+.please-enter-text{
+  text-align: start !important;
+  color: black;
+  font-size: 13px;
+  margin-left: -53px;
+  margin-top: 8px;
+  margin-bottom: 2px;
 }

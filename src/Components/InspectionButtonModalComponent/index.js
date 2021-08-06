@@ -27,12 +27,11 @@ const InspectionButtonModalComponent = ({
 }) => {
   return (
     <>
-      {console.log("reInspectionModal", reInspectionModal)}
       {reInspectionModal === true ? (
         <Modal className="inspection-modal-container" title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={() => { setReInspectionModal(false); handleCancel(); }}>
           <div className="inspection-modal-header">
             <div></div>
-            <div className="select-company-text">Select Company</div>
+            <div className="select-company-text">Re-inspect Car</div>
             <GrFormClose color="black" size={30} />
           </div>
 
@@ -41,26 +40,29 @@ const InspectionButtonModalComponent = ({
               <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
             </div>
           </div>
-          <input type="input" placeholder="License Plate Number" className="modal-input-field" defaultValue={reInspectionLisencePlateNumber} />
+          <div className="please-enter-text">Please enter license number plate.</div>
+          <input disabled={true} placeholder={reInspectionLisencePlateNumber} className="modal-input-field" defaultValue={reInspectionLisencePlateNumber} />
+          <div className="select-companies-text">Select Company (s)</div>
           <div className="modal-content-scroll">
             {companies?.map((company) => {
               return (
                 <div className="inspection-modal-content_container" onClick={() => handleReInspectionCheck(company?.id)} key={company?.id}>
-                  <div style={{ margin: '10px' }} className="inspection-modal-content_text">
+                  <div style={{ margin: '13px' }} className="inspection-modal-content_text">
                     {company?.name}
                   </div>
-                  {reInspectionChecked.includes(company?.id) ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
+                  {reInspectionChecked.includes(company?.id) ? <TiTick className="tick-background-color" color="#FF7C00" size={22} /> : <div className="tick-background-color"></div>}
                 </div>
               );
             })}
           </div>
+
           <div style={{ padding: '15px', width: '80%' }}>
             {reInspectionLisencePlateNumber !== '' && reInspectionChecked.length !== 0 ? (
               <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleCreateReInspection()}>
                 <div className="select-text">Select</div>
               </button>
             ) : (
-              <button style={{ border: 'none', marginBottom: '10px' }} className="select-btn-container" onClick={() => handleToast()}>
+              <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleToast()}>
                 <div className="select-text">Select</div>
               </button>
             )}
@@ -75,11 +77,10 @@ const InspectionButtonModalComponent = ({
               <div className="inspections-btn-text">New Inspection</div>
             </div>
           </div>
-
           <Modal className="inspection-modal-container" title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
             <div className="inspection-modal-header">
               <div></div>
-              <div className="select-company-text">Select Company</div>
+              <div className="select-company-text">New Inspection</div>
               <GrFormClose color="black" size={30} />
             </div>
 
@@ -88,8 +89,9 @@ const InspectionButtonModalComponent = ({
                 <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
             </div>
             </div>
+            <div className="please-enter-text">Please enter license number plate</div>
             <input type="input" placeholder="License Plate Number" className="modal-input-field" onChange={(number) => handleLicensePlateNumber(number.target.value)} />
-
+            <div className="select-companies-text">Select Company (s)</div>
             <div className="modal-content-scroll">
               {companies?.map((company) => {
                 return (
@@ -97,11 +99,12 @@ const InspectionButtonModalComponent = ({
                     <div style={{ margin: '10px' }} className="inspection-modal-content_text">
                       {company?.name}
                     </div>
-                    {modalChecked.includes(company?.id) ? <TiTick color="#FF7C00" size={22} /> : <TiTick color="white" size={22} />}
+                    {modalChecked.includes(company?.id) ? <TiTick className="tick-background-color" color="#FF7C00" size={22} /> : <div className="tick-background-color"></div>}
                   </div>
                 );
               })}
             </div>
+
 
             <div style={{ padding: '15px', width: '80%' }}>
               {licensePlateNumber !== '' && modalChecked.length !== 0 ? (
@@ -109,7 +112,7 @@ const InspectionButtonModalComponent = ({
                   <div className="select-text">Select</div>
                 </button>
               ) : (
-                <button style={{ border: 'none', marginBottom: '10px' }} className="select-btn-container" onClick={() => handleToast()}>
+                <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleToast()}>
                   <div className="select-text">Select</div>
                 </button>
               )}

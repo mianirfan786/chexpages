@@ -96,8 +96,9 @@ const VehicleCombinedStatusScreen = ({
               handleCreateInspection={handleCreateInspection}
             />
           </div>
-
+          <div className="tabs-bottom-color" />
         </div>
+
       </div>
     </div>
   );

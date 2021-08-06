@@ -32,7 +32,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, c
           </div>
         </TabPane>
 
-        <TabPane key="IN_REVIEW" tab={<div style={{ color: 'white', fontSize: '15px', marginLeft: '35px', marginRight: '35px', fontWeight: '500' }}>In Review</div>}>
+        <TabPane key="IN_REVIEW" tab={<div style={{ color: 'white', fontSize: '15px', marginLeft: '23px', marginRight: '20px', fontWeight: '500' }}>In Review</div>}>
           <div className="tabs-content-bg-color">
             {isLoading ? (
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }}>
@@ -63,7 +63,7 @@ const TabComponent = ({ handleStatus, vehiclesByStatus, setLoading, isLoading, c
               </div>
             ) : vehiclesByStatus?.length === 0 ?
               <div className="draft-message-show">
-                {'No vehicle is in Draft state'}
+                {'No vehicle is in Reviewed state'}
               </div>
               : (
                 <>
