@@ -335,16 +335,19 @@ export function getInspectionByStatus(params, setLoading) {
   };
 }
 
-export function createInspection(body, history) {
+export function createInspection(body, history, addToast) {
   // setLoading(true);
   return (dispatch) => {
     axios
       .post(`${Api}/create/inspection`, body, { headers })
       .then((resp) => {
+        console.log("error : ", resp);
         history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}`);
         // setLoading(false);
       })
       .catch((err) => {
+        console.log("error : ", err?.message);
+        err?.message === "Request failed with status code 409" ? addToast("Inspection Already exist", { appearance: 'warning' }) : null
         // setLoading(false);
       });
   };

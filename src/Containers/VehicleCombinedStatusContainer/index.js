@@ -19,6 +19,7 @@ const VehicleCombinedStatusContainer = (props) => {
   const [reInspectionLisencePlateNumber, setReInspectionLisencePlateNumber] = useState("");
   // const [isModalChecked, setIsModalChecked] = useState(false);
   const [modalChecked, setModalChecked] = useState([]);
+  const [reInspectionChecked, setReInspectionChecked] = useState([]);
   const [licensePlateNumber, setLicensePlateNumber] = useState("");
   const [status, setStatus] = useState("");
 
@@ -53,6 +54,19 @@ const VehicleCombinedStatusContainer = (props) => {
     }
   };
 
+  const handleReInspectionCheck = (id) => {
+    const arr = [...reInspectionChecked];
+    let index = arr.indexOf(id);
+    if (index > -1) {
+      arr.splice(index, 1);
+      setReInspectionChecked([...arr]);
+    }
+    else {
+      arr.push(id);
+      setReInspectionChecked([...arr]);
+    }
+  };
+
   const handleOk = () => {
     setIsModalVisible(false);
   };
@@ -74,7 +88,7 @@ const VehicleCombinedStatusContainer = (props) => {
 
   const handleCreateReInspection = () => {
     const body = {
-      companies: modalChecked
+      companies: reInspectionChecked
     }
     createReInspection(reInspectionId, body, history, setReInspectionModal);
   }
@@ -84,13 +98,14 @@ const VehicleCombinedStatusContainer = (props) => {
       licensePlateNumber,
       companies: modalChecked
     }
-    createInspection(body, history);
+    createInspection(body, history, addToast);
   }
   return (
     <div>
       <VehicleCombineStatusScreen
         isModalVisible={isModalVisible}
         modalChecked={modalChecked}
+        reInspectionChecked={reInspectionChecked}
         handleCancel={handleCancel}
         handleToast={handleToast}
         handleOk={handleOk}
@@ -106,6 +121,7 @@ const VehicleCombinedStatusContainer = (props) => {
         reInspectionModal={reInspectionModal}
         setReInspectionModal={setReInspectionModal}
         handleCreateReInspection={handleCreateReInspection}
+        handleReInspectionCheck={handleReInspectionCheck}
         reInspectionLisencePlateNumber={reInspectionLisencePlateNumber}
         setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
         handleCreateInspection={handleCreateInspection}

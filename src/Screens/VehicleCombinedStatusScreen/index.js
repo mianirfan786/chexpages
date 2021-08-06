@@ -25,6 +25,8 @@ const VehicleCombinedStatusScreen = ({
   handleCreateInspection,
   handleCreateReInspection,
   handleLicensePlateNumber,
+  reInspectionChecked,
+  handleReInspectionCheck,
   setReInspectionLisencePlateNumber,
   reInspectionLisencePlateNumber,
   licensePlateNumber,
@@ -76,6 +78,7 @@ const VehicleCombinedStatusScreen = ({
 
             <InspectionButtonModalComponent
               isModalVisible={isModalVisible}
+              reInspectionChecked={reInspectionChecked}
               modalChecked={modalChecked}
               handleCancel={handleCancel}
               handleOk={handleOk}
@@ -83,6 +86,7 @@ const VehicleCombinedStatusScreen = ({
               showModal={showModal}
               companies={companies}
               handleToast={handleToast}
+              handleReInspectionCheck={handleReInspectionCheck}
               setReInspectionModal={setReInspectionModal}
               reInspectionModal={reInspectionModal}
               licensePlateNumber={licensePlateNumber}

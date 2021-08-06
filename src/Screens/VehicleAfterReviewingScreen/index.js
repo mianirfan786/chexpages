@@ -7,12 +7,12 @@ import { Modal } from 'antd';
 
 import './style.css';
 
-import AfterReviewingHeaderComponent from '../../Components/AfterReviewingHeaderComponent';
-import AfterReviewingScreenProductCardComponent from '../../Components/AfterReviewingScreenProductCardComponent';
+import { Header, AfterReviewingScreenProductCardComponent } from '../../Components';
 
 const VehicleAfterReviewingScreen = ({ vehicleDetails, loading, filesDetails, handleModal, handleModalClose, isModalVisible, url, type }) => {
   return (
     <div className="after-reviewing-main_container">
+      {console.log("vehicleDetails :: ", vehicleDetails)}
       <Modal
         visible={isModalVisible}
         title={false}
@@ -43,7 +43,8 @@ const VehicleAfterReviewingScreen = ({ vehicleDetails, loading, filesDetails, ha
       </Modal>
       <div className="container">
         <div className="main-container-width">
-          <AfterReviewingHeaderComponent />
+          {/* <AfterReviewingHeaderComponent /> */}
+          <Header arrow={true} path={"/userVehicleStatus"} />
           <div className="after-reviewing-white_container">
             <div className="after-reviewing-wrap_container">
               {filesDetails?.map((item) => {
@@ -53,12 +54,13 @@ const VehicleAfterReviewingScreen = ({ vehicleDetails, loading, filesDetails, ha
             <div className="border-align-container">
               <div className="after-reviewing-bottom_border" />
             </div>
-            {vehicleDetails?.vehicle?.UserVehicles?.vehicleDoors ? (
+            {vehicleDetails?.vehicle?.vehicleDoors ? (
               <div className="no-of-door_container">
-                <div className="no-of-door_text">No of Doors : {vehicleDetails?.vehicle?.UserVehicles?.vehicleDoors}</div>
+                <div className="no-of-door_text">No of Doors : {vehicleDetails?.vehicle?.vehicleDoors}</div>
               </div>
             ) : null}
-            <textarea className="text-area-container" type="textarea" placeholder="Discription" />
+            {console.log(vehicleDetails?.remarks)}
+            <textarea disabled={true} className="text-area-container" value={vehicleDetails?.remarks} type="textarea" placeholder="Description" />
             {vehicleDetails?.finalStatus ? (
               vehicleDetails?.finalStatus === 'pass' ? (
                 <>
