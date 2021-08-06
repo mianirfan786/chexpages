@@ -19,6 +19,7 @@ const VehicleCombinedStatusScreen = ({
   setLoading,
   certificateLoading,
   setCertificateLoading,
+  loadingSelect,
   setReInspectionId,
   reInspectionModal,
   setReInspectionModal,
@@ -81,6 +82,7 @@ const VehicleCombinedStatusScreen = ({
               reInspectionChecked={reInspectionChecked}
               modalChecked={modalChecked}
               handleCancel={handleCancel}
+              loadingSelect={loadingSelect}
               handleOk={handleOk}
               checkModal={checkModal}
               showModal={showModal}

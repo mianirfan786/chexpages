@@ -335,53 +335,53 @@ export function getInspectionByStatus(params, setLoading) {
   };
 }
 
-export function createInspection(body, history, addToast) {
-  // setLoading(true);
+export function createInspection(body, history, addToast, setLoadingSelect) {
+  setLoadingSelect(true);
   return (dispatch) => {
     axios
       .post(`${Api}/create/inspection`, body, { headers })
       .then((resp) => {
         console.log("error : ", resp);
         history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}`);
-        // setLoading(false);
+        setLoadingSelect(false);
       })
       .catch((err) => {
         console.log("error : ", err?.message);
         err?.message === "Request failed with status code 409" ? addToast("Inspection Already exist", { appearance: 'warning' }) : null
-        // setLoading(false);
+        setLoadingSelect(false);
       });
   };
 }
 
-export function createReInspection(reInspectionId, body, history, setReInspectionModal) {
-  // setLoading(true);
+export function createReInspection(reInspectionId, body, history, setReInspectionModal, setLoadingSelect) {
+  setLoadingSelect(true);
   return (dispatch) => {
     axios
       .post(`${Api}/create/reinspection/${reInspectionId}`, body, { headers })
       .then((resp) => {
         history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}`);
         setReInspectionModal(false);
-        // setLoading(false);
+        setLoadingSelect(false);
       })
       .catch((err) => {
-        // setLoading(false);
+        setLoadingSelect(false);
         setReInspectionModal(false);
       });
   };
 }
 
-export function getVehicleDetails(inspectionId, setLoading) {
-  setLoading(true);
+export function getVehicleDetails(inspectionId, setLoadingSelect) {
+  setLoadingSelect(true);
   return (dispatch) => {
     axios
       .get(`${Api}/vehicle/detail/${inspectionId}`, { headers })
       .then((resp) => {
         console.log('vehicle detail :: ', resp);
         dispatch(setVehicleDetails(resp.data));
-        setLoading(false);
+        setLoadingSelect(false);
       })
       .catch((err) => {
-        setLoading(false);
+        setLoadingSelect(false);
       });
   };
 }

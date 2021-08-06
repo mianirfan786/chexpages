@@ -12,6 +12,7 @@ const VehicleCombinedStatusContainer = (props) => {
   const history = useHistory();
   const { getInspectionByStatus, getVehicleCertificate, createInspection, createReInspection, vehiclesByStatus, getCompanies, companies } = props;
   const [loading, setLoading] = useState(false);
+  const [loadingSelect, setLoadingSelect] = useState(false);
   const [certificateLoading, setCertificateLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [reInspectionModal, setReInspectionModal] = useState(false);
@@ -90,7 +91,7 @@ const VehicleCombinedStatusContainer = (props) => {
     const body = {
       companies: reInspectionChecked
     }
-    createReInspection(reInspectionId, body, history, setReInspectionModal);
+    createReInspection(reInspectionId, body, history, setReInspectionModal, setLoadingSelect);
   }
 
   const handleCreateInspection = () => {
@@ -98,7 +99,7 @@ const VehicleCombinedStatusContainer = (props) => {
       licensePlateNumber,
       companies: modalChecked
     }
-    createInspection(body, history, addToast);
+    createInspection(body, history, addToast, setLoadingSelect);
   }
   return (
     <div>
@@ -119,6 +120,7 @@ const VehicleCombinedStatusContainer = (props) => {
         setCertificateLoading={setCertificateLoading}
         setReInspectionId={setReInspectionId}
         reInspectionModal={reInspectionModal}
+        loadingSelect={loadingSelect}
         setReInspectionModal={setReInspectionModal}
         handleCreateReInspection={handleCreateReInspection}
         handleReInspectionCheck={handleReInspectionCheck}

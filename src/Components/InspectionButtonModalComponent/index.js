@@ -2,6 +2,7 @@ import React from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { GrFormClose } from 'react-icons/gr';
 import { TiTick } from 'react-icons/ti';
+import { ClipLoader } from 'react-spinners';
 
 import { Modal } from 'antd';
 import './style.css';
@@ -14,6 +15,7 @@ const InspectionButtonModalComponent = ({
   showModal,
   isModalVisible,
   modalChecked,
+  loadingSelect,
   handleToast,
   reInspectionModal,
   handleCreateInspection,
@@ -59,7 +61,12 @@ const InspectionButtonModalComponent = ({
           <div style={{ padding: '15px', width: '80%' }}>
             {reInspectionLisencePlateNumber !== '' && reInspectionChecked.length !== 0 ? (
               <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleCreateReInspection()}>
-                <div className="select-text">Select</div>
+                {loadingSelect ?
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '21px' }}>
+                    <ClipLoader color={'#246DB5'} size={20} />
+                  </div>
+                  : <div className="select-text">Select</div>
+                }
               </button>
             ) : (
               <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleToast()}>
@@ -109,7 +116,12 @@ const InspectionButtonModalComponent = ({
             <div style={{ padding: '15px', width: '80%' }}>
               {licensePlateNumber !== '' && modalChecked.length !== 0 ? (
                 <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleCreateInspection()}>
-                  <div className="select-text">Select</div>
+                  {loadingSelect ?
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '21px' }}>
+                      <ClipLoader color={'#246DB5'} size={20} />
+                    </div>
+                    : <div className="select-text">Select</div>
+                  }
                 </button>
               ) : (
                 <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleToast()}>
