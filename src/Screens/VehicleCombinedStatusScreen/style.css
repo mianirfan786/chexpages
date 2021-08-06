@@ -1,22 +1,22 @@
 .content-main-container {
   position: absolute; 
-  bottom: 0; 
+  top:0;
 }
 @media only screen and (max-width: 550px) {
   .content-main-container {
     position: absolute; 
-    /* bottom: 0;  */
     width: 100%;
     top: 0;
   }
-  .tabs-bottom-color{
+  /* .tabs-bottom-color{
     background-color: #e5e5e5;
     position: absolute;
     width: 100%;
-    min-height: 21%;
-  }
-  
+    min-height: 33%;
+    margin-top: -2px;
+  } */
 }
+
 
 
 .main-container {
@@ -44,6 +44,18 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+@media only screen and (max-width:550px) {
+  .modals-main-container {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    position: absolute;
+    width: 100%;
+    min-height: 50%;
+  }
 }
 
 .white-border-bottom_container {
