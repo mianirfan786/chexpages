@@ -2,7 +2,7 @@ import React from 'react';
 import { Drawer } from 'antd';
 import { Link } from 'react-router-dom';
 // import TestingImage from '../../Assets/testing.png';
-// import { AiTwotoneHome } from 'react-icons/ai';
+import { AiTwotoneHome } from 'react-icons/ai';
 // import { FaHistory } from 'react-icons/fa';
 // import { FaCar } from 'react-icons/fa';
 import { MdCall } from 'react-icons/md';
@@ -39,6 +39,10 @@ const SideBar = ({ drawerVisible, handleSideBar }) => {
         <FaCar />
         <div className="icon-text">Vehicle Details</div>
       </Link> */}
+      <Link to="/vehicleinspection" className="icon-bar">
+        <AiTwotoneHome />
+        <div className="icon-text">Home</div>
+      </Link>
       <Link to="/contactUs" className="icon-bar">
         <MdCall />
         <div className="icon-text">Contact us</div>

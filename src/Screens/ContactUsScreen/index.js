@@ -43,7 +43,7 @@ const ContactUsScreen = ({ handleSubmit, handleChange, loading }) => {
           <p className="email-text">support@chex.ai</p>
         </div>
         <div className="email-container">
-          <AiOutlinePhone size={24} color="#FF7A00" style={{ marginTop: '5px' }} />
+          <AiOutlinePhone size={24} color="#FF7A00" style={{ marginTop: '5px', marginLeft: -22 }} />
           <p className="email-text">(415) 234-3496</p>
         </div>
       </div>
