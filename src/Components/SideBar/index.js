@@ -39,6 +39,10 @@ const SideBar = ({ drawerVisible, handleSideBar }) => {
         <FaCar />
         <div className="icon-text">Vehicle Details</div>
       </Link> */}
+      <Link to="/vehicleinspection" className="icon-bar">
+        <AiTwotoneHome />
+        <div className="icon-text">Home</div>
+      </Link>
       <Link to="/contactUs" className="icon-bar">
         <MdCall />
         <div className="icon-text">Contact us</div>

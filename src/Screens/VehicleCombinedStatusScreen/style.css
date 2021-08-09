@@ -46,6 +46,7 @@
   justify-content: flex-end;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+
 }
 
 @media only screen and (max-width:550px) {
@@ -54,7 +55,7 @@
     border-bottom-right-radius: 0px;
     position: absolute;
     width: 100%;
-    min-height: 50%;
+    min-height: 27%;
   }
 }
 

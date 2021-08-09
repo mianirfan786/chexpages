@@ -156,11 +156,10 @@
 .select-companies-text{
   font-size: medium;
   text-align: left;
-  font-weight: 500;
-  margin-left: -42%;
-  margin-top: 22px;
-  color: grey;
-  font-size: 16px;
+  margin-left: -46%;
+  margin-top: 12px;
+  color: black;
+  font-size: 15px;
   margin-bottom: -20px;
 }
 
@@ -171,4 +170,13 @@
   margin-left: -53px;
   margin-top: 8px;
   margin-bottom: 2px;
+}
+
+@media only screen and (min-width:400px) {
+  .please-enter-text{
+    margin-left: -67px;
+  }
+  .select-companies-text{
+    margin-left: -48%;
+  }
 }
