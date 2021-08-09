@@ -130,7 +130,7 @@ export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, grou
       .then((resp) => {
         // const date = ;
         const params = { url: key, vehicle_id, category, extension: ext, groupType: groupType, dateImage };
-        console.log("params:: ", params);
+        console.log('params:: ', params);
         dispatch(addFileInDB(params, setModalValue));
       })
       .catch((err) => {
@@ -217,7 +217,7 @@ export function getSurveyStatus(id, setSurveyCheck) {
           setSurveyCheck(false);
         }
       })
-      .catch((err) => { });
+      .catch((err) => {});
   };
 }
 
@@ -343,13 +343,13 @@ export function createInspection(body, history, addToast, setLoadingSelect) {
     axios
       .post(`${Api}/create/inspection`, body, { headers })
       .then((resp) => {
-        console.log("resp inspection :: ", resp?.data, resp?.data?.vehicleId)
-        history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}?lyftUser=${resp?.data?.lyftInspection}`);
+        console.log('resp inspection :: ', resp?.data, resp?.data?.vehicleId);
+        window.location.href = `/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}?lyftUser=${resp?.data?.lyftInspection}`;
         setLoadingSelect(false);
       })
       .catch((err) => {
-        console.log("error : ", err?.message);
-        err?.message === "Request failed with status code 409" ? addToast("Inspection Already exist", { appearance: 'warning' }) : null
+        console.log('error : ', err?.message);
+        err?.message === 'Request failed with status code 409' ? addToast('Inspection Already exist', { appearance: 'warning' }) : null;
         setLoadingSelect(false);
       });
   };
@@ -357,13 +357,14 @@ export function createInspection(body, history, addToast, setLoadingSelect) {
 
 export function createReInspection(reInspectionId, body, history, setReInspectionModal, setLoadingSelect) {
   setLoadingSelect(true);
-  console.log("reInspectionId : ", reInspectionId, body);
+  console.log('reInspectionId : ', reInspectionId, body);
   return (dispatch) => {
     axios
       .post(`${Api}/create/reinspection/${reInspectionId}`, body, { headers })
       .then((resp) => {
-        console.log("resp re inspection :: ", resp);
-        history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}?lyftUser=${resp?.data?.lyftInspection}`);
+        console.log('resp re inspection :: ', resp);
+        window.location.href = `/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}?lyftUser=${resp?.data?.lyftInspection}`;
+
         setReInspectionModal(false);
         setLoadingSelect(false);
       })
