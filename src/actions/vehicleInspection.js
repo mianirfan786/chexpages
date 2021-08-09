@@ -100,7 +100,7 @@ function setFileDetails(data) {
   };
 }
 
-export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue, imageUploadingProgress) {
+export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue, imageUploadingProgress, dateImage) {
   return (dispatch) => {
     dispatch(setVehicleLoading(true));
     axios
@@ -109,7 +109,7 @@ export function uploadFile(file, params, vehicle_id, category, groupType, setMod
       })
       .then((resp) => {
         const { key, url } = resp.data;
-        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type, groupType, setModalValue, imageUploadingProgress));
+        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type, groupType, setModalValue, imageUploadingProgress, dateImage));
       })
       .catch((err) => {
         console.log(err);
@@ -117,7 +117,7 @@ export function uploadFile(file, params, vehicle_id, category, groupType, setMod
   };
 }
 
-export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, groupType, setModalValue, imageUploadingProgress) {
+export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, groupType, setModalValue, imageUploadingProgress, dateImage) {
   return (dispatch) => {
     const headers = {
       'Content-Type': 'img/png',
@@ -128,7 +128,9 @@ export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, grou
         onUploadProgress: imageUploadingProgress,
       })
       .then((resp) => {
-        const params = { url: key, vehicle_id, category, extension: ext, groupType: groupType };
+        // const date = ;
+        const params = { url: key, vehicle_id, category, extension: ext, groupType: groupType, dateImage };
+        console.log("params:: ", params);
         dispatch(addFileInDB(params, setModalValue));
       })
       .catch((err) => {
@@ -341,8 +343,8 @@ export function createInspection(body, history, addToast, setLoadingSelect) {
     axios
       .post(`${Api}/create/inspection`, body, { headers })
       .then((resp) => {
-        console.log("error : ", resp);
-        history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}`);
+        console.log("resp inspection :: ", resp?.data, resp?.data?.vehicleId)
+        history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}?lyftUser=${resp?.data?.lyftInspection}`);
         setLoadingSelect(false);
       })
       .catch((err) => {
@@ -355,11 +357,13 @@ export function createInspection(body, history, addToast, setLoadingSelect) {
 
 export function createReInspection(reInspectionId, body, history, setReInspectionModal, setLoadingSelect) {
   setLoadingSelect(true);
+  console.log("reInspectionId : ", reInspectionId, body);
   return (dispatch) => {
     axios
       .post(`${Api}/create/reinspection/${reInspectionId}`, body, { headers })
       .then((resp) => {
-        history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}`);
+        console.log("resp re inspection :: ", resp);
+        history.push(`/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}?lyftUser=${resp?.data?.lyftInspection}`);
         setReInspectionModal(false);
         setLoadingSelect(false);
       })

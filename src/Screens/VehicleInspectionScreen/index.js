@@ -55,6 +55,7 @@ const VehicleInspectionScreen = ({
   handleSkipPayment,
   vehicleStatus,
   match,
+  lyftUser
 }) => {
   const history = useHistory();
   const genExtra = () => (
@@ -100,11 +101,13 @@ const VehicleInspectionScreen = ({
                   />
                 )}
               >
+
                 <Panel
                   style={{ overflow: 'hidden' }}
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
-                      {currentUser.lyftUser === true || currentUser.lyftUser === false ? (
+                      {/* {console.log(vehicleInstructions?.verificationItem.filter((e) => e.url).length)} */}
+                      {lyftUser == true ? (
                         <Col>
                           {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
                             <BsCheckCircle color="#099220" size={22} />
@@ -133,7 +136,7 @@ const VehicleInspectionScreen = ({
                 >
                   <div className="veh-inspection-cards_container">
                     {vehicleInstructions?.verificationItem?.map((item, index) =>
-                      currentUser?.lyftUser === true || currentUser?.lyftUser === false ? (
+                      lyftUser == true ? (
                         <div key={index} className="veh-inspection-first_card">
                           <InspectionCard
                             deleteFile={handleDeleteModal}
@@ -146,7 +149,9 @@ const VehicleInspectionScreen = ({
                             type={item.type}
                           />
                         </div>
-                      ) : currentUser?.lyftUser === null ? (
+                      )
+                        :
+                        //  currentUser?.lyftUser === null ? (
                         <div key={index} className="veh-inspection-first_card">
                           <>
                             {item.lyft ? null : (
@@ -163,7 +168,8 @@ const VehicleInspectionScreen = ({
                             )}
                           </>
                         </div>
-                      ) : null
+                      // )
+                      //  : null
                     )}
                   </div>
                 </Panel>
@@ -275,7 +281,7 @@ const VehicleInspectionScreen = ({
                   </div>
                 </Panel>
               </Collapse>
-              {currentUser.lyftUser === true || currentUser.lyftUser === false ? (
+              {currentUser.lyftUser === true ? (
                 <div>
                   {paymentStatus && paymentStatus == true ? (
                     <div className="vec-inspection-submitbtn_container">

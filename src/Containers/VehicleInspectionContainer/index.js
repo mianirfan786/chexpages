@@ -7,13 +7,18 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
+import { moment } from 'moment';
 import ActionCreators from '../../actions';
 import Loading from '../../HOC/index';
 import { VehicleInspectionScreen } from '../../Screens';
 
+const queryString = require('query-string');
+
 // const queryString = require('query-string');
 
 const VehicleInspectionContainer = (props) => {
+  const query = queryString.parse(location.search);
+
   const { addToast } = useToasts();
   const history = useHistory();
 
@@ -39,6 +44,11 @@ const VehicleInspectionContainer = (props) => {
   const [groupType, setGroupType] = useState(null);
   const [surveyCheck, setSurveyCheck] = useState(false);
 
+
+  let today = new Date();
+  const date = `${(today.getMonth() + 1)}-${today.getDate()}-${today.getFullYear()}`;
+  const dateImage = date.toString()
+
   useEffect(() => {
     // if (user?.updates || user?.updates === null || user?.updates === undefined) {
     //   window.location.replace('/logoutForChanges');
@@ -50,7 +60,7 @@ const VehicleInspectionContainer = (props) => {
     const { getVehicleFile, currentUser, getSurveyStatus, getVehiclesStatus, match } = props;
     // getSurveyStatus(currentUser?.id, setSurveyCheck);
     getVehicleFile(match?.params?.id, setLoading);
-    getVehiclesStatus(match?.params?.vehicleId, setLoading);
+    getVehiclesStatus(match?.params?.id, setLoading);
   };
 
   const handleModal = (value, groupType) => {
@@ -82,7 +92,7 @@ const VehicleInspectionContainer = (props) => {
       .then(function (compressedFile) {
         const { uploadFile, match } = props;
 
-        uploadFile(compressedFile, { type: compressedFile.type }, match?.params?.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
+        uploadFile(compressedFile, { type: compressedFile.type }, match?.params?.id, imageCategory, groupType, setModalValue, imageUploadingProgress, dateImage);
       })
       .catch(function (error) { });
     setuploadingPercentage(0);
@@ -93,7 +103,7 @@ const VehicleInspectionContainer = (props) => {
     event.target.value = '';
 
     const { uploadFile, match } = props;
-    uploadFile(videoFile, { type: videoFile.type }, match?.params?.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
+    uploadFile(videoFile, { type: videoFile.type }, match?.params?.id, imageCategory, groupType, setModalValue, imageUploadingProgress, dateImage);
     setuploadingPercentage(0);
   };
 
@@ -188,6 +198,7 @@ const VehicleInspectionContainer = (props) => {
       vehicleStatusLoading={vehicleStatusLoading}
       handleSkipPayment={handleSkipPayment}
       vehicleStatus={props?.vehicleStatus}
+      lyftUser={query?.lyftUser}
     />
   );
 };

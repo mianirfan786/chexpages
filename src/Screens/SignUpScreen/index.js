@@ -23,7 +23,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, handleCheckBox, showM
             </div>
             <div className="register-mainScreenP">Virtual Inspections</div>
             <div className="intro-validation-text">
-              (Only valid for <span className="intro-state-name">CA</span> drivers)
+              (Only valid for <span className="intro-state-name">CA & AZ</span> drivers)
             </div>
           </div>
           <div className="register-contentFooterAreaSignin">

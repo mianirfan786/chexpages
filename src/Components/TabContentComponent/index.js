@@ -84,7 +84,7 @@ const TabContentComponent = ({ title,
   };
 
   const handleRedirect = (item) => {
-    window.location.href = `/vehicleinspection/${item?.id}/${item?.vehicleId}`;
+    window.location.href = `/vehicleinspection/${item?.id}/${item?.vehicleId}?lyftUser=${item.lyftInspection}`;
   };
   return (
     <div>

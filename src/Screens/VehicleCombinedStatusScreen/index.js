@@ -55,8 +55,6 @@ const VehicleCombinedStatusScreen = ({
             handleStatus={handleStatus}
           />
 
-
-
           <div className="modals-main-container">
             {/* <div style={{ position: 'absolute', bottom: 250, left: 60 }}>
               {isLoading ? null : (
