@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
 
 const UberCertificate = (props) => {
   const history = useHistory();
-  const { isLoading } = props;
+  const { isLoading, handleModal, SetModal } = props;
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -336,6 +336,13 @@ const UberCertificate = (props) => {
       window.location.reload('/login');
     }
   }, [props?.companyId]);
+
+  const handleReload = () => {
+    SetModal(false);
+    setTimeout(function () {
+      handleModal();
+    }, 200);
+  };
   return (
     <div className="App">
       <PDFDownloadLink
@@ -534,31 +541,29 @@ const UberCertificate = (props) => {
       >
         {({ blob, url, loading, error }) => (
           <>
-            {console.log(blob, url, loading, error)}
-
             {isLoading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (
-              <>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                  <div
-                    style={{
-                      fontSize: '15px',
-                      marginBottom: '20px',
-                      marginTop: '20px',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      margin: 'auto',
-                      background: '#3276ba',
-                      padding: '13px',
-                      borderRadius: '50px',
-                    }}
-                  >
-                    Download vehicle report
-                  </div>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <div
+                  onClick={() => handleReload()}
+                  style={{
+                    fontSize: '15px',
+                    marginBottom: '20px',
+                    marginTop: '20px',
+                    color: 'white',
+                    fontWeight: 'bold',
+                    margin: 'auto',
+                    background: '#3276ba',
+                    padding: '13px',
+                    borderRadius: '50px',
+                  }}
+                >
+                  Download vehicle report
                 </div>
-              </>
+              </div>
             )}
+            {console.log(error)}
           </>
         )}
       </PDFDownloadLink>

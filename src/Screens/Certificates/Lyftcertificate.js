@@ -402,7 +402,7 @@ const styles = StyleSheet.create({
 });
 
 const LyftCertificate = (props) => {
-  const { isLoading } = props;
+  const { isLoading,handleModal, SetModal } = props;
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
@@ -413,6 +413,12 @@ const LyftCertificate = (props) => {
     }
   }, [props?.companyId]);
 
+  const handleReload = () => {
+    SetModal(false);
+    setTimeout(function () {
+      handleModal();
+    }, 200);
+  };
   return (
     <div className="App">
       <PDFDownloadLink
@@ -660,29 +666,27 @@ const LyftCertificate = (props) => {
             {isLoading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (
-              <>
-                <div style={{ display: 'flex', marginTop: '30px', flexDirection: 'row', alignItems: 'center' }}>
-                  <div
-                    style={{
-                      fontSize: '15px',
-                      marginBottom: '20px',
-                      marginTop: '20px',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      margin: 'auto',
-                      background: '#3276ba',
-                      padding: '13px',
-                      borderRadius: '50px',
-                    }}
-                  >
-                    Download vehicle report
-                  </div>
-                  <i className="fa fa-download" />
+              <div style={{ display: 'flex', marginTop: '30px', flexDirection: 'row', alignItems: 'center' }}>
+                <div
+                  onClick={() => {
+                    handleReload();
+                  }}
+                  style={{
+                    fontSize: '15px',
+                    marginBottom: '20px',
+                    marginTop: '20px',
+                    color: 'white',
+                    fontWeight: 'bold',
+                    margin: 'auto',
+                    background: '#3276ba',
+                    padding: '13px',
+                    borderRadius: '50px',
+                  }}
+                >
+                  Download vehicle report
                 </div>
-                {/* {setTimeout(function () {
-                  window.location.reload();
-                }, 1000)} */}
-              </>
+                <i className="fa fa-download" />
+              </div>
             )}
           </>
         )}

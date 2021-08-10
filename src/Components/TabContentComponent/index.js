@@ -209,11 +209,11 @@ const TabContentComponent = ({
                 <>
                   {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
                     <>
-                      <UberCertificate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                      <UberCertificate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
                     </>
                   ) : (
                     <>
-                      <Lyftcertificate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                      <Lyftcertificate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
                     </>
                   )}
                 </>
@@ -222,17 +222,17 @@ const TabContentComponent = ({
 
                   {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
                     <>
-                      <UberCertificate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                      <UberCertificate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
                     </>
                   ) : (
                     <>
-                      <DownloadCertifcate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                      <DownloadCertifcate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
                     </>
                   )}
                 </>
               ) : certificateData?.templateId.length ? (
                 <>
-                  <DownloadCertifcate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                  <DownloadCertifcate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
                 </>
               ) : null) : null}
             </div>
