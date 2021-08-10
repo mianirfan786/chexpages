@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
 
 const UberCertificate = (props) => {
   const history = useHistory();
-  const { isLoading } = props;
+  const { isLoading, handleModal, SetModal } = props;
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -336,6 +336,12 @@ const UberCertificate = (props) => {
       window.location.reload('/login');
     }
   }, [props?.companyId]);
+
+  const handleReload = () => {
+    SetModal(false);
+    setTimeout(function () { handleModal(); }, 200);
+
+  }
   return (
     <div className="App">
       <PDFDownloadLink
@@ -498,9 +504,8 @@ const UberCertificate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '42%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
-                      props.reportData && props.reportData?.InspectorlastName
-                    }`}</Text>
+                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
+                      }`}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
@@ -511,9 +516,8 @@ const UberCertificate = (props) => {
                         source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData?.Inspectorsignature}?x-request=xhr`}
                       />
                     ) : (
-                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
-                        props.reportData && props.reportData[0]?.InspectorlastName
-                      }`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${props.reportData && props.reportData[0]?.InspectorlastName
+                        }`}</Text>
                     )}
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector signature</Text>
@@ -539,6 +543,7 @@ const UberCertificate = (props) => {
             ) : (
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <div
+                  onClick={() => handleReload()}
                   style={{
                     fontSize: '15px',
                     marginBottom: '20px',

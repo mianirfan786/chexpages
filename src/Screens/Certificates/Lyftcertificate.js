@@ -402,7 +402,7 @@ const styles = StyleSheet.create({
 });
 
 const LyftCertificate = (props) => {
-  const { isLoading } = props;
+  const { isLoading, handleModal, SetModal } = props;
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
@@ -413,6 +413,11 @@ const LyftCertificate = (props) => {
     }
   }, [props?.companyId]);
 
+  const handleReload = () => {
+    SetModal(false);
+    setTimeout(function () { handleModal(); }, 200);
+
+  }
   return (
     <div className="App">
       <PDFDownloadLink
@@ -662,6 +667,7 @@ const LyftCertificate = (props) => {
             ) : (
               <div style={{ display: 'flex', marginTop: '30px', flexDirection: 'row', alignItems: 'center' }}>
                 <div
+                  onClick={() => { handleReload() }}
                   style={{
                     fontSize: '15px',
                     marginBottom: '20px',

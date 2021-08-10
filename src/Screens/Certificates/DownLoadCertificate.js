@@ -334,7 +334,7 @@ const styles = StyleSheet.create({
 });
 
 const DownloadCertifcate = (props) => {
-  const { checksData, isLoading } = props;
+  const { checksData, isLoading, handleModal, SetModal } = props;
   const history = useHistory();
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -348,6 +348,12 @@ const DownloadCertifcate = (props) => {
       window.location.reload('/login');
     }
   }, [props?.companyId]);
+
+  const handleReload = () => {
+    SetModal(false);
+    setTimeout(function () { handleModal(); }, 200);
+
+  }
   return (
     <div className="App">
       <PDFDownloadLink
@@ -537,9 +543,8 @@ const DownloadCertifcate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '42%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
-                      props.reportData && props.reportData?.InspectorlastName
-                    }`}</Text>
+                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
+                      }`}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
@@ -554,9 +559,8 @@ const DownloadCertifcate = (props) => {
                     </View>
                   ) : (
                     <View style={{ width: '30%', marginRight: '15px' }}>
-                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData?.Inspectorname} ${
-                        props.reportData && props.reportData?.InspectorlastName
-                      }`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
+                        }`}</Text>
                       <View style={styles.bottomboxBorder} />
                       <Text style={styles.bottomboxbootomText}>inspector signature</Text>
                     </View>
@@ -580,8 +584,9 @@ const DownloadCertifcate = (props) => {
             {isLoading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (
-              <div style={{ display: 'flex', marginTop: '30px', flexDirection: 'row', alignItems: 'center' }}>
+              <div style={{ display: 'flex', marginTop: '20px', flexDirection: 'row', alignItems: 'center' }}>
                 <div
+                  onClick={() => handleReload()}
                   style={{
                     fontSize: '15px',
                     marginBottom: '20px',
