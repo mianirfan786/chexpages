@@ -400,7 +400,7 @@ const DownloadCertifcate = (props) => {
                   </View>
                 </View>
               </View>
-              {console.log("checksData:: ", checksData)}
+              {console.log('checksData:: ', checksData)}
               {/* <View style={{ marginLeft: '20@s' }}>
                 <Text style={styles.inspectionpointsText}>INSPECTION POINTS</Text>
                 <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
@@ -529,7 +529,7 @@ const DownloadCertifcate = (props) => {
                     <Text style={styles.bottomboxbootomText}>inspector company</Text>
                   </View>
                   <View style={{ width: '60%' }}>
-                    <Text style={styles.bottomboxtoptext}>3120 Scott Blvd. Santa Clara, CA 95054</Text>
+                    <Text style={styles.bottomboxtoptext}>{props?.reportData && props?.reportData?.stateAddress}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector address</Text>
                   </View>
@@ -537,7 +537,9 @@ const DownloadCertifcate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '42%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName}`}</Text>
+                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
+                      props.reportData && props.reportData?.InspectorlastName
+                    }`}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
@@ -552,15 +554,16 @@ const DownloadCertifcate = (props) => {
                     </View>
                   ) : (
                     <View style={{ width: '30%', marginRight: '15px' }}>
-                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
-                        }`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData?.Inspectorname} ${
+                        props.reportData && props.reportData?.InspectorlastName
+                      }`}</Text>
                       <View style={styles.bottomboxBorder} />
                       <Text style={styles.bottomboxbootomText}>inspector signature</Text>
                     </View>
                   )}
 
                   <View style={{ width: '30%' }}>
-                    <Text style={styles.bottomboxtoptext}>299664</Text>
+                    <Text style={styles.bottomboxtoptext}>{props?.reportData && props?.reportData?.stateNumber}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>state certification number</Text>
                   </View>

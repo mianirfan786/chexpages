@@ -16,21 +16,23 @@ const VehicleCombinedStatusContainer = (props) => {
   const [certificateLoading, setCertificateLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [reInspectionModal, setReInspectionModal] = useState(false);
-  const [reInspectionId, setReInspectionId] = useState("");
-  const [reInspectionLisencePlateNumber, setReInspectionLisencePlateNumber] = useState("");
+  const [reInspectionId, setReInspectionId] = useState('');
+  const [reInspectionLisencePlateNumber, setReInspectionLisencePlateNumber] = useState('');
   // const [isModalChecked, setIsModalChecked] = useState(false);
   const [modalChecked, setModalChecked] = useState([]);
   const [reInspectionChecked, setReInspectionChecked] = useState([]);
-  const [licensePlateNumber, setLicensePlateNumber] = useState("");
-  const [status, setStatus] = useState("");
+  const [licensePlateNumber, setLicensePlateNumber] = useState('');
+  const [status, setStatus] = useState('');
 
   const { addToast } = useToasts();
 
-
   useEffect(() => {
-    getInspectionByStatus({
-      status: 'REVIEWED'
-    }, setLoading);
+    getInspectionByStatus(
+      {
+        status: 'REVIEWED',
+      },
+      setLoading
+    );
     getCompanies();
   }, []);
 
@@ -40,7 +42,7 @@ const VehicleCombinedStatusContainer = (props) => {
 
   const handleLicensePlateNumber = (number) => {
     setLicensePlateNumber(number);
-  }
+  };
 
   const checkModal = (id) => {
     const arr = [...modalChecked];
@@ -48,8 +50,7 @@ const VehicleCombinedStatusContainer = (props) => {
     if (index > -1) {
       arr.splice(index, 1);
       setModalChecked([...arr]);
-    }
-    else {
+    } else {
       arr.push(id);
       setModalChecked([...arr]);
     }
@@ -61,8 +62,7 @@ const VehicleCombinedStatusContainer = (props) => {
     if (index > -1) {
       arr.splice(index, 1);
       setReInspectionChecked([...arr]);
-    }
-    else {
+    } else {
       arr.push(id);
       setReInspectionChecked([...arr]);
     }
@@ -77,30 +77,35 @@ const VehicleCombinedStatusContainer = (props) => {
   };
 
   const handleToast = () => {
-    { addToast('Incomplete information ', { appearance: 'warning' }) }
-  }
+    {
+      addToast('Incomplete information ', { appearance: 'warning' });
+    }
+  };
 
   const handleStatus = (status) => {
     setStatus(status);
-    getInspectionByStatus({
-      status: status,
-    }, setLoading);
+    getInspectionByStatus(
+      {
+        status: status,
+      },
+      setLoading
+    );
   };
 
   const handleCreateReInspection = () => {
     const body = {
-      companies: reInspectionChecked
-    }
+      companies: reInspectionChecked,
+    };
     createReInspection(reInspectionId, body, history, setReInspectionModal, setLoadingSelect);
-  }
+  };
 
   const handleCreateInspection = () => {
     const body = {
       licensePlateNumber,
-      companies: modalChecked
-    }
+      companies: modalChecked,
+    };
     createInspection(body, history, addToast, setLoadingSelect);
-  }
+  };
   return (
     <div>
       <VehicleCombineStatusScreen
@@ -130,7 +135,8 @@ const VehicleCombinedStatusContainer = (props) => {
         handleLicensePlateNumber={handleLicensePlateNumber}
         licensePlateNumber={licensePlateNumber}
         vehiclesByStatus={vehiclesByStatus}
-        handleStatus={handleStatus} />
+        handleStatus={handleStatus}
+      />
     </div>
   );
 };
@@ -140,7 +146,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  console.log(" state : ", state);
+  console.log(' state : ', state);
   return {
     // vehicleData: state.auth.vehicleData,
     // isLoading: state.auth.isAuthLoading,

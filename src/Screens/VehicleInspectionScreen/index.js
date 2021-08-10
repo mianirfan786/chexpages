@@ -105,8 +105,7 @@ const VehicleInspectionScreen = ({
                   style={{ overflow: 'hidden' }}
                   header={
                     <Row gutter={40} style={{ overflow: 'hidden' }}>
-                      {/* {console.log(vehicleInstructions?.verificationItem.filter((e) => e.url).length)} */}
-                      {lyftUser == true ? (
+                      {lyftUser == 'true' ? (
                         <Col>
                           {vehicleInstructions?.verificationItem.filter((e) => e.url).length === 3 ? (
                             <BsCheckCircle color="#099220" size={22} />
@@ -135,24 +134,26 @@ const VehicleInspectionScreen = ({
                 >
                   <div className="veh-inspection-cards_container">
                     {vehicleInstructions?.verificationItem?.map(
-                      (item, index) =>
-                        lyftUser == true ? (
-                          <div key={index} className="veh-inspection-first_card">
-                            <InspectionCard
-                              deleteFile={handleDeleteModal}
-                              groupType="carVerificiationItems"
-                              item={item}
-                              handleModal={handleModal}
-                              category={item.id}
-                              title={item.title}
-                              titletwo={item.type}
-                              type={item.type}
-                            />
-                          </div>
-                        ) : (
-                          //  currentUser?.lyftUser === null ? (
-                          <div key={index} className="veh-inspection-first_card">
-                            <>
+                      (item, index) => (
+                        <>
+                          {lyftUser == 'true' ? (
+                            <div key={index} className="veh-inspection-first_card">
+                              <InspectionCard
+                                deleteFile={handleDeleteModal}
+                                groupType="carVerificiationItems"
+                                item={item}
+                                handleModal={handleModal}
+                                category={item.id}
+                                title={item.title}
+                                titletwo={item.type}
+                                type={item.type}
+                              />
+                            </div>
+                          ) : (
+                            //  currentUser?.lyftUser === null ? (
+                            <div key={index} className="veh-inspection-first_card">
+                              {console.log('lklklklkk')}
+
                               {item.lyft ? null : (
                                 <InspectionCard
                                   deleteFile={handleDeleteModal}
@@ -165,9 +166,10 @@ const VehicleInspectionScreen = ({
                                   type={item.type}
                                 />
                               )}
-                            </>
-                          </div>
-                        )
+                            </div>
+                          )}
+                        </>
+                      )
                       // )
                       //  : null
                     )}
@@ -281,7 +283,7 @@ const VehicleInspectionScreen = ({
                   </div>
                 </Panel>
               </Collapse>
-              {lyftUser == true ? (
+              {lyftUser == 'true' ? (
                 <div>
                   {paymentStatus && paymentStatus == true ? (
                     <div className="vec-inspection-submitbtn_container">

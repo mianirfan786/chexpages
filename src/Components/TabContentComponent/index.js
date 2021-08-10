@@ -12,7 +12,8 @@ import DownloadCertifcate from '../../Screens/Certificates/DownLoadCertificate';
 import Lyftcertificate from '../../Screens/Certificates/Lyftcertificate';
 import UberCertificate from '../../Screens/Certificates/UberCertificate';
 
-const TabContentComponent = ({ title,
+const TabContentComponent = ({
+  title,
   draft,
   reviewed,
   inReview,
@@ -22,7 +23,8 @@ const TabContentComponent = ({ title,
   showModal,
   setReInspectionId,
   setReInspectionModal,
-  setReInspectionLisencePlateNumber }) => {
+  setReInspectionLisencePlateNumber,
+}) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [company, setCompany] = useState(false);
   const [companyModalVisible, setCompanyModalVisible] = useState(false);
@@ -62,12 +64,12 @@ const TabContentComponent = ({ title,
       companyId: '',
       companyName: '',
       templateId: '',
-    })
+    });
     window.location.reload();
   };
 
   const handleReInspectionId = (item) => {
-    setReInspectionId(item?.id);
+    setReInspectionId(item?.vehicleId);
   };
 
   const handleDownload = (items, id) => {
@@ -187,7 +189,15 @@ const TabContentComponent = ({ title,
                 return (
                   <div className="modal-company-text" key={items?.id}>
                     <div className="modal-links-text">{items?.Company?.name}</div>
-                    <input className="checkbox-container" type="radio" name="name" onClick={() => { handleDownload(items, item?.id); handleCancelLittle(); }} />
+                    <input
+                      className="checkbox-container"
+                      type="radio"
+                      name="name"
+                      onClick={() => {
+                        handleDownload(items, item?.id);
+                        handleCancelLittle();
+                      }}
+                    />
                     {/* <form>
                       <input type="radio" id="html" name="fav_language" value="HTML" />
                       <label for="html">HTML</label>
