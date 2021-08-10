@@ -402,6 +402,7 @@ const styles = StyleSheet.create({
 });
 
 const LyftCertificate = (props) => {
+  const { isLoading } = props;
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
@@ -656,7 +657,7 @@ const LyftCertificate = (props) => {
       >
         {({ blob, url, loading, error }) => (
           <>
-            {loading ? (
+            {isLoading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (
               <div style={{ display: 'flex', marginTop: '30px', flexDirection: 'row', alignItems: 'center' }}>

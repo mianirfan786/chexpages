@@ -322,6 +322,7 @@ const styles = StyleSheet.create({
 
 const UberCertificate = (props) => {
   const history = useHistory();
+  const { isLoading } = props;
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -530,7 +531,7 @@ const UberCertificate = (props) => {
       >
         {({ blob, url, loading, error }) => (
           <>
-            {loading ? (
+            {isLoading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
