@@ -412,7 +412,7 @@ const UberCertificate = (props) => {
                 <Text style={styles.markingText}>Any markings on the “fail” side will automatically fail inspection</Text>
 
                 <View style={styles.passfaildatedirectionContainer}>
-                  {props.reportData && props.reportData[0]?.finalStatus === 'pass' ? (
+                  {props.reportData && props.reportData?.finalStatus === 'pass' ? (
                     <View style={styles.boxpasscircleContainer}>
                       <Text style={styles.boxpassText}>PASS</Text>
                     </View>
@@ -420,11 +420,11 @@ const UberCertificate = (props) => {
                     <Text style={styles.boxpassText}>PASS</Text>
                   )}
                   <View style={styles.textDirection}>
-                    <Text style={styles.boxdateText}>{moment(props.reportData && props.reportData[0]?.updatedAt).format('MM-DD-YYYY')}</Text>
+                    <Text style={styles.boxdateText}>{moment(props.reportData && props.reportData?.updatedAt).format('MM-DD-YYYY')}</Text>
                     <View style={styles.boxBorder} />
                     <Text style={styles.inspectiondateText}>Inspection Date</Text>
                   </View>
-                  {props.reportData && props.reportData[0]?.finalStatus === 'fail' ? (
+                  {props.reportData && props.reportData?.finalStatus === 'fail' ? (
                     <View style={styles.boxpasscircleContainer}>
                       <Text style={styles.boxpassText}>FAIL</Text>
                     </View>
@@ -489,7 +489,7 @@ const UberCertificate = (props) => {
                     <Text style={styles.bottomboxbootomText}>inspector company</Text>
                   </View>
                   <View style={{ width: '60%' }}>
-                    <Text style={styles.bottomboxtoptext}>3120 Scott Blvd. Santa Clara, CA 95054</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData?.stateAddress}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector address</Text>
                   </View>
@@ -497,8 +497,9 @@ const UberCertificate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '42%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
-                      }`}</Text>
+                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
+                      props.reportData && props.reportData?.InspectorlastName
+                    }`}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
@@ -509,14 +510,16 @@ const UberCertificate = (props) => {
                         source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData?.Inspectorsignature}?x-request=xhr`}
                       />
                     ) : (
-                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData[0]?.Inspectorname} ${props.reportData && props.reportData[0]?.InspectorlastName
-                        }`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
+                        props.reportData && props.reportData[0]?.InspectorlastName
+                      }`}</Text>
                     )}
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector signature</Text>
                   </View>
+                  {console.log(props.reportData && props.reportData)}
                   <View style={{ width: '30%' }}>
-                    <Text style={styles.bottomboxtoptext}>299664</Text>
+                    <Text style={styles.bottomboxtoptext}>{props.reportData && props.reportData.stateNumber}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>state certification number</Text>
                   </View>

@@ -610,7 +610,7 @@ const LyftCertificate = (props) => {
                   </View>
                   <View style={styles.namesfieldscontainer}>
                     <View style={{ width: '50%', marginRight: '20@s' }}>
-                      <Text style={styles.topName}>3120 Scott Blvd. Santa Clara, CA 95054</Text>
+                      <Text style={styles.topName}>{props.reportData && props.reportData?.stateAddress}</Text>
                       <View style={styles.borderWidth} />
                       <Text style={styles.bottomName}>Company Address</Text>
                     </View>
@@ -622,7 +622,7 @@ const LyftCertificate = (props) => {
                   </View>
                   <View style={styles.namesfieldscontainer}>
                     <View style={{ width: '50%', marginRight: '20@s' }}>
-                      <Text style={styles.topName}>299664</Text>
+                      <Text style={styles.topName}>{props.reportData && props.reportData?.stateNumber}</Text>
                       <View style={styles.borderWidth} />
                       <Text style={styles.bottomName}>ard number</Text>
                     </View>
@@ -690,7 +690,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  console.log('Lyft Certification dtsate', state);
   return {
     reportData: state.vehicleInstruction.lyftVehicleCertificate,
     checksData: setLyftReportData(state.vehicleInstruction.lyftVehicleCertificate?.Files),
