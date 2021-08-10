@@ -554,7 +554,6 @@ const UberCertificate = (props) => {
                 </div>
               </div>
             )}
-            {console.log(error)}
           </>
         )}
       </PDFDownloadLink>

@@ -656,6 +656,8 @@ const LyftCertificate = (props) => {
       >
         {({ blob, url, loading, error }) => (
           <>
+            {console.log(error)}
+
             {loading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (

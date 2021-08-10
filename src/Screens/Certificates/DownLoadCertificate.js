@@ -400,7 +400,6 @@ const DownloadCertifcate = (props) => {
                   </View>
                 </View>
               </View>
-              {console.log('checksData:: ', checksData)}
               {/* <View style={{ marginLeft: '20@s' }}>
                 <Text style={styles.inspectionpointsText}>INSPECTION POINTS</Text>
                 <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
@@ -577,6 +576,7 @@ const DownloadCertifcate = (props) => {
       >
         {({ blob, url, loading, error }) => (
           <>
+            {console.log(error)}
             {loading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (

@@ -152,8 +152,6 @@ const VehicleInspectionScreen = ({
                           ) : (
                             //  currentUser?.lyftUser === null ? (
                             <div key={index} className="veh-inspection-first_card">
-                              {console.log('lklklklkk')}
-
                               {item.lyft ? null : (
                                 <InspectionCard
                                   deleteFile={handleDeleteModal}
