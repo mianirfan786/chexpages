@@ -160,20 +160,9 @@
 }
 
 .instruction-modalls .ant-modal-close {
-  top: 36%;
+  top: -85%;
   right: -7%;
 }
-.cloes-icon{
-  position: absolute;
-  top: -220px;
-  right: 10px;
-}
-.cloes-icon-photo{
-  position: absolute;
-  top: -225px;
-  left:40px;
-}
-
 
 @media screen and (min-width: 600px) {
   .button-container {
@@ -188,30 +177,16 @@
   .modal-video {
     width: 80% !important;
   }
-
-  .instruction-modalls .ant-modal-close {
-    top: 20%;
-    right: -7%;
-  }
-
-  .cloes-icon{
-    position: absolute;
-    top: -205px;
-    right: 15px;
-  }
-
-  .cloes-icon-photo{
-    position: absolute;
-    top: -205px;
-  }
-  
-
 }
 
 @media only screen and (max-width: 500px) {
   .modal-video {
     width: 100% !important;
   }
+  .instruction-modalls .ant-modal-close {
+    top: -100%;
+    right: -3%;
+   }
 }
 
 @media only screen and (max-width: 900px) {
@@ -240,4 +215,16 @@
 
 .instruction-tab-names{
   color: white;
+}
+
+.main-heading-text{
+  font-size: 26px;
+  color: white;
+  margin-top: 220px;
+}
+
+@media only screen and (max-width:768px){
+  .main-heading-text{
+    margin-top: 100px;
+  }
 }
