@@ -334,7 +334,7 @@ const styles = StyleSheet.create({
 });
 
 const DownloadCertifcate = (props) => {
-  const { checksData } = props;
+  const { checksData, isLoading } = props;
   const history = useHistory();
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -576,28 +576,30 @@ const DownloadCertifcate = (props) => {
       >
         {({ blob, url, loading, error }) => (
           <>
-            {console.log(error)}
-            {loading ? (
+            {isLoading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (
-              <div style={{ display: 'flex', marginTop: '30px', flexDirection: 'row', alignItems: 'center' }}>
-                <div
-                  style={{
-                    fontSize: '15px',
-                    marginBottom: '20px',
-                    marginTop: '20px',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    margin: 'auto',
-                    background: '#3276ba',
-                    padding: '13px',
-                    borderRadius: '50px',
-                  }}
-                >
-                  Download vehicle report
+              <>
+                <div style={{ display: 'flex', marginTop: '30px', flexDirection: 'row', alignItems: 'center' }}>
+                  <div
+                    style={{
+                      fontSize: '15px',
+                      marginBottom: '20px',
+                      marginTop: '20px',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      margin: 'auto',
+                      background: '#3276ba',
+                      padding: '13px',
+                      borderRadius: '50px',
+                    }}
+                  >
+                    Download vehicle report
+                  </div>
+                  <i className="fa fa-download" />
                 </div>
-                <i className="fa fa-download" />
-              </div>
+          
+              </>
             )}
           </>
         )}

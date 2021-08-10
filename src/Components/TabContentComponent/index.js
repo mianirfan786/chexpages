@@ -19,6 +19,7 @@ const TabContentComponent = ({
   inReview,
   item,
   setCertificateLoading,
+  certificateLoading,
   showModal,
   setReInspectionId,
   setReInspectionModal,
@@ -204,37 +205,36 @@ const TabContentComponent = ({
                   </div>
                 );
               })}
-              {company === true ? (
-                certificateData?.templateId === 3 ? (
-                  <>
-                    {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
-                      <>
-                        <UberCertificate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                      </>
-                    ) : (
-                      <>
-                        <Lyftcertificate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                      </>
-                    )}
-                  </>
-                ) : certificateData?.templateId === 2 ? (
-                  <>
-                    {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
-                      <>
-                        <UberCertificate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                      </>
-                    ) : (
-                      <>
-                        <DownloadCertifcate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                      </>
-                    )}
-                  </>
-                ) : certificateData?.templateId.length ? (
-                  <>
-                    <DownloadCertifcate setLoading={setCertificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                  </>
-                ) : null
-              ) : null}
+              {company === true ? (certificateData?.templateId === 3 ? (
+                <>
+                  {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
+                    <>
+                      <UberCertificate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                    </>
+                  ) : (
+                    <>
+                      <Lyftcertificate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                    </>
+                  )}
+                </>
+              ) : certificateData?.templateId === 2 ? (
+                <>
+
+                  {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
+                    <>
+                      <UberCertificate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                    </>
+                  ) : (
+                    <>
+                      <DownloadCertifcate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                    </>
+                  )}
+                </>
+              ) : certificateData?.templateId.length ? (
+                <>
+                  <DownloadCertifcate setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
+                </>
+              ) : null) : null}
             </div>
           </Modal>
         </>

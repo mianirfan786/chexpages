@@ -322,6 +322,7 @@ const styles = StyleSheet.create({
 
 const UberCertificate = (props) => {
   const history = useHistory();
+  const { isLoading } = props;
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -533,26 +534,30 @@ const UberCertificate = (props) => {
       >
         {({ blob, url, loading, error }) => (
           <>
-            {loading ? (
+            {console.log(blob, url, loading, error)}
+
+            {isLoading ? (
               <ClipLoader color={'#246DB5'} size={40} />
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                <div
-                  style={{
-                    fontSize: '15px',
-                    marginBottom: '20px',
-                    marginTop: '20px',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    margin: 'auto',
-                    background: '#3276ba',
-                    padding: '13px',
-                    borderRadius: '50px',
-                  }}
-                >
-                  Download vehicle report
+              <>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                  <div
+                    style={{
+                      fontSize: '15px',
+                      marginBottom: '20px',
+                      marginTop: '20px',
+                      color: 'white',
+                      fontWeight: 'bold',
+                      margin: 'auto',
+                      background: '#3276ba',
+                      padding: '13px',
+                      borderRadius: '50px',
+                    }}
+                  >
+                    Download vehicle report
+                  </div>
                 </div>
-              </div>
+              </>
             )}
           </>
         )}
