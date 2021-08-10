@@ -72,9 +72,9 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
               )
             ) : (
               <>
-                <div style={{ fontSize: '26px', color: 'white', marginTop: '50px' }}>{vehicleInstructionValues?.title}</div>
-                <div style={{ color: 'white', marginTop: '20px' }}>{vehicleInstructionValues?.description}</div>
-                <div style={{ marginBottom: '40px', marginTop: '40px' }}>
+                <div className="main-heading-text">{vehicleInstructionValues?.title}</div>
+                <div style={{ color: 'white', marginTop: '5px' }}>{vehicleInstructionValues?.description}</div>
+                <div style={{ marginBottom: '10px', marginTop: '10px' }}>
                   <div>
                     <Tabs defaultActiveKey="1" onChange={callback} centered>
                       <TabPane tab={<div className="instruction-tab-names" style={{ fontWeight: 'bold' }}>Individually</div>} key="1">
@@ -271,7 +271,7 @@ const InstructionModal = ({ uploadingPercentage, isLoading, vehicleInstructionVa
         </Modal>
         :
         null}
-    </div>
+    </div >
   );
 };
 
