@@ -35,26 +35,26 @@ const VehicleCombinedStatusScreen = ({
   return (
     <div className="main-container">
       <div className="container">
-
         <div className="content-main-container">
-          <Header />
+          <div style={{ position: 'relative' }}>
+            <Header />
 
-          <TabComponent
-            handleCancel={handleCancel}
-            handleOk={handleOk}
-            checkModal={checkModal}
-            showModal={showModal}
-            isLoading={isLoading}
-            setLoading={setLoading}
-            certificateLoading={certificateLoading}
-            setCertificateLoading={setCertificateLoading}
-            setReInspectionId={setReInspectionId}
-            setReInspectionModal={setReInspectionModal}
-            setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
-            vehiclesByStatus={vehiclesByStatus}
-            handleStatus={handleStatus}
-          />
-
+            <TabComponent
+              handleCancel={handleCancel}
+              handleOk={handleOk}
+              checkModal={checkModal}
+              showModal={showModal}
+              isLoading={isLoading}
+              setLoading={setLoading}
+              certificateLoading={certificateLoading}
+              setCertificateLoading={setCertificateLoading}
+              setReInspectionId={setReInspectionId}
+              setReInspectionModal={setReInspectionModal}
+              setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
+              vehiclesByStatus={vehiclesByStatus}
+              handleStatus={handleStatus}
+            />
+          </div>
           <div className="modals-main-container">
             {/* <div style={{ position: 'absolute', bottom: 250, left: 60 }}>
               {isLoading ? null : (
@@ -98,7 +98,6 @@ const VehicleCombinedStatusScreen = ({
           </div>
           <div className="tabs-bottom-color" />
         </div>
-
       </div>
     </div>
   );

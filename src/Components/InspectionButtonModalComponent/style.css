@@ -23,7 +23,6 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-
 }
 
 /* @media only screen and (max-width:550px){
@@ -46,6 +45,8 @@
   border-radius: 100px;
   width: 80%;
   cursor: pointer;
+  position: absolute;
+  bottom: 14px;
 }
 .inspections-btn-text {
   color: white;
@@ -142,9 +143,8 @@
   }
 }
 
-
-.tick-background-color{
-  background-color: rgb(233, 233, 233) ;
+.tick-background-color {
+  background-color: rgb(233, 233, 233);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,7 +153,7 @@
   border-radius: 3px;
   margin-right: 5px;
 }
-.select-companies-text{
+.select-companies-text {
   font-size: medium;
   text-align: left;
   margin-left: -46%;
@@ -163,7 +163,7 @@
   margin-bottom: -20px;
 }
 
-.please-enter-text{
+.please-enter-text {
   text-align: start !important;
   color: black;
   font-size: 13px;
@@ -172,11 +172,17 @@
   margin-bottom: 2px;
 }
 
-@media only screen and (min-width:400px) {
-  .please-enter-text{
+@media only screen and (min-width: 400px) {
+  .please-enter-text {
     margin-left: -67px;
   }
-  .select-companies-text{
+  .select-companies-text {
     margin-left: -48%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .inspection-btn-container {
+    bottom: 204px;
   }
 }

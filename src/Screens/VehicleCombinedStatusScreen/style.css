@@ -1,10 +1,10 @@
 .content-main-container {
-  position: absolute; 
-  top:0;
+  position: absolute;
+  top: 0;
 }
 @media only screen and (max-width: 550px) {
   .content-main-container {
-    position: absolute; 
+    position: absolute;
     width: 100%;
     top: 0;
   }
@@ -17,8 +17,6 @@
   } */
 }
 
-
-
 .main-container {
   background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
   position: absolute;
@@ -30,6 +28,7 @@
   display: flex;
   justify-content: center;
   /* flex-direction: column; */
+  overflow-y: scroll;
 }
 
 /* @media  only screen and (max-width:550px){
@@ -46,10 +45,9 @@
   justify-content: flex-end;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-
 }
 
-@media only screen and (max-width:550px) {
+@media only screen and (max-width: 550px) {
   .modals-main-container {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
