@@ -40,6 +40,10 @@ const VehicleCombinedStatusContainer = (props) => {
     setIsModalVisible(true);
   };
 
+  const cancleReInspection = () => {
+    setReInspectionModal(false);
+  };
+
   const handleLicensePlateNumber = (number) => {
     setLicensePlateNumber(number);
   };
@@ -125,6 +129,7 @@ const VehicleCombinedStatusContainer = (props) => {
         setCertificateLoading={setCertificateLoading}
         setReInspectionId={setReInspectionId}
         reInspectionModal={reInspectionModal}
+        cancleReInspection={cancleReInspection}
         loadingSelect={loadingSelect}
         setReInspectionModal={setReInspectionModal}
         handleCreateReInspection={handleCreateReInspection}

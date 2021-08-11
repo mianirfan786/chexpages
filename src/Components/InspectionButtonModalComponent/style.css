@@ -1,8 +1,8 @@
 .inspection-modal-container .ant-modal-content {
-  width: 317px !important;
+  width: 100% !important;
   border-radius: 10px !important;
   /* overflow-y: scroll; */
-  height: 500px !important;
+  height: 100% !important;
   padding: 10px !important;
 }
 
@@ -43,10 +43,9 @@
   margin-top: 40px;
   background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
   border-radius: 100px;
-  width: 80%;
+  width: 200px;
   cursor: pointer;
-  position: absolute;
-  bottom: 14px;
+  position: fixed;
 }
 .inspections-btn-text {
   color: white;
@@ -130,7 +129,7 @@
 .modal-input-field {
   font-family: 'poppins' !important;
   padding: 7px;
-  width: 100%;
+  width:  309px;
   color: black;
   font-size: 13px;
   font-weight: 400;
@@ -139,7 +138,10 @@
 
 @media only screen and (max-width: 399px) {
   .inspection-modal-container .ant-modal-content {
-    width: 300px !important;
+    width: 100% !important;
+  }
+  .modal-input-field {
+    width:  280px;
   }
 }
 
@@ -156,7 +158,7 @@
 .select-companies-text {
   font-size: medium;
   text-align: left;
-  margin-left: -46%;
+  margin-left: -1%;
   margin-top: 12px;
   color: black;
   font-size: 15px;
@@ -167,22 +169,30 @@
   text-align: start !important;
   color: black;
   font-size: 13px;
-  margin-left: -53px;
+  margin-left: 5px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+.License-plate-text {
+  text-align: start;
+  color: black;
+  font-size: 13px;
+  margin-left: -131px;
   margin-top: 8px;
   margin-bottom: 2px;
 }
 
 @media only screen and (min-width: 400px) {
   .please-enter-text {
-    margin-left: -67px;
+    margin-left: 5px;
   }
   .select-companies-text {
-    margin-left: -48%;
+    margin-left: -1%;
   }
 }
 
 @media only screen and (max-width: 550px) {
   .inspection-btn-container {
-    bottom: 204px;
+    bottom: 28px;
   }
 }

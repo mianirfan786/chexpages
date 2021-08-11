@@ -20,8 +20,8 @@ const TabContentComponent = ({
   item,
   setCertificateLoading,
   certificateLoading,
-  showModal,
   setReInspectionId,
+  cancleReInspection,
   setReInspectionModal,
   setReInspectionLisencePlateNumber,
 }) => {
@@ -127,7 +127,6 @@ const TabContentComponent = ({
             onOk={handleOkLittle}
             onCancel={() => {
               handleCancelLittle();
-              setReInspectionModal(false);
             }}
           >
             <div className="modal-content-container">
@@ -140,7 +139,6 @@ const TabContentComponent = ({
               className="modal-links-container"
               onClick={() => {
                 showModalCompany();
-                setReInspectionModal(false);
               }}
             >
               <IoDocumentTextOutline color="#1468BA" size={18} />
@@ -150,7 +148,6 @@ const TabContentComponent = ({
             <div
               className="modal-links-container"
               onClick={() => {
-                showModal();
                 handleCancelLittle();
                 setReInspectionModal(true);
                 setReInspectionLisencePlateNumber(title);
@@ -176,7 +173,7 @@ const TabContentComponent = ({
             onCancel={() => {
               handleCancelCompany();
               handleCancelLittle();
-              setReInspectionModal(false);
+              cancleReInspection();
             }}
           >
             <div className="companies-modal">

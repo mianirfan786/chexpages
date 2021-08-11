@@ -16,6 +16,8 @@ const TabComponent = ({
   showModal,
   setReInspectionId,
   setReInspectionModal,
+  cancleReInspection,
+  reInspectionModal,
   setReInspectionLisencePlateNumber,
 }) => {
   return (
@@ -33,8 +35,8 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'IN_PROGRESS'
                   ? vehiclesByStatus?.map((item) => {
-                      return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
-                    })
+                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
+                  })
                   : null}
               </>
             )}
@@ -53,8 +55,8 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'READY_FOR_REVIEW'
                   ? vehiclesByStatus?.map((item) => {
-                      return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />;
-                    })
+                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />;
+                  })
                   : null}
               </>
             )}
@@ -74,22 +76,24 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'REVIEWED'
                   ? vehiclesByStatus?.map((item) => {
-                      return (
-                        <TabContentComponent
-                          title={item?.Vehicle?.licensePlateNumber}
-                          reviewed={true}
-                          item={item}
-                          setLoading={setLoading}
-                          showModal={showModal}
-                          certificateLoading={certificateLoading}
-                          setCertificateLoading={setCertificateLoading}
-                          setReInspectionId={setReInspectionId}
-                          setReInspectionModal={setReInspectionModal}
-                          setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
-                          key={item?.id}
-                        />
-                      );
-                    })
+                    return (
+                      <TabContentComponent
+                        title={item?.Vehicle?.licensePlateNumber}
+                        reviewed={true}
+                        item={item}
+                        setLoading={setLoading}
+                        showModal={showModal}
+                        cancleReInspection={cancleReInspection}
+                        certificateLoading={certificateLoading}
+                        setCertificateLoading={setCertificateLoading}
+                        setReInspectionId={setReInspectionId}
+                        reInspectionModal={reInspectionModal}
+                        setReInspectionModal={setReInspectionModal}
+                        setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
+                        key={item?.id}
+                      />
+                    );
+                  })
                   : null}
               </>
             )}

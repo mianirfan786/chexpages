@@ -18,6 +18,7 @@ const VehicleCombinedStatusScreen = ({
   status,
   setLoading,
   certificateLoading,
+  cancleReInspection,
   setCertificateLoading,
   loadingSelect,
   setReInspectionId,
@@ -49,6 +50,8 @@ const VehicleCombinedStatusScreen = ({
               certificateLoading={certificateLoading}
               setCertificateLoading={setCertificateLoading}
               setReInspectionId={setReInspectionId}
+              reInspectionModal={reInspectionModal}
+              cancleReInspection={cancleReInspection}
               setReInspectionModal={setReInspectionModal}
               setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
               vehiclesByStatus={vehiclesByStatus}
@@ -86,6 +89,7 @@ const VehicleCombinedStatusScreen = ({
               showModal={showModal}
               companies={companies}
               handleToast={handleToast}
+              cancleReInspection={cancleReInspection}
               handleReInspectionCheck={handleReInspectionCheck}
               setReInspectionModal={setReInspectionModal}
               reInspectionModal={reInspectionModal}
