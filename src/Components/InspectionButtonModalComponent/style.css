@@ -46,6 +46,7 @@
   width: 200px;
   cursor: pointer;
   position: fixed;
+  bottom: 28px;
 }
 .inspections-btn-text {
   color: white;
