@@ -10,6 +10,7 @@ import { VehicleCombineStatusScreen } from '../../Screens';
 
 const VehicleCombinedStatusContainer = (props) => {
   const history = useHistory();
+  const { addToast } = useToasts();
   const { getInspectionByStatus, getVehicleCertificate, createInspection, createReInspection, vehiclesByStatus, getCompanies, companies } = props;
   const [loading, setLoading] = useState(false);
   const [loadingSelect, setLoadingSelect] = useState(false);
@@ -23,8 +24,9 @@ const VehicleCombinedStatusContainer = (props) => {
   const [reInspectionChecked, setReInspectionChecked] = useState([]);
   const [licensePlateNumber, setLicensePlateNumber] = useState('');
   const [status, setStatus] = useState('');
-
-  const { addToast } = useToasts();
+  const [inputEmpty, setInputEmpty] = useState(false);
+  const [checkEmpty, setCheckEmpty] = useState(false);
+  const [checkUnselect, setCheckUnselect] = useState(false);
 
   useEffect(() => {
     getInspectionByStatus(
@@ -59,6 +61,11 @@ const VehicleCombinedStatusContainer = (props) => {
       setModalChecked([...arr]);
     }
   };
+
+  const handlEmptyFields = () => {
+    licensePlateNumber === '' ? setInputEmpty(true) : setInputEmpty(false);
+    modalChecked.length === 0 ? setCheckEmpty(true) : setCheckEmpty(false);
+  }
 
   const handleReInspectionCheck = (id) => {
     const arr = [...reInspectionChecked];
@@ -141,6 +148,13 @@ const VehicleCombinedStatusContainer = (props) => {
         licensePlateNumber={licensePlateNumber}
         vehiclesByStatus={vehiclesByStatus}
         handleStatus={handleStatus}
+        handlEmptyFields={handlEmptyFields}
+        inputEmpty={inputEmpty}
+        setInputEmpty={setInputEmpty}
+        checkEmpty={checkEmpty}
+        setCheckEmpty={setCheckEmpty}
+        checkUnselect={checkUnselect}
+        setCheckUnselect={setCheckUnselect}
       />
     </div>
   );

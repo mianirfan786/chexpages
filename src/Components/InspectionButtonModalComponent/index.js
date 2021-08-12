@@ -16,7 +16,6 @@ const InspectionButtonModalComponent = ({
   isModalVisible,
   modalChecked,
   loadingSelect,
-  handleToast,
   reInspectionModal,
   cancleReInspection,
   handleCreateInspection,
@@ -26,7 +25,13 @@ const InspectionButtonModalComponent = ({
   setReInspectionModal,
   handleReInspectionCheck,
   reInspectionLisencePlateNumber,
-  licensePlateNumber,
+  handlEmptyFields,
+  inputEmpty,
+  setInputEmpty,
+  checkEmpty,
+  setCheckEmpty,
+  checkUnselect,
+  setCheckUnselect,
 }) => {
   return (
     <>
@@ -36,7 +41,7 @@ const InspectionButtonModalComponent = ({
           <div className="inspection-modal-header">
             <div></div>
             <div className="select-company-text">Re-inspect Car</div>
-            <GrFormClose style={{ cursor: 'pointer' }} color="black" size={30} onClick={() => setReInspectionModal(false)} />
+            <GrFormClose style={{ cursor: 'pointer' }} color="black" size={30} onClick={() => { setReInspectionModal(false); setCheckUnselect(false) }} />
           </div>
 
           <div className="additional-selection-container">
@@ -46,7 +51,9 @@ const InspectionButtonModalComponent = ({
           </div>
           <div className="License-plate-text">License number plate.</div>
           <input disabled={true} placeholder={reInspectionLisencePlateNumber} className="modal-input-field" defaultValue={reInspectionLisencePlateNumber} />
-          <div className="select-companies-text">Select Company (s)</div>
+          {checkUnselect === true ? <div style={{ color: 'red' }} className="select-companies-text">Select Company (s)</div>
+            :
+            <div className="select-companies-text">Select Company (s)</div>}
           <div className="modal-content-scroll">
             {companies?.map((company) => {
               return (
@@ -71,7 +78,7 @@ const InspectionButtonModalComponent = ({
                 }
               </button>
             ) : (
-              <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleToast()}>
+              <button style={{ border: 'none' }} className="select-btn-container" onClick={() => setCheckUnselect(true)}>
                 <div className="select-text">Select</div>
               </button>
             )}
@@ -91,7 +98,7 @@ const InspectionButtonModalComponent = ({
             <div className="inspection-modal-header">
               <div></div>
               <div className="select-company-text">New Inspection</div>
-              <GrFormClose style={{ cursor: 'pointer' }} color="black" size={30} onClick={() => handleCancel()} />
+              <GrFormClose style={{ cursor: 'pointer' }} color="black" size={30} onClick={() => { handleCancel(); setInputEmpty(false); setCheckEmpty(false); }} />
             </div>
 
             <div className="additional-selection-container">
@@ -99,9 +106,15 @@ const InspectionButtonModalComponent = ({
                 <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
             </div>
             </div>
-            <div className="please-enter-text">Please enter your vehicle’s license plate number</div>
+            {inputEmpty === true ?
+              <div className="please-enter-text" style={{ color: 'red' }}>Please enter your vehicle’s license plate number</div>
+              :
+              <div className="please-enter-text">Please enter your vehicle’s license plate number</div>}
             <input type="input" placeholder="License Plate Number" className="modal-input-field" onChange={(number) => handleLicensePlateNumber(number.target.value)} />
-            <div className="select-companies-text">Select Company (s)</div>
+
+            {checkEmpty === true ? <div style={{ color: 'red' }} className="select-companies-text">Select Company (s)</div>
+              :
+              <div className="select-companies-text">Select Company (s)</div>}
             <div className="modal-content-scroll">
               {companies?.map((company) => {
                 return (
@@ -117,7 +130,7 @@ const InspectionButtonModalComponent = ({
 
 
             <div style={{ padding: '15px', width: '312px' }}>
-              {licensePlateNumber !== '' && modalChecked.length !== 0 ? (
+              {reInspectionLisencePlateNumber !== '' && reInspectionChecked.length !== 0 ? (
                 <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleCreateInspection()}>
                   {loadingSelect ?
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '21px' }}>
@@ -127,7 +140,7 @@ const InspectionButtonModalComponent = ({
                   }
                 </button>
               ) : (
-                <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleToast()}>
+                <button style={{ border: 'none' }} className="select-btn-container" onClick={() => { handlEmptyFields() }}>
                   <div className="select-text">Select</div>
                 </button>
               )}

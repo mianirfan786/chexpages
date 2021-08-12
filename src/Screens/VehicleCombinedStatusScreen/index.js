@@ -15,7 +15,6 @@ const VehicleCombinedStatusScreen = ({
   isModalVisible,
   modalChecked,
   handleToast,
-  status,
   setLoading,
   certificateLoading,
   cancleReInspection,
@@ -32,6 +31,13 @@ const VehicleCombinedStatusScreen = ({
   setReInspectionLisencePlateNumber,
   reInspectionLisencePlateNumber,
   licensePlateNumber,
+  handlEmptyFields,
+  inputEmpty,
+  setInputEmpty,
+  checkEmpty,
+  setCheckEmpty,
+  checkUnselect,
+  setCheckUnselect,
 }) => {
   return (
     <div className="main-container">
@@ -89,6 +95,13 @@ const VehicleCombinedStatusScreen = ({
               showModal={showModal}
               companies={companies}
               handleToast={handleToast}
+              handlEmptyFields={handlEmptyFields}
+              inputEmpty={inputEmpty}
+              setInputEmpty={setInputEmpty}
+              checkEmpty={checkEmpty}
+              setCheckEmpty={setCheckEmpty}
+              checkUnselect={checkUnselect}
+              setCheckUnselect={setCheckUnselect}
               cancleReInspection={cancleReInspection}
               handleReInspectionCheck={handleReInspectionCheck}
               setReInspectionModal={setReInspectionModal}
