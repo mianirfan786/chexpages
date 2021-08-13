@@ -13,7 +13,7 @@ const ThankyouScreen = ({ handleNext }) => {
             <div className="thank-text-contaner">
               <div className="thankyou-contentP">Thank you for using</div>
               <div className="thankyou-chex-contentP">Chex.AI</div>
-              <div className="thank-you-paragrpah">You may now exit our app and one of the representatives will reach out to you for the next steps.</div>
+              <div className="thank-you-paragrpah">You may now exit our app. We will reach out to you via email with results shortly.</div>
               <Button onClickButton={handleNext} title="Next" />
 
               <div className="intro-content-footer-area">

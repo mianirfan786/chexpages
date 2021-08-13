@@ -26,6 +26,7 @@ const InspectionButtonModalComponent = ({
   handleReInspectionCheck,
   reInspectionLisencePlateNumber,
   handlEmptyFields,
+  licensePlateNumber,
   inputEmpty,
   setInputEmpty,
   checkEmpty,
@@ -35,7 +36,6 @@ const InspectionButtonModalComponent = ({
 }) => {
   return (
     <>
-      {console.log("reInspectionModal : ", reInspectionModal, "  isModalVisible :: ", isModalVisible)}
       {reInspectionModal === true ? (
         <Modal className="inspection-modal-container" title="Basic Modal" visible={reInspectionModal} onCancel={() => { handleOk() }}>
           <div className="inspection-modal-header">
@@ -94,7 +94,6 @@ const InspectionButtonModalComponent = ({
             </div>
           </div>
           <Modal className="inspection-modal-container" title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-            {console.log("reInspectionModal:: ", reInspectionModal)}
             <div className="inspection-modal-header">
               <div></div>
               <div className="select-company-text">New Inspection</div>
@@ -127,10 +126,8 @@ const InspectionButtonModalComponent = ({
                 );
               })}
             </div>
-
-
             <div style={{ padding: '15px', width: '312px' }}>
-              {reInspectionLisencePlateNumber !== '' && reInspectionChecked.length !== 0 ? (
+              {licensePlateNumber !== '' && modalChecked.length !== 0 && inputEmpty === false && checkEmpty === false ? (
                 <button style={{ border: 'none' }} className="select-btn-container" onClick={() => handleCreateInspection()}>
                   {loadingSelect ?
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '21px' }}>
