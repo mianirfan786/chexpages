@@ -26,6 +26,7 @@ const VehicleCombinedStatusContainer = (props) => {
   const [status, setStatus] = useState('');
   const [inputEmpty, setInputEmpty] = useState(false);
   const [checkEmpty, setCheckEmpty] = useState(false);
+  const [alreadyExist, setAlreadyExist] = useState(false);
   const [checkUnselect, setCheckUnselect] = useState(false);
 
   useEffect(() => {
@@ -85,6 +86,11 @@ const VehicleCombinedStatusContainer = (props) => {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setAlreadyExist(false);
+    setInputEmpty(false);
+    setCheckEmpty(false);
+    setLicensePlateNumber('');
+    setModalChecked([]);
   };
 
   const handleToast = () => {
@@ -115,8 +121,13 @@ const VehicleCombinedStatusContainer = (props) => {
       licensePlateNumber,
       companies: modalChecked,
     };
-    createInspection(body, history, addToast, setLoadingSelect);
+    createInspection(body, history, addToast, setLoadingSelect, setAlreadyExist);
   };
+
+  // const handleAlreadyExist = () => {
+  //   setAlreadyExist(true);
+  //   addToast('Inspection Already exist', { appearance: 'warning' })
+  // }
   return (
     <div>
       <VehicleCombineStatusScreen
@@ -155,6 +166,7 @@ const VehicleCombinedStatusContainer = (props) => {
         setCheckEmpty={setCheckEmpty}
         checkUnselect={checkUnselect}
         setCheckUnselect={setCheckUnselect}
+        alreadyExist={alreadyExist}
       />
     </div>
   );

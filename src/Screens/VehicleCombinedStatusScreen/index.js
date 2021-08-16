@@ -38,6 +38,7 @@ const VehicleCombinedStatusScreen = ({
   setCheckEmpty,
   checkUnselect,
   setCheckUnselect,
+  alreadyExist,
 }) => {
   return (
     <div className="main-container">
@@ -111,6 +112,7 @@ const VehicleCombinedStatusScreen = ({
               handleCreateReInspection={handleCreateReInspection}
               handleLicensePlateNumber={handleLicensePlateNumber}
               handleCreateInspection={handleCreateInspection}
+              alreadyExist={alreadyExist}
             />
           </div>
           <div className="tabs-bottom-color" />

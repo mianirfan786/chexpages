@@ -217,7 +217,7 @@ export function getSurveyStatus(id, setSurveyCheck) {
           setSurveyCheck(false);
         }
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }
 
@@ -337,19 +337,20 @@ export function getInspectionByStatus(params, setLoading) {
   };
 }
 
-export function createInspection(body, history, addToast, setLoadingSelect) {
+export function createInspection(body, history, addToast, setLoadingSelect, setAlreadyExist) {
   setLoadingSelect(true);
   return (dispatch) => {
     axios
       .post(`${Api}/create/inspection`, body, { headers })
       .then((resp) => {
+        setAlreadyExist(false);
         console.log('resp inspection :: ', resp?.data, resp?.data?.vehicleId);
         window.location.href = `/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}?lyftUser=${resp?.data?.lyftInspection}`;
         setLoadingSelect(false);
       })
       .catch((err) => {
         console.log('error : ', err?.message);
-        err?.message === 'Request failed with status code 409' ? addToast('Inspection Already exist', { appearance: 'warning' }) : null;
+        err?.message === 'Request failed with status code 409' ? setAlreadyExist(true) : null;
         setLoadingSelect(false);
       });
   };

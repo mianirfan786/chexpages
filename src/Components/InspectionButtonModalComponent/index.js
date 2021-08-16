@@ -28,11 +28,10 @@ const InspectionButtonModalComponent = ({
   handlEmptyFields,
   licensePlateNumber,
   inputEmpty,
-  setInputEmpty,
   checkEmpty,
-  setCheckEmpty,
   checkUnselect,
   setCheckUnselect,
+  alreadyExist,
 }) => {
   return (
     <>
@@ -97,7 +96,7 @@ const InspectionButtonModalComponent = ({
             <div className="inspection-modal-header">
               <div></div>
               <div className="select-company-text">New Inspection</div>
-              <GrFormClose style={{ cursor: 'pointer' }} color="black" size={30} onClick={() => { handleCancel(); setInputEmpty(false); setCheckEmpty(false); }} />
+              <GrFormClose style={{ cursor: 'pointer' }} color="black" size={30} onClick={() => handleCancel()} />
             </div>
 
             <div className="additional-selection-container">
@@ -105,10 +104,12 @@ const InspectionButtonModalComponent = ({
                 <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
             </div>
             </div>
-            {inputEmpty === true ?
+            {inputEmpty === true ? (
               <div className="please-enter-text" style={{ color: 'red' }}>Please enter your vehicle’s license plate number</div>
+            ) : (alreadyExist === true ?
+              <div className="please-enter-text" style={{ color: 'red' }}>Plate number already exist</div>
               :
-              <div className="please-enter-text">Please enter your vehicle’s license plate number</div>}
+              <div className="please-enter-text">Please enter your vehicle’s license plate number</div>)}
             <input type="input" placeholder="License Plate Number" className="modal-input-field" onChange={(number) => handleLicensePlateNumber(number.target.value)} />
 
             {checkEmpty === true ? <div style={{ color: 'red' }} className="select-companies-text">Select Company (s)</div>
