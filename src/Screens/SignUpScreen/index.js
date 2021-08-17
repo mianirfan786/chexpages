@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import { Link } from 'react-router-dom';
@@ -9,7 +11,7 @@ import { PrivacyModal } from '../../Components';
 import './style.css';
 import '../../App.css';
 
-const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleCheckBox, showModal, handleModal, handleDropDown }) => {
+const SignUpScreen = ({ dropDown, handleSubmit, isLoading, handleCheckBox, showModal, handleModal, handleDropDown }) => {
   return (
     <div className="register-main-container">
       <div className="register-background-image">
@@ -20,6 +22,9 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
               <span className="register-logoSpanColor">.AI</span>
             </div>
             <div className="register-mainScreenP">Virtual Inspections</div>
+            <div className="intro-validation-text">
+              (Only valid for <span className="intro-state-name">CA & AZ</span> drivers)
+            </div>
           </div>
           <div className="register-contentFooterAreaSignin">
             <div className="register-signinHeadingH3">Register</div>
@@ -32,7 +37,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                   remember: true,
                 }}
                 onFinish={handleSubmit}
-                // onFinishFailed={onFinishFailed}
+              // onFinishFailed={onFinishFailed}
               >
                 <Form.Item
                   name="name"
@@ -53,9 +58,12 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                   className="form-item-style"
                   rules={[
                     {
-                      type: 'email',
+                      // type: 'email',
                       required: true,
                       message: 'Please enter valid email!',
+                      pattern: new RegExp(
+                        /^\s*(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*\s*$/
+                      ),
                     },
                   ]}
                 >
@@ -87,7 +95,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                 >
                   <Input.Password style={{ fontFamily: 'Poppins' }} className="input-field" placeholder="Password" />
                 </Form.Item>
-                <Form.Item style={{ position: 'relative' }} name="companies" rules={[{ required: true, message: 'Please select company(s)' }]}>
+                {/* <Form.Item style={{ position: 'relative' }} name="companies" rules={[{ required: true, message: 'Please select company(s)' }]}>
                   <Select
                     open={dropDown}
                     onDropdownVisibleChange={handleDropDown}
@@ -111,9 +119,9 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                     className="input-field"
                     options={companies}
                   />
-                </Form.Item>
+                </Form.Item> */}
 
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', marginBottom: 15 }}>
                   <div></div>
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div style={{ display: 'flex' }}>
@@ -136,7 +144,7 @@ const SignUpScreen = ({ dropDown, handleSubmit, isLoading, companies, handleChec
                 </Form.Item>
                 <Form.Item>
                   <Link to="/login" style={{ color: 'white' }}>
-                    Sign in to an account
+                    Already have an account. <span style={{ color: 'white' }}>SignIn!</span>
                   </Link>
                 </Form.Item>
               </Form>

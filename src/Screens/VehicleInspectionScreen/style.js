@@ -361,13 +361,13 @@ export const UploadIVehicleInspection = styled.i`
 export const ContentFooterareaVehicleinspection = styled.div`
   width: 100%;
   background: #e5e5e5;
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 20px 20px 0px 0px;
   margin-top: 30px;
   padding: 30px 10px;
   margin-top: 5px;
   width: 30%;
-  margin-bottom: 30px;
   // height: 100vh;
+  min-height:550px;
 
   @media screen and (max-width: 1024px) {
     width: 60%;

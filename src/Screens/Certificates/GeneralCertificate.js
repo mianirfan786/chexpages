@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 
 import ActionCreators from '../../actions';
 
+
 import './styleCertificate.css';
 
 const GeneralCertificate = (props) => {

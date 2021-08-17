@@ -63,10 +63,10 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
           </div>
           <div className="transaction-input-field">
             <div className="input-field-name">Cardholder Name</div>
-            <input />
+            <input className="cardholder-input" />
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>
             <div style={{ width: '42%' }}>
               <div className="transaction-input-field">
                 <div className="input-field-name">Expiry Date</div>
@@ -115,9 +115,9 @@ const TranscationScreen = ({ priceLoading, handleSubmit, loading, price, buttonD
               </div>
             </div>
           </div>
-          <Button loading={loading} title={'Submit'} disabled={buttonDisable} onClickButton={handleSubmit} />
+          <Button loading={loading} style={{ marginTop: 30 }} title={'Submit'} disabled={buttonDisable} onClickButton={handleSubmit} />
           <div></div>
-          <Link style={{ display: 'flex', justifyContent: 'center', marginTop: '13px' }} to="/vehicleinspection">
+          <Link style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }} to="/vehicleinspection">
             go back to inspections page
           </Link>
         </div>

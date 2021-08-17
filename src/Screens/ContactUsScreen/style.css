@@ -64,16 +64,19 @@
   border: 1px solid rgb(231, 239, 248) !important;
   width: 95%;
   border-radius: 5px;
-  padding-left: 21px;
-  padding-top: 20px;
+  padding-left: 8px;
+  padding-top: 16px;
+  font-family: 'Poppins' !important;
 }
 .text-area-styling::placeholder {
   color: rgb(185, 179, 179);
-  font-size: 18px;
+  font-size: 17px;
+  font-family: 'Poppins' !important;
 }
 .text-area-field :focus {
   border: 1px solid rgb(231, 239, 248) !important;
   outline: none;
+  font-family: 'Poppins' !important;
 }
 .directlt-reach-text {
   font-family: Poppins;
@@ -103,6 +106,7 @@
   background: #2584e0 !important;
   border: none !important;
   outline: none !important;
+  width: 90% !important;
 }
 @media only screen and (max-width: 700px) {
   .contact-us-container {

@@ -2,7 +2,7 @@
 
 export function setCompanies(companiesArray) {
   let updatedArray = [];
-  companiesArray?.map((company) => {
+  companiesArray?.data?.map((company) => {
     return updatedArray.push({
       label: `${company.name}`,
       value: company.id,
@@ -11,17 +11,30 @@ export function setCompanies(companiesArray) {
   return updatedArray;
 }
 
-export function setReportData(array) {
+export function setLyftReportData(array) {
   let vehicleArray = [];
   array?.map((vehicle) => {
-    vehicle?.vehicleChecks.map((check) => {
-      if (check.displayOnCertificate) {
-        vehicleArray.push({
-          name: check.name,
-          status: check.status,
-        });
+    vehicle?.InspectionChecks.map((check) => {
+      if (check?.Check?.displayOnCertificate) {
+        vehicleArray.push(check);
       }
     });
   });
+  vehicleArray.sort((a, b) => a?.Check?.index_3 - b?.Check?.index_3);
+  return vehicleArray;
+}
+
+export function setOtherReportData(array) {
+  console.log(array);
+  let vehicleArray = [];
+  array?.map((vehicle) => {
+    vehicle?.InspectionChecks.map((check) => {
+      if (check?.Check?.displayOnCertificate) {
+        vehicleArray.push(check);
+      }
+    });
+  });
+  console.log('vehicleArray : ', vehicleArray);
+  vehicleArray.sort((a, b) => a.Check?.index_2 - b.Check?.index_2);
   return vehicleArray;
 }

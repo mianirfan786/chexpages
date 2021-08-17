@@ -1,0 +1,178 @@
+
+  .after-reviewing-main_container{
+    background: linear-gradient(0deg, rgba(27, 104, 179, 0.6) 0%, #1b68b3 99.97%);
+    position: absolute;
+    min-height: 100%;
+    height: auto;
+    width: 100%;
+    border: none;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .after-reviewing-white_container{
+    background-color: #E5E5E5;
+  /* border-radius: 20px; */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: 10px;
+  height: auto;
+  padding: 10px;
+  
+  }
+  .after-reviewing-header-bottom_para{
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #77A1DF;
+  }
+  .after-reviewing-wrap_container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .after-reviewing-bottom_border{
+    border-bottom:1px solid #cccccc;
+    width: 80%;
+    margin-top: 30px;
+  }
+  .border-align-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .no-of-door_container{
+    background: #d6d2d2;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 20px;
+  }
+  .no-of-door_text{
+  color: #414B55;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  }
+  .text-area-container{
+    width: 100%;
+    border: none;
+    background: #d6d2d2;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  .text-area-container:focus{
+    outline: none;
+    border: none;
+  }
+  .final-status-container{
+    background: #d6d2d2;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .pass-container{
+    display: flex;
+    align-items: center;
+  }
+  .camera_img_container{
+    margin-left: 10px;
+    margin-top: 5px;
+    position: absolute;
+    left: 0;
+  }
+  .img_container{
+      height: 200px;
+      width: 300px 
+  }
+  .produc-card-bg_file{
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 450px;
+    height: 300px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .checked-icon-container{
+    background-color: #75BA5C;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    margin-right: 10px;
+  }
+  .Unchecked-icon-container{
+    background-color: #d42316;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    margin-right: 10px;
+  }
+  .pass-text{
+  color: #414B55;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  }
+  .main-container-width{
+    width: 370px ;
+    align-self: center ;
+  }
+
+  @media only screen and (max-width: 550px) {
+    .main-container-width{
+      width: 100% !important;
+      align-self: center !important;
+    }
+  }
+
+  .instruction-modalls .after-review-in-screen .ant-modal-close{
+    right: -30% !important;
+    top: -5% !important;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .instruction-modalls .after-review-in-screen .ant-modal-close{
+      right: -8% !important;
+    }
+    .produc-card-bg_file{
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 100%;
+      height: 100%;
+      margin-top: 20px;
+      position: relative;
+    }
+    .img_container{
+      height: 100%;
+      width: 100% 
+    }
+    .camera_img_container {
+      margin-left: 30px;
+    }
+  }
+
+  .ant-modal-close-x {
+    margin-top: -40px;
+    margin-right: 23px;
+  }
+  

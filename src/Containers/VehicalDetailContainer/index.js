@@ -20,9 +20,9 @@ const VehicleDetailContainer = (props) => {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    if (user?.updates || user?.updates === null || user?.updates === undefined) {
-      window.location.replace('/logoutForChanges');
-    }
+    // if (user?.updates || user?.updates === null || user?.updates === undefined) {
+    //   window.location.replace('/logoutForChanges');
+    // }
   });
   const handleSubmit = async () => {
     if (!stripe || !elements) {
@@ -30,7 +30,7 @@ const VehicleDetailContainer = (props) => {
     }
     const card = elements.getElement(CardNumberElement);
     const result = await stripe.createToken(card);
-    const { vehicleData, startPayment } = props;
+    const { vehicleData, startPayment, location } = props;
     if (result.error) {
       console.log(error);
       // toast(result.error.message, { type: 'error' });
@@ -42,7 +42,7 @@ const VehicleDetailContainer = (props) => {
     }
     // setDisableButton(false);
   };
-  return <VehicalDetailScreen handleSubmit={handleSubmit} />;
+  return <VehicalDetailScreen vehicleData={location?.state?.Vehicle} handleSubmit={handleSubmit} />;
 };
 
 function mapDispatchToProps(dispatch) {

@@ -7,13 +7,18 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
+import { moment } from 'moment';
 import ActionCreators from '../../actions';
 import Loading from '../../HOC/index';
 import { VehicleInspectionScreen } from '../../Screens';
 
+const queryString = require('query-string');
+
 // const queryString = require('query-string');
 
 const VehicleInspectionContainer = (props) => {
+  const query = queryString.parse(location.search);
+
   const { addToast } = useToasts();
   const history = useHistory();
 
@@ -27,6 +32,7 @@ const VehicleInspectionContainer = (props) => {
   const [imageCategory, setImageCategory] = useState(null);
   const [rating, setNewRating] = useState(0);
   const [comment, setComment] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [commentError, setCommentError] = useState(false);
   const [surveyModalLoading, setSurveyModalLoading] = useState(false);
   const [surveyChecks, setSurveyChecks] = useState({
@@ -38,22 +44,26 @@ const VehicleInspectionContainer = (props) => {
   const [groupType, setGroupType] = useState(null);
   const [surveyCheck, setSurveyCheck] = useState(false);
 
+
+  let today = new Date();
+  const date = `${(today.getMonth() + 1)}-${today.getDate()}-${today.getFullYear()}`;
+  const dateImage = date.toString()
+
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('currentUser'));
-    if (user?.updates || user?.updates === null || user?.updates === undefined) {
-      window.location.replace('/logoutForChanges');
-    }
+    // if (user?.updates || user?.updates === null || user?.updates === undefined) {
+    //   window.location.replace('/logoutForChanges');
+    // }
     handleRequests();
   }, []);
 
   const handleRequests = () => {
-    const { getVehicleFile, currentUser, getSurveyStatus } = props;
-    getSurveyStatus(currentUser?.id, setSurveyCheck);
-    getVehicleFile(currentUser?.vehicles[0]?.id);
+    const { getVehicleFile, currentUser, getSurveyStatus, getVehiclesStatus, match } = props;
+    // getSurveyStatus(currentUser?.id, setSurveyCheck);
+    getVehicleFile(match?.params?.id, setLoading);
+    getVehiclesStatus(match?.params?.id, setLoading);
   };
 
   const handleModal = (value, groupType) => {
-    console.log(value, groupType);
     setImageCategory(value.id);
     setGroupType(groupType);
     setVehicleInstruction(value);
@@ -80,10 +90,11 @@ const VehicleInspectionContainer = (props) => {
     };
     await imageCompression(imageFile, options)
       .then(function (compressedFile) {
-        const { uploadFile, vehicleData } = props;
-        uploadFile(compressedFile, { type: compressedFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
+        const { uploadFile, match } = props;
+
+        uploadFile(compressedFile, { type: compressedFile.type }, match?.params?.id, imageCategory, groupType, setModalValue, imageUploadingProgress, dateImage);
       })
-      .catch(function (error) {});
+      .catch(function (error) { });
     setuploadingPercentage(0);
   };
 
@@ -91,8 +102,8 @@ const VehicleInspectionContainer = (props) => {
     var videoFile = event.target.files[0];
     event.target.value = '';
 
-    const { uploadFile, vehicleData } = props;
-    uploadFile(videoFile, { type: videoFile.type }, vehicleData.id, imageCategory, groupType, setModalValue, imageUploadingProgress);
+    const { uploadFile, match } = props;
+    uploadFile(videoFile, { type: videoFile.type }, match?.params?.id, imageCategory, groupType, setModalValue, imageUploadingProgress, dateImage);
     setuploadingPercentage(0);
   };
 
@@ -132,8 +143,8 @@ const VehicleInspectionContainer = (props) => {
   };
 
   const deleteFile = () => {
-    const { deleteVehicleFile, vehicleData } = props;
-    deleteVehicleFile(vehicleData.id, fileToBeDeleted?.id, fileToBeDeleted?.groupType, setDeleteLoading, setDeleteModal);
+    const { deleteVehicleFile } = props;
+    deleteVehicleFile(fileToBeDeleted?.id, fileToBeDeleted?.groupType, setDeleteLoading, setDeleteModal);
   };
 
   const handleDeleteModal = (groupType, id) => {
@@ -148,12 +159,12 @@ const VehicleInspectionContainer = (props) => {
   };
 
   const handleChangeVehicleStatus = () => {
-    const { changeVehicleStatus, vehicleData } = props;
-    changeVehicleStatus(vehicleData.id, setVehicleStatusLoading, history);
+    const { changeVehicleStatus, match } = props;
+    changeVehicleStatus(match?.params?.id, setVehicleStatusLoading, history);
   };
   const handleSkipPayment = (paymentStatus) => {
-    const { vehicleData, skipPaymentMethod } = props;
-    skipPaymentMethod(vehicleData.id, setVehicleStatusLoading, history, paymentStatus);
+    const { match, skipPaymentMethod } = props;
+    skipPaymentMethod(match?.params?.id, setVehicleStatusLoading, history, paymentStatus);
   };
   return (
     <VehicleInspectionScreen
@@ -182,9 +193,12 @@ const VehicleInspectionContainer = (props) => {
       handleSubmitSurvey={handleSubmitSurvey}
       commentError={commentError}
       paymentStatus={props.paymentStatus}
+      match={props.match.params}
       changeVehicleStatus={handleChangeVehicleStatus}
       vehicleStatusLoading={vehicleStatusLoading}
       handleSkipPayment={handleSkipPayment}
+      vehicleStatus={props?.vehicleStatus}
+      lyftUser={query?.lyftUser}
     />
   );
 };
@@ -199,6 +213,7 @@ function mapStateToProps(state) {
     isLoading: state.vehicleInstruction.isVehicleLoading,
     vehicleInstructions: state.vehicleInstruction,
     currentUser: state.auth.currentUser,
+    vehicleStatus: state.vehicleInstruction.vehicleStatus,
   };
 }
 
