@@ -22,7 +22,7 @@ const TabComponent = ({
 }) => {
   return (
     <div>
-      <Tabs onChange={(key) => handleStatus(key)} defaultActiveKey="REVIEWED" centered>
+      <Tabs onChange={(key) => handleStatus(key)} defaultActiveKey="IN_PROGRESS" centered>
         <TabPane key="IN_PROGRESS" tab={<div style={{ color: 'white', fontSize: '15px', fontWeight: '500' }}>Draft</div>}>
           <div className="tabs-content-bg-color">
             {isLoading ? (

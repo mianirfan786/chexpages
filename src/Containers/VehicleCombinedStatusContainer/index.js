@@ -32,7 +32,7 @@ const VehicleCombinedStatusContainer = (props) => {
   useEffect(() => {
     getInspectionByStatus(
       {
-        status: 'REVIEWED',
+        status: 'IN_PROGRESS',
       },
       setLoading
     );
