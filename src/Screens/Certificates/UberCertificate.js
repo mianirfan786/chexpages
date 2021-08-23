@@ -339,6 +339,7 @@ const UberCertificate = (props) => {
 
   const handleReload = () => {
     SetModal(false);
+    localStorage.setItem('tabStatus', 'REVIEWED');
     setTimeout(function () {
       handleModal();
     }, 200);

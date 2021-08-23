@@ -30,12 +30,22 @@ const VehicleCombinedStatusContainer = (props) => {
   const [checkUnselect, setCheckUnselect] = useState(false);
 
   useEffect(() => {
-    getInspectionByStatus(
-      {
-        status: 'IN_PROGRESS',
-      },
-      setLoading
-    );
+    if (localStorage.getItem('tabStatus') && localStorage.getItem('tabStatus') === 'REVIEWED') {
+      getInspectionByStatus(
+        {
+          status: 'REVIEWED',
+        },
+        setLoading
+      );
+    } else {
+      getInspectionByStatus(
+        {
+          status: 'IN_PROGRESS',
+        },
+        setLoading
+      );
+    }
+
     getCompanies();
   }, []);
 
@@ -66,7 +76,7 @@ const VehicleCombinedStatusContainer = (props) => {
   const handlEmptyFields = () => {
     licensePlateNumber === '' ? setInputEmpty(true) : setInputEmpty(false);
     modalChecked.length === 0 ? setCheckEmpty(true) : setCheckEmpty(false);
-  }
+  };
 
   const handleReInspectionCheck = (id) => {
     const arr = [...reInspectionChecked];
@@ -101,6 +111,7 @@ const VehicleCombinedStatusContainer = (props) => {
 
   const handleStatus = (status) => {
     setStatus(status);
+    localStorage.setItem('tabStatus', null);
     getInspectionByStatus(
       {
         status: status,

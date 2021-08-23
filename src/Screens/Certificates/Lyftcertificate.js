@@ -403,7 +403,7 @@ const styles = StyleSheet.create({
 
 const LyftCertificate = (props) => {
   const { isLoading, handleModal, SetModal } = props;
-  console.log("Props in lyft :: ", props);
+  console.log('Props in lyft :: ', props);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const getToken = () => localStorage.getItem('token') || null;
@@ -416,6 +416,7 @@ const LyftCertificate = (props) => {
 
   const handleReload = () => {
     SetModal(false);
+    localStorage.setItem('tabStatus', 'REVIEWED');
     setTimeout(function () {
       handleModal();
     }, 200);
@@ -701,7 +702,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  console.log("State Lyft : ", state);
+  console.log('State Lyft : ', state);
   return {
     reportData: state.vehicleInstruction.lyftVehicleCertificate,
     checksData: setLyftReportData(state.vehicleInstruction.lyftVehicleCertificate?.Files),

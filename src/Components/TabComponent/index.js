@@ -22,7 +22,11 @@ const TabComponent = ({
 }) => {
   return (
     <div>
-      <Tabs onChange={(key) => handleStatus(key)} defaultActiveKey="IN_PROGRESS" centered>
+      <Tabs
+        onChange={(key) => handleStatus(key)}
+        defaultActiveKey={localStorage.getItem('tabStatus') && localStorage.getItem('tabStatus') === 'REVIEWED' ? 'REVIEWED' : 'IN_PROGRESS'}
+        centered
+      >
         <TabPane key="IN_PROGRESS" tab={<div style={{ color: 'white', fontSize: '15px', fontWeight: '500' }}>Draft</div>}>
           <div className="tabs-content-bg-color">
             {isLoading ? (
@@ -35,8 +39,8 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'IN_PROGRESS'
                   ? vehiclesByStatus?.map((item) => {
-                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
-                  })
+                      return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
+                    })
                   : null}
               </>
             )}
@@ -55,8 +59,8 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'READY_FOR_REVIEW'
                   ? vehiclesByStatus?.map((item) => {
-                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />;
-                  })
+                      return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />;
+                    })
                   : null}
               </>
             )}
@@ -76,24 +80,24 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'REVIEWED'
                   ? vehiclesByStatus?.map((item) => {
-                    return (
-                      <TabContentComponent
-                        title={item?.Vehicle?.licensePlateNumber}
-                        reviewed={true}
-                        item={item}
-                        setLoading={setLoading}
-                        showModal={showModal}
-                        cancleReInspection={cancleReInspection}
-                        certificateLoading={certificateLoading}
-                        setCertificateLoading={setCertificateLoading}
-                        setReInspectionId={setReInspectionId}
-                        reInspectionModal={reInspectionModal}
-                        setReInspectionModal={setReInspectionModal}
-                        setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
-                        key={item?.id}
-                      />
-                    );
-                  })
+                      return (
+                        <TabContentComponent
+                          title={item?.Vehicle?.licensePlateNumber}
+                          reviewed={true}
+                          item={item}
+                          setLoading={setLoading}
+                          showModal={showModal}
+                          cancleReInspection={cancleReInspection}
+                          certificateLoading={certificateLoading}
+                          setCertificateLoading={setCertificateLoading}
+                          setReInspectionId={setReInspectionId}
+                          reInspectionModal={reInspectionModal}
+                          setReInspectionModal={setReInspectionModal}
+                          setReInspectionLisencePlateNumber={setReInspectionLisencePlateNumber}
+                          key={item?.id}
+                        />
+                      );
+                    })
                   : null}
               </>
             )}
