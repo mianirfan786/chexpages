@@ -217,7 +217,7 @@ export function getSurveyStatus(id, setSurveyCheck) {
           setSurveyCheck(false);
         }
       })
-      .catch((err) => { });
+      .catch((err) => {});
   };
 }
 
@@ -303,14 +303,14 @@ export function getReportData(vechileId, setLoading) {
   };
 }
 
-export function skipPaymentMethod(vehicleId, setLoading, history, paymentStatus) {
+export function skipPaymentMethod(id, vehicleId, setLoading, history, paymentStatus) {
   setLoading(true);
   return (dispatch) => {
     axios
       .post(`${Api}/vehicles/payment/${vehicleId}`, {}, { headers })
       .then((resp) => {
         if (paymentStatus) {
-          history.push('/vehicleStatus');
+          history.push(`/VehicleAfterReviewing/${id}/${vehicleId}`);
         } else {
           history.push('/thankyouScreen');
         }

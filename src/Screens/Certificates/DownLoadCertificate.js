@@ -353,6 +353,7 @@ const DownloadCertifcate = (props) => {
 
   const handleReload = () => {
     SetModal(false);
+    localStorage.setItem('tabStatus', 'REVIEWED');
     setTimeout(function () {
       handleModal();
     }, 200);
@@ -546,8 +547,9 @@ const DownloadCertifcate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '42%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
-                      }`}</Text>
+                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
+                      props.reportData && props.reportData?.InspectorlastName
+                    }`}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
@@ -562,8 +564,9 @@ const DownloadCertifcate = (props) => {
                     </View>
                   ) : (
                     <View style={{ width: '30%', marginRight: '15px' }}>
-                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
-                        }`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData?.Inspectorname} ${
+                        props.reportData && props.reportData?.InspectorlastName
+                      }`}</Text>
                       <View style={styles.bottomboxBorder} />
                       <Text style={styles.bottomboxbootomText}>inspector signature</Text>
                     </View>

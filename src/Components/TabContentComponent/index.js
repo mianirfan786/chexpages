@@ -202,36 +202,72 @@ const TabContentComponent = ({
                   </div>
                 );
               })}
-              {company === true ? (certificateData?.templateId === 3 ? (
-                <>
-                  {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
-                    <>
-                      <UberCertificate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                    </>
-                  ) : (
-                    <>
-                      <Lyftcertificate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                    </>
-                  )}
-                </>
-              ) : certificateData?.templateId === 2 ? (
-                <>
-
-                  {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
-                    <>
-                      <UberCertificate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                    </>
-                  ) : (
-                    <>
-                      <DownloadCertifcate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                    </>
-                  )}
-                </>
-              ) : certificateData?.templateId.length ? (
-                <>
-                  <DownloadCertifcate SetModal={setCompanyModalVisible} handleModal={handleCancelCompany} setLoading={setCertificateLoading} isLoading={certificateLoading} companyId={certificateData?.companyId} id={certificateData?.id} />
-                </>
-              ) : null) : null}
+              {company === true ? (
+                certificateData?.templateId === 3 ? (
+                  <>
+                    {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
+                      <>
+                        <UberCertificate
+                          SetModal={setCompanyModalVisible}
+                          handleModal={handleCancelCompany}
+                          setLoading={setCertificateLoading}
+                          isLoading={certificateLoading}
+                          companyId={certificateData?.companyId}
+                          id={certificateData?.id}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <Lyftcertificate
+                          SetModal={setCompanyModalVisible}
+                          handleModal={handleCancelCompany}
+                          setLoading={setCertificateLoading}
+                          isLoading={certificateLoading}
+                          companyId={certificateData?.companyId}
+                          id={certificateData?.id}
+                        />
+                      </>
+                    )}
+                  </>
+                ) : certificateData?.templateId === 2 ? (
+                  <>
+                    {certificateData?.companyName === 'Uber' || certificateData?.companyName === 'uber' ? (
+                      <>
+                        <UberCertificate
+                          SetModal={setCompanyModalVisible}
+                          handleModal={handleCancelCompany}
+                          setLoading={setCertificateLoading}
+                          isLoading={certificateLoading}
+                          companyId={certificateData?.companyId}
+                          id={certificateData?.id}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <DownloadCertifcate
+                          SetModal={setCompanyModalVisible}
+                          handleModal={handleCancelCompany}
+                          setLoading={setCertificateLoading}
+                          isLoading={certificateLoading}
+                          companyId={certificateData?.companyId}
+                          id={certificateData?.id}
+                        />
+                      </>
+                    )}
+                  </>
+                ) : certificateData?.templateId.length ? (
+                  <>
+                    <DownloadCertifcate
+                      SetModal={setCompanyModalVisible}
+                      handleModal={handleCancelCompany}
+                      setLoading={setCertificateLoading}
+                      isLoading={certificateLoading}
+                      companyId={certificateData?.companyId}
+                      id={certificateData?.id}
+                    />
+                  </>
+                ) : null
+              ) : null}
             </div>
           </Modal>
         </>
