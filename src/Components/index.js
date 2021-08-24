@@ -9,5 +9,25 @@ import Loading from './LoadingComponent/index';
 import ConfimrationModal from './ConfirmationModal/index';
 import PrivacyModal from './PrivacyModal/index';
 import LyftConfirmationModal from './LyftConfirmationModal/index';
+import TabComponent from './TabComponent/index';
+import InspectionButtonModalComponent from './InspectionButtonModalComponent/index';
+import AfterReviewingHeaderComponent from './AfterReviewingHeaderComponent';
+import AfterReviewingScreenProductCardComponent from './AfterReviewingScreenProductCardComponent';
 
-export { Button, Input, InspectionCard, NextStepButton, InstructionModal, Header, SurveyModal, Loading, ConfimrationModal, PrivacyModal, LyftConfirmationModal };
+export {
+  Button,
+  Input,
+  InspectionCard,
+  NextStepButton,
+  InstructionModal,
+  Header,
+  SurveyModal,
+  Loading,
+  ConfimrationModal,
+  PrivacyModal,
+  LyftConfirmationModal,
+  TabComponent,
+  InspectionButtonModalComponent,
+  AfterReviewingHeaderComponent,
+  AfterReviewingScreenProductCardComponent,
+};

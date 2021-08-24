@@ -51,15 +51,19 @@ export function login(params, history, addToast) {
         dispatch(isAuthLoading(false));
         dispatch(setCurrentUser(resp.data.data));
         dispatch(setVehicleData(resp.data.vehicleData));
-        localStorage.setItem('token', resp.data.token);
         localStorage.setItem('currentUser', JSON.stringify(resp.data.data));
-        localStorage.setItem('vehicleData', JSON.stringify(resp.data.data.vehicles[0]));
         localStorage.setItem('recommendScreen', JSON.stringify(resp.data.data?.recommendation_seen));
+        localStorage.setItem('token', resp.data.token);
         dispatch(setIsAuthenticated(true));
-        window.location.reload(`/vehicleinspection`);
+        window.location.href = '/userVehicleStatus';
+
+        // console.log("token in ", resp.data.token);
+        // history.push('/userVehicleStatus');
+        // window.location.reload(`/userVehicleStatus`);
       })
       .catch((err) => {
-        addToast(`${err.response.data.message}`, { appearance: 'error' });
+        console.log("err : ", err);
+        addToast(`${err?.response?.data.message}`, { appearance: 'error' });
         dispatch(isAuthLoading(false));
       });
   };
@@ -78,8 +82,9 @@ export function register(params, history, addToast, lyftUser, handleModal) {
         //   handleModal(true, resp.data?.user?.id);
         //   dispatch(isAuthLoading(false));
         // } else {
-        history.replace('/login');
-        dispatch(isAuthLoading(false));
+        dispatch(login({ email: params.email, password: params.password }, null, addToast));
+        // history.replace('/login');
+        // dispatch(isAuthLoading(false));
         // }
         localStorage.setItem('doAndDont', false);
       })
@@ -165,7 +170,7 @@ export function getCompanies() {
       .then((resp) => {
         dispatch(setCompanies(resp.data));
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }
 
@@ -210,6 +215,6 @@ export function setLyftUserStatus(params, setVisible, user_id, history) {
         setVisible(false);
         history.push('/login');
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }

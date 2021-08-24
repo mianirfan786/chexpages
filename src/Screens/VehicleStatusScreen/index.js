@@ -7,6 +7,7 @@ import Pdf from 'react-to-pdf';
 
 import DownloadCertifcate from '../Certificates/DownLoadCertificate';
 import GeneralCertificate from '../Certificates/GeneralCertificate';
+import UberCertificate from '../Certificates/UberCertificate';
 import LyftCertificate from '../Certificates/Lyftcertificate';
 import {
   // InspectionCard,
@@ -52,7 +53,7 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
               <VehicleInspectionP>
                 {vehicleStatuss === 'REVIEWED'
                   ? 'Use below link to download your certificate in PDF'
-                  : 'Your vehicle is in review once your vehicle is reviewed you will get a notification and then you download certificate'}
+                  : 'Your vehicle is currently under review. Once your vehicle inspection is complete, we will notify you via email. Thank you for your patience.'}
               </VehicleInspectionP>
             </MainDownContainer>
             {/* <div className="veh-inspection-mobilepaddind">
@@ -73,11 +74,6 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
               ) : (
                 <Collapse
                   defaultActiveKey={[`1`]}
-                  // onChange={(key) => {
-                  //   var value = key?.slice(-1);
-                  //   handleSetPanelValue(value[0]);
-                  // }}
-                  // activeKey={[`${panelValue}`]}
                   expandIconPosition="right"
                   expandIcon={({ isActive }) => (
                     <UpCircleOutlined
@@ -102,51 +98,39 @@ const VehicleStatusScreen = ({ panelValue, handleSetPanelValue, vehicleStatus, l
                       extra={genExtra}
                     >
                       {vehicleStatuss === 'REVIEWED' ? (
-                        <Pdf
-                          targetRef={vehicle?.template_id == 1 ? refs : vehicle?.template_id == 3 ? ref2 : ref1}
-                          // options={options}
-                          x={15.99}
-                          // y={-7.5}
-                          scale={0.55}
-                          // onComplete={() => {
-                          //   window.location.reload();
-                          // }}
-                          filename={`Report of Vehicle ${vehicle?.id}.pdf`}
-                        >
-                          {({ toPdf }) => (
-                            <>
-                              {vehicleLoading ? (
-                                <div style={{ textAlign: 'center' }}>
-                                  <ClipLoader color={'#246DB5'} size={40} />
-                                </div>
-                              ) : vehicle?.template_id == 3 || vehicle?.template_id == 2 || vehicle.name === 'Uber' || vehicle.name === 'uber' ? null : (
-                                <NextStepButton onClickButton={toPdf} title="Download vehicle report" />
-                              )}
-                            </>
-                          )}
-                        </Pdf>
-                      ) : (
-                        'Vehicle is not yet Reviewed'
-                      )}
-                      {vehicleStatuss === 'REVIEWED' ? (
-                        vehicle?.template_id == 1 ? (
+                        // vehicle?.template_id == 1 ? (
+                        //   <>
+                        //     <GeneralCertificate setLoading={setLoading} id={vehicle.id} refs={refs} />
+                        //   </>
+                        // ) :
+                        vehicle?.template_id == 2 ? (
                           <>
-                            <GeneralCertificate setLoading={setLoading} id={vehicle.id} refs={refs} />
-                          </>
-                        ) : vehicle?.template_id == 2 ? (
-                          <>
-                            <div>Please check your email for certificates.</div>
-                            {/* <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={refs} /> */}
+                            {vehicleStatuss !== 'REVIEWED' ? (
+                              <div>Vehicle inspection is in process</div>
+                            ) : (
+                              <>
+                                {vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
+                                  <>
+                                    <UberCertificate setLoading={setLoading} id={vehicle.id} />
+                                  </>
+                                ) : (
+                                  <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
+                                )}
+                              </>
+                            )}
                           </>
                         ) : vehicle?.template_id == 3 ? (
-                          <div>Please check your email for lyft certificates.</div>
-                        ) : // <LyftCertificate setLoading={setLoading} id={vehicle?.id} refs={ref2} />
-                        vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
-                          <div>Please check your email for uber certificates.</div>
+                          <>{vehicleStatuss !== 'REVIEWED' ? <div>Vehicle inspection is in process</div> : <LyftCertificate setLoading={setLoading} id={vehicle?.id} />}</>
+                        ) : vehicle.name === 'Uber' || vehicle.name === 'uber' ? (
+                          <>{vehicleStatuss !== 'REVIEWED' ? <div>Vehicle inspection is in process</div> : <UberCertificate setLoading={setLoading} id={vehicle.id} />}</>
                         ) : (
-                          <DownloadCertifcate setLoading={setLoading} id={vehicle.id} refs={ref1} />
+                          <>
+                            <DownloadCertifcate setLoading={setLoading} id={vehicle.id} />
+                          </>
                         )
-                      ) : null}
+                      ) : (
+                        <div>Vehicle inspection is in process</div>
+                      )}
                     </Panel>
                   ))}
                 </Collapse>

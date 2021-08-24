@@ -34,6 +34,7 @@
 
 .ant-modal-wrap {
   z-index: 100000000000000 !important;
+  overflow: scroll ;
 }
 
 .input-field {

@@ -74,16 +74,28 @@
 .ant-collapse .ant-collapse-item {
   border-bottom: 7px solid #e5e5e5 !important;
 }
-.header-width {
+
+.header-min-width{
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.header-max-width{
+  width: 30%;
 }
 
-@media only screen and (min-width: 600px) {
-  .header-width {
-    width: 30%;
+@media only screen and (max-width:1026px){
+  .header-max-width{
+    width: 60%;
   }
-  .header-center {
-    display: flex;
-    /* justify-content: center; */
+}
+@media only screen and (max-width:901px){
+  .header-max-width{
+    width: 70%;
+  }
+}
+@media only screen and (max-width:768px){
+  .header-max-width{
+    width: 100%;
   }
 }

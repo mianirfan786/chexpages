@@ -84,14 +84,26 @@
 }
 .register-mainScreenP {
   font-style: normal;
-  font-weight: 200;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 15px;
   line-height: 27px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #ffffff;
   text-align: center;
-  margin: 0px;
+}
+.intro-validation-text {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 300;
+  color: #DADADA;
+  letter-spacing: 0.12px;
+
+}
+.intro-state-name {
+  color: #ff7400;
+  font-weight: 600;
+  
 }
 .register-contentFooterAreaSignin {
   text-align: center;

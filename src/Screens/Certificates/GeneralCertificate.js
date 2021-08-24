@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 
 import ActionCreators from '../../actions';
 
+
 import './styleCertificate.css';
 
 const GeneralCertificate = (props) => {
@@ -30,7 +31,7 @@ const GeneralCertificate = (props) => {
               <img src="https://res.cloudinary.com/tech-qalanders/image/upload/v1617977143/chex-instruction/chex-ai-logo_hg6t5p.png" />
               <div>
                 <p className="text-center">
-                  <b>1383 SAN MATEO AVE. SOUTH SAN FRANCISCO, CA 94080</b>
+                  <b>1383 SAN MANTEO AVE. SOUTH SAN FRANCISCO, CA 94080</b>
                 </p>
                 <p className="text-center">
                   <b>ARD # 217646</b>

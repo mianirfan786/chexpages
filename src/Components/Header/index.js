@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
+import { useHistory } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import SideBar from '../SideBar';
-const Header = ({ arrow }) => {
+import './style.css';
+
+const Header = ({ arrow, path }) => {
+  const history = useHistory();
   const [sideBar, setSideBar] = useState(false);
 
   const handleSideBar = (value) => {
     setSideBar(value);
+  };
+
+  const handleBackArrow = (path) => {
+    history.push(`${path}`)
   };
 
   return (
@@ -20,7 +28,7 @@ const Header = ({ arrow }) => {
             <div className="icon-container">
               <div style={{ width: '32px' }} />
             </div>
-          ) : (
+          ) : (path ? <IoIosArrowBack size={32} color="white" onClick={() => handleBackArrow(path)} /> :
             <IoIosArrowBack size={32} color="white" />
           )}
 

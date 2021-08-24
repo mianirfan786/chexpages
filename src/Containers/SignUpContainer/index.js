@@ -19,10 +19,11 @@ const SignUpContainer = (props) => {
   // const [visible, setVisible] = useState(false);
   const [dropDown, setDropdownValue] = useState(false);
   // const [userId, setUserId] = useState(null);
-  useEffect(() => {
-    const { getCompanies } = props;
-    getCompanies();
-  }, []);
+
+  // useEffect(() => {
+  //   const { getCompanies } = props;
+  //   getCompanies();
+  // }, []);
 
   const handleSubmit = (params) => {
     const { register } = props;
@@ -33,7 +34,7 @@ const SignUpContainer = (props) => {
       addToast('Please accept term of use', { appearance: 'warning' });
     }
   };
-  const lyft = props.companies.find((element) => element.label == 'Lyft' || element.label == 'lyft');
+  // const lyft = props.companies.find((element) => element.label == 'Lyft' || element.label == 'lyft');
 
   const handleModal = () => {
     setShowModal(!showModal);
@@ -67,7 +68,7 @@ const SignUpContainer = (props) => {
         dropDown={dropDown}
         showModal={showModal}
         handleCheckBox={handleCheckBox}
-        companies={props.companies}
+        // companies={props.companies}
         handleSubmit={handleSubmit}
         isLoading={props.isLoading}
         handleDropDown={handleDropDown}

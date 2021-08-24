@@ -38,13 +38,13 @@
 .instruction-modal-step-container {
   color: white;
   margin: auto;
-  width: 30%;
+  width: 100%;
 }
 
 .instruction-modal-step {
   margin-top: 10px;
   text-align: left;
-  margin-left: 30px;
+  margin-left: 10px;
   font-size: 13px;
   width: 100%;
   line-height: 18px;
@@ -86,8 +86,8 @@
   flex-direction: column !important;
 }
 .modal-inside-image {
-  height: 80% !important;
-  width: 40% !important;
+  height: 100% !important;
+  width: 100% !important;
   display: flex;
   flex-direction: column;
 }
@@ -121,7 +121,7 @@
 
 .modal-image {
   height: 200px;
-  width: 30%;
+  width: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -160,9 +160,10 @@
 }
 
 .instruction-modalls .ant-modal-close {
-  top: 8%;
-  right: 2%;
+  top: -85%;
+  right: -7%;
 }
+
 @media screen and (min-width: 600px) {
   .button-container {
     width: 50% !important;
@@ -176,34 +177,54 @@
   .modal-video {
     width: 80% !important;
   }
-
-  .instruction-modalls .ant-modal-close {
-    top: 0;
-    right: 0;
-  }
 }
 
 @media only screen and (max-width: 500px) {
   .modal-video {
     width: 100% !important;
   }
+  .instruction-modalls .ant-modal-close {
+    top: -100%;
+    right: -3%;
+   }
 }
 
 @media only screen and (max-width: 900px) {
   .modal-image {
-    width: 90%;
+    width: 100%;
   }
 
   .instruction-modal-step-container {
-    width: 90%;
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .instruction-modal-step-container {
-    width: 95%;
+    width: 100%;
   }
   .instruction-modal-step {
     margin-left: 10px;
+  }
+}
+
+.ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-bottom > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before, .ant-tabs-bottom > div > .ant-tabs-nav::before {
+  position: none !important;
+  border-bottom:none !important;
+}
+
+.instruction-tab-names{
+  color: white;
+}
+
+.main-heading-text{
+  font-size: 26px;
+  color: white;
+  margin-top: 220px;
+}
+
+@media only screen and (max-width:768px){
+  .main-heading-text{
+    margin-top: 100px;
   }
 }

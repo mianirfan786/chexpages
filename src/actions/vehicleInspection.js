@@ -58,6 +58,13 @@ function setVehicleStatus(data) {
   };
 }
 
+function setInspectionByStatus(data) {
+  return {
+    type: types.SET_INSPECTION_BY_STATUS,
+    inspectionByStatus: data,
+  };
+}
+
 function setCertificateData(data) {
   return {
     type: types.SET_CERTIFICATE_DATA,
@@ -65,7 +72,35 @@ function setCertificateData(data) {
   };
 }
 
-export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue, imageUploadingProgress) {
+function setUberCertificate(data) {
+  return {
+    type: types.SET_UBER_CERTIFICATE_DATA,
+    uberVehicleCertificate: data,
+  };
+}
+
+function setLyftCertificate(data) {
+  return {
+    type: types.SET_LYFT_CERTIFICATE_DATA,
+    lyftVehicleCertificate: data,
+  };
+}
+
+function setVehicleDetails(data) {
+  return {
+    type: types.SET_VEHICLE_DETAILS,
+    vehicleDetails: data,
+  };
+}
+
+function setFileDetails(data) {
+  return {
+    type: types.SET_FILE_DETAILS,
+    fileDetails: data,
+  };
+}
+
+export function uploadFile(file, params, vehicle_id, category, groupType, setModalValue, imageUploadingProgress, dateImage) {
   return (dispatch) => {
     dispatch(setVehicleLoading(true));
     axios
@@ -74,7 +109,7 @@ export function uploadFile(file, params, vehicle_id, category, groupType, setMod
       })
       .then((resp) => {
         const { key, url } = resp.data;
-        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type, groupType, setModalValue, imageUploadingProgress));
+        dispatch(uploadToS3(file, key, url, vehicle_id, category, params.type, groupType, setModalValue, imageUploadingProgress, dateImage));
       })
       .catch((err) => {
         console.log(err);
@@ -82,7 +117,7 @@ export function uploadFile(file, params, vehicle_id, category, groupType, setMod
   };
 }
 
-export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, groupType, setModalValue, imageUploadingProgress) {
+export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, groupType, setModalValue, imageUploadingProgress, dateImage) {
   return (dispatch) => {
     const headers = {
       'Content-Type': 'img/png',
@@ -93,7 +128,9 @@ export function uploadToS3(file, key, uploadUrl, vehicle_id, category, ext, grou
         onUploadProgress: imageUploadingProgress,
       })
       .then((resp) => {
-        const params = { url: key, vehicle_id, category, ext: ext, group_type: groupType };
+        // const date = ;
+        const params = { url: key, vehicle_id, category, extension: ext, groupType: groupType, dateImage };
+        console.log('params:: ', params);
         dispatch(addFileInDB(params, setModalValue));
       })
       .catch((err) => {
@@ -126,13 +163,13 @@ export function getVehicleFile(vehicleId, setModalValue) {
       .then((resp) => {
         const { data } = resp;
         data.map((dat) => {
-          if (dat.group_type === 'carVerificiationItems') {
+          if (dat.groupType === 'carVerificiationItems') {
             carVerificationItems.push(dat);
-          } else if (dat.group_type === 'interiorItems') {
+          } else if (dat.groupType === 'interiorItems') {
             interiorItems.push(dat);
-          } else if (dat.group_type === 'exteriorItems') {
+          } else if (dat.groupType === 'exteriorItems') {
             exteriorItems.push(dat);
-          } else if (dat.group_type === 'tires') {
+          } else if (dat.groupType === 'tires') {
             tires.push(dat);
           }
           dispatch(setCarVerificationItems(carVerificationItems));
@@ -180,15 +217,15 @@ export function getSurveyStatus(id, setSurveyCheck) {
           setSurveyCheck(false);
         }
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }
 
-export function deleteVehicleFile(vehicleId, fileId, groupType, deleteVehicleFile, setDeleteModal) {
+export function deleteVehicleFile(fileId, groupType, deleteVehicleFile, setDeleteModal) {
   return (dispatch) => {
     deleteVehicleFile(true);
     axios
-      .delete(`${Api}/files/${vehicleId}/${fileId}`, { headers })
+      .delete(`${Api}/files/${fileId}`, { headers })
       .then((resp) => {
         dispatch(setDeleteLocalFile({ fileId, groupType }));
         setDeleteModal(false);
@@ -215,14 +252,20 @@ export function getVehiclesStatus(vehicleId, setLoading) {
   };
 }
 
-export function getVehicleCertificate(params, setLoading) {
+export function getVehicleCertificate(params, setLoading, template) {
   return (dispatch) => {
     setLoading(true);
     axios
-      .post(`${Api}/vehicle/${params.id}/files`, params, { headers })
+      .post(`${Api}/vehicle/${params?.id}/files`, { companyId: params?.companyId }, { headers })
       .then((resp) => {
         setLoading(false);
-        dispatch(setCertificateData(resp.data));
+        if (template == 'template2') {
+          dispatch(setCertificateData(resp.data));
+        } else if (template === 'uber') {
+          dispatch(setUberCertificate(resp.data));
+        } else if (template === 'template3') {
+          dispatch(setLyftCertificate(resp.data));
+        }
       })
       .catch((err) => {
         setLoading(false);
@@ -260,14 +303,14 @@ export function getReportData(vechileId, setLoading) {
   };
 }
 
-export function skipPaymentMethod(vehicleId, setLoading, history, paymentStatus) {
+export function skipPaymentMethod(id, vehicleId, setLoading, history, paymentStatus) {
   setLoading(true);
   return (dispatch) => {
     axios
-      .post(`${Api}/vehicles/payment/${vehicleId}`, {}, { headers })
+      .post(`${Api}/vehicles/payment/${id}`, {}, { headers })
       .then((resp) => {
         if (paymentStatus) {
-          history.push('/vehicleStatus');
+          history.push(`/VehicleAfterReviewing/${id}/${vehicleId}`);
         } else {
           history.push('/thankyouScreen');
         }
@@ -275,6 +318,93 @@ export function skipPaymentMethod(vehicleId, setLoading, history, paymentStatus)
       })
       .catch((err) => {
         setLoading(false);
+      });
+  };
+}
+
+export function getInspectionByStatus(params, setLoading) {
+  setLoading(true);
+  return (dispatch) => {
+    axios
+      .post(`${Api}/status/vehicle`, params, { headers })
+      .then((resp) => {
+        dispatch(setInspectionByStatus(resp.data));
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  };
+}
+
+export function createInspection(body, history, addToast, setLoadingSelect, setAlreadyExist) {
+  setLoadingSelect(true);
+  return (dispatch) => {
+    axios
+      .post(`${Api}/create/inspection`, body, { headers })
+      .then((resp) => {
+        setAlreadyExist(false);
+        console.log('resp inspection :: ', resp?.data, resp?.data?.vehicleId);
+        window.location.href = `/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}?lyftUser=${resp?.data?.lyftInspection}`;
+        setLoadingSelect(false);
+      })
+      .catch((err) => {
+        console.log('error : ', err?.message);
+        err?.message === 'Request failed with status code 409' ? setAlreadyExist(true) : null;
+        setLoadingSelect(false);
+      });
+  };
+}
+
+export function createReInspection(reInspectionId, body, history, setReInspectionModal, setLoadingSelect) {
+  setLoadingSelect(true);
+  console.log('reInspectionId : ', reInspectionId, body);
+  return (dispatch) => {
+    axios
+      .post(`${Api}/create/reinspection/${reInspectionId}`, body, { headers })
+      .then((resp) => {
+        console.log('resp re inspection :: ', resp);
+        window.location.href = `/vehicleinspection/${resp?.data?.id}/${resp?.data?.vehicleId}?lyftUser=${resp?.data?.lyftInspection}`;
+
+        setReInspectionModal(false);
+        setLoadingSelect(false);
+      })
+      .catch((err) => {
+        setLoadingSelect(false);
+        setReInspectionModal(false);
+      });
+  };
+}
+
+export function getVehicleDetails(inspectionId, setLoadingSelect) {
+  setLoadingSelect(true);
+  return (dispatch) => {
+    axios
+      .get(`${Api}/vehicle/detail/${inspectionId}`, { headers })
+      .then((resp) => {
+        console.log('vehicle detail :: ', resp);
+        dispatch(setVehicleDetails(resp.data));
+        setLoadingSelect(false);
+      })
+      .catch((err) => {
+        setLoadingSelect(false);
+      });
+  };
+}
+
+export function getFileDetails(inspectionId, setLoading) {
+  setLoading(true);
+  return (dispatch) => {
+    axios
+      .get(`${Api}/files/details/${inspectionId}`, { headers })
+      .then((resp) => {
+        console.log('vehicle files :: ', resp);
+        dispatch(setFileDetails(resp.data));
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log('vehicle files :: ', err);
       });
   };
 }

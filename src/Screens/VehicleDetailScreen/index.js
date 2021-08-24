@@ -5,7 +5,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import './style.css';
 import '../../App.css';
 
-const VehicleDetailScreen = ({ handleSubmit }) => {
+const VehicleDetailScreen = ({ handleSubmit, vehicleData }) => {
   return (
     <div className="transcation-main-container">
       <div className="transcation-container">
@@ -20,15 +20,15 @@ const VehicleDetailScreen = ({ handleSubmit }) => {
 
         <div className="transaction-form-container-veh">
           <div className="year-container">
-            <div className="year-text">Year</div>
+            <div className="year-text">{vehicleData?.year}</div>
             <div className="year-date"></div>
           </div>
           <div className="year-container">
-            <div className="year-text">Make</div>
+            <div className="year-text">{vehicleData?.make}</div>
             <div className="year-date"></div>
           </div>
           <div className="year-container">
-            <div className="year-text">Model</div>
+            <div className="year-text">{vehicleData?.model}</div>
             <div className="year-date"></div>
           </div>
           <div className="year-container">

@@ -1,0 +1,199 @@
+.inspection-modal-container .ant-modal-content {
+  width: 100% !important;
+  border-radius: 10px !important;
+  /* overflow-y: scroll; */
+  height: 100% !important;
+  padding: 10px !important;
+}
+
+.modal-content-scroll {
+  height: 400px;
+  overflow-y: scroll;
+  margin-top: 20px;
+}
+
+.inspection-modal-container .ant-modal-footer {
+  display: none !important;
+}
+.inspection-modal-container .ant-modal-header {
+  display: none !important;
+}
+.inspection-btn-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* @media only screen and (max-width:550px){
+  .inspection-btn-align {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    background-color: #e5e5e5;
+    height: 280px;
+  }
+} */
+
+.inspection-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin-top: 40px;
+  background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
+  border-radius: 100px;
+  width: 200px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 28px;
+}
+.inspections-btn-text {
+  color: white;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-left: 3px;
+}
+.inspection-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  padding: 10px;
+}
+.select-company-text {
+  color: black;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.additional-selection-container {
+  background-color: #ffc700;
+  width: 300px;
+  padding: 1px;
+}
+.additional-selection-text {
+  font-size: 9px;
+  /* font-style: italic; */
+  font-weight: 500;
+  line-height: 12px;
+  text-align: center;
+  color: black;
+}
+.inspection-modal-content_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  padding: 10px;
+  border-bottom: 0.5px solid rgba(85, 83, 83, 0.1);
+}
+
+.select-btn-container {
+  background: linear-gradient(90deg, #ff7a00 0%, #ff9900 94.74%);
+  border-radius: 100px;
+  padding: 7px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.select-text {
+  color: white;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.select-text:hover {
+  color: white;
+}
+.inspection-modal-content_text {
+  color: #1468ba;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  /* line-height: 14px; */
+  cursor: pointer;
+}
+
+.modal-input-field {
+  font-family: 'poppins' !important;
+  padding: 7px;
+  width:  309px;
+  color: black;
+  font-size: 13px;
+  font-weight: 400;
+  background-color: rgb(233, 233, 233);
+}
+
+@media only screen and (max-width: 399px) {
+  .inspection-modal-container .ant-modal-content {
+    width: 100% !important;
+  }
+  .modal-input-field {
+    width:  280px;
+  }
+}
+
+.tick-background-color {
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+.select-companies-text {
+  font-size: medium;
+  text-align: left;
+  margin-left: -1%;
+  margin-top: 12px;
+  color: black;
+  font-size: 15px;
+  margin-bottom: -20px;
+}
+
+.please-enter-text {
+  text-align: start !important;
+  color: black;
+  font-size: 13px;
+  margin-left: 5px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+.License-plate-text {
+  text-align: start;
+  color: black;
+  font-size: 13px;
+  margin-left: -151px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+@media only screen and (min-width: 400px) {
+  .please-enter-text {
+    margin-left: 5px;
+  }
+  .select-companies-text {
+    margin-left: -1%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .inspection-btn-container {
+    bottom: 28px;
+  }
+}
