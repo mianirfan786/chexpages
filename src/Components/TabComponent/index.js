@@ -39,7 +39,7 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'IN_PROGRESS'
                   ? vehiclesByStatus?.map((item) => {
-                    return <TabContentComponent title={item?.inspectionCode} draft={true} item={item} />;
+                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
                   })
                   : null}
               </>
@@ -59,7 +59,7 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'READY_FOR_REVIEW'
                   ? vehiclesByStatus?.map((item) => {
-                    return <TabContentComponent title={item?.inspectionCode} inReview={true} />;
+                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />;
                   })
                   : null}
               </>
@@ -82,7 +82,7 @@ const TabComponent = ({
                   ? vehiclesByStatus?.map((item) => {
                     return (
                       <TabContentComponent
-                        title={item?.inspectionCode}
+                        title={item?.Vehicle?.licensePlateNumber}
                         reviewed={true}
                         item={item}
                         setLoading={setLoading}
@@ -113,7 +113,7 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'IN_REVIEW'
                   ? vehiclesByStatus?.map((item) => {
-                    return <TabContentComponent title={item?.inspectionCode} inReview={true} />
+                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} inReview={true} />
                   })
                   : null}
               </>
@@ -130,7 +130,7 @@ const TabComponent = ({
               <>
                 {vehiclesByStatus?.[0]?.status === 'IN_PROGRESS'
                   ? vehiclesByStatus?.map((item) => {
-                    return <TabContentComponent title={item?.inspectionCode} draft={true} item={item} />;
+                    return <TabContentComponent title={item?.Vehicle?.licensePlateNumber} draft={true} item={item} />;
                   })
                   : null}
               </>
