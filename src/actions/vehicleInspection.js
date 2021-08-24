@@ -217,7 +217,7 @@ export function getSurveyStatus(id, setSurveyCheck) {
           setSurveyCheck(false);
         }
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 }
 
@@ -307,7 +307,7 @@ export function skipPaymentMethod(id, vehicleId, setLoading, history, paymentSta
   setLoading(true);
   return (dispatch) => {
     axios
-      .post(`${Api}/vehicles/payment/${vehicleId}`, {}, { headers })
+      .post(`${Api}/vehicles/payment/${id}`, {}, { headers })
       .then((resp) => {
         if (paymentStatus) {
           history.push(`/VehicleAfterReviewing/${id}/${vehicleId}`);

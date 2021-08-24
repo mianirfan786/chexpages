@@ -48,8 +48,8 @@ const InspectionButtonModalComponent = ({
               <span style={{ fontWeight: 'bold' }}>$24.99</span> for first inspection and <span style={{ fontWeight: 'bold' }}>$14.99</span> for each additional selection
             </div>
           </div>
-          <div className="License-plate-text">License number plate.</div>
-          <input disabled={true} placeholder={reInspectionLisencePlateNumber} className="modal-input-field" defaultValue={reInspectionLisencePlateNumber} />
+          {/* <div className="License-plate-text">License number plate.</div> */}
+          {/* <input disabled={true} placeholder={reInspectionLisencePlateNumber} className="modal-input-field" defaultValue={reInspectionLisencePlateNumber} /> */}
           {checkUnselect === true ? <div style={{ color: 'red' }} className="select-companies-text">Select Company (s)</div>
             :
             <div className="select-companies-text">Select Company (s)</div>}
