@@ -36,11 +36,11 @@ const InspectionButtonModalComponent = ({
   return (
     <>
       {reInspectionModal === true ? (
-        <Modal className="inspection-modal-container" title="Basic Modal" visible={reInspectionModal} onCancel={() => { handleOk() }}>
+        <Modal className="inspection-modal-container" title="Basic Modal" visible={reInspectionModal} onCancel={() => { cancleReInspection() }}>
           <div className="inspection-modal-header">
             <div></div>
             <div className="select-company-text">Re-inspect Car</div>
-            <GrFormClose style={{ cursor: 'pointer' }} color="black" size={30} onClick={() => { setReInspectionModal(false); setCheckUnselect(false) }} />
+            <GrFormClose style={{ cursor: 'pointer' }} color="black" size={30} onClick={() => { cancleReInspection(); setCheckUnselect(false) }} />
           </div>
 
           <div className="additional-selection-container">

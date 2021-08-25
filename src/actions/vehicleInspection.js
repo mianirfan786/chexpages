@@ -258,7 +258,7 @@ export function getVehicleCertificate(params, setLoading, template) {
     axios
       .post(`${Api}/vehicle/${params?.id}/files`, { companyId: params?.companyId }, { headers })
       .then((resp) => {
-        setLoading(false);
+        setTimeout(function () { setLoading(false) }, 2000);
         if (template == 'template2') {
           dispatch(setCertificateData(resp.data));
         } else if (template === 'uber') {

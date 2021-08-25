@@ -335,7 +335,6 @@ const styles = StyleSheet.create({
 
 const DownloadCertifcate = (props) => {
   const { checksData, isLoading, handleModal, SetModal } = props;
-
   const history = useHistory();
 
   useEffect(() => {
@@ -366,15 +365,15 @@ const DownloadCertifcate = (props) => {
         document={
           <Document>
             <Page size="A3" style={styles.body}>
-              {/* <View style={styles.headerContainer}>
+              <View style={styles.headerContainer}>
                 <View></View>
                 <Text style={styles.vehicleinspectiontopText}>Vehicle Inspection</Text>
-                {props.reportData && props.reportData[0]?.url ? (
-                  <Image style={{ width: '80px' }} source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData[0]?.url}?x-request=xhr`} />
+                {props.reportData && props.reportData?.CompanyData?.url ? (
+                  <Image style={{ width: '80px' }} source={`${process.env.REACT_APP_AWS_S3_LINK}/${props.reportData && props.reportData?.CompanyData?.url}?x-request=xhr`} />
                 ) : (
                   <Text style={{ color: 'white', fontSize: '100px' }}>Test</Text>
                 )}
-              </View> */}
+              </View>
               <View style={styles.tobecompletedContainer}>
                 <Text style={styles.tobecompletedText}>TO BE COMPLETED BY VEHICLE OPERATOR</Text>
               </View>
@@ -547,9 +546,8 @@ const DownloadCertifcate = (props) => {
 
                 <View style={styles.firstfourfieldsContainer}>
                   <View style={{ width: '42%', marginRight: '15px' }}>
-                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${
-                      props.reportData && props.reportData?.InspectorlastName
-                    }`}</Text>
+                    <Text style={styles.bottomboxtoptext}>{`${props.reportData && props.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
+                      }`}</Text>
                     <View style={styles.bottomboxBorder} />
                     <Text style={styles.bottomboxbootomText}>inspector name </Text>
                   </View>
@@ -564,9 +562,8 @@ const DownloadCertifcate = (props) => {
                     </View>
                   ) : (
                     <View style={{ width: '30%', marginRight: '15px' }}>
-                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData?.Inspectorname} ${
-                        props.reportData && props.reportData?.InspectorlastName
-                      }`}</Text>
+                      <Text style={styles.bottomboxtoptext}>{`${props?.reportData && props?.reportData?.Inspectorname} ${props.reportData && props.reportData?.InspectorlastName
+                        }`}</Text>
                       <View style={styles.bottomboxBorder} />
                       <Text style={styles.bottomboxbootomText}>inspector signature</Text>
                     </View>
