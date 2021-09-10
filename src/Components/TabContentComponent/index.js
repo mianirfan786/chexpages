@@ -11,6 +11,8 @@ import './style.css';
 import DownloadCertifcate from '../../Screens/Certificates/DownLoadCertificate';
 import Lyftcertificate from '../../Screens/Certificates/Lyftcertificate';
 import UberCertificate from '../../Screens/Certificates/UberCertificate';
+import LyftCertificateArizona from '../../Screens/Certificates/LyftCertificateArizona';
+
 
 const TabContentComponent = ({
   title,
@@ -216,9 +218,9 @@ const TabContentComponent = ({
                           id={certificateData?.id}
                         />
                       </>
-                    ) : (
+                    ) : item?.Vehicle?.registrationState?.toLowerCase() === 'arizona' && certificateData?.companyName?.toLowerCase() === 'lyft' ? (
                       <>
-                        <Lyftcertificate
+                        <LyftCertificateArizona
                           SetModal={setCompanyModalVisible}
                           handleModal={handleCancelCompany}
                           setLoading={setCertificateLoading}
@@ -227,7 +229,14 @@ const TabContentComponent = ({
                           id={certificateData?.id}
                         />
                       </>
-                    )}
+                    ) : <Lyftcertificate
+                      SetModal={setCompanyModalVisible}
+                      handleModal={handleCancelCompany}
+                      setLoading={setCertificateLoading}
+                      isLoading={certificateLoading}
+                      companyId={certificateData?.companyId}
+                      id={certificateData?.id}
+                    />}
                   </>
                 ) : certificateData?.templateId === 2 ? (
                   <>

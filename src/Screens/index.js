@@ -17,7 +17,8 @@ import ContactUsScreen from './ContactUsScreen';
 import LyftCertificate from './Certificates/Lyftcertificate';
 import MaintancePage from './MaintanceScreen/index';
 import VehicleCombineStatusScreen from './VehicleCombinedStatusScreen';
-import VehicleAfterReviewingScreen from './VehicleAfterReviewingScreen'
+import VehicleAfterReviewingScreen from './VehicleAfterReviewingScreen';
+import LyftCertificateArizona from './Certificates/LyftCertificateArizona';
 export {
   IntroScreen,
   LoginScreen,
@@ -37,6 +38,7 @@ export {
   ContactUsScreen,
   LyftCertificate,
   MaintancePage,
+  LyftCertificateArizona,
   VehicleCombineStatusScreen,
   VehicleAfterReviewingScreen,
 };
