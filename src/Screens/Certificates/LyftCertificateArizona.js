@@ -99,6 +99,16 @@ const styles = StyleSheet.create({
     // width:"100px",
     marginTop: "3@s",
   },
+  lyftInspectionDate: {
+    fontSize: "12px",
+    fontStyle: "normal",
+    fontWeight: "400",
+    lineHeight: "23@s",
+    color: "#47484F",
+    marginBottom: 0,
+    // width:"100px",
+    marginTop: "3@s",
+  },
   lyftdriver: {
     fontSize: "13px",
     fontStyle: "normal",
@@ -476,9 +486,9 @@ function LyftCertificateArizona(props) {
                 <View style={styles.boxContainer}>
                   <View style={styles.lyftdrivertextContainer}>
                     <Text style={styles.lyftdriverText}>LYFT DRIVER INFO</Text>
-                    {/* <Text style={styles.allfieldsText}>
+                    <Text style={styles.allfieldsText}>
                       ALL FIELDS ARE MANDATORY
-                    </Text> */}
+                    </Text>
                   </View>
 
                   <View style={styles.nameinputContainer}>
@@ -500,7 +510,7 @@ function LyftCertificateArizona(props) {
                       <Text style={styles.threeinputFields}>
                         {reportData && reportData.licensePlateNumber}
                       </Text>
-                      <Text style={styles.lyftdriverName}>LICENSE PLATE#</Text>
+                      <Text style={styles.lyftdriverName}>LICENSE PLATE #</Text>
                     </View>
                     <View style={styles.nameinputContainerTwo} style={{ width: "55%", marginLeft: "10px" }}>
                       <Text style={styles.threeinputFields}>
@@ -549,7 +559,7 @@ function LyftCertificateArizona(props) {
                       <Text style={styles.nameText}>
                         {reportData && reportData?.Userphone}
                       </Text>
-                      <Text style={styles.lyftdriverName}>PHONE NUMBER</Text>
+                      <Text style={styles.lyftdriverName}>LYFT DRIVER PHONE NUMBER</Text>
                     </View>
                   </View>
                 </View>
@@ -756,7 +766,7 @@ function LyftCertificateArizona(props) {
                         )
                       ).format("MM/ DD /YYYY")}
                     </Text>
-                    <Text style={styles.lyftdriverName}>INSPECTION DATE(expires one year from this date)</Text>
+                    <Text style={styles.lyftInspectionDate}>INSPECTION DATE(document expires one year from this date)</Text>
                   </View>
                 </View>
               </View>
@@ -831,7 +841,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LyftCertificateArizona);
-
-
-
-
