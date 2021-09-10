@@ -806,7 +806,7 @@ function LyftCertificateArizona(props) {
                     borderRadius: '50px',
                   }}
                 >
-                  Download vehicle Arizona
+                  Download vehicle report
                 </div>
                 <i className="fa fa-download" />
               </div>
