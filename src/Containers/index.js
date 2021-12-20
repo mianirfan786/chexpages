@@ -16,6 +16,7 @@ import ContactUsContainer from './ContactUsContainer';
 import LyftCertificateContainer from './LyftCertificateContainer';
 import VehicleCombinedStatusContainer from './VehicleCombinedStatusContainer';
 import VehicleAfterReviewingContainer from './VehicleAfterReviewingContainer';
+import HomeLandingContainer from './HomeLandingContainer'
 export {
   IntroContainer,
   LoginContainer,

@@ -24,7 +24,7 @@ import {
   VehicleDetailContainer,
   DoAndDoesContainer,
   TermsAndPolicyContainer,
-  ContactUsContainer,
+    ContactUsContainer,
   LyftCertificateContainer,
   VehicleCombinedStatusContainer,
   VehicleAfterReviewingContainer,
@@ -32,6 +32,9 @@ import {
 import { LogoutForChanges } from '../src/Screens';
 
 import './App.css';
+import UberInspectionContainer from "./Containers/UberInspectionContainer";
+import LyftInspectionContainer from "./Containers/LyftInspectionContainer";
+import HomeLandingContainer from './Containers/HomeLandingContainer'
 
 function App(props) {
   const doAndDont = localStorage.getItem('doAndDont');
@@ -52,6 +55,10 @@ function App(props) {
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/doAndDoesScreen" component={DoAndDoesContainer} />
       <RestrictedRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/vehicleDetail" component={VehicleDetailContainer} />
       <Route path="/termsAndPolicy" component={TermsAndPolicyContainer} />
+        <Route path='/homelanding' component={HomeLandingContainer}/>
+        <Route path="/uber-inspection" component={UberInspectionContainer} />
+
+        <Route path="/lyft-inspection" component={LyftInspectionContainer} />
       <Route path="/thankyouScreen" component={ThankyouContainer} />
       {/* <Route path="/transcationScreen" component={TranscationContainer} /> */}
       <PublicRoute storeAuthenticate={isAuthenticated} allowed={isAuthenticated} path="/register" component={SignUpContainer} />

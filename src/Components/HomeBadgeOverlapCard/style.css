@@ -1,0 +1,48 @@
+.cardContainer{
+    background-color: red;
+    max-width: 350px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-right: 10px;
+    height: 200px;
+}
+.iconStyle{
+    float: left;
+    margin-bottom: 10px;
+}
+.cardHeading{
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    text-align: left;
+    margin: 0;
+    color: #FFFFFF;
+}
+.description{
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+}
+@media only screen and (max-width: 1024px) {
+    .cardContainer{
+        background-color: red;
+        max-width: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        margin-right: 10px;
+    }
+    .iconStyle{
+        float: left;
+        margin-bottom: 10px;
+    }
+}
+

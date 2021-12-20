@@ -13,6 +13,10 @@ import TabComponent from './TabComponent/index';
 import InspectionButtonModalComponent from './InspectionButtonModalComponent/index';
 import AfterReviewingHeaderComponent from './AfterReviewingHeaderComponent';
 import AfterReviewingScreenProductCardComponent from './AfterReviewingScreenProductCardComponent';
+import ReviewCard from "./ReviewCard";
+import HomeBadgeOverlapCard from "./HomeBadgeOverlapCard";
+import CustomNavbar from "./Navbar";
+import CustomFooter from './Footer';
 
 export {
   Button,
@@ -30,4 +34,10 @@ export {
   InspectionButtonModalComponent,
   AfterReviewingHeaderComponent,
   AfterReviewingScreenProductCardComponent,
+  ReviewCard,
+  CustomNavbar,
+  HomeBadgeOverlapCard,
+  CustomFooter
+
+
 };

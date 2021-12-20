@@ -1,0 +1,604 @@
+
+
+
+/*Vehicle Inspection Section*/
+
+.vehicleIncpectionContainer{
+    padding:10px;
+    padding-left: 100px;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: flex-end;*/
+}
+.vehicleIncpectionContainer h3{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+
+}
+.vehicleIncpectionContainer p{
+    color:rgba(21, 25, 34, 1);
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+}
+.vehicleListContainer li{
+    /*color:red;*/
+    list-style: none;
+    color:rgba(107, 113, 123, 1);
+    font-size: 16px;
+    /*float: left;*/
+    margin:0px;
+    padding:0px;
+
+}
+.vehicleListContainer li::before {
+    content: "\2022";
+    color: #2584E0;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    font-size: 1.1rem;
+}
+
+.vehicleIncpectionContainerImg {
+    display: flex;
+
+}
+.vehicleIncpectionContainerImg img{
+    width: 100%;
+    margin-top: -60px;
+
+}
+@media screen and (max-width: 900px) {
+    .vehicleIncpectionContainer{
+        padding:10px;
+        padding-left: 50px;
+        padding-right: 50px;
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*align-items: flex-end;*/
+    }
+    .vehicleIncpectionContainer p{
+        color:rgba(21, 25, 34, 1);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    .vehicleIncpectionContainerImg {
+        display: none;
+
+    }
+
+    .vehicleIncpectionContainer{
+        padding:10px;
+        padding-left: 100px;
+        padding-right: 100px;
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*align-items: flex-end;*/
+    }
+    .vehicleIncpectionContainer h3{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 34px;
+
+    }
+    .vehicleIncpectionContainer p{
+        color:rgba(21, 25, 34, 1);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 684px) {
+    .vehicleIncpectionContainer h3{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+
+    }
+    .vehicleIncpectionContainer p{
+        color:rgba(21, 25, 34, 1);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .vehicleIncpectionContainer{
+        padding:10px;
+        padding-left: 60px;
+        padding-right: 60px;
+
+    }
+    .vehicleIncpectionContainer h3{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+
+    }
+    .vehicleIncpectionContainer p{
+        color:rgba(21, 25, 34, 1);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .vehicleIncpectionContainer{
+        padding:10px;
+        padding-left: 40px;
+        padding-right: 40px;
+
+    }
+    .vehicleIncpectionContainer h3{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+
+    }
+    .vehicleIncpectionContainer p{
+        color:rgba(21, 25, 34, 1);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+    }
+    .vehicleListContainer li{
+        /*color:red;*/
+        list-style: none;
+        color:rgba(107, 113, 123, 1);
+        font-size: 14px;
+        /*float: left;*/
+        margin:0px;
+        padding:0px;
+
+    }
+}
+
+
+@media screen and (max-width: 360px) {
+    .vehicleIncpectionContainer{
+        padding:20px;
+
+
+    }
+    .vehicleIncpectionContainer h3{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+
+    }
+    .vehicleIncpectionContainer p{
+        color:rgba(21, 25, 34, 1);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+    }
+    .vehicleListContainer li{
+        /*color:red;*/
+        list-style: none;
+        color:rgba(107, 113, 123, 1);
+        font-size: 13px;
+        /*float: left;*/
+        margin:0px;
+        padding:0px;
+
+    }
+}
+
+
+/*Pricing Section Styling*/
+
+.pricingSections{
+    background: rgba(244, 249, 253, 1);
+    padding:28px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.headingPrcing{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+
+    color: black;
+}
+
+.paragraphPricing{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 160%;
+
+
+    color: #414B55;
+
+}
+.pricingPoints{
+    display: flex;
+
+    flex-direction: row;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+.pricingPointsText{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    /*line-height: 0px;*/
+    color: #5D6F84;
+}
+
+@media screen and (max-width: 768px) {
+    .pricingPoints{
+        display: flex;
+
+        flex-direction: row;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+    }
+
+}
+
+
+.pricingCardRow{
+    padding-top:30px;
+    padding-bottom: 30px;
+}
+
+.pricingColumn{
+    width: 100%;
+
+}
+.priceCardCompo{
+    margin-right: 20px;
+}
+
+@media  screen and (max-width: 1200px) {
+    .pricingColumn{
+        margin-top: 50px;
+    }
+}
+
+
+@media  screen and (max-width: 768px) {
+    .pricingSections{
+        background: #FFF8F1;
+        padding:28px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+@media  screen and (max-width: 590px) {
+    .pricingSections{
+        background: #FFF8F1;
+        padding:28px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+}
+
+.btn_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_styling{
+
+    background-color:#0d92d7 ;
+    padding:10px;
+
+    border:1px solid #0d92d7;
+    border-radius: 50px;
+    padding-right: 40px;
+    padding-left: 40px;
+    color:white;
+    margin-bottom: 10px;
+
+}
+
+.btn_styling:hover{
+
+    background-color:#FFFFFF ;
+
+
+    border:1px solid #0d92d7;
+
+    color:#0d92d7;
+    transition: 0.5s;
+
+}
+
+@media screen and (max-width: 768px){
+    .btn_div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn_styling{
+        text-align: center;
+    }
+}
+
+
+
+/*How Chex Works*/
+.chexWorks-main-container{
+    width: 100%;
+    /*background-color: #F4F9FD;*/
+    /*padding-top: 20px ;*/
+    padding-bottom: 80px;
+}
+.chexwork-inner-container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.chaxwork-heading{
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 81px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.chaxwork-heading-span{
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 81px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #FF7A00;
+}
+.chexworks-column{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+.chexwork-img{
+    height: 250px;
+    width: 250px;
+}
+.chexwork-image-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    line-height: 115.5%;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 250px;
+}
+.chexwork-image-desc{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    margin-top: 10px;
+    color: #6B717B;
+    text-align: center;
+    max-width: 250px;
+}
+.chexwork-image-getStarted-span{
+    color: #0d92d7;
+    font-weight: bolder;
+    font-size: 15px;
+    font-style: normal;
+}
+.chexwork-image-payment-span{
+    color: #6B717B;
+    font-weight: bolder;
+    font-size: 15px;
+    font-style: normal;
+}
+
+/*Badge Banner*/
+
+.btn_div_banner{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.btn_styling_banner{
+    background-color:#2584E0 ;
+    padding:10px;
+
+    border:1px solid #2584E0;
+    border-radius: 50px;
+    padding-right: 50px;
+    padding-left: 50px;
+    color:white;
+    margin-bottom: 10px;
+
+}
+.btn_styling_banner:hover{
+    background-color:#FFFFFF ;
+
+
+    border:1px solid #2584E0;
+
+    color:#2584E0;
+    transition: 0.5s;
+}
+
+.badge-container{
+    width: 100%;
+    height: 650px;
+    background-color: #2a2a2a;
+    background-image: url("../../Assets/lyftBanner.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom:80px;
+    background-color: black;
+    opacity: 99%;
+}
+.badge-image-inner-container{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    /*background-color: #8c9dae;*/
+}
+.badge-inner-left{
+    width: 50%;
+
+    /*height: 50%;*/
+}
+
+@media screen and (max-width: 890px){
+    .badge-inner-left{
+        width: 100%;
+        /*height: 50%;*/
+    }
+}
+
+@media screen and (max-width: 768px){
+    .badge-container{
+        width: 100%;
+        height: 400px;
+        background-color: #2a2a2a;
+        background-image: url("../../Assets/uberBanner.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom:40px;
+        background-color: black;
+        opacity: 99%;
+    }
+    .badge-inner-left{
+        width: 100%;
+        /*height: 50%;*/
+    }
+}
+
+.badge-main-heading{
+    font-family: Poppins;
+    font-size: 34px;
+    line-height: 53px;
+    text-align: left;
+    font-weight: bolder;
+    color: #FFFFFF;
+}
+.badge-main-para{
+    font-family: Poppins;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: left;
+    margin-bottom: 30px;
+
+    color: #FFFFFF;
+}
+
+
+@media screen and (max-width: 575px){
+    .badge-container{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .badge-main-heading{
+        text-align: center;
+        font-size: 25px;
+    }
+    .badge-inner-left{
+        display: flex;
+        justify-content: center;
+
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        /*height: 50%;*/
+    }
+    .badge-main-para{
+        text-align: center;
+    }
+
+
+}
+
+@media screen and (max-width:500px ) {
+    .badge-image-inner-container{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        /*background-color: #8c9dae;*/
+    }
+    .badge-main-heading{
+        font-family: Poppins;
+        font-size: 24px;
+        line-height: 20px;
+        text-align: center;
+        font-weight: bolder;
+        color: #FFFFFF;
+    }
+    .badge-main-para{
+        font-family: Poppins;
+        font-size: 16px;
+        line-height: 23px;
+        text-align: center;
+        margin-bottom: 30px;
+
+        color: #FFFFFF;
+    }
+
+}
+
+@media screen and (max-width: 360px){
+
+    .badge-main-heading{
+        font-family: Poppins;
+        font-size: 20px;
+        line-height: 20px;
+        text-align: center;
+        font-weight: bolder;
+        color: #FFFFFF;
+    }
+    .badge-main-para{
+        font-family: Poppins;
+        font-size: 14px;
+        line-height: 23px;
+        text-align: center;
+        margin-bottom: 30px;
+
+        color: #FFFFFF;
+    }
+
+}

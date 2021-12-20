@@ -1,0 +1,1512 @@
+.home-main-Container{
+    width: 100%;
+    /*background-color:  #F4F9FD;*/
+    background-color: #FFFFFF;
+}
+.badge-container_home{
+    width: 100%;
+    height: 650px;
+    background-color: #2a2a2a;
+    background-image: url("../../Assets/homeScreen.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 99%;
+}
+.badge-image-inner-container{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    /*background-color: #8c9dae;*/
+}
+.badge-inner-left-home{
+    width: 45%;
+    height: 50%;
+}
+.badge-main-heading{
+    font-family: Poppins;
+    font-size: 44px;
+    line-height: 53px;
+    text-align: left;
+    font-weight: bolder;
+    color: #FFFFFF;
+}
+.contact-submit-btn{
+    background: #2584e0 !important;
+    border: none !important;
+    outline: none !important;
+    width: 30% !important;
+    font-style: normal;
+    font-size: 16px;
+    float: left;
+}
+.badge-inner-right{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    justify-content: flex-end;
+}
+.badge-inner-right > img{
+    height: 400px;
+    width: 500px;
+}
+.overlay-card-container{
+    width: 100%;
+    margin-top: -80px;
+}
+.overlay-card-inner-container{
+    width: 80%;
+    margin: 0 auto;
+    /*background-color: #F4F9FD;*/
+}
+@media screen and (max-width: 768px){
+    .badge-inner-left-home{
+        width: 10%;
+        /*height: 50%;*/
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    .badge-container_home{
+        width: 100%;
+        height: 400px;
+        background-color: #2a2a2a;
+        background-image: url("../../Assets/homeScreen.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom:40px;
+        background-color: black;
+        opacity: 99%;
+    }
+    /*.badge-inner-left{*/
+    /*    width: 100%;*/
+    /*    !*height: 50%;*!*/
+    /*}*/
+}
+
+@media screen and (max-width: 575px) {
+    .badge-container_home {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+}
+.chexWorks-main-container{
+    width: 100%;
+    background-color: #F4F9FD;
+    padding-bottom: 80px;
+}
+.chexwork-inner-container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.chaxwork-heading{
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 81px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.chaxwork-heading-span{
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 81px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #FF7A00;
+}
+.chexworks-column{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+.chexwork-img{
+    height: 250px;
+    width: 250px;
+}
+.chexwork-image-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    line-height: 115.5%;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 250px;
+}
+.chexwork-image-desc{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    margin-top: 10px;
+    color: #6B717B;
+    text-align: center;
+    max-width: 250px;
+}
+.chexwork-image-getStarted-span{
+    color: #0d92d7;
+    font-weight: bolder;
+    font-size: 15px;
+    font-style: normal;
+}
+.chexwork-image-payment-span{
+    color: #6B717B;
+    font-weight: bolder;
+    font-size: 15px;
+    font-style: normal;
+}
+.chex-demo-video-main-contaier{
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.chex-demo-video-container{
+    width: 80%;
+    height: 530px;
+    background: url("../../Assets/videoBg.png");
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.chex-demo-video{
+    border-radius: 3% ;
+    height: 380px;
+    width: 674px;
+    border: none;
+    z-index: 1;
+}
+.about-chex-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFFFF;
+}
+.about-chex-left{
+    width: 50%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.chex-about-left-inner{
+    width: 85%;
+    float: right;
+}
+.about-chex-left-title{
+    font-family: Poppins, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: 44px;
+    letter-spacing: 1px;
+}
+.about-chex-left-title-span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: left;
+    color: #FF7A00;
+}
+.about-chex-container .about-chex-left .chex-about-left-inner > p{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 160%;
+    color: #6B717B;
+    letter-spacing: 1px;
+    margin-bottom: 5%;
+}
+.about-chex-inner-left-desc-span{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 160%;
+    color: #FF7A00;
+}
+.about-chex-right{
+    width: 50%;
+    background-color: #FFF8F1;
+    height: 400px;
+    margin-top: -200px;
+    padding-top: 13%;
+}
+.about-chex-right-inner{
+    width: 80%;
+    background-color: aqua;
+    height: 300px;
+    margin: 0 auto;
+}
+.about-chex-right > h1{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    color: #151922;
+    margin-left: 20px;
+}
+.about-pricing-card-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.arrow-container{
+    background-color: aqua;
+    margin-top: -5%;
+}
+.review_container_main{
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.main_section_review{
+   background-color: #FFFFFF;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+}
+.review_container_main{
+    width: 100%;
+    background-color: #FFFFFF;
+    padding-top: 0px;
+    margin-bottom: 30px;
+}
+.forward-arrow{
+    margin-top: -100px;
+    background-color: #F4F9FF;
+    border-radius: 30px;
+    margin-right: 30px;
+
+
+}
+.back-arrow{
+    margin-top: -55px;
+    background-color:#F4F9FF;
+    border-radius: 30px;
+    position: absolute;
+    left: 93.5%
+}
+
+@media only screen and (max-width: 1400px) {
+    .badge-inner-left-home{
+        width: 40%;
+        height: 50%;
+    }
+    .badge-image-inner-container{
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        /*background-color:green;*/
+    }
+    .badge-main-heading{
+        font-family: Poppins;
+        font-size: 40px;
+        line-height: 53px;
+        text-align: left;
+        font-weight: bolder;
+        color: #FFFFFF;
+    }
+    .contact-submit-btn {
+        background: #2584e0 !important;
+        border: none !important;
+        outline: none !important;
+        width: 35% !important;
+        font-style: normal;
+        font-size: 16px;
+        float: left;
+    }
+    .badge-inner-right{
+        max-width: 50%;
+        height: 80%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .badge-inner-right > img{
+        height: 350px;
+        width: 450px;
+    }
+    .forward-arrow{
+        margin-top: -100px;
+        background-color: #F4F9FF;
+        border-radius: 30px;
+        margin-right: 30px
+    }
+    .back-arrow{
+        margin-top: -52px;
+        background-color:#F4F9FF;
+        border-radius: 30px;
+        position: absolute;
+        left: 92.5%
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .badge-inner-left-home{
+        width: 40%;
+        height: 50%;
+    }
+    .badge-image-inner-container{
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        /*background-color:red;*/
+    }
+    .badge-inner-left-home{
+        width: 45%;
+        height: 50%;
+    }
+    .badge-main-heading{
+        font-family: Poppins;
+        font-size: 36px;
+        line-height: 53px;
+        text-align: left;
+        font-weight: bolder;
+        color: #FFFFFF;
+    }
+    .contact-submit-btn {
+        background: #2584e0 !important;
+        border: none !important;
+        outline: none !important;
+        width: 40% !important;
+        font-style: normal;
+        font-size: 16px;
+        float: left;
+    }
+    .badge-inner-right{
+        max-width: 50%;
+        height: 70%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .badge-inner-right > img{
+        height: 300px;
+        width: 350px;
+    }
+    .chexWorks-main-container{
+        width: 100%;
+        background-color: #F4F9FD;
+        padding-bottom: 80px;
+    }
+    .chexwork-img{
+        height: 200px;
+        width: 200px;
+    }
+    .chexwork-image-title{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        line-height: 115.5%;
+        text-align: center;
+        margin-top: 10px;
+        max-width: 200px;
+    }
+    .chexwork-image-desc{
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        margin-top: 10px;
+        color: #6B717B;
+        text-align: center;
+        max-width: 200px;
+    }
+    .forward-arrow{
+        margin-top: -100px;
+        background-color: #F4F9FF;
+        border-radius: 30px;
+        margin-right: 30px
+    }
+    .back-arrow{
+        margin-top: -54px;
+        background-color:#F4F9FF;
+        border-radius: 30px;
+        position: absolute;
+        left: 91%
+    }
+}
+@media screen and (max-width: 1024px) {
+    .badge-inner-left-home{
+        width: 40%;
+        height: 50%;
+    }
+    .badge-image-inner-container{
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        /*background-color:blue;*/
+    }
+    .badge-inner-left-home{
+        width: 50%;
+        height: 50%;
+    }
+    .badge-main-heading{
+        font-family: Poppins;
+        font-size: 27px;
+        line-height: 53px;
+        text-align: left;
+        font-weight: bolder;
+        color: #FFFFFF;
+    }
+    /*.contact-submit-btn {*/
+    /*    background: #2584e0 !important;*/
+    /*    border: none !important;*/
+    /*    outline: none !important;*/
+    /*    width: 40% !important;*/
+    /*    font-style: normal;*/
+    /*    font-size: 16px;*/
+    /*    float: left;*/
+    /*}*/
+    .badge-inner-right{
+        max-width: 50%;
+        height: 70%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .badge-inner-right > img{
+        height: 400px;
+        width: 450px;
+    }
+    .chexWorks-main-container{
+        width: 100%;
+        background-color: #F4F9FD;
+        padding-bottom: 50px;
+    }
+    .chexwork-img{
+        height: 350px;
+        width: 320px;
+    }
+    .chexwork-image-title{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        line-height: 115.5%;
+        margin-top: 10px;
+        max-width: 320px;
+        margin-left: 10px;
+    }
+    .chexwork-image-desc{
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        margin-top: 10px;
+        color: #6B717B;
+        width: 100%;
+        max-width: 320px;
+    }
+    .chex-demo-video{
+        border-radius: 3% ;
+        height: 380px;
+        width: 674px;
+        /*border: 1px solid red;*/
+    }
+    .forward-arrow{
+        margin-top: -100px;
+        background-color: #F4F9FF;
+        border-radius: 30px;
+        margin-right: 30px;
+
+    }
+    .back-arrow{
+        margin-top: -54px;
+        background-color:#F4F9FF;
+        border-radius: 30px;
+        position: absolute;
+        left: 89%
+    }
+}
+@media only screen and (max-width: 900px) {
+    .badge-inner-left-home{
+        width: 40%;
+        height: 50%;
+    }
+    .badge-image-inner-container{
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        /*background-color:palevioletred;*/
+    }
+    .badge-inner-left-home{
+        width: 40%;
+        height: 50%;
+    }
+    .badge-main-heading{
+        font-family: Poppins;
+        font-size: 24px;
+        line-height: 53px;
+        text-align: left;
+        font-weight: bolder;
+        color: #FFFFFF;
+    }
+
+    .badge-inner-right{
+        max-width: 50%;
+        height: 70%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .badge-inner-right > img{
+        height: 300px;
+        width: 350px;
+    }
+    .chexWorks-main-container{
+        width: 100%;
+        background-color: #F4F9FD;
+        padding-bottom: 60px;
+    }
+    .forward-arrow{
+        margin-top: -100px;
+        background-color: #F4F9FF;
+        border-radius: 30px;
+        margin-right: 30px
+    }
+    .back-arrow{
+        margin-top: -54px;
+        background-color:#F4F9FF;
+        border-radius: 30px;
+        position: absolute;
+        left: 87%
+    }
+}
+@media only screen and (max-width: 768px) {
+    .badge-inner-left-home{
+        width: 40%;
+        height: 50%;
+    }
+    .badge-image-inner-container{
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        /*background-color:bisque;*/
+    }
+    .badge-inner-left-home{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .badge-main-heading{
+        font-family: Poppins;
+        font-size: 28px;
+        line-height: 53px;
+        text-align: left;
+        font-weight: bolder;
+        color: #FFFFFF;
+    }
+    .contact-submit-btn {
+        background: #2584e0 !important;
+        border: none !important;
+        outline: none !important;
+        width: 40% !important;
+        font-style: normal;
+        font-size: 16px;
+        float: left;
+    }
+    .badge-inner-right{
+        max-width: 50%;
+        height: 80%;
+        display: none;
+    }
+    .chexWorks-main-container{
+        width: 100%;
+        background-color: #F4F9FD;
+        padding-bottom: 60px;
+    }
+    .chex-demo-video{
+        border-radius: 3% ;
+        height: 287px;
+        width: 510px;
+        /*border: 1px solid green;*/
+    }
+    .forward-arrow{
+        margin-top: -100px;
+        background-color: #F4F9FF;
+        border-radius: 30px;
+        margin-right: 30px
+    }
+    .back-arrow{
+        margin-top: -54px;
+        background-color:#F4F9FF;
+        border-radius: 30px;
+        position: absolute;
+        left: 85%
+    }
+}
+@media only screen and (max-width: 600px) {
+    .badge-image-inner-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        /*background-color: #8c9dae;*/
+    }
+    .badge-inner-left-home{
+        width: 100%;
+        height: 50%;
+    }
+    .badge-image-inner-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        /*background-color: #2a2a2a;*/
+    }
+    .badge-inner-left-home{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+    }
+    .badge-main-heading{
+        font-family: Poppins;
+        font-size: 30px;
+        line-height: 53px;
+        text-align: left;
+        font-weight: bolder;
+        color: #FFFFFF;
+    }
+    .contact-submit-btn {
+        background: #2584e0 !important;
+        border: none !important;
+        outline: none !important;
+        width: 40% !important;
+        font-style: normal;
+        font-size: 16px;
+    }
+    .badge-inner-right{
+        max-width: 50%;
+        height: 80%;
+        display: none;
+    }
+    .chexWorks-main-container{
+        width: 100%;
+        background-color: #F4F9FD;
+        padding-bottom: 80px;
+        display: flex;
+    }
+    .chexworks-column{
+        text-align: center;
+    }
+    .chexwork-img{
+        height: 270px;
+        width: 270px;
+    }
+    .chexwork-image-title{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        line-height: 115.5%;
+        margin-top: 20px;
+        max-width: 270px;
+        text-align: center;
+    }
+    .chexwork-image-desc{
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        margin-top: 10px;
+        color: #6B717B;
+        width: 100%;
+        max-width: 270px;
+        text-align: center;
+    }
+    .chex-demo-video-container{
+        width: 100%;
+        height: 450px;
+        /*background: url("../../Assets/videoBg.png");*/
+        /*background-repeat: no-repeat;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .chex-demo-video{
+        border-radius: 3% ;
+        height: 287px;
+        width: 511px;
+        border: 1px solid blue;
+    }
+    .forward-arrow{
+        margin-top: -100px;
+        background-color: #F4F9FF;
+        border-radius: 30px;
+        margin-right: 30px
+    }
+    .back-arrow{
+        margin-top: -54px;
+        background-color:#F4F9FF;
+        border-radius: 30px;
+        position: absolute;
+        left: 81%
+    }
+}
+@media only screen and (max-width: 550px){
+    .chexwork-img{
+        height: 270px;
+        width: 270px;
+    }
+    .chexwork-image-title{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        line-height: 115.5%;
+        margin-top: 10px;
+        max-width: 270px;
+        background-color: aliceblue;
+    }
+    .chexwork-image-desc{
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        margin-top: 10px;
+        color: #6B717B;
+        max-width: 270px;
+    }
+    .chex-demo-video{
+        border-radius: 3% ;
+        height: 279px;
+        width: 496px;
+        border: 1px solid palevioletred;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .badge-image-inner-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        /*background-color: #8c9dae;*/
+    }
+    .badge-inner-left-home{
+        width: 100%;
+        height: 50%;
+    }
+    .badge-image-inner-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        /*background-color: peru;*/
+    }
+    .badge-inner-left-home{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .badge-main-heading{
+        font-family: Poppins;
+        font-size: 30px;
+        line-height: 53px;
+        text-align: left;
+        font-weight: bolder;
+        color: #FFFFFF;
+    }
+    .contact-submit-btn {
+        background: #2584e0 !important;
+        border: none !important;
+        outline: none !important;
+        width: 60% !important;
+        font-style: normal;
+        font-size: 16px;
+    }
+    .badge-inner-right{
+        max-width: 50%;
+        height: 80%;
+        display: none;
+    }
+    .chexWorks-main-container{
+        width: 100%;
+        background-color: #F4F9FD;
+        padding-bottom: 80px;
+    }
+    .chex-demo-video-container{
+        width: 100%;
+        height: 300px;
+        /*background: url("../../Assets/videoBg.png");*/
+
+    }
+    .chex-demo-video{
+        border-radius: 15px ;
+        height: 70%;
+        width: 97%;
+        /*border: 1px solid red;*/
+        margin-left: -5px;
+    }
+
+    .review_container_main{
+        width: 100%;
+        background-color: #FFFFFF;
+        padding-top: 30px;
+    }
+    .forward-arrow{
+        margin-top: -100px;
+        background-color: #F4F9FF;
+        border-radius: 30px;
+        margin-right: 30px
+    }
+    .back-arrow{
+        margin-top: -54px;
+        background-color:#F4F9FF;
+        border-radius: 30px;
+        position: absolute;
+        left: 73%
+    }
+}
+
+
+
+
+
+
+/*pricing card styling*/
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Roboto&display=swap');
+.priceCardContainer_about{
+    background-color:white;
+    border: 15px solid #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 20px 20px 90px rgba(13, 58, 126, 0.1);
+    border-radius: 10px;
+    /*width: 300px;*/
+    /*height: 200px;*/
+    width:100%;
+    /*height:200px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+
+    /*text-align: center;*/
+
+
+    /*margin:100px;*/
+}
+
+.pricecardHeading_about{
+    color: #FF7A00;
+    font-family:Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 28px;
+    margin-top: 20px;
+}
+.pricecardParagraph_about{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    padding-right: 10px;
+    padding-left:10px;
+
+    color: #5D6F84;
+}
+
+.pricetagBg_about{
+    background: #FF7A00;
+    border-radius: 5px;
+    position: relative;
+    left:-50px;
+    margin-top:-70px;
+    /*top:0px;*/
+    /*left:0px;*/
+    text-align: center;
+    padding-left:20px;
+    padding-right: 20px;
+}
+.PriceTagClr{
+    background-color: #2584E0!important;
+}
+
+.pricetagText_about{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    /*line-height: 14px;*/
+    /* identical to box height */
+    /*background-color: aqua;*/
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .pricetagBg_about{
+        background: #FF7A00;
+        border-radius: 5px;
+        position: relative;
+        left:-150px;
+        margin-top:-70px;
+        /*top:0px;*/
+        /*left:0px;*/
+        text-align: center;
+
+        padding-left:20px;
+        padding-right: 20px;
+    }
+    .pricetagText_about{
+        font-size: 16px!important;
+    }
+
+}
+
+
+@media screen and (max-width: 1100px){
+    .pricetagBg_about{
+        background: #FF7A00;
+        border-radius: 5px;
+        position: relative;
+        left:-100px;
+        margin-top:-70px;
+        /*top:0px;*/
+        /*left:0px;*/
+        text-align: center;
+
+        padding-left:20px;
+        padding-right: 20px;
+    }
+
+    .pricecardHeading_about{
+
+        font-size: 40px;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+    .pricecardParagraph_about{
+
+        font-size: 20px;
+
+
+        color: #5D6F84;
+    }
+
+}
+
+@media screen and (max-width:935px){
+    .pricetagBg_about{
+        background: #FF7A00;
+        border-radius: 5px;
+        position: relative;
+        left:-60px;
+        margin-top:-70px;
+        /*top:0px;*/
+        /*left:0px;*/
+        text-align: center;
+
+        padding-left:20px;
+        padding-right: 20px;
+    }
+    .pricetagText_about{
+        font-size: 16px!important;
+    }
+    .pricecardHeading_about{
+
+        font-size: 35px;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+    .pricecardParagraph_about{
+
+        font-size: 20px;
+        padding-right: 3px;
+        padding-left:3px;
+
+        color: #5D6F84;
+    }
+    .pricetagText_about{
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .priceCardContainer_about{
+        width: 400px;
+        margin-left: 120px;
+    }
+
+    .pricetagBg_about{
+        background: #FF7A00;
+        border-radius: 5px;
+        position: relative;
+        left:-100px;
+        margin-top:-70px;
+
+        /*top:0px;*/
+        /*left:0px;*/
+
+        text-align: center;
+
+        padding-left:10px;
+        padding-right: 10px;
+    }
+    .pricecardHeading_about{
+
+        font-size: 40px;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+    .pricecardParagraph_about{
+
+        font-size: 24px;
+
+    }
+    .pricetagText_about{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .priceCardContainer_about{
+        width: 400px;
+        margin-left: 60px;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .priceCardContainer_about{
+        width: 400px;
+        margin-left: 30px;
+    }
+    .pricetagBg_about{
+        background: #FF7A00;
+        border-radius: 5px;
+        position: relative;
+        /*left:-60px;*/
+        margin-top:-70px;
+        /*top:0px;*/
+        /*left:0px;*/
+        text-align: center;
+
+        padding-left:10px;
+        padding-right: 10px;
+    }
+    .pricecardHeading_about{
+
+        font-size: 35px;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+    .pricecardParagraph_about{
+
+        font-size: 22px;
+
+    }
+    .pricetagText_about{
+        font-size: 20px;
+    }
+
+}
+@media screen and (max-width: 500px) {
+    .priceCardContainer_about {
+        width: 300px;
+        margin-left: 50px;
+    }
+    .pricetagBg_about{
+        background: #FF7A00;
+        border-radius: 5px;
+        position: relative;
+        left:-40px;
+        margin-top:-70px;
+        /*top:0px;*/
+        /*left:0px;*/
+        text-align: center;
+
+        padding-left:10px;
+        padding-right: 10px;
+    }
+}
+@media screen and (max-width: 412px) {
+    .pricetagBg_about{
+        background: #FF7A00;
+        border-radius: 5px;
+        position: relative;
+        left:-60px;
+        margin-top:-70px;
+        /*top:0px;*/
+        /*left:0px;*/
+        text-align: center;
+
+        padding-left:10px;
+        padding-right: 10px;
+    }
+    .priceCardContainer_about {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .pricecardHeading_about{
+
+        font-size: 26px;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+    .pricecardParagraph_about{
+
+        font-size: 16px;
+
+    }
+}
+
+/*pricing card styling end*/
+
+
+.about_section_main{
+    background-color: #FFFFFF;
+
+    margin-bottom: 20px;
+
+}
+.about_desc_div{
+    padding:60px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+.paraAbout{
+    font-size: 18px;
+}
+@media screen and (max-width:480px ){
+    .about_desc_div{
+        padding:30px;
+        padding-bottom: 30px;
+        width: 100%;
+    }
+}
+@media screen and (max-width:331px ){
+    .about_desc_div{
+        padding:20px;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    .about-chex-left-title{
+        font-size: 24px!important;
+    }
+    .about-chex-left-title-span{
+        font-size: 24px!important;
+    }
+    .paraAbout{
+        font-size: 16px;
+    }
+}
+.slider_div_main{
+    background-color: #F4F9FD;
+
+    height: 150px;
+}
+
+
+.scrollContainer_mainDiv{
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.heading_partners{
+    font-size:30px;
+    font-family: Poppins;
+    font-weight: bold;
+    justify-content: center;
+    align-items:center;
+    color:#C5CBD3;
+}
+
+@media screen and (max-width: 500px) {
+    .heading_partners{
+        font-size:20px;
+    }
+}
+
+.partner_div{
+    /*background-color: green;*/
+    padding:10px;
+    margin-top: 10px;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items:center;*/
+    /*margin-left: -100px;*/
+
+}
+.pricing_main_div{
+    background-color: #FFF8F1;
+    padding-top: 60px;
+    padding-left: 30px;
+}
+.pricingCardDiv{
+    margin-right: 10px;
+}
+.mainDiv_pricingcards{
+    padding:20px;
+    padding-left: 0px;
+}
+
+
+.pricingParaDesign{
+    color:#B8A59C;
+    font-size: 14px;
+    padding-right: 20px;
+}
+@media screen and (max-width: 413px) {
+    .slider_div_main{
+        background-color: #F4F9FD;
+
+        height: 250px;
+    }
+    .scrollContainer_mainDiv{
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
+
+@media screen and (max-width: 1200px){
+    .pricingCardDiv{
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .scrollContainer_mainDiv{
+        /*width: 80%;*/
+        /*background-color: #d7efff;*/
+        /*height: 50px;*/
+        /*!*padding-bottom: 10%;*!*/
+        /*position: relative;*/
+        /*!*margin-top: 30%;*!*/
+        display: flex;
+        /*flex-direction: row;*/
+        /*justify-content: flex-start;*/
+        /*align-items: center;*/
+    }
+
+}
+@media screen and (max-width: 768px){
+    .pricingCardDiv{
+        padding-bottom: 10px;
+    }
+}
+
+
+
+/*business section styling*/
+.businesstextContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start ;
+    margin-top: 30px;
+}
+.dashboard-heading {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 54px;
+    /*line-height: 41px;*/
+    color: #1A1C1F;
+    padding-right: 40px;
+}
+.dashboard-description {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 22px;
+    color: #6B717B;
+}
+
+.BusinessImageContainer{
+    padding:30px;
+    background-color: #FFFFFF;
+}
+.BusinessImageContainer  img{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px){
+    .businesstextContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center ;
+        margin-top: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .dashboard-heading {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 34px!important;
+        /*line-height: 41px;*/
+        color: #1A1C1F;
+        padding-right: 40px;
+        text-align: center;
+    }
+    .dashboard-description {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 550;
+        text-align: center;
+        font-size: 22px;
+        color: #6B717B;
+    }
+
+}
+
+
+@media screen and (max-width: 510px) {
+    .businesstextContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center ;
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right:10px;
+    }
+    .dashboard-heading {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 26px!important;
+        /*line-height: 41px;*/
+        color: #1A1C1F;
+        padding-right: 40px;
+        text-align: center;
+    }
+    .dashboard-description {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 550;
+        text-align: center;
+        font-size: 18px;
+        color: #6B717B;
+    }
+
+}
+
+
+@media screen and (max-width: 400px) {
+    .businesstextContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center ;
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right:10px;
+    }
+    .dashboard-heading {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px!important;
+        /*line-height: 41px;*/
+        color: #1A1C1F;
+        padding-right: 40px;
+        text-align: center;
+    }
+    .dashboard-description {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 550;
+        text-align: center;
+        font-size: 16px;
+        color: #6B717B;
+    }
+
+}
+
+
+
+
+
+
+.dashboard-heading{
+    font-size: 40px;
+    font-weight: bold;
+}
+.dashboard-description{
+    font-size: 18px;
+}
+
+.headingCustomerReviews{
+    padding-left: 70px;
+    font-size:35px;
+    color: black;
+    font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+    .headingCustomerReviews{
+        padding-left:30px ;
+        font-size:28px;
+    }
+
+}
+@media screen and (max-width: 570px) {
+    .headingCustomerReviews{
+        padding-left:20px ;
+        font-size:20px;
+    }
+
+}
+@media screen and (max-width: 455px) {
+    .headingCustomerReviews{
+        padding-left:20px ;
+        font-size:34px;
+    }
+
+}
+@media screen and (max-width: 320px) {
+    .headingCustomerReviews{
+        padding-left:20px ;
+        font-size:24px;
+    }
+
+}
